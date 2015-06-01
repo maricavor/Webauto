@@ -1,0 +1,45 @@
+<div class="row-fluid">
+  <div class="span12">
+    <div class="page-header">
+      <h2>Create an account</h2>
+    </div>
+    </div>
+    </div>
+<div class="row-fluid">
+  <div class="span6 well">
+    
+    <%= vehicle_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html=>{:class=>"form-vertical",:remote=>false}) do |f| %>
+ 
+          
+     
+          <%= f.text_field :name, :label => "Email" %>
+          <%= f.text_field :password, :label => "Password" %>
+          <%= f.text_field :password_confirmation, :label => "Password confirmation" %>
+          <%= f.check_box :is_dealer,label: "Are you a trade seller?" %>
+          <fieldset class="dealer_data">
+            <%= f.text_field :company_name,:label=>"Company name" %>
+            <%= f.text_field :address1,:label=>"Address 1" %>
+            <%= f.text_field :address2,:label=>"Address 2" %>
+             <%= f.select :country_id,Country.order(:name).collect {|p| [ p.name, p.id ] },{include_blank: true},{:label=>t("users.profile.country"),:id=>"user_country_id" }%>
+               <%= f.select :city_id,City.order(:name).collect {|p| [ p.name, p.id ] },{},{:label=>t("users.profile.city"),:id=>"user_city_id"} %>
+           
+            <%= f.text_field :postal_code,:label=>"Postal code" %>
+            <%= f.text_field :company_reg,:label=>"Registration code" %>
+            <%= f.text_field :company_kmkr,:label=>"VAT payer number" %>
+            <%= f.text_field :phone1,:label=>"Phone" %>
+            <%= f.text_field :webpage,:label=>"Webpage" %>
+          </fieldset>
+          <%= f.check_box :tos_agreement,label: "I accept the terms and privacy policy" %>
+       
+    
+    <div style="padding-top:20px;">
+      <%= f.submit "Sign up",:class=>"btn btn-primary" %>
+      </div>
+    
+     
+    <% end %>
+     <%= render "devise/shared/links" %>
+  </div>
+    <div class="span6">
+    </div>
+</div>

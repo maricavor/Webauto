@@ -1,0 +1,39 @@
+
+
+<% content_for :title,@title %>
+<div class="row-fluid">
+  <div class="span3">
+    <%= render 'users/well',:active=>"garage" %>
+  </div>
+  <div class="span9">
+    <div class="page-header">
+      <h2>Edit your Car</h2>
+    </div>
+   
+<%= vehicle_form_for @vehicle,:url => { :action => "update" },:html=>{ :class=>"form-vertical"},:authenticity_token => true,:remote=>false do |f| %>
+
+  <% if @vehicle.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
+
+      <ul>
+      <% @vehicle.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= render 'form',:f=>f %>
+<div>
+ 
+      <%= f.submit "Save",:class=>"btn btn-large btn-primary" %>
+
+    <%= link_to "Cancel", :back,:class=>"btn btn-large"  %>
+  </div>
+<% end %>
+
+  
+
+<%= link_to 'Back', garage_items_path %>
+  </div>
+</div>

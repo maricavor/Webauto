@@ -1,0 +1,114 @@
+<% content_for :title,@title %>
+<div class="row-fluid">
+  <div class="span3">
+    <%= render 'users/well',:active=>'items' %>
+  </div>
+  <div class="span9">
+    <div class="page-header">
+      <h2><%= t("saved_items.index.saved_items") %></h2>
+    </div>
+    <div id="saved_items_progress" >
+      <%= render 'progress' %>
+    </div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th><%=t("saved_items.index.description") %></th>
+          <th><%=t("saved_items.index.price") %></th>
+          <th><%=t("saved_items.index.recent") %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @saved_items.each do |s| %>
+        <% vehicle=s.vehicle %>
+
+        <% picture=vehicle.pictures.first  %>
+          <tr id="saved_item_<%= s.id %>">
+            <td width="150">
+       <div class="thumbnail">          
+      <div class="image">
+      <% if vehicle.destroyed? %>
+      <% if picture %>
+      <%= image_tag(picture.file_url(:thumb)) %>
+   
+    <% else %>
+      <%= image_tag "/thumbnail.png",size: "300x200" %>
+    
+    <% end %>
+      
+      <figcaption class="red">
+          <strong><%=t("saved_items.index.sold") %></strong>
+      </figcaption>
+      <% else %>
+        <% if picture %>
+      <%= link_to image_tag(picture.file_url(:thumb)), send("#{vehicle.type.name.downcase}_path", vehicle) %>
+   
+    <% else %>
+      <%= image_tag "/thumbnail.png",size: "300x200" %>
+    
+    <% end %>
+      <% end %>
+  </div>
+    </div>
+</td>
+<td>
+            
+                <strong>
+                   <% if vehicle.destroyed? %>
+                   <%= s.name %>
+                    <br><small class="muted"><%= link_to t("saved_items.index.search_similar"), show_more_path(advert) %></small>
+                 <% else %>
+                  <%= link_to s.name,  send("#{vehicle.type.name.downcase}_path", vehicle) %>
+                 <% end %>
+            </strong>
+                  
+                
+              
+            </td>
+            <td>
+             
+                <% if vehicle.destroyed? %>
+                <small><%=t("saved_items.index.last_listed") %></small> <span class="text-success"> <strong><%= currency(s.price) %></strong></span>
+                <% else %>
+                <strong><%= currency(s.price) %></strong>
+                <% end %>
+            </td>
+          
+            <td class="muted">
+              <small><strong class="text-success"><%=t("searches.index.saved_on") %></strong>
+                <strong><%= s.created_at.strftime("%d.%m.%y @ %I:%M") %></strong>
+                
+                <% if s.saved_by_others? %><p><%=t("saved_items.index.other_people") %></p><% end %>
+
+              </small>
+            </td>
+            <td>
+                <div class="btn-group">
+  <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+    <%=t("searches.index.actions") %>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu pull-right">
+       <% if vehicle.destroyed? %>
+     <li><%= link_to t("saved_items.index.search_similar"), show_more_path(advert) %></li>
+       <% end %>
+     <li><%= link_to t("searches.index.delete"), s, method: :delete, data: { confirm: t("searches.index.delete_sure") },:remote=>true %></li>
+        
+        
+        
+       
+  </ul>
+</div>
+          
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <!--
+    <p class="text-right"><small><%= link_to t("searches.index.delete_all"), remove_all_saved_items_path,  data: { confirm: t("searches.index.sure") },:method => :get %></small></p>
+  -->
+  </div>
+</div>

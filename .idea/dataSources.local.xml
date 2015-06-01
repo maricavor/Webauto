@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails webauto: development" uuid="7cb20c15-f772-4a4a-9a1c-5a87b513267e">
+      <user-name>root</user-name>
+      <schema-pattern>webauto_development.*</schema-pattern>
+      <default-schemas>webauto_development.*</default-schemas>
+    </data-source>
+  </component>
+</project>

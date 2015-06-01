@@ -1,0 +1,71 @@
+<div class="row-fluid">
+  <div class="span4">
+      <%= spec_title(t("adverts.details.engine_details")) %>
+  
+      <%= f.text_field :engine_type,label: t("adverts.details.engine_type")  %>
+      <%= f.text_field :cylinders,label: t("adverts.details.cylinders"),type: "spinner"  %>
+       <%= f.text_field :max_speed,label: t("adverts.details.max_speed") %>
+        <%= f.text_field :acceleration,label: t("adverts.details.acceleration"),type: "spinner"  %>
+    <%= spec_title(t("vehicles.show.fuel")) %>
+    <%= f.text_field :fuel_cons_city, label: t("adverts.details.fuel_cons_city") %>
+    <%= f.text_field :fuel_cons_freeway,label: t("adverts.details.fuel_cons_freeway")  %>
+    <%= f.text_field :fuel_cons_combined,label: t("adverts.details.fuel_combined")  %>
+    <%= f.text_field :fueltank,label: t("adverts.details.fuel_capacity")  %>
+     <%= spec_title(t("vehicles.show.wheels_tires")) %>
+    <%= f.check_box :summer_tires,label: t("vehicles.show.summer_tires") %>
+    <%= f.text_field :summer_tires_details,:placeholder=>t("adverts.details.add_details"),:id=>"summer_tires_details" %>
+    <%= f.select :summer_tires_size,[[t("adverts.details.select_measure"),""]]+get_tire_sizes,{},:id=>"summer_tires_size" %>
+    <%= f.check_box :winter_tires,label: t("vehicles.show.winter_tires") %>
+    <%= f.text_field :winter_tires_details,:placeholder=>t("adverts.details.add_details"),:id=>"winter_tires_details" %>
+    <%= f.select :winter_tires_size,[[t("adverts.details.select_measure"),""]]+get_tire_sizes,{},:id=>"winter_tires_size" %>
+    <%= f.check_box :all_season_tires,label: t("adverts.details.all_season_tires").downcase,id:"all_season_tires",type: "extra" %>
+    <%= f.check_box :spike_tires,label: t("adverts.details.spike_tires").downcase,id:"spike_tires",type: "extra"  %>
+    <%= f.check_box :light_alloy_wheels,label: t("vehicles.show.light_alloy_wheels") %>
+    <%= f.text_field :light_alloy_wheels_details,:placeholder=>t("adverts.details.add_details"),:id=>"light_alloy_wheels_details"  %>
+
+  </div>
+  <div class="span4">
+   <%= spec_title(t("vehicles.show.dimensions_weights")) %>
+    <%= f.text_field :height,:label=> t("adverts.details.height")  %>
+    <%= f.text_field :length,:label=> t("adverts.details.length") %>
+    <%= f.text_field :width,:label=> t("adverts.details.width")  %>
+    <%= f.text_field :wheelbase,:label=> t("adverts.details.wheelbase") %>
+     <%= f.text_field :gross_weight,:label=> t("adverts.details.gross_weight") %>
+     <%= f.text_field :net_weight,:label=> t("adverts.details.net_weight") %>
+     <%= f.text_field :load_capacity,:label=> t("adverts.details.load_capacity") %>
+     <%= spec_title(t("vehicles.show.warranty_service")) %>
+     <%= f.text_field :warranty_valid_to,:label=> t("adverts.details.warranty_valid_to"),:type=>"datepicker" %>
+      <%= f.text_field :warranty_km,:label=> t("adverts.details.warranty_km") %>
+      <%= f.text_field :service_freq,:label=> t("adverts.details.service_freq") %>
+      <%= f.text_field :service_km,:label=> t("adverts.details.service_km") %>
+      <%= f.text_field :next_service,label: t("adverts.details.next_service"),:type=>"datepicker" %>
+       <%= f.text_field :next_service_km,:label=> t("adverts.details.next_service_km") %>
+        <%= f.text_field :inspection_valid_to,label:  t("adverts.details.inspection_valid_to"),:type=>"datepicker" %>
+      <%= f.select :service_history_id, t('service_histories').collect {|c| [ c["name"], c["id"] ] },{}, {label:  t("adverts.details.service_history")}%>
+   
+
+  </div>
+    <div class="span4">
+    <%= spec_title(t("vehicles.show.transmission_drivetrain")) %>
+     <%= f.select :transmission_id, t('transmissions').collect {|c| [ c["name"], c["id"] ] },{}, {label: t("adverts.details.transmission")}%>
+    <%= f.text_field :transmission_details,placeholder: t("adverts.details.add_details") %>
+    <%= f.text_field :gears,label: t("adverts.details.gears"),type: "spinner"  %>
+    <%= f.select :drivetype_id, t('drivetypes').collect {|c| [ c["name"], c["id"] ] },{include_blank: true}, {label: t("adverts.details.drivetype")} %>
+    <%= spec_title(t("adverts.details.other_info")) %>
+    <%= f.select :country_id, @countries.collect {|p| [ p.name, p.id ] },{:include_blank=>true},{label: t("adverts.details.location"),id: "vehicle_country_id"} %>
+    <%= f.select :state_id, [[t("adverts.details.select_state"),""]]+@states.collect {|p| [ p.name, p.id ] },{},{id: "vehicle_state_id"}%>
+    <%= f.select :city_id,[[t("adverts.details.select_city"),""]]+@cities.collect {|p| [ p.name, p.id ] },{},{id: "vehicle_city_id"} %>
+    <%= f.collection_select :origin_id, @countries, :id, :name,{include_blank: true},{label: t("adverts.details.brought_from")} %>
+
+    <%= f.text_field :doors,label: t("adverts.details.doors"),type:"spinner" %>
+    <%= f.text_field :seats,label: t("adverts.details.seats"),type:"spinner"  %>
+    <%= f.text_field :owners,label: t("adverts.details.owners"),type:"spinner"  %>
+    <%= f.select :climate_control_id,t('climate_controls').collect {|c| [ c["name"], c["id"] ] },{include_blank: true},{label: t("adverts.details.climate")} %>
+    <%= f.check_box :wrecked,label: t("adverts.details.wrecked") %>
+    <%= f.text_field :wrecked_details,placeholder: t("adverts.details.add_details")  %>
+    <%= f.check_box :exchange,label: t("adverts.details.exchange") %>
+    <%= f.text_field :exchange_details,:placeholder=>t("adverts.details.add_details") %>
+  
+    
+  </div>
+</div>

@@ -1,0 +1,16 @@
+
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="statisticsModalLabel"><%= t("adverts.statistics.statistics", :id=>@advert.uid) %></h3>
+  </div>
+  <div class="modal-body">
+  
+<div id='chart' style="width:'100%'; height:300"></div>
+<%= render_chart(@chart, 'chart') %>
+
+  <p class="text-right muted"><small><%= t("adverts.statistics.date") %> <%= @vehicle.created_at.strftime("%d/%m/%Y") %> <%= "(#{time_ago_in_words(@vehicle.created_at)} #{t("datetime.ago")})" %> </small></p>
+  </div>
+  <div class="modal-footer">
+    <div class="preloader"></div>
+    <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t("adverts.statistics.close") %></button>
+  </div>

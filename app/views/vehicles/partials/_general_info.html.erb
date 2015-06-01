@@ -1,0 +1,74 @@
+<div class="row-fluid" id="general_info">
+  <div class="span6" >
+    <table class="table table-striped borderless">
+      <tbody>
+    
+        <tr>
+          <td><%= t("vehicles.show.bodystyle") %></td>
+          <td class="right"><%= spec(@vehicle.bodytype_str) %></td>
+        </tr>
+        <tr >
+          <td><%= t("vehicles.show.badge") %></td>
+          <td class="right"><%= spec(@vehicle.badge) %></td>
+        </tr>
+        <tr >
+          <td><%= t("vehicles.show.drivetype") %></td>
+          <td class="right"><%= spec(@vehicle.drivetype)  %></td>
+        </tr>
+        <tr >
+          <td><%= t("vehicles.show.colour") %></td>
+          <td class="right"><%= spec(@vehicle.colour) %> <%= spec("(#{@vehicle.specific_colour})") if @vehicle.specific_colour.present? %></td>
+        </tr>
+     
+        <tr >
+          <td><%= t("vehicles.show.location") %></td>
+          <td class="right"><%= spec(@vehicle.location) %></td>
+        </tr>
+        <% if @vehicle.show_reg_nr %>
+           <tr >
+          <td><%= t("vehicles.show.reg_plate") %></td>
+          <td id="reg_plate" class="right"><%= secret_nr(@vehicle) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="span6" >
+    <table class="table table-striped borderless">
+      <tbody>
+     
+        <tr>
+          <td><%= t("vehicles.show.initial_reg") %></td>
+          <td class="right"><%= spec(@vehicle.registered_at) %></td>
+        </tr>
+        <tr >
+          <td><%= t("vehicles.show.engine") %></td>
+          <td class="right"><strong>
+            <%= "#{@vehicle.fueltype}" if @vehicle.fueltype %>
+            <%= "#{@vehicle.engine_size} L (#{@vehicle.engine_power} kW)" if @vehicle.engine_size.present?  %></strong></td>
+        </tr>
+        <tr >
+          <td><%= t("vehicles.show.kilometres") %></td>
+          <td class="right"><%= spec(@vehicle.odometer_str) %></td>
+        </tr>
+        <tr >
+          <td><%= t("vehicles.show.transmission") %></td>
+          <td class="right">
+            <%= spec(@vehicle.transmission_str) %></td>
+        </tr>
+       
+        <tr >
+          <td><%= t("vehicles.show.brought_from") %></td>
+          <td class="right"><%= spec(@vehicle.origin_str)  %></td>
+        </tr>
+        <% if @vehicle.show_reg_nr %>
+         <tr >
+          <td><%= t("vehicles.show.vin") %></td>
+          <td id="vin" class="right"><%= secret_vin(@vehicle) %></td>
+  
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

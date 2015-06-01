@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      Hello!
+    </p>
+    <p>
+      <%= @comment.user.name %>
+      has just added comment to
+      <%= @comment.vehicle.make_model %>
+      vehicle. He wrote:</p>
+    <blockquote><%= @comment.text %></blockquote>
+  </body>
+</html>

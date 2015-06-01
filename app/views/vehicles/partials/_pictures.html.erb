@@ -1,0 +1,41 @@
+<% first=@pictures.first %>
+<div class="row-fluid" >
+  <div class="span12">
+    <% if first %>
+      <%= link_to image_tag(first.file_url(:thumb)), first.file_url(:original), :data => {:gallery => 'gallery'}, :title => t("vehicles.show.images")+t("vehicles.show.a_of_b",:a=>"1",:b=>@pictures.size.to_s), :class=>"thumbnail" %>
+    <% else %>
+      <%= image_tag "/thumbnail_big.png", :class=>"thumbnail" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="hidden-phone">
+
+<% if @pictures.size>1 %>
+ 
+          <% index=-1 %>
+          <% @pictures.each_with_index do |picture,pos| %>
+            <% if picture!=first %>
+              <% index +=1%>
+              <%  if index==3 %>
+                <% index=index-3 %>
+              <% end %>
+              <% if index==0 %>
+      <div class="row-fluid" style="margin-top:5px;">
+                <% end %>
+              <div class="span4">
+                  <%= link_to image_tag(picture.file_url(:thumb)), picture.file_url(:original), :data => {:gallery => 'gallery'}, :title =>  t("vehicles.show.images")+t("vehicles.show.a_of_b",:a=>(pos+1).to_s,:b=>@pictures.size.to_s), :class=>"thumbnail" %>
+                </div>
+                <% if index==2 || picture==@pictures.last%>
+                  </div>
+                  <% end %>
+                <% end %>
+              <% end %>
+      
+    <% end %>
+
+</div>
+ 
+
+ 
+

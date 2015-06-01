@@ -1,0 +1,80 @@
+
+  <% picture=vehicle.pictures.first %>
+  <% type=vehicle.type.name %>
+  <% price_diff=vehicle.price_diff %>
+  <div class="image">
+    <% if picture %>
+      <%= link_to image_tag(picture.file_url(:thumb)),  send("#{type.singularize.underscore}_path", vehicle) %>
+ 
+    <% else %>
+     <%= link_to image_tag("/thumbnail.png"),  send("#{type.singularize.underscore}_path", vehicle) %>
+    
+    <% end %>
+         <% if price_diff!=0 %>
+          <% if price_diff<0 %>
+      <figcaption class="red">
+          <strong>
+         
+          <i class="icon-arrow-up icon-white"></i><%= number_to_percentage(-1*price_diff, precision: 0)  %>
+           
+          </strong>
+      </figcaption>
+      <% else %>
+  <figcaption>
+          <strong>
+                   
+          <i class="icon-arrow-down icon-white"></i><%= number_to_percentage(price_diff, precision: 0)  %>
+          
+          </strong>
+      </figcaption>
+       <% end %>
+
+      <% end %>
+  </div>
+
+  <div class="vehicle_name text-left"><strong><%= link_to "#{vehicle.make_model} #{vehicle.badge}".truncate(25),send("#{type.singularize.underscore}_path", vehicle) %></strong></div>
+  <table width="100%" class="vehicle_price">
+    <tr>
+      <td width="50%" align="left">
+        <strong class="text-success"><%= currency(vehicle.price) %></strong>
+      </td>
+      <td width="50%" align="right">
+        <strong><%= vehicle.registered_at_year %></strong>
+
+      </td>
+    </tr>
+  
+  </table>
+  <% unless version=="small" %>
+    <table class="vehicle_info" width="100%" >
+      <tr><td width="50%" valign="top">
+          <ul>
+            <li><small><%= vehicle.odometer_str %></small></li>
+            <li><small><%= vehicle.bodytype_str %></small></li>
+            <li><small><%= vehicle.transmission_str %></small></li>
+          </ul>
+        </td>
+        <td width="50%" valign="top" align="right" >
+          <ul>
+            <li><small><%= vehicle.engine_size_str %></small></li>
+            <li><small><%= vehicle.engine_power_str %></small></li>
+            <li><small><%=  vehicle.fueltype_str %></small></li>
+          </ul>
+        </td></tr>
+    </table>
+    <table width="100%" class="vehicle_ownership">
+      <tr>
+        <td width="50%" >
+          <small><%= vehicle.user.is_dealer? ? "Dealer" : "Private" %>
+            </small>
+        </td>
+        <td width="50%" align="right" >
+           <div id="mini_action_buttons_<%= vehicle.id %>" class="mini_action_buttons">
+             <%= render "vehicles/partials/mini_action_buttons",:vehicle=>vehicle %>
+          </div>
+       
+        </td>
+      </tr>
+    </table>
+  <% end %>
+

@@ -1,0 +1,86 @@
+<% v=ad.vehicle %>
+<% !ad.activated || ad.destroyed? ? path=preview_advert_path(ad) : path=send("#{v.type.name.singularize.underscore}_path", v) %>
+  <% picture=v.pictures.first %>
+<td width="150">
+   <div class="thumbnail">   
+        
+<% if picture %>
+          <%= link_to image_tag(picture.file_url(:thumb)), path %>
+             <% else %>
+      <%= image_tag "/thumbnail.png",size: "300x200"  %>
+    <% end %>
+        </div>
+        </td>
+        <td>
+            <strong>
+              <% if v.make_model.present? %>
+            <%= link_to v.make_model, path %>
+            <% else %>
+            
+            <% end %>
+          </strong>
+        </td>
+        <td><%= currency(v.price) %></td>
+        <td class="muted">
+          <small><strong class="text-success"><%= t("adverts.index.created") %></strong>
+            <%= v.created_at.strftime("%d/%m/%Y") %></small></td>
+        <td>
+           <% if ad.status=="cancelled" %>
+            <span class="label label-important"><%= t("adverts.index.cancelled") %></span>
+         <% elsif ad.status=="unfinished" %>
+         <span class="label label-warning"><%= t("adverts.index.unfinished") %></span>
+         <% else %>
+         <% if ad.status=="activated" %>
+         <span class="label label-success"><%= t("adverts.index.activated") %></span>
+         <% else %>
+         <span class="label label-info"><%= t("adverts.index.not_activated") %></span>
+         <% end %>
+         <% end %>
+        </td>
+        <td>
+          <div class="btn-group">
+  <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+    <%= t("searches.index.actions") %>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu pull-right">
+       <% unless ad.destroyed? %>
+       <% unless ad.unfinished? %>
+     <li><%= link_to t("adverts.index.statistics"), statistics_advert_path(ad),:remote=>true %></li>
+     <% end %>
+       <li>  <%= link_to t("adverts.index.edit"), edit_advert_path(ad) %></li>
+       <% end %>
+         <% unless ad.activated || ad.destroyed? || ad.unfinished? %>
+        <li>  <%= link_to t("adverts.index.preview"), preview_advert_path(ad) %></li>
+        <% end %>
+       <% unless ad.unfinished? || ad.destroyed? %>
+        <li> 
+          <% if ad.activated %>
+          <%= link_to t("adverts.index.deactivate"), deactivate_advert_path(ad),  data: { confirm: t("adverts.index.deactivate_sure") },:remote=>true,:class=>"_link" %>
+          <% else %>
+
+          <%= link_to t("adverts.index.activate"), activate_advert_path(ad), data: { confirm: t("adverts.index.activate_sure") },:remote=>true,:class=>"_link" %>
+          <% end %>
+        </li>
+        <%  end %>
+        
+          <% if ad.destroyed? %>
+           <li> 
+          <%= link_to t("adverts.index.restore"), restore_advert_path(ad),  data: { confirm: t("adverts.index.restore_sure") },:remote=>true,:class=>"restore_link" %>
+           </li>
+          <% else %>
+           <li>
+          <%= link_to t("adverts.index.remove"), ad, method: :delete, data: { confirm: t("adverts.index.remove_sure") },:remote=>true,:class=>"delete_link" %>
+
+           </li>
+          <!--
+            <li>
+          <%= link_to 'Really destroy',really_destroy_advert_path(ad),data: { confirm: 'Are you sure?' } %>
+           </li>
+         -->
+          <% end %>
+       
+  </ul>
+</div>
+         
+        </td>

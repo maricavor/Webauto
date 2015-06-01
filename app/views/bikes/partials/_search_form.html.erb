@@ -1,0 +1,40 @@
+<div class="sidebar-nav" style="padding-bottom:0;">
+  <%= form_for @search,url: searches_path,:html=>{:class=>"vehicles_custom_search"},:authenticity_token => true, :remote=>@remote, method: :post do |f| %>
+    <%= f.hidden_field :tp,:value=>4%>
+    <%= f.select :bt,@bodytypes.collect {|p| [ p.name, p.id ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>'Body type (any)',:'data-width'=>"100%",:'data-selected-text-format'=>"count>2"} %>
+    <%= f.fields_for :fields do |builder| %>
+      <%= render 'vehicles/partials/field_fields', f: builder,remove_link: false %>
+    <% end %>
+    <p><%= link_to_add_fields "+ Add another bike", f, :fields %></p>
+    <ul class="horizontal"><li  class="horizontal"><%= f.select :fpgt, [["Min price",""]]+get_prices,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li>
+      <li  class="horizontal"><%= f.select :fplt, [["Max price",""]]+get_prices,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li>
+    </ul>
+    <ul class="horizontal"><li  class="horizontal"><%= f.select :pwgt, [["Min power",""]]+get_powers,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li>
+      <li  class="horizontal"><%= f.select :pwlt, [["Max power",""]]+get_powers,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li></ul>
+    <ul class="horizontal"><li  class="horizontal"><%= f.select :kmgt, [["Min mileage",""]]+get_kms,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li>
+      <li  class="horizontal"><%= f.select :kmlt, [["Max mileage",""]]+get_kms,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li></ul>
+    <ul class="horizontal"><li  class="horizontal"><%= f.select :yeargt, [["Min year",""]]+get_min_years,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li>
+      <li  class="horizontal"><%= f.select :yearlt, [["Max year",""]]+get_max_years,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li></ul>
+    <%= f.select :ft,t('fueltypes').collect {|c| [ c["name"], c["id"] ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>'Fuel type (any)',:'data-width'=>"100%",:'data-selected-text-format'=>"count>2"} %>
+    <%= f.select :tm,t('transmissions').collect {|p| [p["name"], p["id"] ]},{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>'Transmission (any)',:'data-width'=>"100%",:'data-selected-text-format'=>"count>2"} %>
+    <%= f.select :dt,t('drivetypes').collect {|p| [p["name"], p["id"] ]},{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>'Drive type (any)',:'data-width'=>"100%",:'data-selected-text-format'=>"count>1"} %>
+    <%= f.select :cl,t('colours').collect {|c| [ c["name"], c["id"] ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>'Colour (any)',:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>2"} %>
+    <%= f.select :location,Country.order(:name).collect {|p| [ p.name, p.id ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>'Country (any)',:'data-live-search'=>"true",:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>2"} %>
+    <%= f.select :region,@states.collect {|p| [ p.name.upcase, p.name ] }+@cities.collect {|p| [ p.name, p.name ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>'Region (any)',:'data-live-search'=>"true",:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>2"} %>
+    <%= f.text_field :keywords,:placeholder=>"Keywords" %>
+    <div class="checkboxes">
+      <label class="checkbox">
+        <%= f.check_box :dealer %>
+        Dealer
+      </label>
+      <label class="checkbox">
+        <%= f.check_box :private %>
+        Private seller
+      </label>
+    </div>
+    <div style="clear: both;"></div>
+    <%= f.hidden_field :user_ip,:value=>request.remote_ip %>
+    <%= f.hidden_field :user_id,:value=>current_user.id if current_user %>
+    <p style="margin-top:5px;"><button class="btn btn-large btn-info btn-block" type="submit" >Search bikes</button></p>
+  <% end %>
+</div><!--/.well -->

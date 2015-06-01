@@ -1,0 +1,5 @@
+$('html, body').scrollTop(0);
+$('.site-message').html("<%= j(render partial:'layouts/messages')%>");
+$("#ad_<%= @advert.id %>").html("<%= j(render 'adverts/partials/ad',ad: @advert) %>");
+$("#ad_<%= @advert.id %>").removeClass("success");
+$("#ad_<%= @advert.id %>").toggleClass( "success", 1000, "easeOutSine" );

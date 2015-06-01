@@ -1,0 +1,22 @@
+<!-- Modal -->
+<div id="commentsModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="commentsModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="commentsModalLabel"><%= t("comments.comments")  %></h3>
+  </div>
+  <div class="modal-body">
+    <div class="comments-modal-message"></div>
+    <%= render partial: "comments/form",locals: {parent: nil} if current_user %>
+    <div id="comments">
+      <% if @vehicle.comments.exists? %>
+        <%= nested_comments @vehicle.comments.arrange(:order=>"created_at DESC")%>
+      <% else %>
+       <!-- No Comments  -->
+      <% end %>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="preloader"></div>
+    <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t("inquiries.close")  %></button>
+  </div>
+</div>

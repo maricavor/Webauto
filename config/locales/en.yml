@@ -1,5 +1,600 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
-  hello: "Hello world"
+  navigation:
+    home: Home
+    cars: Cars
+    cars_for_sale: Cars for sale
+    all_cars: All cars
+    private_cars: Private cars
+    dealer_cars: Dealer cars
+    help_buying_cars: Help buying a car
+    find_dealer: Find a dealer
+    sell_your_cars: Sell your car
+    create_ad: Create an ad
+    manage_ad: Manage my ad
+    seller_help: Seller help
+    safety_tips: Safety tips
+    research: Research
+    compare_cars: Compare cars
+    login: Login
+    register: Sign up
+    language: Language
+    social_networks: Social networks
+    social_networks_text: "Connect with us on Facebook, YouTube and Twitter"
+    terms: "Terms & Conditions"
+    privacy: Privacy
+    contact: Contact us
+    about: About
+    sitemap: Site map
+    popular_searches: Popular searches
+    dashboard: Dashboard
+    saved_searches: Saved searches/Email alerts
+    saved_items: Saved items
+    my_ads: My adverts
+    profile: My profile
+    settings: Settings
+    signout: Sign out
+    favourites: FAVOURITES
+    sell: SELL
+    create_ad: Create Ad
+  search:
+    open_search: Open search
+    close_search: Close search
+    search_vehicles: Search
+    reset_search: Reset search
+    save_search: Save search
+    add_cars: "+ Add another car"
+    more_options: "+ more options"
+    less_options: "- less options"
+    remove: "[remove]"
+    bodytype_title: "Body type (any)"
+    model: "Model (any)"
+    make: "Make (any)"
+    any: Any
+    models: Model
+    selected: selected
+    count_selected_text: "<strong>{0} of {1} selected</strong>"
+    min_price: Min price
+    max_price: Max price
+    min_power: Min power
+    max_power: Max power
+    min_year: Min year
+    max_year: Max year
+    max_mileage: Max mileage
+    fueltype: "Fuel type (any)"
+    transmission: "Transmission (any)"
+    country: "Country (any)"
+    city: "State/City (any)"
+    colour: "Colour (any)"
+    drivetype: "Drive type (any)"
+    min_seats: Min seats
+    max_seats: Max seats
+    doors: Doors
+    no_doors: "No. of doors (any)"
+    features: "Features (any)"
+    keywords: Keywords
+    dealer: Dealer
+    private: Private seller
+    search: Search
+    sorted_by: "Sorted by:"
+    most_recent: Most Recent
+    most_popular: Most Popular
+    price_high_low: "Price (High to Low)"
+    price_low_high: "Price (Low to High)"
+    make_model_a_z: "Make-Model (A-Z)"
+    make_model_z_a: "Make-Model (Z-A)"
+    kms_high_low: "Kms (High to Low)"
+    kms_low_high: "Kms (Low to High)"
+    year_high_low: "Year (High to Low)"
+    year_low_high: "Year (Low to High)"
+  signin:
+    email: Email
+    password: Password
+    forgot_password: Reset password
+    forgot_password_note: We will send you the password reset instructions to your email address
+    send: Send instructions
+    sign_in: Sign in
+    change_password: Change password
+    new_to: New to Webauto?
+    get_started: Get started now. It's fast and easy
+    remember_me: Remember me
+    sign_in_btn: Sign in
+    sign_up: Sign up
+    forgot: "Forgot your password?"
+    confirmation: "Didn't receive confirmation instructions?"
+    unlock: "Didn't receive unlock instructions?"
+    sign_in_with_facebook: "Sign in with Facebook"
+    forgot_note: "Kui Teil on meelest läinud parool, siis sisestage oma registreerimisel sisestatud e-posti aadress."
+  big: " the file is too big!"
+  car_stereo_cd: "CD Player"
+  colours: [{name: "Beige", id: 1}, {name: "Black", id: 2}, {name: "Blue", id: 3}, {name: "Brown", id: 4}, {name: "Dark beige", id: 5}, {name: "Dark blue", id: 6}, {name: "Dark brown", id: 7}, {name: "Dark gray", id: 8}, {name: "Dark green", id: 9}, {name: "Dark orange", id: 10}, {name: "Dark purple", id: 11}, {name: "Dark red", id: 12}, {name: "Dark yellow", id: 13}, {name: "Golden", id: 14}, {name: "Gray", id: 15}, {name: "Green", id: 16}, {name: "Light beige", id: 17}, {name: "Light blue", id: 18}, {name: "Light brown", id: 19}, {name: "Light gray", id: 20}, {name: "Light green", id: 21}, {name: "Light orange", id: 22}, {name: "Light purple", id: 23}, {name: "Light red", id: 24}, {name: "Light yellow", id: 25}, {name: "Orange", id: 26}, {name: "Pink", id: 27}, {name: "Purple", id: 28}, {name: "Red", id: 29}, {name: "Silver", id: 30}, {name: "White", id: 31}, {name: "Yellow", id: 32}]
+  fueltypes: [{name: "Petrol", id: 1}, {name: "Diesel", id: 2}, {name: "Petrol + Gas (LPG)", id: 3},{name: "Petrol + Gas (CNG)", id: 4},{name: "Gas (LPG)", id: 5},{name: "Gas (CNG)", id: 6},{name: "Hybrid", id: 7},{name: "Electric", id: 8},{name: "Ethanol", id: 9}]
+  transmissions: [{name: "Automatic", id: 1},{name: "Manual", id: 2},{name: "Semi-Automatic", id: 3}]
+  drivetypes: [{name: "4 X 4", id: 1},{name: "Front Wheel Drive", id: 2},{name: "Rear Wheel Drive", id: 3}]
+  climate_controls: [{name: "Climate Control", id: 1}, {name: "Air Conditioning", id: 2}]
+  search_alerts: [{name: "No Alert", id: "No Alert" },{name: "Alert", id: "Alert" }]
+  service_histories: [{name: "Full service history", id: 1},{name: "Part service history", id: 2},{name: "No service history", id: 3}]
+  features: [{name: "Leather upholstery", id: "leather_upholstery"},{name: "Heated seats", id: "seat_heating_count"},{name: "Navigation", id: "navigation"},{name: "Central locking", id: "central_locking"},{name: "Tow hitch", id: "tow_hitch"},{name: "Cruise control", id: "cruise_control"},{name: "Light alloy wheels", id: "light_alloy_wheels"},{name: "Full service history", id: "service_history_id"},{name: "Power steering", id: "power_steering"},{name: "Power windows", id: "power_windows"},{name: "Climate control",id: "climate_control_id"}]
+  index:
+    create_ad: "Create an ad"
+    most_popular: Most Popular
+    most_expensive: Most Expensive
+    recently_added: Recently Added
+    recently_viewed: Recently Viewed
+    view_all: View All
+    popular_makes: "Popular makes:"
+    popular_models: "Popular models:"
+    popular_bodytypes: "Popular body types:"
+  adverts:
+    breadcrumb:
+      edit: Basic info
+      details: Details
+      features: Features
+      photos: "Photos & comments"
+      contact: "Price and contact details"
+      checkout: "Review & activate"
+    statistics:
+      views_title: "View statistics for the last 30 days"
+      statistics: "Statistics for advert %{id}"
+      date: Date of insertion
+      close: Close
+      views: Views
+    index:
+      ad_management: Ad management
+      create_ad: Create new ad
+      nothing: Nothing found
+      advert: advert
+      status: STATUS
+      created: Created
+      cancelled: Cancelled
+      unfinished: Unfinished
+      activated: Activated
+      not_activated: Not activated
+      statistics: Statistics
+      preview: Preview
+      edit: Edit
+      deactivate: Deactivate
+      deactivate_sure: "Are you sure you want to deactivate your advert?"
+      activate: Activate
+      activate_sure: "Are you sure?"
+      restore: Restore
+      restore_sure: "Are you sure you want to restore your advert?"
+      remove: Remove or mark as sold
+      remove_sure: "Are you sure?" 
+    edit:
+      title: "What type of vehicle are you selling?"
+      bodytype: Body type
+      make: Make
+      model_name: Model
+      variant: Variant
+      year: Build year
+      registered_at: Initial registration 
+      odometer: Odometer
+      power: "Engine power (kW)"
+      size: "Total displacement (l)"
+      fuel: Fuel
+      color: Color
+      spec_color: Specific color
+      metallic_color: Metallic color
+      registered: Registered in Estonia
+      enter_reg: "Enter your vehicle registration plate number."
+      nb: "NB! Your registration won't appear on your advert"
+      show_reg_nr: Show registration number and vin on your advert
+      provide_vin: "Provide confidence and peace of mind by including a VIN with your ad so that potential buyers can obtain a History Report."
+      vin: Vin code
+      find_details: Find details
+    actions:
+      back: Back
+      show: Show
+      activate: Activate
+      save_preview: Save and Preview
+      save_continue: Save and Continue
+      save_show: Save and Show
+    details:
+      title: "Tell us more about your %{vehicle}"
+      engine_details: Engine details
+      engine_type: "Engine type:"
+      cylinders: "Cylinders:"
+      add_details: "Add details..."
+      select_measure: Select measure
+      all_season_tires: All season tires
+      spike_tires: Spike tires
+      max_speed: "Max. speed (km/h):"
+      acceleration: "Acceleration 0-100 km/h (s):"
+      fuel_cons_city: "Fuel cons. city (L/100 km):"
+      fuel_cons_freeway: "Fuel cons. freeway (L/100 km):"
+      fuel_combined: "Fuel cons. combined (L/100 km):"
+      fuel_capacity: "Fuel tank (L):"
+      height: "Height (mm):"
+      length: "Length (mm):"
+      width: "Width (mm):" 
+      wheelbase: "Wheel Base (mm):"  
+      gross_weight: "Gross vehicle weight rating (kg):"
+      net_weight: "Base curb weight (kg):"
+      load_capacity: "Load carring capacity (kg):"
+      warranty_valid_to: "Warranty valid to:"
+      warranty_km: "Warranty (km):"
+      service_freq: "Service interval frequency:"
+      service_km: "Service interval mileage:"
+      next_service: "Next service:"
+      next_service_km: "Next service (km):"
+      inspection_valid_to: "Inspection valid to:"
+      service_history: "Service history:"
+      transmission: "Transmission:"
+      gears: "Gears:"
+      drivetype: "Drive type:"
+      location: "Location:"
+      select_state: "Select state"
+      select_city: "Select city"
+      brought_from: "Brought from:"
+      doors: "Doors:"
+      seats: "Seats:"
+      owners: "Owners:"
+      climate: "Climate control:"
+      wrecked: "Wrecked"
+      exchange: "Vehicle exchange"
+      other_info: Other info
+    features:
+      title: "What features does your car have?"
+      lead: "Add or remove factory fitted, after market or standard features applicable to your car."
+      safety_security: "Safety & Security Equipment"
+      airbags: Amount of airbags
+      speakers: Amount of speakers
+      comfort: Comfort Equipment
+      interior_trim: Interior trim
+      other: Other Equipment
+    photos:
+      comments: Comments
+      comments_lead: "Here's your chance to capture some real buyer interest in your car. Taking the time to describe features and anything distinguishing about your car can make a big difference to the success of your sale."
+      upload_photos: Upload photos
+      photos_lead: "Provide extra confidence to buyers by including photos of your car's Compliance Plate. Photos must be gif, jpg, jpeg or png and under 5MB in size. To re-order photos, simply click and drag."
+      add_pics: Add pics
+      a_of_b: "%{a} of %{b}"
+      available: available photos
+      previous: Previous
+      next: Next
+      remove: Remove
+    contact:
+      price_title: Price
+      price: "Price:"
+      price_vat: "Price includes VAT 20%"
+      negotiable: Negotiable
+      contact_title: Contact information
+      primary_number: "Contact number:"
+      secondary_number: "Secondary number:"
+      email: "Email:"
+  vehicles:
+    show:
+      incl_vat: "inc 20% VAT"
+      exl_vat: "exl 20% VAT"
+      no_details: No details
+      back: Back
+      back_to_results: Back to search results
+      visits:
+        zero: no visits
+        one: 1 visit
+        other: "%{count} visits"
+      private: Private
+      dealer: Dealer
+      images: Image
+      a_of_b: " %{a} of %{b}"
+      contact_dealer: Contact dealer
+      contact_private_seller: Contact private seller
+      recently_viewed: People also viewed 
+      similar_cars: Similar cars
+      interested: "You may also be interested in..."
+      compare: Compare
+      save: Save 
+      unsave: Unsave
+      share: Share
+      report: Report
+      comments: Comments
+      bodystyle: Body Style
+      badge: Badge
+      drivetype: Drive Type
+      colour: Colour
+      location: Location
+      reg_plate: Reg. Plate
+      initial_reg: Initial Reg.
+      engine: Engine
+      kilometres: Kilometres
+      transmission: Transmission
+      brought_from: Brought From
+      vin: Vin
+      show: Show 
+      specification: Specification
+      features: Features
+      engine_power: Engine power
+      engine_type: Engine type
+      engine_size: Engine size
+      cylinders: Cylinders
+      top_speed: Top speed 
+      acceleration: Acceleration 0-100 km/h 
+      transmission_drivetrain: "Transmission & Drivetrain"
+      drive: Drive
+      gears: Gears
+      gear_type: Gear type
+      fuel: Fuel
+      fuel_type: Fuel type
+      fuel_cons_city: "Fuel cons. city"
+      fuel_cons_combined: "Fuel cons. combined"
+      fuel_cons_freeway: "Fuel cons. freeway"
+      fuel_capacity: Fuel capacity
+      wheels_tires: "Wheels & Tires"
+      summer_tires: Summer tires
+      summer_tire_size: Summer tire size
+      winter_tires: Winter tires
+      winter_tire_size: Winter tire size
+      light_alloy_wheels: Light alloy wheels
+      no: No
+      all_season: all season
+      with_spikes: with spikes
+      dimensions_weights: "Dimensions & Weights"
+      height: Height
+      length: Length
+      width: Width
+      wheelbase: Wheelbase
+      gross_mass: Gross vehicle mass
+      load_capacity: Load capacity
+      kerb_weight: Kerb weight
+      warranty_service: "Warranty & Service"
+      warranty: Warranty
+      warranty_years: "Warranty (months)"
+      warranty_km: "Warranty (km)"
+      service_interval: Service interval
+      service_interval_km: "Service interval (km)"
+      service_interval_months: "Service interval (months)"
+      next_service: Next service
+      next_service_km: "Next service (km)"
+      inspection_valid_to: "Next MOT test"
+      service_history: Service history
+      months: months
+      other: Other
+      doors: Doors
+      seats: Seats
+      origin: Country of origin
+      owners: Owners
+      ad_updated: "This ad was updated"
+      audio_visual: "Audio, Visual & Communication"
+      speaker_stereo: "%{n}x speaker stereo"
+      car_stereo: "Car stereo"
+      original: original
+      cd_player: CD player
+      mp3: MP3 decoder
+      usb: USB socket
+      aux: "Auxiliary input socket"
+      mem_card: Memory card
+      remote_control: Remote control
+      subwoofer: Subwoofer
+      cd_changer: CD changer
+      electric_antenna: Electric antenna
+      navigation: Navigation
+      computer: Onboard computer
+      car_phone: Car phone
+      hands_free: Hands-free
+      gsm_antenna: GSM antenna
+      safety_security: "Safety & Security"
+      airbags: airbags
+      central_locking: Central locking
+      with_remote: with remote
+      abs: "ABS (Antilock Brakes)"
+      alarm: Alarm system
+      tow_away: Tow-away protection
+      motion_sensor: Interior motion sensor
+      communication: "Two-way communication"
+      immobilizer: Engine immobilizer
+      anti_skid: Anti-skid system
+      stability: Stability control
+      brake_force: Brake force regulator
+      traction: Traction control system
+      seatbelt: Seatbelt pretensioners for front seats
+      comfort_convenience: "Comfort & Convenience"
+      electric_mirrors: Electrically adjustable mirrors
+      with_memory: with memory
+      heated_mirrors: Heated mirrors 
+      folding_mirrors: Folding mirrors
+      sunroof: Sunroof
+      cruise: Cruise control
+      distance: Distance monitoring system
+      engine_preheating: Engine preheating
+      parking_sensors: Parking sensors
+      spotlights: Spotlights
+      temperature_indicator: Internal temperature indicator
+      lights_windows: "Lights & Windows"
+      xenon: Xenon headlights
+      third_brake: Third brake light
+      washers: Headlight washers
+      dim_dip: Special dim-dip-lamps
+      fog: Fog lamps
+      front: front
+      rear: rear
+      headlight_range: Headlight range adjustment
+      extra_lights: Extra lights
+      auto_lights: Automatic headlights
+      power_windows: Power windows
+      tinted_windows: Tinted windows
+      rain_sensor: "Rain sensor (auto wipers)"
+      rear_wiper: Rear wiper/washer
+      front_window_heating: Front window heating
+      rear_window_heating: Rear window heating
+      low_beam: low beam
+      high_beam: high beam
+      steering: Steering
+      power_steering: Power steering
+      multi_wheel: Multi-function steering wheel
+      adjustable_column: Adjustable steering column
+      tilt_reach: tilt and reach
+      electrical: electrical
+      interior: Interior
+      cloth: Cloth upholstery
+      vinyl: Velour upholstery
+      faux: Half-leather upholstery
+      leather: Leather upholstery
+      wood: Wood grain
+      chrome: Chrome
+      mats: Mats
+      textile: Textile mats
+      rubber: Rubber mats
+      velour: Velour mats
+      leather_shift: Leather shift lever
+      leather_break: Leather-coated hand break handle
+      leather_wheel: Leather steering wheel
+      seats: Seats
+      electrical_seats: electrically adjustable seats
+      seats_with_heating: seats with heating
+      front_armrest: Front armrest
+      rear_armrest: Rear armrest
+      down_folding: Down folding back rest
+      other_features: Other features
+      dust_shields: Dust shields
+      roof_railings: Roof railings
+      roof_rack: Roof rack
+      isolation_net: Saloon and luggage department isolation net
+      luggage_cover: Luggage cover 
+      tow_hitch: Tow hitch
+      removable: removable
+      sump_shield: Sump shield
+      side_steps: Side steps
+      outside_temperature: Outside temperature indicator
+    search:
+      viewed_by_you: Recently viewed by you
+  comments:
+    write_comment: "Write a comment..."
+    comments: Comments
+    create: Create comment
+    reply: Reply
+    cancel: Cancel
+    write_reply: "Write a reply..."
+    delete: Delete
+  inquiries:
+    write_message: "Write a message..."
+    send: Send Message
+    name: Sender's name
+    email: Sender's email
+    friends_email: Firend's email
+    sold: Sold
+    suspicious: Suspicious
+    incorrect: Incorrect or Missing Data
+    report: Send report
+    close: Close
+    send_to_friend: Send to a friend
+    report_ad: Report this ad
+    acknowledge: "By clicking the send button you acknowledge that you have read and agree to abide by the Webauto Terms and Conditions and Privacy Policy."
+  users:
+    dashboard:
+      dashboard: Dashboard
+      lead: "Staying in touch with Webauto just became a whole lot easier. Now that you're a member, you can manage all your ads and searches in the one place to make buying and selling a cinch."
+      saved_vehicles: Saved vehicles
+      view_all: View all
+      sold: SOLD
+      saved_on: Saved on
+      saved_searches: Saved searches
+      last_searches: Last searches
+      searched_on: Searched on
+    profile:
+      profile: Profile
+      details: "Your details & preferences"
+      for_security: "For security:"
+      security: "To change your email address please email to support@webauto.ee"
+      name: Name
+      country: Country
+      city: City
+      primary_phone: Primary phone
+      secondary_phone: Secondary phone
+      email: Email
+      new_password: New password
+      password: Password
+      password_confirm: Confirm password
+      current_password: Current password
+      company_name: Company name
+      address1: Address 1
+      address2: Address 2
+      postal_code: Postal code
+      registration_code: Registration code
+      vat_number: VAT payer number
+      webpage: Webpage
+      hint: "Leave it blank if you don't want to change it"
+      need_password: "We need your current password to confirm your changes"
+      update: Update
+      cancel: "Cancel my account"
+      cancel_sure: "Are you sure?"
+      add_pic: Add picture
+      remove: Remove
+      remove_sure: 'Are you sure you want to delete this image?'
+    settings:
+      settings: Settings
+      notifications: Saved vehicle notifications
+      notify: "For all my saved vehicles, notify me when:"
+      price_alert: "The price changes or a special offer is available"
+      sold_alert: "The vehicle has been sold"
+      interest_alert: "Interest is increasing in the vehicle"
+      future_updates: "Feature updates & member benefits"
+      future_updates_text: "As a webauto member, we will update you on any new exciting features, exclusive deals from us and our partners and any important information relating to vehicle ownership. Your member information and contact details will not be shared with any third party outside of the webauto network."
+      future_updates_check: "I want to receive member feature updates, deals and information from carsales as an exclusive carsales member"
+      language: Default language
+      save: Save
+  searches:
+    index:
+      saved_searches_and_alerts: "Saved Searches & Email Alerts"
+      available_searches: available searches
+      a_of_b: " %{a} of %{b}"
+      rename_search: "Rename your saved search"
+      save_search: "Save your search"
+      save: Save
+      close: Close
+      name: Name
+      search_name: NAME
+      details: DETAILS
+      freq: ALERT FREQUENCY
+      activity: ACTIVITY
+      delete_all: Delete all
+      sure: "Are you sure you want to delete all items?"
+      no_alert: No alert
+      actions: Actions
+      rename: Rename
+      delete: Delete
+      delete_sure: "Are you sure you want to delete this item?"
+      saved_on: Saved on
+      run: Run search
+  saved_items:
+    index:
+      saved_items: Saved items
+      a_of_b: " %{a} of %{b}"
+      available_items: available items
+      description: DESCRIPTION
+      price: PRICE
+      recent: RECENT ACTIVITY
+      sold: SOLD
+      search_similar: Search similar
+      last_listed: Last listed at
+      other_people: "Other people have saved this vehicle"
+  compared_items:
+    index:
+      title: Compare vehicles
+      remove: Remove
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo; prev"
+      next: "next &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "<div class='alert'>No %{entry_name} found</div>"
+          one: "<small>Displaying <span class='badge badge-info'>1</span> %{entry_name}</small>"
+          other: "<small>Displaying all <span class='badge badge-info'>%{count}</span> %{entry_name}</small>"
+      more_pages:
+        display_entries: "<small>Displaying %{entry_name} <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span> of <span class='badge badge-info'>%{total}</span> in total</small>"
+  activerecord:
+    errors:
+      models:
+        compared_item:
+          attributes:
+            vehicle_id:
+              taken: Already taken
+        user:
+          attributes:
+            current_password:
+              blank: cannot be blank

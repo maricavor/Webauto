@@ -1,0 +1,9 @@
+<ul class="breadcrumb custom-breadcrumb">
+  
+  <li><%= link_to t("navigation.home"),root_url %> <span class="divider">/</span></li>
+  <li><%= link_to t("navigation.#{@vehicle.type.path_name}"),  new_search_path(:search=>"all") %><span class="divider">/</span></li>
+  <li><%= link_to @make_name,  new_search_path(:search=>"make",:value=>@make_name) %><span class="divider">/</span></li>
+    <li><%= link_to @model_name,  new_search_path(:search=>"model",:value=>@make_name,:model=>@model_name) %><span class="divider">/</span></li>
+  <li class="active"><strong><%= "#{@make_name} #{@model_name} #{@vehicle.engine_size} #{@vehicle.engine_power}kW #{@vehicle.transmission}"  %></strong></li>
+
+</ul>

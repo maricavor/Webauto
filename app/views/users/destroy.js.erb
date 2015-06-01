@@ -1,0 +1,5 @@
+$("#ad_<%= @vehicle.id %>").hide('slow', function() {
+    $target.remove();
+});
+$('.paginator').html("<%= j(render partial: 'vehicles/partials/paginator') %>");
+$('.page_entries_info').html("<%= j(render partial: 'vehicles/partials/page_entries_info') %>");

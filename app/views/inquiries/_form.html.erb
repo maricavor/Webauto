@@ -1,0 +1,36 @@
+<%= form_for [@vehicle,@inquiry],:html=>{:id=>"new_#{mode}"},:remote=>true  do |f| %>
+  <% if mode=="report" %>
+    <%= f.select :report_as,[[t("inquiries.sold"),"Sold"],[t("inquiries.suspicious"),"Suspicious"],[t("inquiries.incorrect"),"Incorrect"]],:class=>"span6" %><br>
+    <% end %>
+    <% if mode=="send_to_friend" %>
+      <%= f.text_field :friend_email,:placeholder=>t("inquiries.friends_email"),:class=>"span12" %><br>
+      <% end %>
+      <% unless current_user %>
+      <%= f.text_field :name,:placeholder=>t("inquiries.name"),:class=>"span12" %><br>
+        <%= f.text_field :email,:placeholder=>t("inquiries.email"),:class=>"span12" %><br>
+        <% else %>
+        <%= f.hidden_field :name,:value=> current_user.name%>
+        <%= f.hidden_field :email,:value=> current_user.email %>
+        <% end %>
+    
+            <%= f.text_area :message,:rows=>5,:placeholder=>t("inquiries.write_message"),:class=>"span12"   %>
+            <%= f.hidden_field :mode,:value=>mode %>
+            <div class="honeypot">
+              <%= f.text_field :content, :value=>nil, tabindex: '-1' %>
+              <span class="help">Do not fill in this field. It is an anti-spam measure.</span>
+            </div>
+        
+            <p  class="text-info" style="margin-top:10px;"><small><%= t("inquiries.acknowledge") %></small></p>
+            <% if mode=="inquiry" %>
+            <div class="row-fluid">
+              <div class="span4">
+               
+              <%= f.submit t("inquiries.send"), :class=> "btn btn-info" %>
+             
+            </div>
+             <div class="span8">
+              <div class="inquiry_preloader"></div>
+            </div>
+          </div>
+              <% end %>
+          <% end %>

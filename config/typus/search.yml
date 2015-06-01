@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Search:
+  fields:
+    default: keywords, tp, bt, fpgt, fplt, pwgt, pwlt, kmgt, kmlt, yeargt, yearlt, ft, tm, dt, cl, slug, user_ip, user_id, name, location, region, doors, stgt, stlt, engine_size, is_dealer, is_private, features, sort, exception, alert_freq
+    form: keywords, tp, bt, fpgt, fplt, pwgt, pwlt, kmgt, kmlt, yeargt, yearlt, ft, tm, dt, cl, slug, user_ip, user_id, name, location, region, doors, stgt, stlt, engine_size, is_dealer, is_private, features, sort, exception, alert_freq
+  relationships: fields, search_alerts
+  application: Application

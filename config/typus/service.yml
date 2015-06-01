@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Service:
+  fields:
+    default: title, description, price
+    form: title, description, price
+  relationships: line_items, orders
+  application: Application

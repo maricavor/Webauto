@@ -1,0 +1,8 @@
+
+$(".sortable_pictures").html("<%= j(render partial:'adverts/partials/pictures') %>");
+$('#max_pictures').html("<%= j(render partial:'adverts/partials/max_pictures') %>");
+$('.site-message').html("<%= j(render partial:'layouts/messages')%>");
+$('html, body').scrollTop(0);
+<% if @count<@max_pictures %>
+$('#fileupload').removeClass('hidden');
+ <% end %>

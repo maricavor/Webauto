@@ -1,0 +1,100 @@
+
+<div class="row-fluid">
+  <div class="span12">
+        <%= render 'adverts/partials/breadcrumb',:step=>@action %>
+</div>
+</div>
+
+<div class="row-fluid">
+  <div class="span6">
+<div class="page-header">
+      <h2><%=t("adverts.photos.comments") %></h2>
+    </div>
+
+    <%= vehicle_form_for @advert, :html=>{:class=>"form-vertical"},:authenticity_token => true,:remote=>true do |f| %>
+  
+     <%= f.hidden_field :photos_saved,value: true %>
+  <%= f.fields_for :vehicle do |vehicle_fields| %>
+
+
+  
+ <p class="lead"><%=t("adverts.photos.comments_lead") %></p>
+ <% locales=I18n.available_locales.map {|l| l.to_s} %>
+<ul class="nav nav-tabs" id="commentTab">
+ <% locales.each do |loc| %>
+  <li class="<%= 'active' if loc==I18n.locale.to_s %>"><a href="#<%= loc %>" data-toggle="tab"><%= loc %></a></li>
+ <% end %>
+</ul>
+ 
+<div class="tab-content">
+<% locales.each do |loc| %>
+  <div class="tab-pane <%= 'active' if loc==I18n.locale.to_s %>" id="<%= loc %>">
+  <%= vehicle_fields.text_area :"description_#{loc}",rows: 7 %>
+  </div>
+ <% end %>
+</div> 
+  
+ 
+ <% end %>
+ 
+ <%= render 'adverts/partials/actions',:f=>f %>
+
+
+
+
+ 
+
+     <% end %>
+ 
+    
+   
+  </div>
+  <div class="span6">
+
+    
+      <div class="page-header">
+      <h2><%=t("adverts.photos.upload_photos") %></h2>
+    </div>
+    <p class="lead">
+      <%=t("adverts.photos.photos_lead") %>
+    </p>
+    <div class="row-fluid">
+  <div class="span6">
+
+     <div id="upload_button" >
+
+    <%= render 'adverts/partials/picture_form'%>
+
+  </div>
+
+  </div>
+  <div class="span6">
+
+    <div id="max_pictures" style="margin-bottom:10px;" class="text-right hidden-phone">
+      <%= render 'adverts/partials/max_pictures' %>
+    </div>
+    <div id="max_pictures" style="margin-bottom:10px;" class="text-left visible-phone">
+      <%= render 'adverts/partials/max_pictures' %>
+    </div>
+  </div>
+</div>
+       <!-- The global progress bar -->
+    <div id="global_progress">
+      <%= render 'adverts/partials/global_progress' %>
+    </div>
+  
+ 
+    <div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery" >
+    <ul id="pictures_<%=@vehicle.to_param %>" class="sortable_pictures inline">
+       <%= render 'adverts/partials/pictures' %>
+
+    </ul>
+      <%= render 'vehicles/partials/blueimp-gallery' %>
+    </div>
+ 
+   
+
+  </div>
+</div>
+
+

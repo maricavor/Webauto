@@ -1,50 +1,55 @@
-source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.16'
-gem 'rack', '~> 1.4.5'
-
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-group :production, :mysql do
-  gem 'mysql2'
-end
-
-group :production, :postgresql do
-  gem 'pg'
-end
-
-group :development, :test do
-  gem 'sqlite3'
-  gem 'minitest'
-  gem 'thor', '= 0.14.6'
-end
-
-# Gems used only for assets and not required
-# in production environments by default.
+source 'http://rubygems.org'
+gem 'rails', '3.2.13'
+gem 'mysql2'
 group :assets do
-  gem 'sass-rails'
-  gem 'coffee-rails'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
+  gem 'sass-rails',   '~> 3.2.3'
+  gem "bootstrap-sass", "2.3.2.0"
+  gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem 'jquery-fileupload-rails'
+  #gem 'spinjs-rails'
 end
+gem 'autoprefixer-rails'
+gem 'jquery-rails','~> 3.1.2'
+gem 'jquery-ui-rails'
+#gem 'client_side_validations'
+gem "devise", ">= 2.2.3"
+gem 'omniauth-facebook'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem "cancan", ">= 1.6.9"
+gem "nokogiri"
+#gem "rolify", ">= 3.2.0"
+gem "simple_form", ">= 2.1.0"
+gem "quiet_assets", ">= 1.0.2", :group => :development
+gem "figaro", ">= 0.6.3"
+#gem "better_errors", ">= 0.7.2", :group => :development
+gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]
+gem "gon", "~> 4.1.1"
+gem "dynamic_form"
+gem "rmagick", "~> 2.13.1", :require => 'RMagick'
+gem "carrierwave"
+#gem 'ransack'
+gem 'progress_bar'
+gem 'kaminari'
+gem "friendly_id", "~> 4.0.10"
+#gem 'impressionist'
+gem 'globalize', '~> 3.1.0'
+gem 'globalize-accessors'
+gem 'ancestry'
+group :development, :test do
+  gem 'sunspot_solr', "2.1.0"
+end
+gem 'sunspot_rails'
+gem 'whenever', :require => false
+gem "resque", :require => 'resque/server'
+gem "resque-scheduler"
+gem "paranoia", "~> 1.0"
+gem 'newrelic_rpm'
+gem 'typus'
+gem 'thin'
+gem "google_visualr", ">= 2.1"
+gem 'bootstrap-datepicker-rails'
 
-gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'

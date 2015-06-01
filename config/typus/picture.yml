@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Picture:
+  fields:
+    default: vehicle_id, name, file, remote_file_url, position
+    form: vehicle_id, name, file, remote_file_url, position
+  relationships: 
+  application: Application

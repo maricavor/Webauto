@@ -1,0 +1,53 @@
+<% index=-1 %>
+<% @pictures.each do |picture| %>
+  <% index +=1 %>
+  <% index -=3 if index==4 %>
+  <% if index==0 %>
+    <div class="row-fluid">
+      <div class="span12">
+      <% elsif index==1 %>
+        <div class="row-fluid" style="margin-top:10px;">
+          <div class="span4">
+          <% else %>
+            <div class="span4">
+            <% end %>
+            <%= link_to image_tag(picture.file_url(:original)), picture.file_url(:original), :data => {:gallery => 'gallery'}, :title => picture.file, :class=>"thumbnail" %>
+            <% if index==0 %>
+            </div>
+          </div>
+        <% else %>
+        </div>
+      <% end %>
+      <% if index==3 || picture==@pictures.last %>
+      </div >
+    <% end %>
+  <% end %>
+
+  <% if @pictures.size>1 %>
+  <div class="row-fluid" >
+    <div class="span12">
+      <table class="thumbnails" >
+        <tbody>
+          <% index=-1 %>
+          <% @pictures.each_with_index do |picture,pos| %>
+            <% if picture!=first %>
+              <% index +=1%>
+              <%  if index==3 %>
+                <% index=index-3 %>
+              <% end %>
+              <% if index==0 %>
+                <tr>
+                <% end %>
+                <td>
+                  <%= link_to image_tag(picture.file_url(:thumb)), picture.file_url(:original), :data => {:gallery => 'gallery'}, :title => "Image "+(pos+1).to_s + " of "+@pictures.size.to_s, :class=>"thumbnail" %>
+                </td>
+                <% if index==2 || picture==@pictures.last%>
+                  <tr>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% end %>

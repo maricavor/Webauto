@@ -1,0 +1,7 @@
+//$("#<%= dom_id(@comment) %>").remove();
+$("#<%= dom_id(@comment) %>").hide('slow', function() {
+    $target.remove();
+});
+$(".modal-body").scrollTop(0);
+$(".action_buttons").html("<%= j(render partial:'vehicles/partials/action_buttons')%>");
+$('.comments-modal-message').html('');

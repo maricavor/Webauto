@@ -1,0 +1,21 @@
+
+<% flash.each do |name, msg| %>
+  <% if msg.is_a?(String) %>
+    <div id="site_message" class="alert alert-<%= name == :notice ? "success" : "error" %>">
+      <% unless name==:notice %>
+        <a class="close" data-dismiss="alert">&#215;</a>
+      <% end %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    </div>
+    <% if name==:notice %>
+      <script type="text/javascript">
+        setTimeout(function(){
+            $("#site_message").fadeOut(500);
+        }, 4000);
+        setTimeout(function(){
+            $("#site_message").remove();
+        }, 4500);
+      </script>
+    <% end %>
+  <% end %>
+<% end %>

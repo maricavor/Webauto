@@ -1,0 +1,8 @@
+$("#saved_search_<%= @search.id %>").hide('slow', function() {
+    $target.remove();
+});
+$('#saved_searches_progress').html("<%= j(render partial:'progress') %>");
+if ("<%= @searches.size %>" == "0") {
+    $('#delete_all_searches').remove();
+    $('#saved_searches').html("");
+}

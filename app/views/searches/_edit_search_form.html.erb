@@ -1,0 +1,13 @@
+<div class="save-search-modal-message"></div>
+<div id="modal-edit-search">
+  <%= form_for @search,:html=>{:id=>"save_search_form"},:authenticity_token => true, :remote=>true do |f| %>
+    <%= f.text_field :name,:placeholder=>t("searches.index.name")%>
+    <%= f.hidden_field :user_id,:value=>current_user.id %>
+    <% if mode=="new" %>
+    <%= f.hidden_field :updating_name,:value=>false %>
+    <%= f.hidden_field :sort,:value=>params[:sort] %>
+    <% else %>
+    <%= f.hidden_field :updating_name,:value=>true %>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,16 @@
+<!-- Modal -->
+<div id="sendToFriendModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="sendToFriendModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="sendToFriendModalLabel"><%= t("inquiries.send_to_friend") %></h3>
+  </div>
+  <div class="modal-body">
+    <div class="send-to-friend-modal-message"></div>
+    <%= render partial: "inquiries/form",locals: {mode: "send_to_friend"}  %>
+  </div>
+  <div class="modal-footer">
+    <div class="preloader"></div>
+    <button class="send_to_friend_btn btn btn-info"><%= t("inquiries.send") %></button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t("inquiries.close") %></button>
+  </div>
+</div>

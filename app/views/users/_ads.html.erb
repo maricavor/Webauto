@@ -1,0 +1,36 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>DESCRIPTION</th>
+      <th>PRICE</th>
+      <th>ACTIVITY</th>
+      <th>STATUS</th>
+      <th>ACTIONS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% vehicles.each do |v| %>
+      <tr id="ad_<%= v.id %>">
+        <td>
+          <% picture=v.pictures.first %>
+          <%= link_to image_tag(picture.file_url(:thumb),:style=>"width:150px;margin-right:10px;vertical-align:top;",:class=>"img-polaroid"), send("#{v.type.name.singularize.underscore}_path", v) if picture %>
+          <strong>
+            <%= link_to v.make_model, send("#{v.type.name.singularize.underscore}_path", v) %>
+          </strong>
+        </td>
+        <td><%= currency(v.final_price) %></td>
+        <td class="muted">
+          <small><strong class="text-success">Created</strong>
+            <%= v.created_at.strftime("%d/%m/%Y") %></small></td>
+        <td>
+      
+        </td>
+        <td>
+          <%= link_to 'Statistics', "#",:class=> "btn btn-small" %>
+          <%= link_to '<i class="icon-edit"></i>'.html_safe, edit_advert_path(v.advert),:class=> "btn btn-small" %>
+          <%= link_to '<i class="icon-remove icon-white"></i>'.html_safe, send("#{v.type.name.singularize.underscore}_path", v), method: :delete, data: { confirm: 'Are you sure?' },:class=> "btn btn-danger btn-small" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

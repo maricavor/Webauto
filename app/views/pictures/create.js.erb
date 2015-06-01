@@ -1,0 +1,12 @@
+<% if @picture.new_record? %>
+//alert("Failed to upload image: <%= j @picture.errors.full_messages.join(', ').html_safe %>"); 
+<% else %>
+$('#max_pictures').html("<%= j(render partial:'adverts/partials/max_pictures') %>");
+$(".sortable_pictures").html("<%= j(render partial:'adverts/partials/pictures') %>");
+<% if @count>=@max_pictures %>
+$('#fileupload').addClass('hidden');
+ <% end %>
+<% end %>
+$('.site-message').html("<%= j(render partial:'layouts/messages')%>");
+//$('.upload').hide();
+$('html, body').scrollTop(0);

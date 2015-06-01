@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Advert:
+  fields:
+    default: user_id, uid, price, contact_number, secondary_number, email, popularity, basics_saved, details_saved, features_saved, photos_saved, contact_saved, activated, sold
+    form: user_id, uid, price, contact_number, secondary_number, email, popularity, basics_saved, details_saved, features_saved, photos_saved, contact_saved, activated, sold
+  relationships: search_alerts, vehicle, order
+  application: Application

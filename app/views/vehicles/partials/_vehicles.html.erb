@@ -1,0 +1,18 @@
+<% index=-1 %>
+<% vehicles.each do |vehicle| %>
+  <% index +=1%>
+  <%  if index==@row_size %>
+    <% index=index-@row_size %>
+  <% end %>
+  <% if index==0 %>
+    <div class="row-fluid">
+    
+      <% end %>
+      <div class="span3 thumbnail"  style="margin-bottom:10px;">
+        <%= render 'vehicles/partials/vehicle',:vehicle=>vehicle,:version=>version %>
+      </div>
+      <% if index==@row_size-1 || vehicle==vehicles.last %>
+      
+    </div>
+  <% end %>
+<% end %>

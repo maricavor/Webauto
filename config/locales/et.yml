@@ -1,0 +1,600 @@
+et:
+  navigation:
+    home: Avaleht
+    cars: Autod
+    cars_for_sale: Osta auto
+    all_cars: Kõik autod
+    private_cars: Eraisikult
+    dealer_cars: Automüüjalt
+    help_buying_cars: Auto ostuabi
+    find_dealer: Automüüja otsing
+    sell_your_cars: Müü auto
+    create_ad: Lisa kuulutus
+    manage_ad: Minu kuulutused
+    seller_help: Auto müügiabi
+    safety_tips: Turvanõuanded
+    research: Analüüs
+    compare_cars: Autode võrdlus
+    login: Logi sisse
+    register: Registreeru
+    language: Keel
+    social_networks: Sotsiaalsed võrgustikud
+    social_networks_text: ""
+    terms: Kasutustingimused
+    privacy: Privaatsus
+    contact: Kontaktandmed
+    about: Meist
+    sitemap: Sisukaart
+    popular_searches: Populaarsemad otsingud
+    dashboard: Töölaud
+    saved_searches: Salvestatud otsingud
+    saved_items: Salvestatud sõidukid
+    my_ads: Minu kuulutused
+    profile: Muuda andmeid
+    settings: Seaded
+    signout: Logi välja
+    favourites: LEMMIKUD
+    sell: MÜÜK
+    create_ad: Lisa kuulutus
+  search:
+    open_search: Ava otsing
+    close_search: Sulge otsing
+    search_vehicles: Otsing
+    reset_search: Lähtesta vorm
+    save_search: Salvesta otsing
+    add_cars: "+ Lisa veel auto"
+    more_options: "+ rohkem valikuid"
+    less_options: "- vähem valikuid"
+    remove: "[eemalda]"
+    bodytype_title: "Keretüüp (kõik)"
+    model: "Mudel (kõik)"
+    make: "Mark (kõik)"
+    any: Kõik
+    models: mudelid
+    selected: valitud
+    count_selected_text: "<strong>{0} valitud</strong>"
+    min_price: Min hind
+    max_price: Max hind
+    min_power: Min võimsus
+    max_power: Max võimsus
+    min_year: Min aasta
+    max_year: Max aasta
+    max_mileage: Max läbisõit
+    fueltype: "Kütus (kõik)"
+    transmission: "Käigukast (kõik)"
+    country: "Asukoht (kõik)"
+    city: "Linn/Maakond (kõik)"
+    colour: "Värvus (kõik)"
+    drivetype: "Vedav sild (kõik)"
+    min_seats: Min istekohti
+    max_seats: Max istekohti
+    doors: Uksi
+    no_doors: Uksi
+    features: "Varustus (kõik)"
+    keywords: Tekstiotsing
+    dealer: Automüüja
+    private: Eraisik
+    search: Otsi
+    sorted_by: ""
+    most_recent: Viimati lisatud
+    most_popular: Populaarsed
+    price_high_low: "Hind (High to Low)"
+    price_low_high: "Hind (Low to High)"
+    make_model_a_z: "Mark-mudel (A-Z)"
+    make_model_z_a: "Mark-mudel (Z-A)"
+    kms_high_low: "Kms (High to Low)"
+    kms_low_high: "Kms (Low to High)"
+    year_high_low: "Aasta (High to Low)"
+    year_low_high: "Aasta (Low to High)"
+  signin:
+    email: E-post
+    password: Parool
+    forgot_password: Parooli muutmine
+    forgot_password_note: Saadame teile parooli muutmise juhised e-posti aadressile.
+    send: Saada
+    sign_in: Logi sisse
+    change_password: Muuda parooli
+    new_to: Ei ole veel Webauto.ee kasutaja?
+    get_started: Registreeru kohe. See on kiire ja lihtne
+    remember_me: Mäleta mind
+    sign_in_btn: Logi sisse
+    sign_up: Registreeru
+    forgot: "Unustasid oma parooli?"
+    confirmation: "Ei saanud parooli muutmise juhiseid?"
+    sign_in_with_facebook: "Sign in with Facebook"
+    unlock: "Didn't receive unlock instructions?"
+    forgot_note: "Kui Teil on meelest läinud parool, siis sisestage oma registreerimisel sisestatud e-posti aadress."
+  big: " fail on liiga suur!"
+  car_stereo_cd: "CD Mängija"
+  colours: [{name: "Beež", id: 1}, {name: "Must", id: 2}, {name: "Sinine", id: 3}, {name: "Pruun", id: 4}, {name: "Tumebeež", id: 5}, {name: "Tumesinine", id: 6}, {name: "Tumepruun", id: 7}, {name: "Tumehall", id: 8}, {name: "Tumeroheline", id: 9}, {name: "Tumeoranž", id: 10}, {name: "Tumelilla", id: 11}, {name: "Tumepunane", id: 12}, {name: "Tumekollane", id: 13}, {name: "Kuldne", id: 14}, {name: "Hall", id: 15}, {name: "Roheline", id: 16}, {name: "Helebeež", id: 17}, {name: "Helesinine", id: 18}, {name: "Helepruun", id: 19}, {name: "Helehall", id: 20}, {name: "Heleroheline", id: 21}, {name: "Heleoranž", id: 22}, {name: "Hellelilla", id: 23}, {name: "Helepunane", id: 24}, {name: "Helekollane", id: 25}, {name: "Oranž", id: 26}, {name: "Roosa", id: 27}, {name: "Lilla", id: 28}, {name: "Punane", id: 29}, {name: "Hõbedane", id: 30}, {name: "Valge", id: 31}, {name: "Kollane", id: 32}]
+  fueltypes: [{name: "Bensiin", id: 1}, {name: "Diisel", id: 2}, {name: "Bensiin + Gaas (LPG)", id: 3},{name: "Bensiin + Gas (CNG)", id: 4},{name: "Gaas (LPG)", id: 5},{name: "Gaas (CNG)", id: 6},{name: "Hübriid", id: 7},{name: "Elekter", id: 8},{name: "Etanool", id: 9}]
+  transmissions: [{name: "Automaat", id: 1},{name: "Manuaal", id: 2},{name: "Poolautomaat", id: 3}]
+  drivetypes: [{name: "Nelikvedu", id: 1},{name: "Esivedu", id: 2},{name: "Tagavedu", id: 3}]
+  climate_controls: [{name: "Kliimaautomaatik", id: 1}, {name: "Konditsioneer", id: 2}]
+  search_alerts: [{name: "Ära teavita", id: "No Alert" },{name: "Teavita mind", id: "Alert" }]
+  service_histories: [{name: "Täielik hooldusajalugu", id: 1},{name: "Mittetäielik hooldusajalugu", id: 2},{name: "Hooldusajalugu puudub", id: 3}]
+  features: [{name: "Nahkpolster", id: "leather_upholstery"},{name: "Istmesoojendus", id: "seat_heating_count"},{name: "Nav. seade", id: "navigation"},{name: "Kesklukustus", id: "central_locking"},{name: "Veokonks", id: "tow_hitch"},{name: "Püsikiiruse hoidja", id: "cruise_control"},{name: "Valuveljed", id: "light_alloy_wheels"},{name: "Täielik hooldusajalugu", id: "service_history_id"},{name: "Roolivõimendi", id: "power_steering"},{name: "El. aknad", id: "power_windows"},{name: "Kliimaseade",id: "climate_control_id"}]
+  index:
+    create_ad: "Lisa kuulutus"
+    most_popular: Populaarsed
+    most_expensive: Kõige kallimad
+    recently_added: Viimati lisatud
+    recently_viewed: Viimati vaadatud
+    view_all: Näita kõiki
+    popular_makes: "Populaarsemad margid:"
+    popular_models: "Populaarsemad mudelid:"
+    popular_bodytypes: "Populaarsemad keretüübid:"
+  adverts:
+    breadcrumb:
+      edit: Sõiduki põhiandmed
+      details: Lisaandmed
+      features: Varustus
+      photos: "Fotod ja kommentaar"
+      contact: "Hind ja kontaktandmed"
+      checkout: "Aktiveerimine"
+    statistics:
+      views_title: "Viimase 30 päeva vaatamise statistika"
+      statistics: "Kuulutuse #%{id} vaatamise statistika"
+      date: Kuulutus lisatud
+      close: Sulge
+      views: Vaatamised
+    index:
+      ad_management: Kuulutuste haldamine
+      create_ad: Lisa kuulutus
+      nothing: Kuulutusi ei leitud
+      advert: kuulutus
+      status: STAATUS
+      created: Lisatud
+      cancelled: Tühistatud
+      unfinished: Lõpetamata
+      activated: Aktiveeritud
+      not_activated: Mitteaktiivne
+      statistics: Vaatamise statistika
+      preview: Eelvaade
+      edit: Muuda kuulutust
+      deactivate: Deaktiveeri
+      deactivate_sure: "Olete kindel, et soovite deaktiveerida oma kuulutust?"
+      activate: Aktiveeri
+      activate_sure: "Kas olete kindel?"
+      restore: Taasta
+      restore_sure: "Olete kindel, et soovite taastada oma kuulutust?"
+      remove: Eemalda või märgi müüduks
+      remove_sure: "Kas olete kindel?"
+    edit:
+      title: "Mis tüüpi sõidukit te tahate müüa?"
+      bodytype: Liik ja keretüüp
+      make: Mark
+      model_name: Mudel
+      variant: Mudeli versioon
+      year: Ehitusaasta
+      registered_at: Esmane registreerimine 
+      odometer: Läbisõit
+      power: Mootori võimsus (kW)
+      size: "Mootori maht (l)"
+      fuel: Kütus
+      color: Värv
+      spec_color: Värvi täpsustus
+      metallic_color: Metallik värv
+      registered: Arvel Eestis
+      enter_reg: "Sisestage oma sõiduki registreerimismärk"
+      nb: "NB! Sõiduki registreerimismärk ei näidata teie kuulutusel"
+      show_reg_nr: Näita registreerimismärk ja vin-kood kuulutusel
+      provide_vin: "Anna kindlustunnet ja meelerahu sisestades sõiduki VIN-koodi, et potentsiaalsed ostjad saaksid vaadata teie sõiduki ajalugu."
+      vin: Vin-kood
+      find_details: Leia andmed
+    actions:
+      back: Tagasi
+      show: Näita
+      activate: Aktiveeri
+      save_preview: Salvesta ja näita eelvaadet
+      save_continue: Salvesta ja jätka
+      save_show: Salvesta ja näita
+    details:
+      title: "Lisa rohkem infot oma %{vehicle} kohta"
+      engine_details: Mootori andmed
+      engine_type: "Mootori tüüp:"
+      cylinders: "Silindrid:"
+      add_details: "Lisa info..."
+      select_measure: Vali mõõtmed
+      all_season_tires: Lamellrehvid
+      spike_tires: Naastrehvid
+      max_speed: "Tippkiirus (km/h):"
+      acceleration: "Kiirendus 0-100km/h (s):"
+      fuel_cons_city: "Kütusekulu linnas (l/100km):"
+      fuel_cons_freeway: "Kütusekulu maanteel (l/100km):"
+      fuel_combined: "Kütusekulu keskmine (l/100km):"
+      fuel_capacity: "Kütusepaak (l):"
+      height: "Kõrgus (mm):"
+      length: "Pikkus (mm):"
+      width: "Laius (mm):" 
+      wheelbase: "Teljevahe (mm):"  
+      gross_weight: "Täismass (kg):"
+      net_weight: "Tühimass (kg):"
+      load_capacity: "Kandevõime (kg):"
+      warranty_valid_to: "Garantii kehtib kuni:"
+      warranty_km: "Garantii (km):"
+      service_freq: "Hooldusintervall (kuud):"
+      service_km: "Hooldusintervall (km):"
+      next_service: "Järgmine hooldus:"
+      next_service_km: "Järgmine hooldus (km):"
+      inspection_valid_to: "Ülevaatus kehtib kuni:"
+      service_history: "Hooldusraamat:"
+      transmission: "Käigukast:"
+      gears: "Käikude arv:"
+      drivetype: "Vedav sild:"
+      location: "Asukoht:"
+      select_state: "Vali riik"
+      select_city: "Vali linn"
+      brought_from: "Toodud riigist:"
+      doors: "Ustearv:"
+      seats: "Istekohti:"
+      owners: "Omanikute arv:"
+      climate: "Kliimaseade:"
+      wrecked: "Avariiline"
+      exchange: "Vahetuse võimalus"
+      other_info: Muu info
+    features:
+      title: "Mis varustus on Teie sõidukil?"
+      lead: "Lisa või eemalda tehases paigaldatud, järelturu või standardseid sõiduki varustusi."
+      safety_security: "Turva- ja ohutusvarustus"
+      airbags: Turvapadjad
+      speakers: Spiikerid
+      comfort: Mugavusvarustus
+      interior_trim: Sisustus
+      other: Muu varustus
+    photos:
+      comments: Kommentaar
+      comments_lead: "Siin on võimalus jäädvustada reaalse ostja mõne huvi Teie sõiduki vastu. Kirjeldamine varustusest ja eristamine midagi oma sõiduki kohta teeb suurt erinevust Teie müüki edu."
+      upload_photos: Fotode lisamine
+      photos_lead: "Paku täiendavat kindlustunnet ostjale, lisades oma sõiduki pilte. Fotod peavad olema gif, jpg, jpeg või png laiendusega ja maksimaalselt 5 MB suurusega. Klõpsa ja lohista, et muuta fotode järjekorda."
+      add_pics: Lisa fotod
+      a_of_b: "%{a} of %{b} "
+      available: ""
+      previous: Eelmine
+      next: Järgmine
+      remove: Eemalda
+    contact:
+      price_title: Hind
+      price: "Hind:"
+      price_vat: "Hind sisaldab KM 20%"
+      negotiable: Kaubeldav
+      contact_title: Kontaktandmed
+      primary_number: "Telefon 1:"
+      secondary_number: "Telefon 2:"
+      email: "E-post:"
+  vehicles:
+    show:
+      incl_vat: "sisaldab KM 20%"
+      exl_vat: "KM 0%"
+      no_details: "-"
+      back: Tagasi
+      back_to_results: Tagasi tulemuste juurde
+      visits:
+        zero: 0 vaatamist
+        one: 1 vaatamine
+        other: "%{count} vaatamist"
+      private: Eraisik
+      dealer: Automüüja
+      images: Pilt
+      a_of_b: " %{a} (%{b})"
+      contact_dealer: Võta ühendust automüüjaga
+      contact_private_seller: Võta ühendust 
+      recently_viewed: Teised on samuti vaadanud
+      similar_cars: Sarnased kuulutused
+      interested: "Ma võin olla huvitatud..."
+      compare: Lisa võrdlusse
+      save: Salvesta 
+      unsave: Ära salvesta
+      share: Soovita sõbrale
+      report: Ebasobiv kuulutus
+      comments: Kommentaarid
+      bodystyle: Keretüüp
+      badge: Versioon
+      drivetype: Vedav sild
+      colour: Värvus
+      location: Asukoht
+      reg_plate: Reg. number
+      initial_reg: Esmane reg.
+      engine: Mootor
+      kilometres: Läbisõit
+      transmission: Käigukast
+      brought_from: Toodud riigist
+      vin: Vin kood
+      show: Näita 
+      specification: Tehnilised näitajad
+      features: Varustus
+      engine_power: Mootori võimsus
+      engine_type: Mootori tüüp
+      engine_size: Mootori maht
+      cylinders: Silindrite arv
+      top_speed: Tippkiirus
+      acceleration: Kiirendus 0-100 km/h
+      transmission_drivetrain: "Käigukast ja vedav sild"
+      drive: Vedav sild
+      gears: Käikude arv
+      gear_type: Käigukast
+      fuel: Kütus
+      fuel_type: Kütus
+      fuel_cons_city: "Kütusekulu linnas"
+      fuel_cons_combined: "Kütusekulu keskmine"
+      fuel_cons_freeway: "Kütusekulu maanteel"
+      fuel_capacity: Kütusepaak
+      wheels_tires: "Veljed ja rehvid"
+      summer_tires: Suverehvid
+      summer_tire_size: Suverehvi suurus
+      winter_tires: Talverehvid
+      winter_tire_size: Talverehvi suurus
+      light_alloy_wheels: Valuveljed  
+      no: Ei
+      all_season: lamellrehvid
+      with_spikes: naastrehvid
+      dimensions_weights: "Mõõdud ja massid"
+      height: Kõrgus
+      length: Pikkus
+      width: Laius
+      wheelbase: Teljevahe
+      gross_mass: Täismass
+      load_capacity: Kandevõime
+      kerb_weight: Tühimass
+      warranty_service: "Garantii ja hooldus"
+      warranty: Garantii
+      warranty_years: "Garantii (kuud)"
+      warranty_km: "Garantii (km)"
+      service_interval: Hooldusintervall
+      service_interval_km: "Hooldusintervall (km)"
+      service_interval_months: "Hooldusintervall (kuud)"
+      inspection_valid_to: "Järgmine teh. ülevaatus"
+      next_service: Järgmine hooldus
+      next_service_km: "Järgmine hooldus (km)"
+      service_history: Hooldusraamat
+      months: kuud
+      other: Muu
+      doors: Uste arv
+      seats: Istekohti
+      origin: Toodud riigist
+      owners: Omanikute arv
+      ad_updated: "Kuulutuse viimane muutmine oli"
+      audio_visual: "Audio, video ja kommunikatsioon"
+      speaker_stereo: "%{n}x spiikritega stereo"
+      car_stereo: "Stereo"
+      original: originaal
+      cd_player: CD mängija
+      mp3: MP3 mängija
+      usb: USB pesa
+      aux: "AUX sisend"
+      mem_card: Mälukaardi pesa
+      remote_control: Pult
+      subwoofer: Subwoofer
+      cd_changer: CD box
+      electric_antenna: Elektriline antenn
+      navigation: Navigatsioon
+      computer: Autokompuuter
+      car_phone: Autotelefon
+      hands_free: Käedvabad süsteem
+      gsm_antenna: GSM antenn
+      safety_security: "Turva- ja ohutusvarustus"
+      airbags: turvapadjad
+      central_locking: Kesklukustus
+      with_remote: puldiga
+      abs: "ABS pidurid"
+      alarm: Signalisatsioon
+      tow_away: Kaldeandur
+      motion_sensor: Mahuandur
+      communication: "Kahepoolne side"
+      immobilizer: Immobilisaator
+      anti_skid: Anti-skid system
+      stability: Stabiilsuskontroll
+      brake_force: Pidurdusjõukontroll
+      traction: Veojõukontroll
+      seatbelt: Turvavööde eelpingutid esiistemetel
+      comfort_convenience: "Mugavusvarustus"
+      electric_mirrors: Elektrilised välispeeglid
+      with_memory: mäluga
+      heated_mirrors: soojendusega
+      folding_mirrors: kokkuklapitavad
+      sunroof: Katuselukk
+      cruise: Püsikiiruse hoidja
+      distance: Eessõitjaga distantsi jälgija
+      engine_preheating: Motori eelsoojendus
+      parking_sensors: Parkimisandurid
+      spotlights: Kohtvalgustid
+      temperature_indicator: Sisetemperatuuri näidik
+      lights_windows: "Tuled ja aknad"
+      xenon: Xenon
+      third_brake: Lisapidurituli
+      washers: Esitulede pesurid
+      dim_dip: Special dim dip light
+      fog: Udutuled
+      front: eesmised
+      rear: tagumised
+      headlight_range: Tulede korrektor
+      extra_lights: Lisatuled
+      auto_lights: Päevasõidutulede automaatne lülitus
+      power_windows: Elektrilised akende tõstukid
+      tinted_windows: Toonitud klaasid
+      rain_sensor: Vihmasensor
+      rear_wiper: Tagaklaasi puhasti
+      front_window_heating: Esiklaasi soojendus
+      rear_window_heating: Tagaklaasi soojendus
+      low_beam: lähituled
+      high_beam: kaugtuled
+      steering: Rool
+      power_steering: Roolivõimendi
+      multi_wheel: Multifunktsionaalne rool
+      adjustable_column: Reguleeritav roolisammas
+      tilt_reach: kõrgus ja sügavus
+      electrical: elektriline
+      interior: Sisustus
+      cloth: Tekstiilpolster
+      vinyl: Veluurpolster
+      faux: Poolnahkpolster
+      leather: Nahkpolster
+      wood: Puitdekoor
+      chrome: Kroomdekoor
+      mats: Jalamatid
+      textile: Tekstiilist jalamatid
+      rubber: Kummist jalamatid
+      velour: Veluurist jalamatid
+      leather_shift: Nahkkattega käigukanginupp
+      leather_break: Nahkkattega käsipidurikang
+      leather_wheel: Nahkkattega rool
+      seats: Istmed
+      electrical_seats: elektriliselt reguleeritavad istmed
+      seats_with_heating: soojendusega istmed
+      front_armrest: Käetugi ees
+      rear_armrest: Käetugi taga
+      down_folding: Tagaistme seljatugi allaklapitav
+      other_features: Muu varustus
+      dust_shields: Rataste ilukilbid
+      roof_railings: Katusereelingud
+      roof_rack: Katuseraam
+      isolation_net: Salongi ja pakiruumi eraldusvõrk
+      luggage_cover: Pagasikate
+      tow_hitch: Veokonks
+      removable: teisaldatav
+      sump_shield: Karterikaitse
+      side_steps: Astmelauad
+      outside_temperature: Välistemperatuuri näidik
+    search:
+      viewed_by_you: Ma olen vaadanud
+  comments:
+    write_comment: "Sinu kommentaar..."
+    comments: Kommentaarid
+    create: Lisa kommentaar
+    reply: Vasta
+    cancel: Tühista
+    write_reply: "Lisa vastus..."
+    delete: Kustuta
+  inquiries:
+    write_message: "Sinu küsimus..."
+    send: Saada küsimus
+    name: Saatja nimi
+    email: Saatja e-post
+    friends_email: Sõbra e-post
+    sold: Müüdud
+    suspicious: Kahtlustav
+    incorrect: Puuduvad või valed andmed
+    close: Sulge
+    send_to_friend: Soovita sõbrale
+    report_ad: Teata ebasobivast kuulutusest
+    report: Teata ebasobivast kuulutusest
+    acknowledge: "Klikkides nupule \"Saada\" kinnitate, et nõustute Webauto kasutustingimuste ja privaatsuspoliitikaga."
+  users:
+    dashboard:
+      dashboard: Töölaud
+      lead: "Staying in touch with Webauto just became a whole lot easier. Now that you're a member, you can manage all your ads and searches in the one place to make buying and selling a cinch."
+      saved_vehicles: Salvestatud sõidukid
+      view_all: Näita kõiki
+      sold: MÜÜDUD
+      saved_on: Salvestatud
+      saved_searches: Salvestatud otsingud
+      last_searches: Viimased otsingud
+      searched_on: Otsitud
+    profile:
+      profile: Muuda andmeid
+      details: ""
+      for_security: ""
+      security: "Selleks, et muuta oma e-posti aadressi palume kirjutada support@webauto.ee"
+      name: Nimi
+      country: Riik
+      city: Linn
+      primary_phone: Telefon 1
+      secondary_phone: Telefon 2
+      email: E-post
+      new_password: Uus parool
+      password: Parool
+      password_confirm: Parooli kinnitus
+      current_password: Praegune parool
+      company_name: Firma nimi
+      address1: Aadress 1
+      address2: Aadress 2
+      postal_code: Postiindeks
+      registration_code: Registrikood
+      vat_number: KMK number
+      webpage: Koduleht
+      hint: "Jäta see tühjaks, kui sa ei taha seda muuta"
+      need_password: "Muutuste kinnitamiseks, sisestage oma praegune parool"
+      update: Salvesta
+      cancel: "Tühista minu konto"
+      cancel_sure: "Kas olete kindel?"
+      add_pic: Lisa pilt
+      remove: Kustuta
+      remove_sure: 'Olete kindel, et soovite kustutada selle pildi?'
+    settings:
+      settings: Seaded
+      notifications: Salvestatud sõiduki teavitused
+      notify: "Teavita mind, kui:"
+      price_alert: "Hind muutub või on eripakkumine"
+      sold_alert: "Sõiduk on müüdud"
+      interest_alert: "Suureneb huvi sõiduki vastu"
+      future_updates: "Uudiskirjad"
+      future_updates_text: "Webauto liikmena, me informeerime teid kõikidest uutest põnevatest funktsioonidest, eksklusiivsetest diilidest meilt ja meie partneritelt ja kõikidest olulistest asjadest, mis on seotud sõiduki omandiga. Teie tevitusi ja kontaktandmeid ei jagata ühegi kolmanda poolega väljaspool Webauto võrku."
+      future_updates_check: "Eksklusiivse Webauto liikmena soovin saada uudiseid, pakkumiseid ja muud informatsiooni minu e-postile"
+      language: Keel
+      save: Salvesta
+  searches:
+    index:
+      saved_searches_and_alerts: "Salvestatud otsingud ja e-agendid"
+      available_searches: "otsingut"
+      a_of_b: "%{a}(%{b})"
+      rename_search: "Muuda otsingu nime"
+      save_search: "Salvesta otsing"
+      save: Salvesta
+      close: Sulge
+      name: Nimi
+      search_name: NIMI
+      details: DETAILID
+      freq: TEAVITAMINE
+      activity: AKTIIVSUS
+      delete_all: Kustuta kõik
+      sure: "Olete kindel, et soovite kustutada kõik otsingud?"
+      no_alert: Ära teavita
+      actions: Tegevused
+      rename: Muuda nime
+      delete: Kustuta
+      delete_sure: "Olete kindel, et soovite kustutada?"
+      saved_on: Salvestatud
+      run: Run search
+  saved_items:
+    index:
+      saved_items: Salvestatud sõidukid
+      a_of_b: " %{a}(%{b})"
+      available_items: sõidukit
+      description: KIRJELDUS
+      price: HIND
+      recent: AKTIIVSUS
+      sold: MÜÜDUD
+      search_similar: Otsi sarnaseid
+      last_listed: Viimane hind oli
+      other_people: "Teised inimesed on salvestatud selle sõiduki"
+  compared_items:
+    index:
+      title: Autode võrdlus
+      remove: Eemalda
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo; eelmised"
+      next: "järgmised &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "<div class='alert'>Kuulutusi ei leitud</div>"
+          one: "<small>Näitan <span class='badge badge-info'>1</span> %{entry_name}</small>"
+          other: "<small>Näitan <span class='badge badge-info'>%{count}</span> kuulutust</small>"
+      more_pages:
+        display_entries: "<small>Kokku <span class='badge badge-info'>%{total}</span> sõidukit. Näitan <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span></small>"
+  activerecord:
+    errors:
+      models:
+        compared_item:
+          attributes:
+            vehicle_id:
+              taken: Already taken
+        user:
+          attributes:
+            current_password:
+              blank: cannot be blank

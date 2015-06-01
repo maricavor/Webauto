@@ -1,0 +1,47 @@
+<div class="sidebar-nav" style="padding-bottom:0;" id="refine_search">
+  <%= form_for @search,url: searches_path, :html=>{:class=>"vehicles_custom_search"},:authenticity_token => true, :remote=>@remote, method: :post do |f| %>
+    <%= f.select :tp, [["Type (any)",""]]+Type.order(:name).collect {|p| [ p.name, p.id ] },{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%"} %>
+    <%= f.grouped_collection_select :bt,Type.order(:name),:bodytypes,:id,:id,:name,{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>'Body type (any)',:'data-width'=>"100%",:'data-selected-text-format'=>"count>2"} %>
+    <%= f.fields_for :fields do |builder| %>
+      <%= render 'vehicles/partials/field_fields', f: builder,remove_link: false %>
+    <% end %>
+    <p><%= link_to_add_fields "+ Add another car", f, :fields %></p>
+    <ul class="horizontal"><li  class="horizontal"><%= f.select :fpgt, [["Min price",""]]+get_prices,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li>
+      <li  class="horizontal"><%= f.select :fplt, [["Max price",""]]+get_prices,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li>
+    </ul>
+    <ul class="horizontal"><li  class="horizontal"><%= f.select :pwgt, [["Min power",""]]+get_powers,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li>
+      <li  class="horizontal"><%= f.select :pwlt, [["Max power",""]]+get_powers,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li></ul>
+    <ul class="horizontal"><li  class="horizontal"><%= f.select :kmgt, [["Min mileage",""]]+get_kms,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li>
+      <li  class="horizontal"><%= f.select :kmlt, [["Max mileage",""]]+get_kms,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li></ul>
+    <ul class="horizontal"><li  class="horizontal"><%= f.select :yeargt, [["Min year",""]]+get_min_years,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li>
+      <li  class="horizontal"><%= f.select :yearlt, [["Max year",""]]+get_max_years,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %></li></ul>
+    <ul class="horizontal"><li  class="horizontal"><%= f.select :stgt, [["Min seats",""]]+get_seats,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-subtext'=>"Min seats",:'data-width'=>"100%",:'data-size'=>"10"} %></li>
+      <li  class="horizontal"><%= f.select :stlt, [["Max seats",""]]+get_seats,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-subtext'=>"Max seats",:'data-width'=>"100%",:'data-size'=>"10"} %></li></ul>
+    <%= f.select :doors,get_doors,{},{:class=>"selectpicker show-tick show-menu-arrow",:'data-subtext'=>"Doors",:multiple=>"multiple", :title=>'No. of doors (any)',:'data-width'=>"100%",:'data-size'=>"10"} %>
+    <%= f.select :ft,Fueltype.order(:name).collect {|p| [ p.name, p.id ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>'Fuel type (any)',:'data-width'=>"100%",:'data-selected-text-format'=>"count>2"} %>
+    <%= f.select :tm,Transmission.order(:name).collect {|p| [ p.name, p.id ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>'Transmission (any)',:'data-width'=>"100%",:'data-selected-text-format'=>"count>2"} %>
+    <%= f.select :dt,Drivetype.order(:name).collect {|p| [ p.name, p.id ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>'Drive type (any)',:'data-width'=>"100%",:'data-selected-text-format'=>"count>1"} %>
+    <%= f.select :cl,@colours.collect {|p| [ p.name, p.id ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>'Colour (any)',:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>2"} %>
+    <%= f.select :location,Country.order(:name).collect {|p| [ p.name, p.id ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>'Country (any)',:'data-live-search'=>"true",:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>2"} %>
+    <%= f.select :region,@states.collect {|p| [ p.name.upcase, p.name ] }+@cities.collect {|p| [ p.name, p.name ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>'Region (any)',:'data-live-search'=>"true",:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>2"} %>
+    <%= f.text_field :keywords,:placeholder=>"Keywords" %>
+    <div class="checkboxes">
+      <label class="checkbox">
+        <%= f.check_box :dealer %>
+        Dealer
+      </label>
+      <label class="checkbox">
+        <%= f.check_box :is_private %>
+        Private seller
+      </label>
+    </div>
+    <div style="clear: both;"></div>
+    <%= f.hidden_field :user_ip,:value=>request.remote_ip %>
+    <%= f.hidden_field :user_id,:value=>current_user.id if current_user %>
+    <p style="margin-top:5px;"><button class="btn btn-large btn-info btn-block" type="submit" >Search</button></p>
+  <% end %>
+  <p class="muted"><small>Search powered by
+      <a href="https://github.com/activerecord-hackery/ransack/" target="_blank">
+        Ransack
+      </a></small></p>
+</div><!--/.well -->

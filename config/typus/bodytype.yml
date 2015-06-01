@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Bodytype:
+  fields:
+    default: name, popularity
+    form: name, popularity
+  relationships: vehicles
+  application: Application

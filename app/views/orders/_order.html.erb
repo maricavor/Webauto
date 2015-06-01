@@ -1,0 +1,13 @@
+
+<table class="table">
+<% @order.line_items.each do |item| %>
+<tr>
+<td><%= item.service.title %></td>
+<td><%= number_to_currency(item.price) %></td>
+</tr>
+<% end %>
+<tr>
+<td>Total</td>
+<td><%= number_to_currency(@order.total_price) %></td>
+</tr>
+</table>

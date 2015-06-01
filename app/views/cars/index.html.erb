@@ -1,0 +1,141 @@
+<div class="row-fluid">
+  <div class="span3">
+      <%= render 'cars/partials/search_form' %>
+  </div><!--/span-->
+  <div class="span9">
+    <div id="logo" class="hero-unit hidden-phone">
+    	 <%= image_tag "/logo.png",width: "270px" %>
+    	 <br>
+            <p></p><p>  </p>
+            <br>
+            <p>
+            <%= link_to t("index.create_ad"), new_advert_path,:class=>"btn btn-primary btn-large"  %>
+            </p>
+    </div>
+    <%= render 'vehicles/partials/indexTabs' %>
+  </div><!--/span-->
+</div><!--/row-->
+ <div style="padding-top:20px; margin-top:20px; border-top: 1px solid #eeeeee;">
+ 
+
+<div class="row-fluid">
+    <div class="span2">
+      <table class="table table-condensed table-striped borderless">
+ <thead>
+                <tr>
+                  <th><%= t("index.popular_makes") %></th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% @popular_makes.each_with_index do |pm,i| %>
+                  <% if i<5 %>
+                <tr>
+                  <td> <%= link_to pm.name, new_search_path(:search=>"make",:value=>pm.name),:method=>:post  %></td>
+                </tr>
+                <% end %>
+                 <% end %>
+              </tbody>
+</table>
+        
+    </div>
+      <div class="span2">
+        <table class="table table-condensed table-striped borderless">
+ <thead>
+                <tr>
+                  <th>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% @popular_makes.each_with_index do |pm,i| %>
+                  <% if i>4 %>
+                <tr>
+                  <td> <%= link_to pm.name, new_search_path(:search=>"make",:value=>pm.name),:method=>:post  %></td>
+                </tr>
+                <% end %>
+                 <% end %>
+              </tbody>
+</table>
+        
+    </div>
+     <div class="span2">
+        <table class="table table-condensed table-striped borderless">
+ <thead>
+                <tr>
+                  <th><%= t("index.popular_models") %></th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% @popular_models.each_with_index do |pm,i| %>
+                   <% make_name=pm.make.name %>
+                  <% if i<5 %>
+                <tr>
+                  <td>  <%= link_to "#{make_name} #{pm.name}", new_search_path(:search=>"model",:value=>make_name,:model=>pm.name),:method=>:post  %></td>
+                </tr>
+                <% end %>
+                 <% end %>
+              </tbody>
+</table>
+     
+    </div>
+     <div class="span2">
+       <table class="table table-condensed table-striped borderless">
+ <thead>
+                <tr>
+                  <th>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% @popular_models.each_with_index do |pm,i| %>
+                   <% make_name=pm.make.name %>
+                  <% if i>4 %>
+                <tr>
+                  <td>  <%= link_to "#{make_name} #{pm.name}", new_search_path(:search=>"model",:value=>make_name,:model=>pm.name),:method=>:post  %></td>
+                </tr>
+                <% end %>
+                 <% end %>
+              </tbody>
+</table>
+    </div>
+     <div class="span2">
+       <table class="table table-condensed table-striped borderless">
+ <thead>
+                <tr>
+                  <th><%= t("index.popular_bodytypes") %></th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% @popular_bodytypes.each_with_index do |bt,i| %>
+                  <% if i<5 %>
+                <tr>
+                  <td>  <%= link_to bt.name, new_search_path(:search=>"bodytype",:value=>bt.id),:method=>:post  %></td>
+                </tr>
+                <% end %>
+                 <% end %>
+              </tbody>
+</table>
+       
+    </div>
+    
+     <div class="span2">
+            <table class="table table-condensed table-striped borderless">
+ <thead>
+                <tr>
+                  <th>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% @popular_bodytypes.each_with_index do |bt,i| %>
+                  <% if i>4 %>
+                <tr>
+                  <td>  <%= link_to bt.name, new_search_path(:search=>"bodytype",:value=>bt.id),:method=>:post  %></td>
+                </tr>
+                <% end %>
+                 <% end %>
+              </tbody>
+</table>
+      
+    </div>
+   
+
+</div>
+

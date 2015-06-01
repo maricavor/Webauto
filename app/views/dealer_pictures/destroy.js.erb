@@ -1,0 +1,4 @@
+$("#pic_<%= @picture.id %>").remove();
+$('.site-message').html("<%= j(render partial:'layouts/messages')%>");
+$('html, body').scrollTop(0);
+$('#fileupload').removeClass('hidden');

@@ -1,0 +1,4 @@
+if ($(".reply_form").length != 0) {
+    $(".reply_form").remove();
+}
+$("#comment_<%= @parent %>").append("<%= j(render partial:'comments/form',locals: { :parent => @parent})%>");

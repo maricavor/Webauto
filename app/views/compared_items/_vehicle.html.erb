@@ -1,0 +1,18 @@
+                          
+            
+
+
+ <% vehicle = compared_item %>
+ <% picture=vehicle.pictures.first  %>
+
+
+  <div class="thumbnail" style="max-width: 300px; float:right;">
+    <% if picture %>
+      <%= link_to image_tag(picture.file_url(:thumb)), send("#{vehicle.type.name.downcase}_path", vehicle) %>
+    <% else %>
+      <%= image_tag "/thumbnail.png",size: "300x200" %>
+    <% end %>
+  </div>
+  
+
+ 

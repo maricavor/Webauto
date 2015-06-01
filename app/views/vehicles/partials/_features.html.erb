@@ -1,0 +1,533 @@
+<div class="row-fluid specs">
+  <div class="span6">
+    <%= spec_title(t("vehicles.show.audio_visual")) %>
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <td>
+            <ul class="unstyled">
+              <% if @vehicle.car_stereo %>
+              <li>
+                  <%= @vehicle.speakers_count>0 ? "#{t('vehicles.show.speaker_stereo',:n=>@vehicle.speakers_count)}" : "#{t('vehicles.show.car_stereo')}" %>
+                  <%= spec_details([[@vehicle.car_stereo_original,t("vehicles.show.original")],[@vehicle.car_stereo_details,@vehicle.car_stereo_details.downcase]]) %>
+                 
+                </li>
+              <% end %>
+              <% if @vehicle.car_stereo_cd %>
+                <li>
+                  <%= t("vehicles.show.cd_player") %>
+                </li>
+              <% end %>
+              <% if @vehicle.car_stereo_mp3 %>
+                <li>
+                   <%= t("vehicles.show.mp3") %>
+                </li>
+              <% end %>
+              <% if @vehicle.car_stereo_usb %>
+                <li>
+                   <%= t("vehicles.show.usb") %>
+                </li>
+              <% end %>
+              <% if @vehicle.car_stereo_aux %>
+                <li>
+                   <%= t("vehicles.show.aux") %>
+                </li>
+              <% end %>
+              <% if @vehicle.car_stereo_card %>
+                <li>
+                  <%= t("vehicles.show.mem_card") %>
+                </li>
+              <% end %>
+              <% if @vehicle.car_stereo_with_remote %>
+                <li>
+                   <%= t("vehicles.show.remote_control") %>
+                </li>
+              <% end %>
+              <% if @vehicle.subwoofer %>
+                <li>
+                   <%= t("vehicles.show.subwoofer") %>
+                </li>
+              <% end %>
+              <% if @vehicle.cd_changer %>
+                <li>
+                   <%= t("vehicles.show.cd_changer") %>
+                </li>
+              <% end %>
+              <% if @vehicle.electric_antenna %>
+                <li>
+                   <%= t("vehicles.show.electric_antenna") %>
+                </li>
+              <% end %>
+              <% if @vehicle.navigation %>
+                <li>
+                   <%= t("vehicles.show.navigation") %>
+                </li>
+              <% end %>
+              <% if @vehicle.computer %>
+                <li> <%= t("vehicles.show.computer") %>
+                </li>
+              <% end %>
+              <% if @vehicle.car_phone %>
+                <li>
+                   <%= t("vehicles.show.car_phone") %>
+                </li>
+              <% end %>
+              <% if @vehicle.hands_free %>
+                <li>
+                   <%= t("vehicles.show.hands_free") %> <%= "(#{@vehicle.hands_free_details.downcase})" if @vehicle.hands_free_details.present? %>
+                </li>
+              <% end %>
+              <% if @vehicle.gsm %>
+                <li>
+                   <%= t("vehicles.show.gsm_antenna") %>
+                </li>
+              <% end %>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="span6">
+      <%= spec_title(t("vehicles.show.safety_security")) %>
+      <table class="table table-condensed">
+        <tbody>
+          <tr>
+            <td>
+              <ul class="unstyled">
+                 <% if @vehicle.airbags>0 %>
+<li><%= "#{@vehicle.airbags}x #{t('vehicles.show.airbags')}" %></li>
+<% end %>
+                <% if @vehicle.central_locking %>
+                  <li>
+                    <%= t("vehicles.show.central_locking") %>
+                    <%= "(#{t('vehicles.show.with_remote')})" if @vehicle.with_remote %>
+                  </li>
+                <% end %>
+                <% if @vehicle.abs %>
+                  <li>
+                    <%= t("vehicles.show.abs") %>
+                  </li>
+                <% end %>
+              
+                <% if @vehicle.alarm %>
+                  <li>
+                     <%= t("vehicles.show.alarm") %>
+                    <%= "(#{@vehicle.alarm_details.downcase})" if @vehicle.alarm_details!="" %>
+                  </li>
+                <% end %>
+                <% if @vehicle.alarm_with_tow_away_protection %>
+                  <li>
+                     <%= t("vehicles.show.tow_away") %>
+                  </li>
+                <% end %>
+                <% if @vehicle.alarm_with_motion_sensor %>
+                  <li>
+                     <%= t("vehicles.show.motion_sensor") %>
+                  </li>
+                <% end %>
+                <% if @vehicle.alarm_with_two_way_comm %>
+                  <li>
+                     <%= t("vehicles.show.communication") %>
+                  </li>
+                <% end %>
+                <% if @vehicle.immobilizer %>
+                  <li>
+                     <%= t("vehicles.show.immobilizer") %>
+                  </li>
+                <% end %>
+                <% if @vehicle.anti_skidding %>
+                  <li>
+                     <%= t("vehicles.show.anti_skid") %>
+                    <%= "(#{@vehicle.anti_skidding_details.downcase})" if @vehicle.anti_skidding_details!="" %>
+                  </li>
+                <% end %>
+                <% if @vehicle.stability_control %>
+                  <li>
+                     <%= t("vehicles.show.stability") %>
+                    <%= "(#{@vehicle.stability_control_details.downcase})" if @vehicle.stability_control_details!="" %>
+                  </li>
+                <% end %>
+                <% if @vehicle.braking_force_reg %>
+                  <li>
+                     <%= t("vehicles.show.brake_force") %>
+                    <%= "(#{@vehicle.braking_force_reg_details.downcase})" if @vehicle.braking_force_reg_details!="" %>
+                  </li>
+                <% end %>
+                <% if @vehicle.traction_control %>
+                  <li>
+                     <%= t("vehicles.show.traction") %>
+                    <%= "(#{@vehicle.traction_control_details.downcase})" if @vehicle.traction_control_details!="" %>
+                  </li>
+                <% end %>
+                <% if @vehicle.seatbelt_pretightener %>
+                  <li>
+                     <%= t("vehicles.show.seatbelt") %>
+                  </li>
+                <% end %>
+              </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row-fluid specs">
+      <div class="span6">
+        <%= spec_title(t("vehicles.show.comfort_convenience")) %>
+        <table class="table table-condensed">
+          <tbody>
+            <tr>
+              <td>
+                <ul class="unstyled">
+                 <% if @vehicle.climate_control %>
+                    <li>
+                      <%= @vehicle.climate_control %> 
+                    </li>
+                  <% end %>
+
+                  <% if @vehicle.electric_mirrors %>
+                    <li>
+                      <%= t("vehicles.show.electric_mirrors") %> <%= mirrors %>
+                    </li>
+                  <% end %>
+                 
+            
+                  <% if @vehicle.sunroof %>
+                    <li>
+                      <%= t("vehicles.show.sunroof") %> 
+                      <%= "(#{@vehicle.sunroof_details.downcase})" if @vehicle.sunroof_details %>
+                    </li>
+                  <% end %>
+                  <% if @vehicle.cruise_control %>
+                    <li>
+                      <%= t("vehicles.show.cruise") %> 
+                    </li>
+                  <% end %>
+                  <% if @vehicle.distance_monitoring %>
+                    <li>
+                      <%= t("vehicles.show.distance") %> 
+                    </li>
+                  <% end %>
+                  <% if @vehicle.engine_preheating %>
+                    <li>
+                      <%= t("vehicles.show.engine_preheating") %> 
+                      <%= "(#{@vehicle.engine_preheating_details.downcase})" if @vehicle.engine_preheating_details!="" %>
+                    </li>
+                  <% end %>
+                  <% if @vehicle.parking_aid %>
+                    <li>
+                      <%= t("vehicles.show.parking_sensors") %> 
+                      <%= parking_sensors %>
+                    </li>
+                  <% end %>
+                    <% if @vehicle.spot_lights %>
+                      <li>
+                        <%= t("vehicles.show.spotlights") %> 
+                      </li>
+                    <% end %>
+                  <% if @vehicle.inside_temperature_indicator %>
+                    <li>
+                      <%= t("vehicles.show.temperature_indicator") %> 
+                    </li>
+                  <% end %>
+                    
+                </ul>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div class="span6">
+          <%= spec_title(t("vehicles.show.lights_windows")) %>
+          <table class="table table-condensed">
+            <tbody>
+              <tr>
+                <td>
+                  <ul class="unstyled">
+                  
+                  <% if @vehicle.xenon %>
+                      <li>
+                        <%= t("vehicles.show.xenon") %>
+                        <%= xenon %>
+                      </li>
+                    <% end %>
+                    <% if @vehicle.third_brake_light %>
+                      <li>
+                         <%= t("vehicles.show.third_brake") %>
+                      </li>
+                    <% end %>
+                 
+                   
+                    <% if @vehicle.headlight_washer %>
+                      <li>
+                         <%= t("vehicles.show.washers") %>
+                      </li>
+                    <% end %>
+                   
+                    <% if @vehicle.fog_lights %>
+                      <li>
+                         <%= t("vehicles.show.fog") %>
+                        <%= fog_lights %>
+                      </li>
+                    <% end %>
+                    <% if @vehicle.headlight_range %>
+                      <li>
+                         <%= t("vehicles.show.headlight_range") %>
+                      </li>
+                    <% end %>
+                    <% if @vehicle.extra_lights %>
+                      <li>
+                         <%= t("vehicles.show.extra_lights") %>
+                        <%= "(#{@vehicle.extra_lights_details.downcase})" if @vehicle.extra_lights_details!="" %>
+                      </li>
+                    <% end %>
+                    <% if @vehicle.auto_light %>
+                      <li>
+                         <%= t("vehicles.show.auto_lights") %>
+                      </li>
+                    <% end %>
+                     <% if @vehicle.power_windows %>
+                      <li>
+                         <%= t("vehicles.show.power_windows") %>
+                      </li>
+                    <% end %>
+                    <% if @vehicle.tinted_windows %>
+                      <li>
+                         <%= t("vehicles.show.tinted_windows") %>
+                      </li>
+                    <% end %>
+                  <% if @vehicle.rain_sensor %>
+                      <li>
+                         <%= t("vehicles.show.rain_sensor") %>
+                      </li>
+                    <% end %>
+                       <% if @vehicle.rear_wiper %>
+                      <li>
+                         <%= t("vehicles.show.rear_wiper") %>
+                      </li>
+                    
+
+                    <% end %>
+                  
+                      <% if @vehicle.front_window_heating %>
+                      <li>
+                         <%= t("vehicles.show.front_window_heating") %>
+                      </li>
+                    <% end %>
+                      <% if @vehicle.rear_window_heating %>
+                      <li>
+                         <%= t("vehicles.show.rear_window_heating") %>
+                      </li>
+                    <% end %>
+                    
+                  </ul>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      
+             <div class="row-fluid specs">
+          <div class="span6">
+            <%= spec_title(t("vehicles.show.steering")) %>
+            <table class="table table-condensed">
+              <tbody>
+                <tr>
+                  <td>
+                    <ul class="unstyled">
+                  <% if @vehicle.power_steering %>
+                  <li>
+                    <%= t("vehicles.show.power_steering")  %>
+                    <%= "(#{@vehicle.power_steering_details.downcase})" if @vehicle.power_steering_details!="" %>
+                  </li>
+                <% end %>
+                   <% if @vehicle.steering_wheel_multifunctional %>
+                  <li>
+                    <%= t("vehicles.show.multi_wheel")  %>
+                 
+                  </li>
+                <% end %>
+                    <% if @vehicle.steering_wheel_adjustment %>
+                  <li>
+                    <%= t("vehicles.show.adjustable_column")  %>
+                    <%= spec_details([[@vehicle.steering_wheel_height_and_depth,t("vehicles.show.tilt_reach")],[@vehicle.steering_wheel_electrical,t("vehicles.show.electrical")],[@vehicle.steering_wheel_with_memory,t("vehicles.show.with_memory")]]) %>
+                  
+                  </li>
+                <% end %>
+                    </ul>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+
+  
+
+
+            <div class="span6">
+              <%= spec_title(t("vehicles.show.interior")) %>
+              <table class="table table-condensed">
+                <tbody>
+                  <tr>
+                    <td>
+                         <ul class="unstyled">
+                  <% if @vehicle.cloth_upholstery %>
+                  <li>
+                    <%= t("vehicles.show.cloth") %>
+                  </li>
+                <% end %>
+                   <% if @vehicle.vinyl_upholstery %>
+                  <li>
+                     <%= t("vehicles.show.vinyl") %>
+                  </li>
+                <% end %>
+                    <% if @vehicle.faux_leather_upholstery %>
+                  <li>
+                     <%= t("vehicles.show.faux") %>
+                  </li>
+                <% end %>
+                  <% if @vehicle.leather_upholstery %>
+                  <li>
+                     <%= t("vehicles.show.leather") %>
+                  </li>
+                <% end %>
+                  <% if @vehicle.wood_grain %>
+                  <li>
+                     <%= t("vehicles.show.wood") %>
+                  </li>
+                <% end %>
+                  <% if @vehicle.chrome %>
+                  <li>
+                    <%= t("vehicles.show.chrome") %>
+                  </li>
+                <% end %>
+                  <% if @vehicle.textile_mats %>
+                  <li>
+                     <%= t("vehicles.show.textile") %>
+                  </li>
+                <% end %>
+                  <% if @vehicle.rubber_mats %>
+                  <li>
+                     <%= t("vehicles.show.rubber") %>
+                  </li>
+                <% end %>
+                  <% if @vehicle.velour_mats %>
+                  <li>
+                     <%= t("vehicles.show.velour") %>
+                  </li>
+                <% end %>
+                  <% if @vehicle.leather_shift_lever %>
+                  <li>
+                    <%= t("vehicles.show.leather_shift") %>
+                  </li>
+                <% end %>
+                  <% if @vehicle.leather_hand_break %>
+                  <li>
+                     <%= t("vehicles.show.leather_break") %>
+                  </li>
+                <% end %>
+                <% if @vehicle.steering_wheel_leather%>
+                  <li>
+                     <%= t("vehicles.show.leather_wheel") %>
+                  </li>
+                <% end %>
+                    </ul>
+                    </td>
+                  </tr>
+           
+                </table>
+              </div>
+            </div>
+       
+           <div class="row-fluid specs">
+  <div class="span6">
+    <%= spec_title(t("vehicles.show.seats")) %>
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <td>
+            <ul class="unstyled">
+                   <% if @vehicle.electrical_seats_count>0 %>
+<li><%= "#{@vehicle.electrical_seats_count}x #{t('vehicles.show.electrical_seats')}" %>     <%= "(#{t('vehicles.show.with_memory')})" if @vehicle.electrical_seats_with_memory %></li>
+<% end %>
+                  
+                     <% if @vehicle.seat_heating_count>0 %>
+<li><%= "#{@vehicle.seat_heating_count}x #{t('vehicles.show.seats_with_heating')}" %></li>
+<% end %>
+              <% if @vehicle.front_armrest %>
+                  <li>
+                    <%= t("vehicles.show.front_armrest") %>
+                  </li>
+                <% end %>
+               <% if @vehicle.rear_armrest %>
+                  <li>
+                    <%= t("vehicles.show.rear_armrest") %>
+                  </li>
+                <% end %>
+                  <% if @vehicle.down_folding_back_rest %>
+                  <li>
+                    <%= t("vehicles.show.down_folding") %>
+                  </li>
+                <% end %>
+                    </ul>
+          </td>
+        </tr>
+      </table>
+    </div>
+ 
+    <div class="span6">
+      <%= spec_title(t("vehicles.show.other_features")) %>
+      <table class="table table-condensed">
+        <tbody>
+          <tr>
+            <td>
+               <ul class="unstyled">
+                   <% if @vehicle.dust_shields %>
+<li><%= t("vehicles.show.dust_shields") %>  </li>
+<% end %>
+                  
+                    <% if @vehicle.roof_railings %>
+<li><%= t("vehicles.show.roof_railings") %> </li>
+<% end %>
+              <% if @vehicle.roof_rack %>
+                  <li>
+                    <%= t("vehicles.show.roof_rack") %>
+                  </li>
+                <% end %>
+               <% if @vehicle.isolation_net %>
+                  <li>
+                    <%= t("vehicles.show.isolation_net") %>
+                  </li>
+                <% end %>
+                  <% if @vehicle.luggage_cover %>
+                  <li>
+                   <%= t("vehicles.show.luggage_cover") %>
+                  </li>
+                <% end %>
+                  <% if @vehicle.tow_hitch %>
+                  <li>
+                   <%= t("vehicles.show.tow_hitch") %> <%= spec_details([[@vehicle.tow_hitch_removable,t("vehicles.show.removable")],[@vehicle.tow_hitch_electrical,t("vehicles.show.electrical")]]) %>
+                  </li>
+                <% end %>
+                  <% if @vehicle.sump_shield %>
+                  <li>
+                    <%= t("vehicles.show.sump_shields") %>
+                  </li>
+                <% end %>
+                  <% if @vehicle.side_steps %>
+                  <li>
+                    <%= t("vehicles.show.side_steps") %>
+                  </li>
+                <% end %>
+                  <% if @vehicle.outside_temperature_indicator %>
+                  <li>
+                   <%= t("vehicles.show.outside_temperature") %>
+                  </li>
+                <% end %>
+                    </ul>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+               
+                 
+                   

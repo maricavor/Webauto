@@ -1,0 +1,127 @@
+<% content_for :title,@title %>
+<div class="row-fluid">
+  <div class="span3">
+    <%= render 'well',:active=>"dashboard" %>
+  </div>
+  <div class="span9">
+    <div class="page-header">
+      <h2><%= t("users.dashboard.dashboard") %></h2>
+    </div>
+    <p class="lead"><%= t("users.dashboard.lead") %></p>
+    <div class="row-fluid">
+      <div class="span6">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th><%= t("users.dashboard.saved_vehicles") %></th>
+              <th style="text-align:right;"><small><%= link_to t("users.dashboard.view_all"), saved_items_url %></small></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @saved_items.each do |s| %>
+                <% advert=s.advert %>
+            
+               <tr>
+
+                  <% vehicle=advert.vehicle %>
+                  <% picture=vehicle.pictures.first %>
+                  <td width="150">
+                      <div class="thumbnail">          
+      <div class="image">
+         <% if advert.destroyed? %>
+      <% if picture %>
+      <%= image_tag(picture.file_url(:thumb)) %>
+   
+    <% else %>
+      <%= image_tag "/thumbnail.png",size: "300x200" %>
+    
+    <% end %>
+      
+      <figcaption class="red">
+          <strong><%= t("users.dashboard.sold") %></strong>
+      </figcaption>
+      <% else %>
+        <% if picture %>
+      <%= link_to image_tag(picture.file_url(:thumb)), send("#{vehicle.type.name.downcase}_path", vehicle) %>
+   
+    <% else %>
+      <%= image_tag "/thumbnail.png",size: "300x200" %>
+    
+    <% end %>
+      <% end %>
+  </div>
+    </div>
+
+                 
+                  </td>
+                  <td>
+                    <strong>
+                       <% if advert.destroyed? %>
+                   <%= s.name %>
+                 
+                 <% else %>
+                  <%= link_to s.name,  send("#{vehicle.type.name.downcase}_path", vehicle) %>
+                 <% end %>
+                    </strong>
+                 
+                    <br><small class="muted"><strong class="text-success"><%= t("users.dashboard.saved_on") %></strong>
+                        <strong><%= s.created_at.strftime("%d.%m.%y @ %I:%M") %></strong></small>
+                    </td>
+                  </tr>
+            <% end %>
+              </tbody>
+            </table>
+          </div>
+          <div class="span6">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th><%= t("users.dashboard.saved_searches") %></th>
+                  <th style="text-align:right;"><small><%= link_to t("users.dashboard.view_all"), searches_url %></small></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @saved_searches.each do |s| %>
+                  <tr>
+                    <td>
+                      <strong>
+                        <%= link_to_search(s) %>
+                      </strong>
+                      <br>
+                        <small class="muted"><strong class="text-success"><%= t("users.dashboard.saved_on") %></strong>
+                          <strong><%= s.updated_at.strftime("%d.%m.%y @ %I:%M") %></strong></small>
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+               <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th><%= t("users.dashboard.last_searches") %></th>
+                  <th style="text-align:right;"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @last_searches.each do |s| %>
+                  <tr>
+                    <td>
+                      <strong>
+                        <%= link_to_search(s) %>
+                      </strong>
+                      <br>
+                        <small class="muted"><strong class="text-success"><%= t("users.dashboard.searched_on") %></strong>
+                          <strong><%= s.updated_at.strftime("%d.%m.%y @ %I:%M") %></strong></small>
+                      </td>
+                      <td>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>

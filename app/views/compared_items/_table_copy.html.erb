@@ -1,0 +1,404 @@
+<% if compared_items.size>0 %>
+
+<table class="table table-condensed">
+<tr >
+  <td style="border: none;"></td>
+  <% 4.times do |i| %>
+  <td style="border: none;" class="right"><small>
+  <% if compared_items[i] %>
+  <% unless compared_items[i].vehicle.nil? %>
+  <%= link_to "Remove",compared_items[i],method: :delete,:remote=>true %> 
+  <% end %>
+  <% end %>
+  </small>
+  </td>
+  <% end %>
+
+ 
+  <% compared_items.each do |ci| %>
+  <% vehicle=ci.vehicle %>
+  <td style="border: none;" class="right"><small><%= link_to "Remove",ci,method: :delete,:remote=>true unless vehicle.nil? %></small></td>
+  <% end %>
+</tr>
+<tr>
+  <td style="border: none;">
+  </td>
+  <% compared_items.each do |ci| %>
+  <% vehicle=ci.vehicle %>
+  <td style="border: none;"><%= render 'compared_items/vehicle',:compared_item=>vehicle,:version=>"small" unless vehicle.nil? %> 
+ 
+ </td>
+  <% end %>
+  
+</tr>
+<tr>
+  <td style="border: none;">
+  </td>
+    <% compared_items.each do |ci| %>
+  <% vehicle=ci.vehicle %>
+  <td style="border: none;">
+ <h2 class="text-right text-success"><%= "#{currency(vehicle.price)}" %></h2>
+ 
+ </td>
+  <% end %>
+
+
+  </tr>
+    <tr>
+        <td>Body Style</td>
+        <% compared_items.each do |ci| %>
+        <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.bodytype_str)  %></td>
+          <% end %>
+          
+        </tr>
+   
+        <tr >
+          <td>Drive Type</td>
+        <% compared_items.each do |ci| %>
+        <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.drivetype) %></td>
+          <% end %>
+        </tr>
+        <tr >
+          <td>Colour</td>
+          <% compared_items.each do |ci| %>
+          <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.colour) %></td>
+          <% end %>
+
+        </tr>
+     
+        <tr >
+          <td>Location</td>
+        <% compared_items.each do |ci| %>
+        <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.location) unless vehicle.nil? %></td>
+          <% end %>
+        </tr>
+          <tr>
+          <td>Initial reg.</td>
+        <% compared_items.each do |ci| %>
+        <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.registered_at.strftime('%m/%Y') ) unless vehicle.nil? %></td>
+          <% end %>
+        </tr>
+
+        <tr >
+          <td>Kilometres</td>
+   <% compared_items.each do |ci| %>
+        <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.odometer_str) unless vehicle.nil? %></td>
+          <% end %>
+        </tr>
+        <tr >
+          <td>Transmission</td>
+       <% compared_items.each do |ci| %>
+        <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.transmission_str) unless vehicle.nil? %></td>
+          <% end %>
+        </tr>
+       
+        <tr >
+          <td>Brought From</td>
+               <% compared_items.each do |ci| %>
+        <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.origin_name) %></td>
+          <% end %>
+        </tr>
+ <tr><td>
+      <%= spec_title("Engine") %>
+         </td>
+        <% compared_items.each do |ci| %>
+          <td></td>
+          <% end %>
+ 
+       </tr>
+          <tr>
+          <td>Engine Power</td>
+  <% compared_items.each do |ci| %>
+          <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.engine_power_str)  %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Engine Type</td>
+  <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.engine_type)  %></td>
+          <% end %>
+        </tr>
+         <tr>
+          <td>Engine Size</td>
+    <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.engine_size_str)  %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Cylinders</td>
+      <% compared_items.each do |ci| %>
+          <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.cylinders_str)  %></td>
+          <% end %>
+        </tr>
+        <tr>
+          <td>Top Speed</td>
+       <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.max_speed_str)  %></td>
+          <% end %>
+        </tr>
+            
+   
+        <tr>
+          <td>Acceleration 0-100km/h</td>
+      <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.acceleration_str)  %></td>
+          <% end %>
+        </tr>
+        <tr><td>
+      <%= spec_title("Fuel") %>
+         </td>
+        <% compared_items.each do |ci| %>
+          <td></td>
+          <% end %>
+ 
+       </tr>
+        <tr>
+          <td>Fuel Type</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.fueltype)  %></td>
+          <% end %>
+        </tr>
+         <tr>
+          <td>Fuel Cons. (city) (l/100 km)</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.fuel_cons_city_str)  %></td>
+          <% end %>
+        </tr>
+          <tr>
+          <td>Fuel Cons. (freeway) (l/100 km)</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.fuel_cons_freeway_str)  %></td>
+          <% end %>
+        </tr>
+             <tr>
+          <td>Fuel Cons. (combined) (l/100 km)</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.fuel_cons_combined_str)  %></td>
+          <% end %>
+        </tr>
+         <tr>
+          <td>Fuel Capacity</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.fueltank_str)  %></td>
+          <% end %>
+        </tr>
+        <tr><td>
+           <%= spec_title("Wheels & Tires") %>
+         </td>
+        <% compared_items.each do |ci| %>
+          <td></td>
+          <% end %>
+ 
+       </tr>
+        <tr>
+          <td>Summer tyres</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.summer_tires_details) %></td>
+          <% end %>
+        </tr>
+            <tr>
+          <td>Summer tyre size</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.summer_tires_size) %></td>
+          <% end %>
+        </tr>
+             <tr>
+          <td>Winter tyres</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.winter_tires_details) %><%= spec_details([[vehicle.all_season_tires,"all season"],[vehicle.spike_tires,"with spikes"]]) %></td>
+          <% end %>
+        </tr>
+         <tr>
+          <td>Winter tyre size</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.winter_tires_size) %></td>
+          <% end %>
+        </tr>
+         <tr>
+          <td>Light allow wheels</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec((vehicle.light_alloy_wheels ? vehicle.light_alloy_wheels_details : "No"))  %></td>
+          <% end %>
+        </tr>
+         <tr><td>
+           <%= spec_title("Dimensions & Weights") %>
+         </td>
+        <% compared_items.each do |ci| %>
+          <td></td>
+          <% end %>
+ 
+       </tr>
+        <tr>
+          <td>Height</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.height) %></td>
+          <% end %>
+        </tr>
+          <tr>
+          <td>Length</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.length) %></td>
+          <% end %>
+        </tr>
+          <tr>
+          <td>Width</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.width) %></td>
+          <% end %>
+        </tr>
+          <tr>
+          <td>Wheelbase</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.wheelbase) %></td>
+          <% end %>
+        </tr>
+          <tr>
+          <td>Gross Vehicle Mass</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.gross_weight) %></td>
+          <% end %>
+        </tr>
+          <tr>
+          <td>Load Capacity</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.load_capacity) %></td>
+          <% end %>
+        </tr>
+          <tr>
+          <td>Kerb Weight</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.net_weight) %></td>
+          <% end %>
+        </tr>
+         <tr><td>
+           <%= spec_title("Warranty & Service") %>
+         </td>
+        <% compared_items.each do |ci| %>
+          <td></td>
+          <% end %>
+ 
+       </tr>
+        <tr>
+          <td>Warranty (years)</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec((vehicle.warranty_valid_to.present? ? distance_of_time_in_words(Date.today,vehicle.warranty_valid_to) : ""))  %></td>
+          <% end %>
+        </tr>
+              <tr>
+          <td>Warranty (km)</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.warranty_km) %></td>
+          <% end %>
+        </tr>
+                 <tr>
+          <td>Service Interval (months)</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.service_freq) %></td>
+          <% end %>
+        </tr>
+                 <tr>
+          <td>Service Interval (km)</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.service_km) %></td>
+          <% end %>
+        </tr>
+                 <tr>
+          <td>First Service Due (months)</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.first_service_months) %></td>
+          <% end %>
+        </tr>
+              <tr>
+          <td>First Service Due (km)</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.first_service_km) %></td>
+          <% end %>
+        </tr>
+             <tr>
+          <td>Service history</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.service_history) %> </td>
+          <% end %>
+        </tr>
+        
+         <tr><td>
+           <%= spec_title("Other") %>
+         </td>
+        <% compared_items.each do |ci| %>
+          <td></td>
+          <% end %>
+ 
+       </tr>
+        <tr>
+          <td>Country of Origin</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.origin_str)%></td>
+          <% end %>
+        </tr>
+           <tr>
+          <td>Doors</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.doors_str) %></td>
+          <% end %>
+        </tr>
+              <tr>
+          <td>Seats</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.seats_str) %></td>
+          <% end %>
+        </tr>
+             <tr>
+          <td>Owners</td>
+           <% compared_items.each do |ci| %>
+           <% vehicle=ci.vehicle %>
+          <td class="right"><%= spec(vehicle.owners_str) %></td>
+          <% end %>
+        </tr>
+</table>
+
+ <% end %>
+
+
+
+  

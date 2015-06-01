@@ -1,0 +1,29 @@
+<div class="row-fluid">
+  <div class="span12">
+    <%= render 'adverts/partials/breadcrumb',:step=>@action %>
+    <div class="page-header">
+      <h2><%= t("adverts.edit.title") %></h2>
+    </div>
+    </div>
+</div>
+<%= vehicle_form_for @advert, :html=>{:class=>"form-vertical"},:authenticity_token => true,:remote=>true do |f| %>
+
+
+
+  <div class="row-fluid">
+  <%= f.fields_for :vehicle do |vehicle_fields| %>
+  
+    <%= render 'adverts/partials/new_edit_form',:f=>vehicle_fields %>
+<% end %>
+</div>
+ <%= f.hidden_field :basics_saved,value: true %>
+
+  <div class="row-fluid" >
+  	  <div class="span12">
+   <%= render 'adverts/partials/actions',:f=>f %>
+     
+  </div>
+</div>
+<% end %>
+
+

@@ -1,0 +1,8 @@
+<ul class="breadcrumb">
+      <%= breadcrumb(1,@advert,"edit",@advert.basics_saved,true) %>
+      <%= breadcrumb(2,@advert,"details",@advert.details_saved,@advert.basics_saved) %>
+      <%= breadcrumb(3,@advert,"features",@advert.features_saved,@advert.basics_saved) %>
+      <%= breadcrumb(4,@advert,"photos",@advert.photos_saved,@advert.basics_saved) %>
+      <%= breadcrumb(5,@advert,"contact",@advert.contact_saved,@advert.basics_saved) %>
+      <%= breadcrumb(6,@advert,"checkout",@advert.activated,!@advert.unfinished?) %>
+</ul>

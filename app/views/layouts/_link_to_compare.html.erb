@@ -1,0 +1,8 @@
+ <% type=@current_type.path_name %>
+<% compared=@compared_items.size %>
+<% if compared > 0 %>
+<%= link_to t("navigation.compare_#{type}")+ ' ('+compared.to_s+')', compare_path,:role=>"menuitem",:tabindex=>"-1"  %>
+<% else %>
+<%= link_to t("navigation.compare_#{type}")+" (0)","#",:role=>"menuitem",:tabindex=>"-1"  %>
+<% end %>
+

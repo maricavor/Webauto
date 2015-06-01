@@ -1,0 +1,8 @@
+<% if @picture.new_record? %>
+//alert("Failed to upload image: <%= j @picture.errors.full_messages.join(', ').html_safe %>"); 
+<% else %>
+$(".dealer_picture").html("<%= j(render 'dealer_pictures/dealer_picture',:dealer_picture=>@picture) %>");
+$('#fileupload').addClass('hidden');
+<% end %>
+$('.site-message').html("<%= j(render partial:'layouts/messages')%>");
+$('html, body').scrollTop(0);

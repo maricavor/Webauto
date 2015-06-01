@@ -1,0 +1,5 @@
+$('html, body').scrollTop(0);
+$('.site-message').html("<%= j(render partial:'layouts/messages')%>");
+<% unless @advert.errors.any? %>
+window.location="<%= @redirect_path %>";
+<% end %>

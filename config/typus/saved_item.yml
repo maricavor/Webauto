@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+SavedItem:
+  fields:
+    default: vehicle_id, user_id, name, price
+    form: vehicle_id, user_id, name, price
+  relationships: 
+  application: Application

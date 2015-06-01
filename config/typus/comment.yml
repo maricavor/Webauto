@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Comment:
+  fields:
+    default: text, vehicle_id, user_id, ancestry
+    form: text, vehicle_id, user_id, ancestry
+  relationships: 
+  application: Application

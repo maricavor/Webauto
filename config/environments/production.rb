@@ -1,6 +1,6 @@
-RailsApp::Application.configure do
+Webauto::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
-
+  #Sunspot.config.solr.url = 'http://solr-webauto.rhcloud.com/#/collection1/'
   # Code is not reloaded between requests
   config.cache_classes = true
 
@@ -38,7 +38,6 @@ RailsApp::Application.configure do
 
   # Use a different logger for distributed setups
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
-  config.logger = Logger.new(STDOUT)
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
@@ -57,10 +56,30 @@ RailsApp::Application.configure do
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)
-  config.i18n.fallbacks = true
+  #config.i18n.fallbacks = true
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+
+  config.action_mailer.default_url_options = { :host => 'webauto-webauto.rhcloud.com' }
+  # ActionMailer Config
+  # Setup for production - deliveries, no errors raised
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "webauto-webauto.rhcloud.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"]
+  }
+
+
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)

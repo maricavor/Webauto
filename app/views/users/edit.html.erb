@@ -1,0 +1,29 @@
+<% content_for :title,@title %>
+<div class="row-fluid">
+  <div class="span3">
+    <%= render 'users/well',:active=>'settings' %>
+  </div>
+  <div class="span9">
+    <div class="page-header">
+      <h2><%= t("users.settings.settings")  %></h2>
+    </div>
+    <%= vehicle_form_for @user, :html=>{:class=>"form-vertical"},:authenticity_token => true,:remote=>false do |f| %>
+      <p class="lead">
+        <%= t("users.settings.notifications")  %>
+      </p>
+      <p><%= t("users.settings.notify")  %></p>
+      <%= f.check_box :price_alert,label: t("users.settings.price_alert") %>
+      <%= f.check_box :sold_alert,label: t("users.settings.sold_alert") %>
+      <%= f.check_box :interest_alert,label: t("users.settings.interest_alert") %>
+        <br>
+          <p class="lead">
+            <%= t("users.settings.future_updates")  %>
+          </p>
+          <p><%= t("users.settings.future_updates_text")  %></p>
+          <%= f.check_box :feature_alerts,label: t("users.settings.future_updates_check")  %>    
+           <div style="padding-top:20px; margin-top:20px; border-top: 1px solid #eeeeee;">
+          <%= f.submit t("users.profile.update"),:class=>"btn btn-info" %>
+      </div>
+          <% end %>
+        </div>
+      </div>

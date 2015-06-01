@@ -1,0 +1,118 @@
+
+
+<div class="row-fluid">
+<div class="span3">
+<% unless request.referrer.nil? %>
+<% if URI(request.referer).path.include? "/search" %>
+<%= link_to t("vehicles.show.back_to_results"), :back,:class=> "btn",:style=>"margin-bottom:10px;" %>
+<% else %>
+<%= link_to t("vehicles.show.back"), :back,:class=> "btn",:style=>"margin-bottom:10px;" %>
+<% end %>
+<% end %>
+</div>
+<div class="span9">
+  <div class="text-right hidden-phone">
+  <%= render 'vehicles/partials/custom_breadcrumb' %>
+</div>
+  <div class="text-left visible-phone">
+   <%= render 'vehicles/partials/custom_breadcrumb' %>
+</div>
+</div>
+</div>
+<div class="row-fluid page-header">
+  <div class="span9">
+    <h2> 
+      <%= "#{@vehicle.registered_at_year} #{@make_name} #{@model_name}"%>
+      
+      <small>
+      <%= "#{@vehicle.engine_size} L #{@vehicle.engine_power} kW #{@vehicle.transmission}" %>
+      </small>
+      </h2>
+  </div>
+  <div class="span3">
+    <h2 class="text-right hidden-phone text-success" style="line-height: 0.7;"><small><s><%= "#{currency(@vehicle.previous_price)}" %></s></small> <%= "#{currency(@vehicle.price)}" %><br><small><%= @vehicle.price_vat ? t("vehicles.show.incl_vat") : t("vehicles.show.exl_vat") %></small></h2>
+  
+    <h2 class="text-left visible-phone text-success" style="line-height: 0.7;"><%= "#{currency(@vehicle.price)} " %><small><s><%= "#{currency(@vehicle.previous_price)}" %></s></small><br><small><%= @vehicle.price_vat ? "inc 20% VAT" : "exl 20% VAT" %></small></h2>
+  
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span6">
+    <span class="label"><%= "AD# #{@vehicle.advert.uid}" %></span><span class="label label-info" style="margin-left:5px;"><%= t('vehicles.show.visits', :count => @vehicle.popularity) %></span>
+  </div>
+  <div class="span6 text-left visible-phone">
+  <span class="label"><%= @user.is_dealer ? t("vehicles.show.dealer") : t("vehicles.show.private")  %></span>
+  </div>
+  <div class="span6 text-right hidden-phone">
+   <span class="label"><%= @user.is_dealer ? t("vehicles.show.dealer") : t("vehicles.show.private")  %></span>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span5">
+    <div id="gallery" data-toggle="modal-gallery" data-target="#modal-gallery" >
+      <%= render 'vehicles/partials/pictures' %>
+      <%= render 'vehicles/partials/blueimp-gallery' %>
+    </div>
+    <%= render "vehicles/partials/contact",:mode=>"show" %>
+    <div class="action_buttons" style="margin-bottom:10px;">
+      <%= render "vehicles/partials/action_buttons" %>
+    </div>
+    <%= render "vehicles/partials/commentsModal" %>
+    <%= render "vehicles/partials/sendToFriendModal" %>
+    <%= render "vehicles/partials/reportAdModal" %>
+
+ 
+   
+   
+  </div>
+  <div class="span7">
+    <%= render "vehicles/partials/general_info" %>
+    <blockquote>
+      <p style="font-size:14px;"><%= @vehicle.description %></p>
+    </blockquote>
+    <ul class="nav nav-tabs" id="vehicleTab">
+      <li class="active"><a href="#specs" data-toggle="tab"><%= t("vehicles.show.specification")  %></a></li>
+      <li><a href="#features" data-toggle="tab"><%= t("vehicles.show.features")  %></a></li>
+    </ul>
+    <div id="myVehicleTabContent" class="tab-content">
+      <div class="tab-pane fade in active" id="specs"><%= render "vehicles/partials/specs" %></div>
+      <div class="tab-pane fade" id="features"><%= render "vehicles/partials/features" %></div>
+    </div>
+  </div>
+  <p class="text-right muted"><small><%= t("vehicles.show.ad_updated") %> <%= time_ago_in_words(@vehicle.updated_at) %> <%= t("datetime.ago") %></small></p>
+</div>
+
+
+<div class="row-fluid" style="margin-top:20px;">
+<div class="span12">
+
+ <ul class="nav nav-tabs" id="moreTab">
+      <li><a href="#similar" data-toggle="tab" class="tab_<%= @vehicle.id %>"><%= t("vehicles.show.similar_#{@current_type.path_name}") %></a></li>
+      <li><a href="#more" data-toggle="tab" class="tab_<%= @vehicle.id %>"><%= t("vehicles.show.interested") %></a></li>
+      <li><a href="#viewed" data-toggle="tab" class="tab_<%= @vehicle.id %>"><%= t("vehicles.show.recently_viewed") %> </a></li>
+    </ul>
+    <div id="moreTabContent" class="tab-content">
+      <div class="tab-pane fade" id="similar">
+         
+        <div id="similar_vehicles" class="text-center"><%= image_tag "/ajax-loader.gif" %></div>
+    
+      </div>
+      <div class="tab-pane fade" id="more">
+
+        <div id="interesting_vehicles" class="text-center"><%= image_tag "/ajax-loader.gif" %></div>
+      
+      </div>
+       <div class="tab-pane fade" id="viewed">
+
+         <div id="viewed_vehicles" class="text-center"><%= image_tag "/ajax-loader.gif" %></div>
+    
+      
+      </div>
+     
+    </div>
+    
+  
+
+  </div>
+   </div>
+    </div>

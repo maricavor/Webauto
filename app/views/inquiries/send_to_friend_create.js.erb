@@ -1,0 +1,4 @@
+ $('.send-to-friend-modal-message').html('');
+$("#new_send_to_friend").hide();
+$('#new_send_to_friend')[0].reset();
+$("#sendToFriendModal .modal-body").append("<%= j(render partial:'inquiries/thank_you_friend')%>").hide().fadeIn('slow');

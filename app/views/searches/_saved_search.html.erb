@@ -1,0 +1,58 @@
+<td><strong>
+    <%= link_to_search(s) %>
+  </strong>
+</td>
+<td>
+  <ul>
+  <% s.details.each do |d| %>
+    <li><small><%= d %></small></li>
+  <% end %>
+</ul>
+</td>
+<td>
+
+       <div class="btn-group">
+  <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+    <% if s.alert_freq.nil? %>
+    <%= t("searches.index.no_alert") %>
+    <% else %>
+     <% sa = t('search_alerts').find {|alert| alert["id"]==s.alert_freq} %>
+     <%= sa["name"] %>
+     <% end %>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+  	<% t('search_alerts').each do |a| %>
+<li><%= link_to a["name"], search_path(s, :search=>{:alert_freq => a["id"]}), :method => :put,:class=>"alert_link",:remote=>true,:authenticity_token => false  %> </li>
+ 
+           <% end %>
+  </ul>
+</div>
+
+
+</td>
+<td class="muted">
+  <small><strong class="text-success"><%= t("searches.index.saved_on") %></strong>
+    <strong><%= s.updated_at.strftime("%d.%m.%y @ %I:%M") %></strong></small></td>
+<td >
+ <div class="btn-group">
+  <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+    <%= t("searches.index.actions") %>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu pull-right">
+     <li> <%= link_to t("searches.index.run"), send("search_#{s.type.name.underscore.pluralize}_path",s,:sort=>s.sort) %></li>
+     <li> <%= link_to t("searches.index.rename"), edit_search_path(s),:remote=>true  %></li>
+   
+     <li>
+  <%= link_to t("searches.index.delete"), s, method: :delete, data: { confirm: t("searches.index.delete_sure")},:remote => true %></li>
+        
+        
+        
+       
+  </ul>
+</div>
+ 
+
+
+</td>

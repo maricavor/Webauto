@@ -1,0 +1,12 @@
+<% if dealer_picture %>
+
+<div id="pic_<%= dealer_picture.id %>">
+    <%= image_tag dealer_picture.file_url(:original), :class=>"thumbnail" %>
+    <% if action_name!="show" %>
+      <div class="actions">
+     
+          <%= link_to t("users.profile.remove"), dealer_picture, method: :delete, data: { confirm: t("users.profile.remove_sure") },:class=>"remove_image_link",:remote=>true %>
+      </div>
+    <% end %>
+</div>
+<% end %>

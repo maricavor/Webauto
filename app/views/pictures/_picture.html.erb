@@ -1,0 +1,12 @@
+<% if picture %>
+  <li id="pic_<%= picture.id %>" class="ui-state-default">
+
+    <%= link_to image_tag(picture.file_url(:thumb)), picture.file_url(:original), :data => {:gallery => 'gallery'},:class=>"thumbnail" %>
+    <% if action_name!="show" %>
+      <div class="actions">
+     
+          <%= link_to t("adverts.photos.remove"), picture, method: :delete, data: { confirm: 'Are you sure you want to delete this image?' },:class=>"remove_image_link",:remote=>true %>
+      </div>
+    <% end %>
+  </li>
+<% end %>

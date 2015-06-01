@@ -1,0 +1,4 @@
+$('.site-message').html("<%= j(render partial:'layouts/messages')%>");
+$('html, body').scrollTop(0);
+$(".action_buttons").html("<%= j(render partial:'vehicles/partials/action_buttons')%>");
+$("#mini_action_buttons_<%= @vehicle.id %>").html("<%= j(render 'vehicles/partials/mini_action_buttons',:vehicle=>@vehicle)%>");

@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Type:
+  fields:
+    default: name, path_name
+    form: name, path_name
+  relationships: vehicles, bodytypes, makes
+  application: Application

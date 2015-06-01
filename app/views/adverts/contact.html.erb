@@ -1,0 +1,45 @@
+<div class="row-fluid">
+  <div class="span12">
+    <%= render 'adverts/partials/breadcrumb',:step=>@action %>
+
+</div>
+</div>
+
+<%= vehicle_form_for @advert, :html=>{:class=>"form-vertical"},:authenticity_token => true,:remote=>true do |f| %>
+
+    <div class="row-fluid">
+  <%= f.fields_for :vehicle do |vehicle_fields| %>
+
+
+   <div class="span6">
+   	 <div class="page-header">
+      <h2><%= t("adverts.contact.price_title") %></h2>
+    </div>
+   
+    <%= vehicle_fields.text_field :price,label: t("adverts.contact.price") %>
+    <%= vehicle_fields.check_box :price_vat,label: t("adverts.contact.price_vat") %>
+    <%= vehicle_fields.check_box :price_negotiable,label: t("adverts.contact.negotiable") %>
+ </div>
+  
+ 
+ <% end %>
+  <%= f.hidden_field :contact_saved,value: true %>
+   <div class="span6">
+   	  	 <div class="page-header">
+      <h2><%= t("adverts.contact.contact_title") %></h2>
+    </div>
+   <%= render 'adverts/partials/contact_form',:f=>f %>
+ </div>
+
+</div>
+
+<div class="row-fluid">
+  	  <div class="span12">
+  <%= render 'adverts/partials/actions',:f=>f %>
+ 
+  </div>
+</div>
+<% end %>
+
+    
+ 

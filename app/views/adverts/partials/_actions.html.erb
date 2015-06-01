@@ -1,0 +1,18 @@
+ <div style="padding-top:20px; margin-top:20px; border-top: 1px solid #eeeeee;">
+  <%= link_to t("adverts.actions.back"), :back,:class=>"btn"  %>
+ <% if @action=="checkout" %>
+    <% if @advert.activated %>
+   <%= link_to t("adverts.actions.show"), send("#{@vehicle.type.name.downcase}_path", @vehicle) ,:class=>"btn" %>
+  <% else %>
+  <%= link_to t("adverts.actions.preview"),preview_advert_path(@advert) ,:class=>"btn" %>
+  <%= f.submit t("adverts.actions.activate"),:class=>"btn btn-info",:name=> 'save_activate' %>
+  <% end %>
+<% else %>
+ <% if @advert.activated %>
+ <%= f.submit t("adverts.actions.save_show"),:class=>"btn btn-info",:name=> 'save_show' %>
+   <% else %>
+ <%= f.submit t("adverts.actions.save_preview"),:class=>"btn btn-info",:name=> 'save_preview' %>
+     <% end %>
+ <%= f.submit t("adverts.actions.save_continue"),:class=>"btn btn-info",:name=> 'save_continue' %>
+ <% end %>
+</div>

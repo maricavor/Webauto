@@ -1,0 +1,144 @@
+<p class="lead"><%= t("adverts.features.lead") %></p>
+<div class="row-fluid">
+  <div class="span4">
+   <div style="margin-top:15px;"></div>
+    <%= spec_title(t("adverts.features.safety_security")) %>
+    <%= f.check_box :central_locking,label: t("vehicles.show.central_locking") %>
+    <%= f.check_box :with_remote,label: t("vehicles.show.with_remote"),id:"with_remote",type: "extra" %>
+    <%= f.check_box :abs,label: t("vehicles.show.abs") %>
+    <%= f.text_field :airbags, label: t("adverts.features.airbags"),type: "spinner" %>
+    <%= f.check_box :alarm,label: t("vehicles.show.alarm") %>
+    <%= f.text_field :alarm_details,placeholder: t("adverts.details.add_details"),id: "alarm_details" %>
+    <%= f.check_box :alarm_with_tow_away_protection,label:t("vehicles.show.tow_away").downcase,id: "with_tow_away_protection",type: "extra" %>
+    <%= f.check_box :alarm_with_motion_sensor, label:t("vehicles.show.motion_sensor").downcase,id: "with_motion_sensor",type: "extra" %>
+    <%= f.check_box :alarm_with_two_way_comm,label:t("vehicles.show.communication").downcase,id: "two_way_comm",type: "extra"  %>
+    <%= f.check_box :immobilizer,label:t("vehicles.show.immobilizer") %>
+    <%= f.check_box :anti_skidding,label:t("vehicles.show.anti_skid") %>
+    <%= f.text_field :anti_skidding_details,:placeholder=>t("adverts.details.add_details"),:id=>"anti_skidding_details" %>
+    <%= f.check_box :stability_control,label:t("vehicles.show.stability")  %>
+    <%= f.text_field :stability_control_details,:placeholder=>t("adverts.details.add_details"),:id=>"stability_control_details" %>
+    <%= f.check_box :braking_force_reg,label:t("vehicles.show.brake_force")%>
+    <%= f.text_field :braking_force_reg_details,:placeholder=>t("adverts.details.add_details"),:id=>"braking_force_reg_details" %>
+    <%= f.check_box :traction_control,label: t("vehicles.show.traction") %>
+    <%= f.text_field :traction_control_details,:placeholder=>t("adverts.details.add_details"),:id=>"traction_control_details" %>
+    
+    <%= f.check_box :seatbelt_pretightener,label:t("vehicles.show.seatbelt") %>
+     <div style="margin-top:15px;"></div>
+      <%= spec_title(t("vehicles.show.lights_windows")) %>
+    <%= f.check_box :xenon,label:t("vehicles.show.xenon") %>
+    <%= f.check_box :xenon_low_beam,label: t("vehicles.show.low_beam"),id:"xenon_low_beam",type: "extra" %>
+    <%= f.check_box :xenon_high_beam,label: t("vehicles.show.high_beam"),id:"xenon_high_beam",type: "extra"  %>
+    <%= f.check_box :headlight_washer,label:t("vehicles.show.washers") %>
+    <%= f.check_box :special_light,label:t("vehicles.show.dim_dip") %>
+    <%= f.check_box :fog_lights,label: t("vehicles.show.fog") %>
+    <%= f.check_box :fog_lights_front,label: t("vehicles.show.front"),id:"fog_lights_front",type: "extra" %>
+    <%= f.check_box :fog_lights_rear,label: t("vehicles.show.rear"),id:"fog_lights_rear",type: "extra"  %>
+    <%= f.check_box :headlight_range,label:t("vehicles.show.headlight_range") %>
+    <%= f.check_box :extra_lights,label:t("vehicles.show.extra_lights") %>
+    <%= f.text_field :extra_lights_details,:placeholder=>t("adverts.details.add_details"),:id=>"extra_lights_details" %>
+    <%= f.check_box :auto_light,label:t("vehicles.show.auto_lights") %>
+    <%= f.check_box :third_brake_light,label:t("vehicles.show.third_brake") %>
+  <%= f.check_box :power_windows,label:t("vehicles.show.power_windows")  %>
+    <%= f.check_box :tinted_windows,label:t("vehicles.show.tinted_windows") %>
+   <%= f.check_box :rain_sensor,label:t("vehicles.show.rain_sensor") %>
+   <%= f.check_box :rear_wiper,label:t("vehicles.show.rear_wiper") %>
+     
+     <%= f.check_box :front_window_heating,label:t("vehicles.show.front_window_heating")%>
+    <%= f.check_box :rear_window_heating,label:t("vehicles.show.rear_window_heating")%>
+  </div>
+  <div class="span4">
+    <div style="margin-top:15px;"></div>
+    <%= spec_title(t("vehicles.show.steering")) %>
+      <%= f.check_box :power_steering,label:t("vehicles.show.power_steering") %>
+    <%= f.text_field :power_steering_details, :placeholder=>t("adverts.details.add_details"),id: "power_steering_details" %>
+    <%= f.check_box :steering_wheel_adjustment,label:t("vehicles.show.adjustable_column") %>
+    <%= f.check_box :steering_wheel_height_and_depth,label: t("vehicles.show.tilt_reach"),id:"steering_wheel_height_and_depth",type: "extra" %>
+    <%= f.check_box :steering_wheel_electrical,label: t("vehicles.show.electrical"),id:"steering_wheel_electrical",type: "extra" %>
+    <%= f.check_box :steering_wheel_with_memory,label:t("vehicles.show.with_memory"),id:"steering_wheel_with_memory",type: "extra" %>
+    <%= f.check_box :steering_wheel_multifunctional,label:t("vehicles.show.multi_wheel") %>
+     <div style="margin-top:15px;"></div>
+    <%= spec_title(t("vehicles.show.audio_visual")) %>
+    <%= f.check_box :car_stereo,label:t("vehicles.show.car_stereo")%>
+    <%= f.text_field :car_stereo_details,:placeholder=>t("adverts.details.add_details"),:id=>"car_stereo_details" %>
+    <%= f.check_box :car_stereo_original,label: t("vehicles.show.original").capitalize,id:"car_stereo_original",type: "extra" %>
+    <%= f.check_box :car_stereo_cd,label:t("vehicles.show.cd_player"),id:"car_stereo_cd",type: "extra" %>
+    <%= f.check_box :car_stereo_mp3,label:t("vehicles.show.mp3"),id:"car_stereo_mp3",type: "extra" %>
+    <%= f.check_box :car_stereo_usb,label:t("vehicles.show.usb"),id:"car_stereo_usb",type: "extra" %>
+    <%= f.check_box :car_stereo_aux,label: t("vehicles.show.aux"),id:"car_stereo_aux",type: "extra" %>
+    <%= f.check_box :car_stereo_card,label: t("vehicles.show.mem_card").downcase,id:"car_stereo_card",type: "extra" %>
+    
+    <%= f.check_box :car_stereo_with_remote,label: t("vehicles.show.remote_control").downcase,id:"car_stereo_with_remote",type: "extra"  %>
+    <%= f.check_box :subwoofer,label:t("vehicles.show.subwoofer").downcase,id:"subwoofer",type: "extra"  %>
+    <%= f.check_box :cd_changer,label:t("vehicles.show.cd_changer"),id:"cd_changer",type: "extra" %>
+    <%= f.text_field :speakers_count, label:t("adverts.features.speakers"), id:"speakers",type: "spinner" %>
+    <%= f.check_box :electric_antenna,label:t("vehicles.show.electric_antenna") %>
+    <%= f.check_box :navigation,label: t("vehicles.show.navigation") %>
+    <%= f.check_box :computer,label:t("vehicles.show.computer") %>
+    <%= f.check_box :car_phone,label:t("vehicles.show.car_phone") %>
+    <%= f.check_box :hands_free,label:t("vehicles.show.hands_free") %>
+    <%= f.text_field :hands_free_details,:placeholder=>t("adverts.details.add_details"),:id=>"hands_free_details" %>
+    <%= f.check_box :gsm,label:t("vehicles.show.gsm_antenna") %>
+     <div style="margin-top:15px;"></div>
+    <%= spec_title(t("adverts.features.comfort")) %>
+    <%= f.check_box :electric_mirrors,label:t("vehicles.show.electric_mirrors") %>
+    <%= f.check_box :heated_mirrors,label: t("vehicles.show.heated_mirrors"),id:"heated_mirrors",type: "extra"  %>
+    <%= f.check_box :folding_mirrors,label: t("vehicles.show.folding_mirrors"),id:"folding_mirrors",type: "extra" %>
+    <%= f.check_box :mirrors_with_memory,label: t("vehicles.show.with_memory"),id:"mirrors_with_memory",type: "extra" %>
+    
+    <%= f.check_box :sunroof,label:t("vehicles.show.sunroof") %>
+    <%= f.text_field :sunroof_details,:placeholder=>t("adverts.details.add_details"),:id=>"sunroof_details" %>
+    <%= f.check_box :cruise_control,label:t("vehicles.show.cruise") %>
+    <%= f.check_box :distance_monitoring,label: t("vehicles.show.distance").downcase,id:"distance_monitoring",type: "extra" %>
+    <%= f.check_box :engine_preheating,label:t("vehicles.show.engine_preheating") %>
+    <%= f.text_field :engine_preheating_details,:placeholder=>t("adverts.details.add_details"),:id=>"engine_preheating_details" %>
+    <%= f.check_box :spot_lights,label: t("vehicles.show.spotlights") %>
+    <%= f.check_box :parking_aid,label:t("vehicles.show.parking_sensors") %>
+    <%= f.check_box :parking_aid_front,label: t("vehicles.show.front"),id:"parking_aid_front",type: "extra" %>
+    <%= f.check_box :parking_aid_rear,label: t("vehicles.show.rear"),id:"parking_aid_rear",type: "extra" %>
+      
+    <%= f.check_box :inside_temperature_indicator,label:t("vehicles.show.temperature_indicator") %>
+   
+  </div>
+  <div class="span4">
+    
+    
+   <div style="margin-top:15px;"></div>
+    <%= spec_title(t("vehicles.show.interior")) %>
+    <%= f.check_box :trim,label:t("adverts.features.interior_trim") %>
+    <%= f.check_box :cloth_upholstery,id: "cloth_upholstery",label:t("vehicles.show.cloth").downcase,type: "extra" %>
+    <%= f.check_box :vinyl_upholstery,id: "vinyl_upholstery",label:t("vehicles.show.vinyl").downcase,type: "extra"  %>
+    <%= f.check_box :faux_leather_upholstery,id: "faux_leather_upholstery",label:t("vehicles.show.faux").downcase,type: "extra" %>
+    <%= f.check_box :leather_upholstery,id: "leather_upholstery",label:t("vehicles.show.leather").downcase,type: "extra" %>
+    <%= f.check_box :wood_grain,id: "wood_grain",label:t("vehicles.show.wood").downcase,type: "extra" %>
+    <%= f.check_box :chrome,id: "chrome",label:t("vehicles.show.chrome").downcase,type: "extra" %>
+    <%= f.check_box :mats,label:t("vehicles.show.mats") %>
+    <%= f.check_box :textile_mats,id: "textile_mats",label:t("vehicles.show.textile").downcase,type: "extra" %>
+    <%= f.check_box :rubber_mats,id: "rubber_mats",label:t("vehicles.show.rubber").downcase,type: "extra" %>
+    <%= f.check_box :velour_mats,id: "velour_mats",label:t("vehicles.show.velour").downcase,type: "extra" %>
+    <%= f.check_box :leather_shift_lever,label:t("vehicles.show.leather_shift") %>
+    <%= f.check_box :leather_hand_break,label:t("vehicles.show.leather_break") %>
+    <%= f.check_box :steering_wheel_leather,label:t("vehicles.show.leather_wheel") %>
+     <div style="margin-top:15px;"></div>
+    <%= spec_title(t("vehicles.show.seats")) %>
+    
+    <%= f.text_field :electrical_seats_count, label:t("vehicles.show.electrical_seats").capitalize,type: "spinner" %>
+    <%= f.check_box :electrical_seats_with_memory,id: "electrical_seats_with_memory",label:t("vehicles.show.with_memory").capitalize %>
+    <%= f.text_field :seat_heating_count, label:t("vehicles.show.seats_with_heating").capitalize,type: "spinner" %>
+    <%= f.check_box :front_armrest,label:t("vehicles.show.front_armrest") %>
+    <%= f.check_box :rear_armrest,label:t("vehicles.show.rear_armrest")%>
+    <%= f.check_box :down_folding_back_rest,label:t("vehicles.show.down_folding") %>
+     <div style="margin-top:15px;"></div>
+   <%= spec_title(t("adverts.features.other")) %>
+      <%= f.check_box :dust_shields,label:t("vehicles.show.dust_shields") %>
+    <%= f.check_box :roof_railings,label:t("vehicles.show.roof_railings") %>
+    <%= f.check_box :roof_rack,label:t("vehicles.show.roof_rack") %>
+    <%= f.check_box :tow_hitch,label:t("vehicles.show.tow_hitch")%>
+    <%= f.check_box :tow_hitch_removable,label:t("vehicles.show.removable"),id:"tow_hitch_removable",type: "extra" %>
+    <%= f.check_box :tow_hitch_electrical,label:t("vehicles.show.electrical"),id:"tow_hitch_electrical",type: "extra" %>
+      <%= f.check_box :sump_shield,label:t("vehicles.show.sump_shield")%>
+    <%= f.check_box :side_steps,label:t("vehicles.show.side_steps") %>
+  <%= f.check_box :isolation_net,label:t("vehicles.show.isolation_net")%>
+    <%= f.check_box :luggage_cover,label:t("vehicles.show.luggage_cover")%>
+  <%= f.check_box :outside_temperature_indicator,label:t("vehicles.show.outside_temperature") %>
+  </div>
+</div>

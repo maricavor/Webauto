@@ -1,0 +1,228 @@
+
+<div class="row-fluid specs" >
+  <div class="span6">
+    <%= spec_title(t("vehicles.show.engine")) %>
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <td><%= t("vehicles.show.engine_power") %></td>
+          <td class="right" ><%= spec(@vehicle.engine_power_str) %></td>
+        </tr>
+        <tr>
+          <td><%= t("vehicles.show.engine_type") %></td>
+          <td class="right"><%= spec(@vehicle.engine_type) %></td>
+        </tr>
+         <tr>
+          <td><%= t("vehicles.show.engine_size") %></td>
+          <td class="right"><%= spec(@vehicle.engine_size_str) %></td>
+        </tr>
+        <tr>
+          <td><%= t("vehicles.show.cylinders") %></td>
+          <td class="right"><%= spec(@vehicle.cylinders_str) %></td>
+        </tr>
+        <tr>
+          <td><%= t("vehicles.show.top_speed") %></td>
+          <td class="right"><%= spec(@vehicle.max_speed_str) %></td>
+        </tr>
+        
+       
+   
+        <tr>
+          <td><%= t("vehicles.show.acceleration") %></td>
+          <td class="right"><%= spec(@vehicle.acceleration_str) %></td>
+        </tr>
+       
+      </tbody>
+    </table>
+  </div>
+  <div class="span6">
+    <%= spec_title(t("vehicles.show.transmission_drivetrain")) %>
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <td><%= t("vehicles.show.drive") %></td>
+          <td class="right"><%= spec(@vehicle.drivetype) %></td>
+        </tr>
+       
+        <tr>
+          <td><%= t("vehicles.show.gears") %></td>
+          <td class="right"><%= spec((@vehicle.gears>0 ? @vehicle.gears : "")) %></td>
+        </tr>
+        <tr>
+          <td><%= t("vehicles.show.gear_type") %></td>
+          <td class="right"><%= spec(@vehicle.transmission) %> 
+            <%= "(#{@vehicle.transmission_details.downcase})" if  @vehicle.transmission_details.present? %>
+           </td>
+        </tr>
+          
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row-fluid specs" >
+  <div class="span6">
+    <%= spec_title(t("vehicles.show.fuel")) %>
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <td><%= t("vehicles.show.fuel_type") %></td>
+          <td class="right"><%= spec(@vehicle.fueltype) %></td>
+        </tr>
+        <tr>
+          <td><%= t("vehicles.show.fuel_cons_city") %></td>
+          <td class="right"><%= spec(@vehicle.fuel_cons_city_str) %></td>
+        </tr>
+      
+         <tr>
+          <td><%= t("vehicles.show.fuel_cons_freeway") %></td>
+          <td class="right"><%= spec(@vehicle.fuel_cons_freeway_str) %></td>
+        </tr>
+          <tr>
+          <td><%= t("vehicles.show.fuel_cons_combined") %></td>
+          <td class="right"><%= spec(@vehicle.fuel_cons_combined_str) %></td>
+        </tr>
+        <tr>
+          <td><%= t("vehicles.show.fuel_capacity") %></td>
+          <td class="right"><%= spec(@vehicle.fueltank_str) %></td>
+        </tr>
+     
+      </tbody>
+    </table>
+  </div>
+  <div class="span6">
+    <%= spec_title(t("vehicles.show.wheels_tires")) %>
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <td><%= t("vehicles.show.summer_tires") %></td>
+          <td class="right"><%= spec(@vehicle.summer_tires_details) %></td>
+        </tr>
+        <tr>
+          <td><%= t("vehicles.show.summer_tire_size") %></td>
+          <td class="right"><%= spec(@vehicle.summer_tires_size) %></td>
+        </tr>
+         <tr>
+          <td><%= t("vehicles.show.winter_tires") %></td>
+          <td class="right"><%= spec(@vehicle.winter_tires_details) %><%= spec_details([[@vehicle.all_season_tires, t("vehicles.show.all_season")],[@vehicle.spike_tires, t("vehicles.show.with_spikes")]]) %></td>
+        </tr>
+        <tr>
+          <td><%= t("vehicles.show.winter_tire_size") %></td>
+          <td class="right"><%= spec(@vehicle.winter_tires_size) %></td>
+        </tr>
+        <tr>
+          <td><%= t("vehicles.show.light_alloy_wheels") %></td>
+          <td class="right"><%= spec((@vehicle.light_alloy_wheels ? @vehicle.light_alloy_wheels_details : t("vehicles.show.no")))  %></td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row-fluid specs" >
+  <div class="span6">
+    <%= spec_title(t("vehicles.show.dimensions_weights")) %>
+    <table class="table table-condensed">
+      <tbody>
+            <tr>
+          <td><%= t("vehicles.show.height") %></td>
+          <td class="right"><%= spec(@vehicle.height_str) %></td>
+        </tr>
+        <tr>
+          <td><%= t("vehicles.show.length") %></td>
+          <td class="right"><%= spec(@vehicle.length_str) %></td>
+        </tr>
+          <tr>
+          <td><%= t("vehicles.show.width") %></td>
+          <td class="right"><%= spec(@vehicle.width_str) %></td>
+        </tr>
+     <tr>
+          <td><%= t("vehicles.show.wheelbase") %></td>
+          <td class="right"><%= spec(@vehicle.wheelbase_str) %></td>
+        </tr>
+      
+        <tr>
+          <td><%= t("vehicles.show.gross_mass") %></td>
+          <td class="right"><%= spec(@vehicle.gross_weight_str) %></td>
+        </tr>
+        <tr>
+          <td><%= t("vehicles.show.load_capacity") %></td>
+          <td class="right"><%= spec(@vehicle.load_capacity_str) %></td>
+        </tr>
+        
+       
+        <tr>
+          <td><%= t("vehicles.show.kerb_weight") %></td>
+          <td class="right"><%= spec(@vehicle.net_weight_str) %></td>
+        </tr>
+     
+      </tbody>
+    </table>
+  </div>
+  <div class="span6">
+    <%= spec_title(t("vehicles.show.warranty_service")) %>
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <td><%= t("vehicles.show.warranty") %></td>
+          <td class="right"><%= spec((@vehicle.warranty_valid_to.present? ? distance_of_time_in_words(Date.today,DateTime.strptime(@vehicle.warranty_valid_to, '%m/%Y')).capitalize : ""))  %>/<%= spec(@vehicle.warranty_km_str) %></td>
+        </tr>
+      
+        <tr>
+          <td><%= t("vehicles.show.service_interval") %></td>
+          <td class="right"><%= spec(@vehicle.service_freq_str) %>/<%= spec(@vehicle.service_km_str) %></td>
+        </tr>
+    
+           <tr>
+          <td><%= t("vehicles.show.next_service") %></td>
+          <td class="right"><%= spec((@vehicle.next_service.present? ? distance_of_time_in_words(Date.today,DateTime.strptime(@vehicle.next_service, '%m/%Y')).capitalize : "")) %>/<%= spec(@vehicle.next_service_km_str) %></td>
+        </tr>
+      
+       <tr>
+          <td><%= t("vehicles.show.inspection_valid_to") %></td>
+          <td class="right"><%= spec((@vehicle.inspection_valid_to.present? ? distance_of_time_in_words(Date.today,DateTime.strptime(@vehicle.inspection_valid_to, '%m/%Y')).capitalize : ""))  %></td>
+        </tr>
+           <tr>
+          <td><%= t("vehicles.show.service_history") %></td>
+          <td class="right"><%= spec(@vehicle.service_history) %> </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row-fluid specs" >
+  <div class="span6">
+    <%= spec_title(t("vehicles.show.other")) %>
+    <table class="table table-condensed">
+      <tbody>
+        <tr>
+          <td><%= t("vehicles.show.doors") %></td>
+          <td class="right"><%= spec(@vehicle.doors_str) %></td>
+        </tr>
+        <tr>
+          <td><%= t("vehicles.show.seats") %></td>
+          <td class="right"><%= spec(@vehicle.seats_str) %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="span6">
+    <%= spec_title("&nbsp;") %>
+    <table class="table table-condensed">
+      <tbody>
+         <tr>
+          <td><%= t("vehicles.show.origin") %></td>
+          <td class="right"><%= spec(@vehicle.origin_str) %></td>
+        </tr>
+   
+     
+    
+       
+       
+          <tr>
+          <td><%= t("vehicles.show.owners") %></td>
+          <td class="right"><%= spec(@vehicle.owners_str) %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

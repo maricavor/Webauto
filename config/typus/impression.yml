@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Impression:
+  fields:
+    default: vehicle_id, user_id, controller_name, action_name, request_hash, ip_address, session_hash, referrer
+    form: vehicle_id, user_id, controller_name, action_name, request_hash, ip_address, session_hash, referrer
+  relationships: 
+  application: Application

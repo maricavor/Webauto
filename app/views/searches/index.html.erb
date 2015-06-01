@@ -1,0 +1,21 @@
+<% content_for :title,@title %>
+<div class="row-fluid">
+  <div class="span3">
+    <%= render 'users/well',:active=>'searches' %>
+  </div>
+  <div class="span9">
+       <div class="search_preloader"></div>
+    <div class="page-header">
+      <h2><%= t("searches.index.saved_searches_and_alerts") %></h2>
+    </div>
+  
+    <div id="saved_searches_progress" >
+      <%= render 'progress' %>
+    </div>
+    <%= render partial: 'searches/saveSearchModal',locals: {mode: "edit"} if current_user %>
+   
+    <div id="saved_searches" >
+      <%= render partial: 'searches/saved_searches' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Order:
+  fields:
+    default: advert_id
+    form: advert_id
+  relationships: line_items
+  application: Application

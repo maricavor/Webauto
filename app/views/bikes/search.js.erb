@@ -1,0 +1,10 @@
+$('html, body').scrollTop(0);
+$('#vehicles').html("<%= j(render 'vehicles/partials/vehicles',vehicles: @vehicles) %>");
+document.title = "<%= escape_javascript(params[:id].to_s.titleize+ ' bikes by '+(params[:sort] || 'updated_at').titleize+ '- Page ' +(params[:page] || '1')) %>"
+$('.paginator').html("<%= j(render partial: 'vehicles/partials/paginator') %>");
+$('.page_entries_info').html("<%= j(render partial: 'vehicles/partials/page_entries_info') %>");
+if ("<%= params[:sort] %>" == "" && "<%= params[:page] %>" == "") {
+    history.pushState(null, document.title, "<%= params[:id] %>");
+}
+$('.sort_dropdown').html("<%= j(render partial: 'vehicles/partials/dropdown') %>");
+$("#search_sort").val("<%= params[:sort] %>");

@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+ComparedItem:
+  fields:
+    default: vehicle_id, user_id, ip_address, session_hash
+    form: vehicle_id, user_id, ip_address, session_hash
+  relationships: 
+  application: Application

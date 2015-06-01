@@ -1,0 +1,14 @@
+<ul class="breadcrumb">
+  <% if step=="edit"%><li class="active">Select vehicle<% else %>
+      <li><%= link_to "Select car",send("edit_#{@vehicle.type.name.singularize.underscore}_path", @vehicle) %><% end %>
+      <span class="divider">/</span></li>
+    <% if @vehicle.details? || action_name=="new" %><li class="active">Add details
+      <% else %>
+        <li><%= link_to "Add details",send("details_#{@vehicle.type.name.singularize.underscore}_path", @vehicle) %><% end %>
+        <span class="divider">/</span></li>
+      <% if @vehicle.features? || action_name=="new" %><li class="active">Select features<% else %>
+          <li><%= link_to "Select features",send("features_#{@vehicle.type.name.singularize.underscore}_path", @vehicle) %><% end %>
+          <span class="divider">/</span></li>
+        <% if @vehicle.photos? || action_name=="new" %><li class="active">Attach photos & write comments<% else %>
+            <li><%= link_to "Attach photos & write comments",send("photos_#{@vehicle.type.name.singularize.underscore}_path", @vehicle) %><% end %></li>
+        </ul>

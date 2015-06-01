@@ -1,0 +1,14 @@
+﻿
+
+table.sortable thead th.sorting {
+    cursor: pointer;
+    *cursor: hand;
+   background: url('/sort_both.png') no-repeat center right;
+}
+table.sortable thead th.asc {
+    background: url('/sort_asc.png') no-repeat center right;
+}
+table.sortable thead th.desc {
+    background: url('/sort_desc.png') no-repeat center right;
+}
+

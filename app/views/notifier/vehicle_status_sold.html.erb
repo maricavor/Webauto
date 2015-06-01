@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      Hello!
+    </p>
+    <p>
+          <% vehicle=@advert.vehicle %>
+          <% picture=vehicle.pictures.first %>
+          <% type=vehicle.type.name %>
+      The vehicle <%= vehicle.make_model %> has just been sold. 
+
+  </body>
+</html>

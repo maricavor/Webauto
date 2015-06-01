@@ -1,0 +1,144 @@
+ <div class="refine_search well well-small" >
+  <div class="visible-phone">
+    
+      <%= link_to_expand_search %><%= link_to_collapse_search %>
+  </div>
+    <div class="hidden-phone">
+     <h4><%=t("search.search_vehicles") %></h4>
+     
+  </div>
+    <div class="expandable hidden-phone">
+<small><%= link_to t("search.reset_search"),"#",class: "reset_search" %></small>
+<% if current_user && controller.action_name=="search" %>
+<% if  @solr_search.total<=20 && @solr_search.total>0 %>
+  <!-- Button to trigger modal -->
+  <small><%= link_to t("search.save_search"),"#saveSearchModal",:role=> "button", :'data-toggle'=> "modal", :style=>"border-left: 1px dotted #d7d0d0;padding-left:5px;" %>
+  </small>
+  <%= render partial: 'searches/saveSearchModal',locals: {mode: "new"}  %>
+<% end %>
+<% end %>
+
+<div class="sidebar-nav" style="padding-bottom:0;">
+  <%= form_for @search,url: searches_path,:html=>{:class=>"vehicles_custom_search"},:authenticity_token => true, :remote=>@remote, method: :post do |f| %>
+    <%= f.hidden_field :tp,:value=>1 %>
+
+
+    <%= f.select :bt,@bodytypes.collect {|p| [ p.name, p.id ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>t("search.bodytype_title"),:'data-width'=>"100%",:'data-selected-text-format'=>"count>2"} %>
+
+    <%= f.fields_for :fields do |builder| %>
+      <%= render 'vehicles/partials/field_fields', f: builder,remove_link: false %>
+    <% end %>
+    <p><%= link_to_add_fields t("search.add_cars"), f, :fields %></p>
+ <% prices=get_prices %>
+ <% powers=get_powers %>
+ <% min_years=get_min_years %>
+ <% max_years=get_max_years %>
+ <% seats=get_seats %>
+  <div class="visible-tablet">
+
+    <%= f.select :fpgt, [[t("search.min_price"),""]]+prices,{},{:class=>"selectpicker show-tick show-menu-arrow",:'data-subtext'=>t("search.min_price"), :'data-width'=>"100%",:'data-size'=>"10"} %>
+ 
+    <%= f.select :fplt, [[t("search.max_price"),""]]+prices,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-subtext'=>t("search.max_price"),:'data-width'=>"100%",:'data-size'=>"10"} %>
+
+  </div>
+    <div class="hidden-tablet">
+    <div class="horizontal">
+    <%= f.select :fpgt, [[t("search.min_price"),""]]+prices,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %>
+   </div>
+ <div class="horizontal_spacer">&nbsp;</div>
+    <div class="horizontal">
+    <%= f.select :fplt, [[t("search.max_price"),""]]+prices,{},{:class=>"selectpicker show-tick show-menu-arrow",:'data-width'=>"100%",:'data-size'=>"10"} %>
+</div>
+  </div>
+
+  <div class="visible-tablet">
+    <%= f.select :pwgt, [[t("search.min_power"),""]]+powers,{},{:class=>"selectpicker show-tick show-menu-arrow",:'data-subtext'=>t("search.min_power"), :'data-width'=>"100%",:'data-size'=>"10"} %>
+    <%= f.select :pwlt, [[t("search.max_power"),""]]+powers,{},{:class=>"selectpicker show-tick show-menu-arrow",:'data-subtext'=>t("search.max_power"), :'data-width'=>"100%",:'data-size'=>"10"} %>
+</div>
+  <div class="hidden-tablet">
+      <div class="horizontal">
+    <%= f.select :pwgt, [[t("search.min_power"),""]]+powers,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %>
+   </div>
+   <div class="horizontal_spacer">&nbsp;</div>
+      <div class="horizontal">
+    <%= f.select :pwlt, [[t("search.max_power"),""]]+powers,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %>
+       </div>
+</div>
+
+<div class="visible-tablet">
+    
+  <%= f.select :yeargt, [[t("search.min_year"),""]]+min_years,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-subtext'=>t("search.min_year"), :'data-width'=>"100%",:'data-size'=>"10"} %>
+     <%= f.select :yearlt, [[t("search.max_year"),""]]+max_years,{},{:class=>"selectpicker show-tick show-menu-arrow",  :'data-subtext'=>t("search.max_year"),:'data-width'=>"100%",:'data-size'=>"10"} %>
+
+
+  </div>
+    <div class="hidden-tablet">
+    <div class="horizontal">
+     <%= f.select :yeargt, [[t("search.min_year"),""]]+min_years,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-width'=>"100%",:'data-size'=>"10"} %>
+   </div>
+ <div class="horizontal_spacer">&nbsp;</div>
+    <div class="horizontal">
+     <%= f.select :yearlt, [[t("search.max_year"),""]]+max_years,{},{:class=>"selectpicker show-tick show-menu-arrow",:'data-width'=>"100%",:'data-size'=>"10"} %>
+</div>
+  </div>
+
+    <%= f.select :kmlt, [[t("search.max_mileage"),""]]+get_kms,{},{:class=>"selectpicker show-tick show-menu-arrow", :'data-subtext'=>t("search.max_mileage"),:'data-width'=>"100%",:'data-size'=>"10"} %>
+         
+    <%= f.select :ft,t('fueltypes').collect {|c| [ c["name"], c["id"] ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>t("search.fueltype"),:'data-width'=>"100%",:'data-selected-text-format'=>"count>2",:'data-count-selected-text'=>t("search.count_selected_text")} %>
+    <%= f.select :tm,t('transmissions').collect {|p| [p["name"], p["id"] ]},{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>t("search.transmission"),:'data-width'=>"100%",:'data-selected-text-format'=>"count>2",:'data-count-selected-text'=>t("search.count_selected_text")} %>
+    
+    
+    <%= f.select :location,Country.order(:name).collect {|p| [ p.name, p.id ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>t("search.country"),:'data-live-search'=>"false",:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>2",:'data-count-selected-text'=>t("search.count_selected_text")} %>
+    <%= f.select :region,[],{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>t("search.city"),:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>2",:'data-count-selected-text'=>t("search.count_selected_text")} %>
+    <%= f.select :cl,t('colours').collect {|c| [ c["name"], c["id"] ] },{},{:class=>"selectpicker show-tick show-menu-arrow hidden_field",:multiple=>"multiple", :title=>t("search.colour"),:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>2",:'data-count-selected-text'=>t("search.count_selected_text")} %>
+    <%= f.select :dt,t('drivetypes').collect {|p| [p["name"], p["id"] ]},{},{:class=>"selectpicker show-tick show-menu-arrow hidden_field",:multiple=>"multiple", :title=>t("search.drivetype"),:'data-width'=>"100%",:'data-selected-text-format'=>"count>1",:'data-count-selected-text'=>t("search.count_selected_text")} %>
+     
+     <div class="visible-tablet">
+    
+   <%= f.select :stgt, [[t("search.min_seats"),""]]+seats,{},{:class=>"selectpicker show-tick show-menu-arrow hidden_field", :'data-subtext'=>t("search.min_seats"),:'data-width'=>"100%",:'data-size'=>"10"} %>
+      <%= f.select :stlt, [[t("search.max_seats"),""]]+seats.reverse,{},{:class=>"selectpicker show-tick show-menu-arrow hidden_field",:'data-subtext'=>t("search.max_seats"),:'data-width'=>"100%",:'data-size'=>"10"} %>
+
+
+  </div>
+    <div class="hidden-tablet">
+    <div class="horizontal">
+     <%= f.select :stgt, [[t("search.min_seats"),""]]+seats,{},{:class=>"selectpicker show-tick show-menu-arrow hidden_field",:'data-subtext'=>t("search.min_seats"),:'data-width'=>"100%",:'data-size'=>"10"} %>
+   </div>
+ <div class="horizontal_spacer">&nbsp;</div>
+    <div class="horizontal">
+   <%= f.select :stlt, [[t("search.max_seats"),""]]+seats.reverse,{},{:class=>"selectpicker show-tick show-menu-arrow hidden_field",:'data-subtext'=>t("search.max_seats"),:'data-width'=>"100%",:'data-size'=>"10"} %>
+
+</div>
+  </div>
+
+
+    
+
+    <%= f.select :doors,get_doors,{},{:class=>"selectpicker show-tick show-menu-arrow hidden_field",:'data-subtext'=>t("search.doors"),:multiple=>"multiple", :title=>t("search.no_doors"),:'data-width'=>"100%",:'data-size'=>"10"} %>
+    <%= f.select :features,get_features,{},{:class=>"selectpicker show-tick show-menu-arrow hidden_field",:multiple=>"multiple", :title=>t("search.features"),:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>1",:'data-count-selected-text'=>t("search.count_selected_text")} %>
+    
+      <p><%= link_to_more_options %><%= link_to_less_options %></p>
+    <%= f.text_field :keywords,:placeholder=>t("search.keywords") %>
+
+
+    <div class="checkboxes">
+      <label class="checkbox">
+        <%= f.check_box :is_dealer %>
+        <%= t("search.dealer") %>
+      </label>
+      <label class="checkbox">
+        <%= f.check_box :is_private %>
+        <%= t("search.private") %>
+
+      </label>
+    </div>
+    <div style="clear: both;"></div>
+    <%= f.hidden_field :user_ip,:value=>request.remote_ip %>
+    <%= f.hidden_field :user_id,:value=>current_user.id if current_user %>
+    <p style="margin-top:5px;"><button class="btn btn-info btn-block" type="submit" ><%= t("search.search") %></button></p>
+
+
+  <% end %>
+</div><!--/.well -->
+ </div>
+  </div>

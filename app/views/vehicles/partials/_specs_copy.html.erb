@@ -1,0 +1,748 @@
+<div class="text-right" style="margin-bottom:5px;"><a href="#_" class="expandcollapse btn btn-mini btn-primary" state="0"><i class="icon-white icon-plus-sign"></i>
+    Expand All</a></div>
+<div class="accordion" id="specifications">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#specifications" href="#collapseFeatures">
+        Features
+      </a>
+    </div><!--div.accordion-heading-->
+    <div id="collapseFeatures" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid" >
+          <div class="span12">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Audio, Visual & Communication</strong></td>
+                </tr>
+                <tr>
+                  <td>
+                    <ul>
+                      <% if @vehicle.car_stereo %><li>
+                          <%= @vehicle.speakers_count>0 ? "#{@vehicle.speakers_count} Speaker" : "Car" %>
+                          Stereo
+                          <% if @vehicle.car_stereo_original %>
+                            (original<%= ", #{@vehicle.car_stereo_details.downcase}" if @vehicle.car_stereo_details!="" %>)
+                          <% else %>
+                            <%= "(#{@vehicle.car_stereo_details.downcase})" if @vehicle.car_stereo_details!="" %>
+                          <% end %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.car_stereo_cd %>
+                        <li>
+                          CD Player
+                        </li>
+                      <% end %>
+                      <% if @vehicle.car_stereo_mp3 %>
+                        <li>
+                          MP3 Decoder
+                        </li>
+                      <% end %>
+                      <% if @vehicle.car_stereo_usb %>
+                        <li>
+                          USB Socket
+                        </li>
+                      <% end %>
+                      <% if @vehicle.car_stereo_aux %>
+                        <li>
+                          Aux Input Socket
+                        </li>
+                      <% end %>
+                      <% if @vehicle.car_stereo_card %>
+                        <li>
+                          Memory Card
+                        </li>
+                      <% end %>
+                      <% if @vehicle.car_stereo_with_remote %>
+                        <li>
+                          Remote Control
+                        </li>
+                      <% end %>
+                      <% if @vehicle.subwoofer %>
+                        <li>
+                          Subwoofer
+                        </li>
+                      <% end %>
+                      <% if @vehicle.cd_changer %>
+                        <li>
+                          CD Changer
+                        </li>
+                      <% end %>
+                      <% if @vehicle.electric_antenna %>
+                        <li>
+                          Electric Antenna
+                        </li>
+                      <% end %>
+                      <% if @vehicle.navigation %>
+                        <li>
+                          Navigation
+                        </li>
+                      <% end %>
+                      <% if @vehicle.computer %>
+                        <li>Onboard Computer
+                        </li>
+                      <% end %>
+                      <% if @vehicle.car_phone %>
+                        <li>
+                          Car Phone
+                        </li>
+                      <% end %>
+                      <% if @vehicle.hands_free %>
+                        <li>
+                          Bluetooth
+                        </li>
+                      <% end %>
+                      <% if @vehicle.gsm %>
+                        <li>
+                          GSM Antenna
+                        </li>
+                      <% end %>
+                    </ul>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Safety & Security</strong></td>
+                </tr>
+                <tr>
+                  <td>
+                    <ul><% if @vehicle.power_steering %>
+                        <li>
+                          Power steering
+                          <%= "(#{@vehicle.power_steering_details.downcase})" if @vehicle.power_steering_details!="" %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.central_locking %>
+                        <li>
+                          Central locking
+                          <%= "(with remote)" if @vehicle.with_remote %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.abs %>
+                        <li>
+                          ABS (Antilock Brakes)
+                        </li>
+                      <% end %>
+                      <% if !@vehicle.airbags.nil? && @vehicle.airbags>0%>
+                        <li>
+                          <%= "#{@vehicle.airbags} x airbags"  %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.alarm %>
+                        <li>
+                          Alarm system
+                          <%= "(#{@vehicle.alarm_details.downcase})" if @vehicle.alarm_details!="" %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.alarm_with_tow_away_protection %>
+                        <li>
+                          Tow-away protection
+                        </li>
+                      <% end %>
+                      <% if @vehicle.alarm_with_motion_sensor %>
+                        <li>
+                          Motion sensor
+                        </li>
+                      <% end %>
+                      <% if @vehicle.alarm_with_two_way_comm %>
+                        <li>
+                          Two-way communication
+                        </li>
+                      <% end %>
+                      <% if @vehicle.immobilizer %>
+                        <li>
+                          Engine immobilizer
+                        </li>
+                      <% end %>
+                      <% if @vehicle.anti_skidding %>
+                        <li>
+                          Anti-skid system
+                          <%= "(#{@vehicle.anti_skidding_details.downcase})" if @vehicle.anti_skidding_details!="" %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.stability_control %>
+                        <li>
+                          Stability control
+                          <%= "(#{@vehicle.stability_control_details.downcase})" if @vehicle.stability_control_details!="" %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.braking_force_reg %>
+                        <li>
+                          Brake force regulator
+                          <%= "(#{@vehicle.braking_force_reg_details.downcase})" if @vehicle.braking_force_reg_details!="" %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.traction_control %>
+                        <li>
+                          Traction control system
+                          <%= "(#{@vehicle.traction_control_details.downcase})" if @vehicle.traction_control_details!="" %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.seatbelt_pretightener %>
+                        <li>
+                          Seatbelt pretensioners for front seats
+                        </li>
+                      <% end %>
+                    </ul></td>
+                </tr>
+                <tr>
+                  <td><strong>Comfort & Convenience</strong></td>
+                </tr>
+                <tr>
+                  <td><ul>
+                      <% if @vehicle.electric_mirrors %>
+                        <li>
+                          Electrically adjustable mirrors
+                        </li>
+                      <% end %>
+                      <% if @vehicle.heated_mirrors %>
+                        <li>
+                          Heated mirrors
+                        </li>
+                      <% end %>
+                      <% if @vehicle.folding_mirrors %>
+                        <li>
+                          Folding mirrors
+                        </li>
+                      <% end %>
+                      <% if @vehicle.mirrors_with_memory %>
+                        <li>
+                          Mirrors with memory
+                        </li>
+                      <% end %>
+                      <% if @vehicle.sunroof %>
+                        <li>
+                          Sunroof
+                          <%= "(#{@vehicle.sunroof_details.downcase})" if @vehicle.sunroof_details!="" %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.cruise_control %>
+                        <li>
+                          Cruise control
+                        </li>
+                      <% end %>
+                      <% if @vehicle.distance_monitoring %>
+                        <li>
+                          Distance monitoring system
+                        </li>
+                      <% end %>
+                      <% if @vehicle.engine_preheating %>
+                        <li>
+                          Engine preheating
+                          <%= "(#{@vehicle.engine_preheating_details.downcase})" if @vehicle.engine_preheating_details!="" %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.parking_aid %>
+                        <li>
+                          Parking sensors
+                          <%= parking_sensors %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.inside_temperature_indicator %>
+                        <li>
+                          Internal temperature indicator
+                        </li>
+                      <% end %>
+                    </ul></td>
+                </tr>
+                <tr>
+                  <td><strong>Lights & Windows</strong></td>
+                </tr>
+                <tr>
+                  <td><ul>
+                      <% if @vehicle.spot_lights %>
+                        <li>
+                          Spotlights
+                        </li>
+                      <% end %>
+                      <% if @vehicle.power_windows %>
+                        <li>
+                          Electric windows
+                        </li>
+                      <% end %>
+                      <% if @vehicle.tinted_windows %>
+                        <li>
+                          Tinted windows
+                        </li>
+                      <% end %>
+                      <% if @vehicle.third_brake_light %>
+                        <li>
+                          Third brake light
+                        </li>
+                      <% end %>
+                      <% if @vehicle.rain_sensor %>
+                        <li>
+                          Rain sensor
+                        </li>
+                      <% end %>
+                      <% if @vehicle.xenon %>
+                        <li>
+                          Xenon headlights
+                          <%= xenon %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.headlight_washer %>
+                        <li>
+                          Headlight washers
+                        </li>
+                      <% end %>
+                      <% if @vehicle.special_light %>
+                        <li>
+                          Special dim-dip-lamps
+                        </li>
+                      <% end %>
+                      <% if @vehicle.fog_lights %>
+                        <li>
+                          Fog lamps
+                          <%= fog_lights %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.headlight_range %>
+                        <li>
+                          Headlight range adjustment
+                        </li>
+                      <% end %>
+                      <% if @vehicle.extra_lights %>
+                        <li>
+                          Extra lights
+                          <%= "(#{@vehicle.extra_lights_details.downcase})" if @vehicle.extra_lights_details!="" %>
+                        </li>
+                      <% end %>
+                      <% if @vehicle.auto_light %>
+                        <li>
+                          Automatic headlights
+                        </li>
+                      <% end %>
+                      <% if @vehicle.rear_wiper %>
+                        <li>
+                          Rear wiper/washer
+                        </li>
+                      <% end %>
+                    </ul></td>
+                </tr>
+                <tr>
+                  <td><strong>Interior</strong></td>
+                </tr>
+                <tr>
+                  <td>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>Seating</strong></td>
+                </tr>
+                <tr>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><strong>Instruments & Controls</strong></td>
+                </tr>
+                <tr>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><strong>Exterior</strong></td>
+                </tr>
+                <tr>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><strong>Body</strong></td>
+                </tr>
+                <tr>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><strong>Steering</strong></td>
+                </tr>
+                <tr>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><strong>Brakes</strong></td>
+                </tr>
+                <tr>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><strong>Wheels & Tyres</strong></td>
+                </tr>
+                <tr>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div><!--div.span12-->
+        </div><!--div.row-fluid-->
+      </div><!--div.accordion-inner-->
+    </div><!--div.accordion-body-->
+  </div><!--div.accordion-group-->
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#specifications" href="#collapseOne">
+        Safety & security
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid" >
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Airbags</strong></td>
+                  <td class="right"><%= @vehicle.airbags %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="span6">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#specifications" href="#collapseTwo">
+        Engine
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid" >
+          <div class="span6">
+            <table class="table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Engine power</strong></td>
+                  <td class="right" ><%= @vehicle.engine_power %></td>
+                </tr>
+                <tr>
+                  <td><strong>Engine type</strong></td>
+                  <td class="right"><%= @vehicle.engine_type %></td>
+                </tr>
+                <tr>
+                  <td><strong>Top speed</strong></td>
+                  <td class="right"><%= @vehicle.max_speed %></td>
+                </tr>
+                <tr>
+                  <td><strong>Cylinders</strong></td>
+                  <td class="right"><%= @vehicle.cylinders %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="span6">
+            <table class="table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Engine size</strong></td>
+                  <td class="right"><%= @vehicle.engine_size %></td>
+                </tr>
+                <tr>
+                  <td><strong>Power to Weight ratio</strong></td>
+                  <td class="right"></td>
+                </tr>
+                <tr>
+                  <td><strong>Acceleration 0-100km/h</strong></td>
+                  <td class="right"><%= @vehicle.acceleration %></td>
+                </tr>
+                <tr>
+                  <td><strong><%= link_to "Torque","#",:'data-toggle'=>"tooltip", :title=>"The 'pulling power' of a vehicle, measured in Newton metres (Nm)",:class=>"tooltipped" %></strong></td>
+                  <td class="right"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#specifications" href="#collapseThree">
+        Transmission & drivetrain
+      </a>
+    </div>
+    <div id="collapseThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid" >
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Drive</strong></td>
+                  <td class="right"><%= @vehicle.drivetype.name %></td>
+                </tr>
+                <tr>
+                  <td><strong>Gear type</strong></td>
+                  <td class="right"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Gears</strong></td>
+                  <td class="right"><%= @vehicle.gears %></td>
+                </tr>
+                <tr>
+                  <td><strong></strong></td>
+                  <td class="right"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#specifications" href="#collapseFour">
+        Fuel
+      </a>
+    </div>
+    <div id="collapseFour" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid" >
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Fuel type</strong></td>
+                  <td class="right"><%= @vehicle.fueltype.name %></td>
+                </tr>
+                <tr>
+                  <td><strong>Fuel cons. (city) (l/100 km)</strong></td>
+                  <td class="right"><%= @vehicle.fuel_cons_city %></td>
+                </tr>
+                <tr>
+                  <td><strong>Fuel cons. (combined) (l/100 km)</strong></td>
+                  <td class="right"><%= @vehicle.fuel_cons_combined %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Fuel capacity</strong></td>
+                  <td class="right"><%= @vehicle.fueltank %></td>
+                </tr>
+                <tr>
+                  <td><strong>Fuel cons. (freeway) (l/100 km)</strong></td>
+                  <td class="right"><%= @vehicle.fuel_cons_freeway %></td>
+                </tr>
+                <tr>
+                  <td><strong>CO2 emissions</strong></td>
+                  <td class="right"><%= @vehicle.emissions %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#specifications" href="#collapseNine">
+        Wheels & Tires
+      </a>
+    </div>
+    <div id="collapseNine" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid" >
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Rim material</strong></td>
+                  <td class="right"></td>
+                </tr>
+                <tr>
+                  <td><strong>Rear tyre</strong></td>
+                  <td class="right"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Front tyre</strong></td>
+                  <td class="right"></td>
+                </tr>
+                <tr>
+                  <td><strong></strong></td>
+                  <td class="right"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#specifications" href="#collapseFive">
+        Dimensions & weights
+      </a>
+    </div>
+    <div id="collapseFive" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid" >
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Length</strong></td>
+                  <td class="right"><%= @vehicle.length%></td>
+                </tr>
+                <tr>
+                  <td><strong>Height</strong></td>
+                  <td class="right"><%= @vehicle.height %></td>
+                </tr>
+                <tr>
+                  <td><strong>Gross vehicle mass</strong></td>
+                  <td class="right"><%= @vehicle.gross_weight %></td>
+                </tr>
+                <tr>
+                  <td><strong>Load capacity</strong></td>
+                  <td class="right"><%= @vehicle.load_capacity %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Width</strong></td>
+                  <td class="right"><%= @vehicle.width %></td>
+                </tr>
+                <tr>
+                  <td><strong>Wheelbase</strong></td>
+                  <td class="right"></td>
+                </tr>
+                <tr>
+                  <td><strong>Net weight?</strong></td>
+                  <td class="right"><%= @vehicle.net_weight %></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td class="right"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#specifications" href="#collapseSix">
+        Warranty & service
+      </a>
+    </div>
+    <div id="collapseSix" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid" >
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Warranty in years</strong></td>
+                  <td class="right"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Warranty in km</strong></td>
+                  <td class="right"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#specifications" href="#collapseEight">
+        Running costs
+      </a>
+    </div>
+    <div id="collapseEight" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid" >
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Fuel cost per 100km</strong></td>
+                  <td class="right muted">No details</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Fuel cost per fill</strong></td>
+                  <td class="right muted">No details</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#specifications" href="#collapseSeven">
+        Other
+      </a>
+    </div>
+    <div id="collapseSeven" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <div class="row-fluid" >
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Doors</strong></td>
+                  <td class="right"><%= @vehicle.doors %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="span6">
+            <table class="table table table-striped table-condensed borderless">
+              <tbody>
+                <tr>
+                  <td><strong>Seat capacity</strong></td>
+                  <td class="right"><%= @vehicle.seats %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div><!--div.row-fluid-->
+      </div><!--div.accordion-inner-->
+    </div><!--div.accordion-body-->
+  </div><!--div.accordion-group-->
+</div><!--div.accordion-->

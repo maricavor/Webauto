@@ -1,0 +1,6 @@
+$('#search_region').html("<%= escape_javascript(options_for_select(@regions)) %>");
+$('#search_region').selectpicker('refresh');
+if(gon.selected["region"]) {
+$('#search_region').selectpicker('val', gon.selected["region"].split(','));
+$('#search_region').selectpicker('refresh');
+}

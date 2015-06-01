@@ -1,0 +1,5 @@
+
+$('#my_vehicles').html("<%= j(render 'garage_items/vehicles',vehicles: @vehicles) %>");
+$('.paginator').html("<%= j(render partial: 'vehicles/partials/paginator') %>");
+$('.page_entries_info').html("<%= j(render partial: 'vehicles/partials/page_entries_info') %>");
+$('html, body').scrollTop(0);

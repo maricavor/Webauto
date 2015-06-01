@@ -1,0 +1,39 @@
+#calculate:
+#  every: "1h"
+#  queue: low
+#  class: CronTask
+#  args: "calculate"
+#  description: Calculates stats
+#  rails_envs: development, production, staging
+
+immediate_alert:
+  every: "2h"
+  queue: high
+  class: CronTask
+  args: "immediate_alert"
+  description: Alerts new records immediately
+  rails_envs: development, production, staging
+
+daily_alert:
+  every: "1d"
+  queue: high
+  class: CronTask
+  args: "daily_alert"
+  description: Alerts new records daily
+  rails_envs: development, production, staging
+
+weekly_alert:
+  every: "1w"
+  queue: high
+  class: CronTask
+  args: "weekly_alert"
+  description: Alerts new records weekly
+  rails_envs: development, production, staging
+
+monthly_alert:
+  every: "30d"
+  queue: high
+  class: CronTask
+  args: "monthly_alert"
+  description: Alerts new records monthly
+  rails_envs: development, production, staging

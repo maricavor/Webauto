@@ -1,0 +1,22 @@
+<% if @searches.size>0 %>
+  
+  <table class="table table-hover" id="saved_searches">
+    <thead>
+      <tr>
+        <th><%= t("searches.index.search_name") %></th>
+        <th><%= t("searches.index.details") %></th>
+        <th><%= t("searches.index.freq") %></th>
+        <th><%= t("searches.index.activity") %></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @searches.each do |s| %>
+        <tr id="saved_search_<%= s.id %>">
+          <%= render 'searches/saved_search',s: s %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <p class="text-right" id="delete_all_searches"><small><%= link_to t("searches.index.delete_all"), remove_all_searches_path,  data: { confirm: t("searches.index.sure")},:method => :get,:remote=>true %></small></p>
+<% end %>

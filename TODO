@@ -1,0 +1,197 @@
+- vahetusvoimalus, avariiline, metallic???
+- translate registration form
+- possibilitites to translate other text fields
+- preloader for advert edit continue button
+- eripakkumised auto.soov.ee
+- more similar ads like on http://en.auto.soov.ee/ads/suzuki-grand-vitara-2-0-l-suv-off-road-2006-petrol-2171669.html
+- some more features from auto.soov.ee
+- features search like http://auto.soov.ee/otsing/soiduautod
+- calculate how many people searched vehicle, maybe save search results - add session_id to searches
+- when you change resque task always restart resque server!!!
+- make nicer forms: user profile ad registration
+- create new statuses of adverts, see screenshot in WEBAUTO folder
+- ACTIEAUTO.NL
+- AUTOTEST.NL
+- scorecarts like in AUTOweek magazine
+- https://www.okidoki.ee/register/
+- send emails to users in language they viewing page
+- for description, details etc txt-fields make possible to enter in other languages
+- if other model how to handle search in custom breadcrumb??
+- car suggestion emails according to viewed vehicles
+- translate validations and controllers, make client side validations
+- write features in price tables
+- make proper impression counting
+- personal vehicle suggestion based on analyzed database
+- convert to bootstrap 3 http://www.bootply.com/bootstrap-3-migration-guide
+- http://railscasts.com/episodes/312-sending-html-email?view=asciicast
+
+- before_filter :get_current_type,:get_compared_items in application controller write except
+- what is COUNT in resque?
+- vehicle views like on linkedin.com + returning visitors
+- use this now: git push openshift (or github) master to deploy
+- for translations check github svenfuchs/rails-i18n
+- http://richonrails.com/articles/basic-ajax-in-ruby-on-rails
+- vehicle advert history https://dealerportal.autotrader.co.uk/DealerPortal3/psm/response_tracker_more.action
+- https://dealerportal.autotrader.co.uk/DealerPortal3/psm/web_tracker.action
+-http://weworkforyou.com/insights/view/online-strategies-for-influencing-car-shoppers
+- show advertising prices for vehicles under £1,000
+- Sign in to get the most from Auto Trader check autotrader.co.uk
+- muuda fotod eraldi like okidoki.ee
+- http://railscasts.com/episodes/378-fnordmetric?view=asciicast
+- redo spinner use spin.js  http://carlosbecker.com/posts/building-a-simple-and-non-intrusive-ajax-status-with-coffeescript-in-rubyonrails/
+
+- only show cars with www.carsales.com.au
+- how many people have saved this vehicle
+- Popular 1 viewed per hour
+
+- http://www.wbotelhos.com/capty/
+- check email from lynda.com for layout of alerts
+- Live updates on our cars and reduced cars like on http://www.autosave.co.uk/
+- http://stackoverflow.com/questions/17178606/bootstrap-dropdown-navigation-not-working-on-mobile-browsers
+- good design http://www.graphicsfuel.com/2010/07/beautiful-rounded-fonts-for-free-download/
+- http://www.mugo.ca/Blog/Saved-searches-and-e-mail-alerts-in-eZ-Publish
+- http://archive.railsforum.com/viewtopic.php?id=31544
+- http://railscasts.com/episodes/249-notifications-in-rails-3?view=asciicast
+- other equipment
+- LOGO iMage: http://eu.fotolia.com/id/53461455
+- price negotiable??
+- https://developers.google.com/maps/documentation/embed/guide
+- for translation check book Agile Web dev with rails 4th ed. page 220
+- additional pay features gumtree.com.au
+- ideas from kv.ee zoja.tsoganova@mail.ee jogurt
+- teate kui hind langeb autopluss24.ee
+- car reviews
+- eripakkumised
+- best offers
+- loan calculator
+- possibility to save compare list for users     
+- for breadcrumps maybe add done icon for each action, ideas: http://www.smashingmagazine.com/2010/01/15/progress-trackers-in-web-design-examples-and-best-design-practices/
+- https://www.clickdesk.com/
+- http://www.gumtree.com.au/s-ad/beechboro/cars-vans-utes/2010-hyundai-i30-hatchback/1059877847
+- upgrade to scalable application
+- statistics of vehicle like on nettiauto
+- http://guides.rubyonrails.org/security.html
+- recently viewed show all vehicles even yours, but calculate popularity only unique
+- ideas from http://www.gumtree.com.au/p-post-ad2.html
+- possibility to delete price changes
+- add similar vehicles to show and button when mobile
+- http://www.sunmotors.co.uk/used-cars/ search panel hiding when narrow
+- remove min milage from search?
+- in show vehicle if user is owner show edit button
+- add see more photos thumb for vehicle view like on carzone.ie
+- add security checks for contact forms
+- choose features for search
+- after type change try to go to saved search, why its rendering and not updating navigation
+
+- nice search http://www.autotrader.co.uk/search/used/bikes/postcode/cf51bh/radius/1500/quicksearch/true
+
+- http://www.shutterstock.com/pic-121308175/stock-photo-italian-food-pasta-penne-with-tomato-sauce-olives-and-garnish.html?src=Mn37y5KUFCGbf3uk99vdlA-1-11 customersa also liked, similar etc
+- http://railscasts.com/episodes/164-cron-in-ruby?view=asciicast
+- http://railscasts.com/episodes/171-delayed-job
+- https://github.com/collectiveidea/delayed_job
+- http://archive.railsforum.com/viewtopic.php?id=31544
+- http://stackoverflow.com/questions/13313504/rails-simple-newsletter-mailing-list-with-notification-of-new-search-results-v
+- compare functionality like on klick.ee
+- Last Viewed - > http://stackoverflow.com/questions/10813342/how-to-display-a-list-of-latest-pages-visited, still not working if visitor is owner
+
+- http://asciicasts.com/episodes/249-notifications-in-rails-3
+- in navigation change links and link names according to vehicle type
+- receive offers
+
+- sort on used, new, and nearly new
+
+- http://www.carlist.my/help#post-guidelines
+- get some ideas from https://github.com/sferik/rails_admin 
+- resort and add additional features for boats, bikes etc like carsales.com.au
+- http://igniteui.com/autosales-dashboard-sample
+- add % price change box like http://igniteui.com/autosales-dashboard-sample
+- check/copy all models from auto24.ee
+- People also viewed function http://www.carsales.com.au/all-cars/compare.aspx?silo=Stock&vertical=Car
+- cargurus.com ideas, for example dealer contact details with map 
+- cargurus.com dealer ratings
+- add uservoice.com
+- save search only if enough details selected and offer alerts see carsales.com.au
+- alerts for saved searches?????  like carsales.com.au
+- html tags for page entries info in locale add to helper method
+
+
+- use bootstrap datepicker
+- create session back link for edit form cancel button
+- http://autopluss24.ee/kuulutused/soiduautod/honda
+- Dealer: Used Car Dealer: Nearly New carsales.com.au
+- Buying advices autotrader.co.uk
+- http://helpcentre.carsales.com.au/scam-defence/buyer-safety/
+- for vehicle types do like on autotrader.co.uk Other Vehicles
+- http://railscasts.com/episodes/360-facebook-authentication?view=comments
+- http://deepakrip007.wordpress.com/2013/10/28/facebook-connect-integration-using-devise-and-omniauth-in-rails-app/
+- add badge and model details to main page vehicle, check autosave.co.uk
+- exception notifications
+- https://github.com/weppos/breadcrumbs_on_rails
+- sessions where to store???
+- most popular daily, monthly, all time
+- gem russian
+- use spinners http://exacttarget.github.io/fuelux/#spinner
+- use input masks http://jasny.github.io/bootstrap/javascript/#inputmask
+- file input http://jasny.github.io/bootstrap/javascript/#fileinput
+- http://railscasts.com/episodes/260-messaging-with-faye?view=asciicast
+- recommendations like on youtube.com
+- autosave.co.uk we use cookies, live updates etc.
+- www.drive.com.au
+- highlighted features?
+- ww.thecarconnection.com
+- www.vcars.co.uk
+- www.mobile.ee
+- warranties?
+- special offer?
+
+- http://www.colourbox.com/vector/car-part-icons-vector-5024605
+- https://github.com/kristianmandrup/bootstrap-addons-rails
+- instead of progres bar for every picture make like in linkedin.com preloader 
+- after vehicle destroy check if pictures are destroyed in public dir
+- show total views on mouseover
+
+- view unfinished ads like in carsales.com.au
+
+- https://dealerportal.autotrader.co.uk/features/understand-response/
+- https://dealerportal.autotrader.co.uk/DealerPortal3/advertising/my_dealership.action
+- http://stackoverflow.com/questions/8071913/rails-3-get-request-referrer
+- some ideas from booking.com
+- photos like http://helpcentre.carsales.com.au/help/selling-a-car/how-to#dashboard
+- http://railscasts.com/episodes/210-customizing-devise?view=asciicast
+- morris.js graphs
+- autotrader.co.uk like my garage with my car info and reminders
+- http://www.drive.com.au/used-cars/toyota/corolla/perth/detail.aspx?id=38791747&lid=38791747&pg=1&pp=3&d=0&from=53
+- http://used.automotive.com/ni/classifieds/8639708/3009/
+- http://tutorialzine.com/2013/07/50-must-have-plugins-for-extending-twitter-bootstrap/
+- http://mimo84.github.io/bootstrap-maxlength/
+- how many people looking at this car right now! see http://goodybag.github.io/bootstrap-notify/
+- deal with popstate, otherwise chrome renders the page twice (https://gist.github.com/nragaz/782275)
+- comment generator (see carsale.com.au) and ad completeness
+- transform date select to one select menu (01.2014)
+
+
+- check if user can update another user or other car
+- price suggestion
+- Drive2.ru portal
+- stickers
+- seller rate (see auto24.ee/new)
+- print report options/car searches
+- smarter car exchange with specs
+- want ads
+- bargain price for specific period
+- horizontal scrolling banner on the bottom like on delfi.ee
+- make possible exceptions from search result asking what properties to delete from search results
+- uscar-trader.eu
+- autoscout24.nl
+- automaakler.ee
+- drive.ru
+- drive2.ru
+- toshl.com
+- 
+
+
+
+
+
+
+

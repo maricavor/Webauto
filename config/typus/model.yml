@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Model:
+  fields:
+    default: make_id, name, serie_id, popularity
+    form: make_id, name, serie_id, popularity
+  relationships: vehicles
+  application: Application

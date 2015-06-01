@@ -1,0 +1,4 @@
+$('html, body').scrollTop(0);
+$('#ads').html("<%= j(render 'adverts/partials/ads',adverts: @adverts) %>");
+$('.paginator').html("<%= j(render partial: 'adverts/partials/paginator') %>");
+$('.page_entries_info').html("<%= j(render partial: 'adverts/partials/page_entries_info') %>");

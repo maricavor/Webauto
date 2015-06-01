@@ -9,5 +9,299 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap-datepicker
  *= require_tree .
- */
+*/
+body {
+  position: relative;
+  padding-top: 40px;
+}
+
+/* Code in headings */
+h3 code {
+  font-size: 14px;
+  font-weight: normal;
+}
+/* Sections
+-------------------------------------------------- */
+
+/* padding for in-page bookmarks and fixed navbar */
+section {
+  padding-top: 30px;
+}
+section > .page-header,
+section > .lead {
+  color: #5a5a5a;
+}
+section > ul li {
+  margin-bottom: 5px;
+}
+
+/* Separators (hr) */
+.bs-docs-separator {
+  margin: 40px 0 39px;
+}
+
+/* Faded out hr */
+hr.soften {
+  height: 1px;
+  margin: 70px 0;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
+  border: 0;
+}
+.content {
+  background-color: #fff;
+  padding: 20px;
+  margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
+  
+}
+/* Footer
+-------------------------------------------------- */
+
+.footer {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 70px;
+  border-top: 1px solid #e5e5e5;
+  background-color: #f5f5f5;
+}
+.footer p {
+  margin-bottom: 0;
+  color: #777;
+}
+.footer-links {
+  margin: 10px 0;
+}
+.footer-links li {
+  display: inline;
+  padding: 0 2px;
+}
+.footer-links li:first-child {
+  padding-left: 0;
+}
+ /* Tighten up footer */
+  .footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .bar {
+    height: 18px;
+    background: green;
+}
+table.thumbnails{
+  width:100%;
+}
+.thumbnail{
+
+}
+.thumbnail:hover,
+.thumbnail:focus {
+  border-color: #0088cc;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+     -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+          box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
+}
+a.thumbnail img, .thumbnail a img{
+  max-width: 100%;
+    height: auto;
+    width: 100%;
+
+}
+.sort_dropdown{
+  padding-bottom:15px;
+
+}
+.page_link{
+  display:block;
+}
+a.remove_fields{
+float:right;
+}
+
+.optgroup {
+    font-weight: bold !important;
+  }
+  .vehicles_custom_search{
+
+  }
+
+.vehicles_custom_search input[type=text]{
+  width:95%;
+}
+.vehicles_custom_search fieldset{
+  margin-top:10px;
+
+}
+.vehicles_custom_search ul.horizontal{
+list-style-type: none; 
+margin-left:0;
+}
+.vehicles_custom_search .horizontal{
+float:left;
+width:49%;
+}
+.vehicles_custom_search .horizontal_spacer{
+float:left;
+width:2%;
+}
+
+.vehicles_custom_search label.checkbox{
+float:left;
+margin-right:5px;
+  font-size:12px;
+}
+#search_keywords {
+   font-size:12px;
+}
+.popular_searches ol{
+  font-size:12px;
+}
+#vehicle_form{
+  width:250px;
+}
+.vehicle_info h5{
+ 
+}
+.well li{
+ 
+ 
+}
+
+ul.dropdown-menu li {
+    margin-bottom: 5px;
+}
+.page-header{
+  color: #5a5a5a;
+}
+ul.sortable_pictures { list-style-type: none; margin: 0; padding: 0;}
+ul.sortable_pictures li {margin: 3px 3px 3px 0; padding: 1px; width: 100px; height: 90px;  text-align: center; }
+
+#vehicle_reg_nr{
+    background:#ffffff url('/number_plate.jpg') no-repeat left top; 
+    height:56px;
+    width:250px;
+    padding-left:40px;
+    font-family: Arial;
+    font-size: 38px;
+    font-weight: bold;
+    color:#000;
+    border:0;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  #logo{
+    background-color: #fff;
+    background-image:url('/fotolia.jpg');
+    background-repeat:no-repeat;
+    background-position:right top;
+    height:250px;
+  }
+  table.vehicle_info{
+    background-color:#f5f5f5;
+    border-top:thin dotted #d7d0d0;
+    border-bottom:thin dotted #d7d0d0;
+
+  }
+  table.vehicle_info ul{
+       margin:0;
+    padding:0;
+    list-style-type: none; 
+  }
+    table.vehicle_info ul li{
+  
+    }
+  #upload{
+      display:none;
+    }
+    label.extra{
+    margin-left:20px;
+    }
+    .action_buttons a{
+    margin-top:5px;
+    }
+#vehicle_registered_at_1i{
+  width:100px;
+}
+#vehicle_registered_at_2i{
+  width:170px;
+}
+table.borderless tr td{
+  border:none;
+}
+
+#specifications .accordion-inner{
+  font-size:12px;
+}
+a.tooltipped{
+  color:#000;
+  cursor:text;
+  text-decoration: none;
+  border-bottom: 1px #000 dotted;
+}
+.nested_comment,.reply_form{
+  margin-left:30px;
+  margin-top:10px;
+}
+.comment{
+    margin-top:10px;
+}
+.nested_comment .nested_comment{
+  margin-left:0;
+}
+a.clicked{
+  font-weight:bold;
+}
+.honeypot {
+    position: absolute;
+    left: -9999px;
+  }
+  #site_message{
+
+  }
+ 
+label.required{
+  font-weight:bold;
+}
+
+.bootstrap-select button.selectpicker{
+    font-size:12px;
+}
+textarea{
+  resize: none;
+}
+.image {
+  position:relative;
+}
+.image figcaption {
+  position: absolute;
+  background: rgba( 0, 255, 0, 0.7 );
+  color: #000;
+  border-radius: 5px;
+  right: 5px;
+  top: 5px;
+}
+.image figcaption.red {
+  background: rgba( 255, 0, 0, 0.7 );
+  color: #000;
+}
+
+.image figcaption strong {
+  display: block;
+  color: #fff;
+  font-weight: normal;
+  font-size:14px;
+  padding: 5px;
+}
+.image figcaption p {
+  display: block;
+  color: white;
+  padding: 5px;
+}
+ul.breadcrumb span.badge {
+  margin-right:5px;
+}
+

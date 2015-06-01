@@ -1,0 +1,22 @@
+
+
+<div class="row-fluid">
+    <div class="span6">
+<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post,:class=>"form-vertical" }) do |f| %>
+
+ <h3 class="form-heading"><%= t(".resend_instructions") %></h3>
+ <p> <%= t(".resend_instructions_note") %> </p>
+ <span class="linkform"><%= t(".email") %></span>
+     <%= f.email_field :email, :class=>"input-block-level",:autofocus => true%>
+ <button class="btn btn-primary" type="submit"><%= t(".resend") %></button>
+
+
+<%= render "devise/shared/links" %>
+<% end %>
+</div>
+    <div class="span6">
+    </div>
+</div>
+
+
+

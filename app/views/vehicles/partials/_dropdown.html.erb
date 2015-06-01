@@ -1,0 +1,13 @@
+<% if @vehicles.size>0 %>
+  <div class="btn-group">
+    <a class="btn btn-small dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+      <%= "#{t('search.sorted_by')} #{@current_sort[0]}" %>
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="dLabel">
+      <% @sort_fields.each do |sf| %>
+        <li><%= link_to sf[0], params.merge(:sort => sf[2],:page=>1),:class=>"sort_link",:remote=>true,:authenticity_token => false %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

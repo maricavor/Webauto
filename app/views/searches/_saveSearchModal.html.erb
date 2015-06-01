@@ -1,0 +1,15 @@
+<!-- Modal -->
+<div id="saveSearchModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="saveSearchModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="saveSearchModalLabel"><%= mode=="edit" ? t("searches.index.rename_search") : t("searches.index.save_search") %></h3>
+  </div>
+  <div class="modal-body">
+    <%= render partial: 'searches/edit_search_form',locals: {mode: mode} %>
+  </div>
+  <div class="modal-footer">
+    <div class="preloader"></div>
+    <button class="save_search_btn btn btn-primary"><%= t("searches.index.save") %></button>
+    <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t("searches.index.close") %></button>
+  </div>
+</div>

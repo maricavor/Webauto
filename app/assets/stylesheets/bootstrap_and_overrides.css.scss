@@ -1,0 +1,133 @@
+@import "bootstrap";
+
+ 
+ body {
+        padding-top: 60px;
+        
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+
+        /* Enable use of floated navbar text */
+        .navbar-text.pull-right {
+          float: none;
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+ 
+      a:hover {
+  text-decoration: none;
+}
+a.accordion-toggle{
+ 
+}
+.hero-unit{
+
+  padding-top:20px;
+}
+#logo{
+  padding-left:0;
+}
+.table td.right{
+  text-align:right;
+}
+.table td.center {
+   text-align: center;   
+}
+.sidebar-nav{
+  padding-right:10px;
+}
+  .lead {
+        font-size:16px;
+    }
+.custom-breadcrumb{
+
+  background-color: #fff;
+  border:0;
+  padding:0;
+ 
+}
+.icon-garage {
+    background-image: url('/garage16.png');
+    background-position: center center;
+}
+.icon-cars {
+    background-image: url('/cars16.png');
+    background-position: center center;
+}
+.icon-garage-white {
+    background-image: url('/garage16_white.png');
+    background-position: center center;
+}
+.nav .active a [class^="icon-garage"],.nav .active a [class*=" icon-garage"] { 
+background-image:url("/garage16_white.png") !important; 
+}
+@import "bootstrap-responsive";
+/* Large desktop */
+@media (min-width: 1200px) { 
+#statisticsModal{
+ width: 80%; /* respsonsive width */
+margin-left:-40%; /* width/2) */ 
+}
+
+ }
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+#statisticsModal{
+ width: 80%; /* respsonsive width */
+margin-left:-40%; /* width/2) */ 
+}
+
+#general_info{
+  font-size:12px;
+}
+.vehicle_name,.vehicle_price,.vehicle_ownership{
+  font-size:12px;
+}
+.specs,.popular_searches{
+   font-size:12px;
+}
+ 
+   table.vehicle_info{
+    font-size:12px;
+}
+
+
+
+ }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+  #general_info{
+  font-size:12px;
+}
+
+.specs,.popular_searches{
+   font-size:12px;
+}
+
+.footer {
+  padding-left:10px;
+  }
+  
+
+ }
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+  #general_info{
+  font-size:12px;
+}
+.footer {
+  padding-left:10px;
+  }
+
+.specs,.popular_searches{
+   font-size:12px;
+}
+
+
+ }
+

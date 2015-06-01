@@ -1,0 +1,5 @@
+$('#comments').prepend("<%= escape_javascript(render(@comment)) %>");
+$('.comments-modal-message').html('');
+$('.comment').first().hide().fadeIn('slow');
+$('#new_comment')[0].reset();
+$(".action_buttons").html("<%= j(render partial:'vehicles/partials/action_buttons')%>");

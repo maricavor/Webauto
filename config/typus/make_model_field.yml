@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+MakeModelField:
+  fields:
+    default: search_id, make_name, model_name
+    form: search_id, make_name, model_name
+  relationships: 
+  application: Application

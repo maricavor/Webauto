@@ -1,0 +1,89 @@
+<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+</button>
+<%= link_to "Webauto", send("#{@current_type.path_name}_path"), class:"brand" %>
+<div class="nav-collapse collapse">
+  <ul class="nav pull-right">
+    <% if user_signed_in? %>
+      <li  class="dropdown">
+        <%= link_to "#{current_user.name}  <i class='icon-user icon-white'></i><b class='caret'></b>".html_safe, "#",:role=>"button",:id=>"drop1",:class=>"dropdown-toggle js-activated", :'data-toggle'=>"dropdown" %>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+          <li role="presentation"><%= link_to t("navigation.dashboard"), dashboard_url,:role=>"menuitem",:tabindex=>"-1"  %></li>
+           <!--<li role="presentation"><%= link_to 'Garage', garage_items_url,:role=>"menuitem",:tabindex=>"-1"  %></li>-->
+          <li role="presentation"><%= link_to t("navigation.saved_searches"), searches_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
+          <li role="presentation"><%= link_to t("navigation.saved_items"), saved_items_url,:role=>"menuitem",:tabindex=>"-1"  %></li>
+
+          <li role="presentation"><%= link_to t("navigation.my_ads"), adverts_url,:role=>"menuitem",:tabindex=>"-1"  %></li>
+         
+          <li role="presentation"><%= link_to t("navigation.profile"), profile_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
+          <li role="presentation"><%= link_to t("navigation.settings"), settings_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
+          <li role="presentation" class="divider"></li>
+          <li role="presentation">
+            <%= link_to t("navigation.signout"), destroy_user_session_path, :method=>'delete',:role=>"menuitem",:tabindex=>"-1" %>
+          </li>
+        </ul>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to t("navigation.register"), new_user_registration_path %>
+      </li>
+      <li>
+        <%= link_to t("navigation.login"), new_user_session_path %>
+      </li>
+    <% end %>
+  </ul>
+  <ul class="nav">
+    <li ><%= link_to t('navigation.home').html_safe, send("#{@current_type.path_name}_path") %></li>
+    <li  class="dropdown">
+      
+      <%= link_to (t("navigation.#{type}_for_sale")+' <b class="caret"></b>').html_safe, "#",:role=>"button",:id=>"drop2",:class=>"dropdown-toggle js-activated", :'data-toggle'=>"dropdown" %>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+        <li role="presentation"><%= link_to t("navigation.all_#{type}"), new_search_path(:search=>"all"),:role=>"menuitem",:tabindex=>"-1",:method=>:post  %></li>
+        <li role="presentation"><%= link_to t("navigation.dealer_#{type}"), new_search_path(:search=>"dealer"),:role=>"menuitem",:tabindex=>"-1"  %></li>
+        <li role="presentation"><%= link_to t("navigation.private_#{type}"), new_search_path(:search=>"private"),:role=>"menuitem",:tabindex=>"-1"  %></li>
+        <li role="presentation"><%= link_to t("navigation.help_buying_#{type}"), buying_a_car_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
+        <li role="presentation"><%= link_to t('navigation.find_dealer'), users_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
+      </ul>
+    </li>
+    <li  class="dropdown">
+      <%= link_to (t("navigation.sell_your_#{type}")+' <b class="caret"></b>').html_safe, "#",:role=>"button",:id=>"drop3",:class=>"dropdown-toggle js-activated", :'data-toggle'=>"dropdown" %>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+        <li role="presentation"><%= link_to t("navigation.create_ad"), new_advert_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
+        <li role="presentation"><%= link_to t("navigation.manage_ad"), adverts_url,:role=>"menuitem",:tabindex=>"-1"  %></li>
+        <!--<li role="presentation"><%= link_to 'Value my '+@current_type.name, "#",:role=>"menuitem",:tabindex=>"-1"  %></li>-->
+        <li role="presentation"><%= link_to t("navigation.seller_help"), selling_a_car_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
+        <li role="presentation"><%= link_to t("navigation.safety_tips"), safety_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
+      </ul>
+    </li>
+    <li  class="dropdown">
+      <%= link_to (t("navigation.research")+' <b class="caret"></b>').html_safe, "#",:role=>"button",:id=>"drop4",:class=>"dropdown-toggle js-activated", :'data-toggle'=>"dropdown" %>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="drop4">
+        <!--<li role="presentation"><%= link_to @current_type.name+' valuation', "#",:role=>"menuitem",:tabindex=>"-1"  %></li>-->
+        <!--<li role="presentation"><%= link_to @current_type.name+' research', "#",:role=>"menuitem",:tabindex=>"-1"  %></li>-->
+        <li role="presentation" id="link_to_compare">   <%= render 'layouts/link_to_compare'%></li>
+
+        <!--<li role="presentation"><%= link_to 'Finance', "#",:role=>"menuitem",:tabindex=>"-1"  %></li>-->
+        <!--<li role="presentation"><%= link_to 'Insurance', "#",:role=>"menuitem",:tabindex=>"-1"  %></li>-->
+      </ul>
+    </li>
+   
+   
+    <!--
+     <li  class="dropdown">
+      <%= link_to 'Other vehicles <b class="caret"></b>'.html_safe, "#",:role=>"button",:id=>"drop7",:class=>"dropdown-toggle js-activated", :'data-toggle'=>"dropdown" %>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="drop7">
+          <li role="presentation">
+            <%= type_select(1,"Car",cars_url) %>
+         
+        </li>
+        <li role="presentation">
+            <%= type_select(4,"Bike",bikes_url) %>
+       
+        </li>
+      
+      </ul>
+    </li>-->
+  </ul>
+</div>

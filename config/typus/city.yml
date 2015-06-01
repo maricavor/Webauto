@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+City:
+  fields:
+    default: name, state_id
+    form: name, state_id
+  relationships: users
+  application: Application

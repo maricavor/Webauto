@@ -1,0 +1,10 @@
+<fieldset>
+
+  <%= f.select :make_name, [[t("search.make"),""]]+@makes.collect {|p| [ p.name, p.name ] },{},{:class=>"make_select selectpicker show-tick show-menu-arrow",:title=>'Make (any)',:'data-live-search'=>"false",:'data-width'=>"100%"} %>
+  <%= f.select :model_name, [],{},{:class=>"model_select selectpicker show-tick show-menu-arrow",:multiple=>"multiple",:title=>t("search.model"),:'data-live-search'=>"false",:'data-width'=>"100%",:'data-selected-text-format'=>"count>2",:'data-count-selected-text'=>t("search.count_selected_text")} %>
+  <% if f.object.id!=@search.first_field_id or remove_link %>
+    <small>
+      <%= link_to t("search.remove"),"#", class: "remove_fields"  %></small>
+
+  <% end %>
+</fieldset>

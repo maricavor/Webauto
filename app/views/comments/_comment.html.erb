@@ -1,0 +1,27 @@
+<% if comment.root? %>
+  <%= div_for(comment,class: "comment") do %>
+    <small><strong><%= comment.user.name %></strong>
+      <span class="muted">&nbsp;&bull;&nbsp;<%= " #{time_ago_in_words(comment.created_at)}" %> <%= t("datetime.ago") %></span>
+    </small><br>
+      <%=h comment.text %><br>
+        <% if comment.user== current_user || @vehicle.user == current_user %>
+          <% if @vehicle.user == current_user %>
+            <small><%= link_to t("comments.reply"), new_vehicle_comment_path(@vehicle,:parent_id=>comment),:remote=>true,:class=>"muted" %></small>
+            <span class="muted">&bull;</span>
+          <% end %>
+          <small><%= link_to t("comments.delete"), [@vehicle, comment], :confirm => 'Are you sure?',
+:method => :delete, :remote => true,:class=>"muted" %></small>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= div_for(comment,class: "nested_comment") do %>
+        <small><strong><%= comment.user.name %></strong><span class="muted">&nbsp;<i class="icon-share-alt"></i>&nbsp;<%= comment.parent.user.name %></span>
+          <span class="muted">&nbsp;&bull;&nbsp;<%= " #{time_ago_in_words(comment.created_at)}" %></span>
+        </small><br>
+          <%=h comment.text %><br>
+            <% if comment.user== current_user || @vehicle.user == current_user %>
+              <small><%= link_to t("comments.delete"), [@vehicle, comment], :confirm => 'Are you sure?',
+:method => :delete, :remote => true,:class=>"muted" %></small>
+            <% end %>
+          <% end %>
+        <% end %>
