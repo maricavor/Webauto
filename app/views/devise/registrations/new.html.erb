@@ -13,8 +13,8 @@
           
      
           <%= f.text_field :name, :label => "Email" %>
-          <%= f.text_field :password, :label => "Password" %>
-          <%= f.text_field :password_confirmation, :label => "Password confirmation" %>
+          <%= f.password_field :password, :label => "Password" %>
+          <%= f.password_field :password_confirmation, :label => "Password confirmation" %>
           <%= f.check_box :is_dealer,label: "Are you a trade seller?" %>
           <fieldset class="dealer_data">
             <%= f.text_field :company_name,:label=>"Company name" %>
@@ -29,7 +29,7 @@
             <%= f.text_field :phone1,:label=>"Phone" %>
             <%= f.text_field :webpage,:label=>"Webpage" %>
           </fieldset>
-          <%= f.check_box :tos_agreement,label: "I accept the terms and privacy policy" %>
+          <%= f.check_box :tos_agreement,label: "I accept the <a href='#{terms_path}'>terms</a> and <a href='#{privacy_path}'>privacy policy</a>".html_safe %>
        
     
     <div style="padding-top:20px;">

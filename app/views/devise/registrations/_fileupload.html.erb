@@ -1,0 +1,21 @@
+<%= form_for DealerPicture.new,:html => { :multipart => true, :id => "fileupload",:class=>"#{resource.dealer_picture ? 'hidden' : '' }"}  do  %>
+ 
+  <%= hidden_field :dealer_picture,:user_id,:value=>resource.id %>
+
+
+  <span class="btn btn-success fileinput-button">
+    <i class="icon-plus icon-white"></i>
+    <span><%= t("users.profile.add_pic") %></span>
+    <%= file_field_tag :dealer_picture, :multiple => false, :name => "dealer_picture[file]" %>
+  </span>
+
+
+<% end %>
+ <!-- The global progress bar -->
+    <div id="global_progress">
+      <%= render 'adverts/partials/global_progress' %>
+     
+    </div>
+     <div class="dealer_picture">
+      <%= render 'dealer_pictures/dealer_picture',:dealer_picture=>resource.dealer_picture %>
+    </div>

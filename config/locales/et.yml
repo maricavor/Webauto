@@ -98,6 +98,7 @@ et:
     get_started: Registreeru kohe. See on kiire ja lihtne
     remember_me: Mäleta mind
     sign_in_btn: Logi sisse
+    resend: Resend
     sign_up: Registreeru
     forgot: "Unustasid oma parooli?"
     confirmation: "Ei saanud parooli muutmise juhiseid?"
@@ -542,6 +543,8 @@ et:
       save: Salvesta
       close: Sulge
       name: Nimi
+      alerts_on: "Jah"
+      alerts_off: "Ei"
       search_name: NIMI
       details: DETAILID
       freq: TEAVITAMINE

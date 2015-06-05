@@ -99,6 +99,7 @@ en:
     remember_me: Remember me
     sign_in_btn: Sign in
     sign_up: Sign up
+    resend: Resend
     forgot: "Forgot your password?"
     confirmation: "Didn't receive confirmation instructions?"
     unlock: "Didn't receive unlock instructions?"
@@ -544,7 +545,9 @@ en:
       name: Name
       search_name: NAME
       details: DETAILS
-      freq: ALERT FREQUENCY
+      freq: ALERTS
+      alerts_on: "On"
+      alerts_off: "Off"
       activity: ACTIVITY
       delete_all: Delete all
       sure: "Are you sure you want to delete all items?"

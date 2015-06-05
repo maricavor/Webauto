@@ -1,6 +1,6 @@
-<td id="link_to_search_<%= s.id %>">
-   <%= render 'searches/link_to_search',s: s %>
-
+<td><strong>
+    <%= link_to_search(s) %>
+  </strong>
 </td>
 <td>
   <ul>
@@ -10,7 +10,26 @@
 </ul>
 </td>
 <td>
-<%= tag("input", type: 'checkbox', checked: (s.alert_freq=="No Alert" ? nil : "checked"),class: ["toggle_alert"], id: "toggle_alert_#{s.id}", data: {toggle: 'toggle', size: 'normal', on: "#{t('searches.index.alerts_on')}", off: "#{t('searches.index.alerts_off')}"}) %>
+<!--
+       <div class="btn-group">
+  <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+    <% if s.alert_freq.nil? %>
+    <%= t("searches.index.no_alert") %>
+    <% else %>
+     <% sa = t('search_alerts').find {|alert| alert["id"]==s.alert_freq} %>
+     <%= sa["name"] %>
+     <% end %>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+  	<% t('search_alerts').each do |a| %>
+<li><%= link_to a["name"], search_path(s, :search=>{:alert_freq => a["id"]}), :method => :put,:class=>"alert_link",:remote=>true,:authenticity_token => false  %> </li>
+ 
+           <% end %>
+  </ul>
+</div>
+-->
+<input id="search_alert_<%= s.id %>" type="checkbox" name="alert-checkbox" checked data-size="small" data-animate="false">
 </td>
 <td class="muted">
   <small><strong class="text-success"><%= t("searches.index.saved_on") %></strong>

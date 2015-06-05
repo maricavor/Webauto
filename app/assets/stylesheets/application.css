@@ -10,6 +10,12 @@
  *
  *= require_self
  *= require bootstrap-datepicker
+ *= require blueimp-gallery.min
+ *= require bootstrap-image-gallery
+ *= require bootstrap-select.min
+ *= require jquery.capty
+ *= require jquery.fileupload-ui
+ *= require bootstrap2-toggle.min
  *= require_tree .
 */
 body {
@@ -195,7 +201,7 @@ ul.sortable_pictures li {margin: 3px 3px 3px 0; padding: 1px; width: 100px; heig
   }
   #logo{
     background-color: #fff;
-    background-image:url('/fotolia.jpg');
+    background-image:url('/fotolia6.jpg');
     background-repeat:no-repeat;
     background-position:right top;
     height:250px;

@@ -7,12 +7,16 @@
     </div>
 <div class="row-fluid">
   <div class="span6 well">
-    <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put,:class=>"form-vertical"  }) do |f| %>
+    <%= vehicle_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html=>{:method => :put,:class=>"form-vertical"}) do |f| %>
+
       <%= f.hidden_field :reset_password_token %>
-      <%= f.input :password, :label => "New password" %>
-      <%= f.input :password_confirmation, :label => "Password confirmation" %>
-        <br />
- <%= f.button :submit, t("signin.change_password"), :class => 'btn btn-primary' %>
+      <%= f.password_field :password, :label=> "New password" %>
+      <%= f.password_field :password_confirmation, :label => "Password confirmation" %>
+    
+     <div style="padding-top:20px;">
+      <%= f.submit t("signin.change_password"),:class=>"btn btn-primary" %>
+      </div>
+
       
     <% end %>
 

@@ -25,6 +25,7 @@
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require jquery.capty.min
+//= require bootstrap2-toggle.min
 //= require_tree .
 $(window).on('load', function(e) {
     if (window.location.hash == '#_=_') {
@@ -36,6 +37,6 @@ $(window).on('load', function(e) {
 $(document).ready(function() {
     $('.js-activated').dropdownHover().dropdown();
     $('.add_fields').tooltip();
- 
+  
 
 });

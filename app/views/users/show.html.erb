@@ -19,16 +19,16 @@
           </thead>
           <tbody>
             <% @saved_items.each do |s| %>
-                <% advert=s.advert %>
+               
             
                <tr>
 
-                  <% vehicle=advert.vehicle %>
+                  <% vehicle=s.vehicle %>
                   <% picture=vehicle.pictures.first %>
                   <td width="150">
                       <div class="thumbnail">          
       <div class="image">
-         <% if advert.destroyed? %>
+         <% if vehicle.destroyed? %>
       <% if picture %>
       <%= image_tag(picture.file_url(:thumb)) %>
    
@@ -56,7 +56,7 @@
                   </td>
                   <td>
                     <strong>
-                       <% if advert.destroyed? %>
+                       <% if vehicle.destroyed? %>
                    <%= s.name %>
                  
                  <% else %>
