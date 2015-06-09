@@ -30,7 +30,7 @@
             <%= f.text_field :webpage,:label=>"Webpage" %>
           </fieldset>
           <%= f.check_box :tos_agreement,label: "I accept the <a href='#{terms_path}'>terms</a> and <a href='#{privacy_path}'>privacy policy</a>".html_safe %>
-     <%= recaptcha_tags %>
+
     
     <div style="padding-top:20px;">
       <%= f.submit "Sign up",:class=>"btn btn-primary" %>
