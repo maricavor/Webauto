@@ -51,5 +51,6 @@ gem 'typus'
 gem 'thin'
 gem "google_visualr", ">= 2.1"
 gem 'bootstrap-datepicker-rails'
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 

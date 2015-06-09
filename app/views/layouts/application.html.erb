@@ -21,6 +21,7 @@
               window.I18n = <%= current_translations.to_json.html_safe %>
             <% end %>
             <%= yield(:head) %>
+           
           </head>
           <body class="<%= controller_name %> <%= action_name %>">
           <% type=@current_type.path_name %>
