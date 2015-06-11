@@ -1,3 +1,5 @@
+- after signup and confrmation no flash messages
+- no city support Jälgimäe tee 1, Tänassilma, 76406, Harjumaa, Eesti
 - port forwarding  rhc port-forward -a applicationName
 - check for vehicle.destroyed? in dashboard
 - install recapthcha for forms https://www.google.com/recaptcha/intro/index.html

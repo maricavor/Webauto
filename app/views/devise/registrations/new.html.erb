@@ -8,11 +8,8 @@
 <div class="row-fluid">
   <div class="span6 well">
     
-    <%= vehicle_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html=>{:class=>"form-vertical",:remote=>false}) do |f| %>
- 
-          
-     
-          <%= f.text_field :name, :label => "Email" %>
+    <%= vehicle_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html=>{:class=>"form-vertical",:remote=>false}) do |f| %>    
+          <%= f.text_field :email, :label => "Email" %>
           <%= f.password_field :password, :label => "Password" %>
           <%= f.password_field :password_confirmation, :label => "Password confirmation" %>
           <%= f.check_box :is_dealer,label: "Are you a trade seller?" %>
