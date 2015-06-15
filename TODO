@@ -4,6 +4,7 @@
 - Olete registreeritud. Teile saabub e-mail, millega kinnitate oma registreerimissoovi.
 - no city support Jälgimäe tee 1, Tänassilma, 76406, Harjumaa, Eesti
 - port forwarding  rhc port-forward -a applicationName
+- for pushing to github use git push master master
 - check for vehicle.destroyed? in dashboard
 - install recapthcha for forms https://www.google.com/recaptcha/intro/index.html
 - https://www.truecar.com/used-cars-for-sale/
@@ -42,7 +43,7 @@
 - before_filter :get_current_type,:get_compared_items in application controller write except
 - what is COUNT in resque?
 - vehicle views like on linkedin.com + returning visitors
-- use this now: git push openshift (or github) master to deploy
+
 - for translations check github svenfuchs/rails-i18n
 - http://richonrails.com/articles/basic-ajax-in-ruby-on-rails
 - vehicle advert history https://dealerportal.autotrader.co.uk/DealerPortal3/psm/response_tracker_more.action
