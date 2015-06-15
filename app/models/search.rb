@@ -1,7 +1,7 @@
 class Search < ActiveRecord::Base
   extend FriendlyId
   attr_accessor :updating_name
-  attr_accessible :updating_name,:adverts,:bt, :cl, :dt, :fpgt, :fplt, :ft, :keywords, :kmgt, :kmlt, :pwgt, :pwlt, :tm, :tp, :fields_attributes,:location,:region,:engine_size,:doors,:stgt,:stlt,:slug,:keywords,:user_id,:user_ip,:name,:updated_at,:yeargt,:yearlt,:is_dealer,:is_private,:features,:sort,:exception,:alert_freq
+  attr_accessible :updating_name,:adverts,:bt, :cl, :dt, :fpgt, :fplt, :ft, :keywords, :kmgt, :kmlt, :pwgt, :pwlt, :tm, :tp, :fields_attributes,:location,:region,:engine_size,:doors,:stgt,:stlt,:slug,:keywords,:user_id,:user_ip,:name,:updated_at,:yeargt,:yearlt,:is_dealer,:is_private,:features,:dealers,:sort,:exception,:alert_freq
   has_many :fields, class_name: "MakeModelField",:dependent=>:destroy
   has_many :search_alerts,:dependent=>:destroy
   accepts_nested_attributes_for :fields, allow_destroy: true,reject_if: lambda {|attributes| attributes['make_name'].blank?}
@@ -24,7 +24,7 @@ class Search < ActiveRecord::Base
       slug+="#{f.make_name} " unless f.make_name.nil?
       slug+="#{f.model_name} " unless f.model_name.nil?
     end
-    if slug==""
+    if slug=="" and !self.dealers.present?
       slug+="all "
     end
  
@@ -53,7 +53,7 @@ class Search < ActiveRecord::Base
   def to_gon_object
     mds = []
     self.fields.each { |f| mds.push([f.make_name,f.model_name])}
-    {"vehicles"=>mds,"bt"=>self.bt,"ft"=>self.ft,"tm"=>self.tm,"dt"=>self.dt,"stgt"=>self.stgt,"stlt"=>self.stlt,"cl"=>self.cl,"location"=>self.location,"doors"=>self.doors,"region"=>self.region,"features"=>self.features}
+    {"vehicles"=>mds,"bt"=>self.bt,"ft"=>self.ft,"tm"=>self.tm,"dt"=>self.dt,"stgt"=>self.stgt,"stlt"=>self.stlt,"cl"=>self.cl,"location"=>self.location,"doors"=>self.doors,"region"=>self.region,"features"=>self.features,"dealers"=>self.dealers}
   end
   def first_field_id
     self.fields.size>0 ? self.fields.first.id : nil
@@ -156,6 +156,7 @@ class Search < ActiveRecord::Base
       is_private=self.is_private
       fields=self.fields
       features=self.features
+      dealers=self.dealers
       solr_search = Vehicle.search do
         fulltext keywords if keywords.present?
         if fields
@@ -206,6 +207,7 @@ class Search < ActiveRecord::Base
         with(:fueltype_id,fueltype.split(",")) if fueltype.present?
         with(:transmission_id,transmission.split(",")) if transmission.present?
         with(:drivetype_id,drivetype.split(",")) if drivetype.present?
+        with(:user_id,dealers.split(",")) if dealers.present?
         with(:colour_id,colour.split(",")) if colour.present?
         with(:country_id,country.split(",")) if country.present?
         without(:advert_id,nil)

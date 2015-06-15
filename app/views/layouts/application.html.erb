@@ -60,10 +60,10 @@
                         
                         <li style="padding-bottom:5px;"><strong><%= t("navigation.#{type}_for_sale").upcase %></strong></li>
                         <li><%= link_to t("navigation.all_#{type}"), new_search_path(:search=>"all"),:method=>:post  %></li>
-                        <li><%= link_to t("navigation.dealer_#{type}"), new_search_path(:search=>"all"),:method=>:post  %></li>
-                        <li><%= link_to t("navigation.private_#{type}"), new_search_path(:search=>"all"),:method=>:post  %></li>
-                        <li><%= link_to t("navigation.help_buying_#{type}"), new_search_path(:search=>"all"),:method=>:post  %></li>
-                        <li><%= link_to t('navigation.find_dealer'), new_search_path(:search=>"all"),:method=>:post  %></li>
+                        <li><%= link_to t("navigation.dealer_#{type}"), new_search_path(:search=>"dealer"),:method=>:post  %></li>
+                        <li><%= link_to t("navigation.private_#{type}"), new_search_path(:search=>"private"),:method=>:post  %></li>
+                        <li><%= link_to t("navigation.help_buying_#{type}"), buying_a_car_path %></li>
+                        <li><%= link_to t('navigation.find_dealer'),  users_path %></li>
                       </small>
                     </ul>
                   </div>
@@ -71,21 +71,28 @@
                     <ul class="unstyled text-left" >
                       <small>
                         <li style="padding-bottom:5px;"><strong><%= t("navigation.sell_your_#{type}").upcase %></strong></li>
-                        <li><%= link_to t("navigation.create_ad"), new_search_path(:search=>"all"),:method=>:post  %></li>
-                        <li><%= link_to t("navigation.manage_ad"), new_search_path(:search=>"all"),:method=>:post  %></li>
-                        <li><%= link_to t("navigation.seller_help"), new_search_path(:search=>"all"),:method=>:post  %></li>
-                        <li><%= link_to t("navigation.safety_tips"), new_search_path(:search=>"all"),:method=>:post  %></li>
+                        <li><%= link_to t("navigation.create_ad"),new_advert_path %></li>
+                        <li><%= link_to t("navigation.manage_ad"),adverts_url %></li>
+                        <li><%= link_to t("navigation.seller_help"),selling_a_car_path  %></li>
+                        <li><%= link_to t("navigation.safety_tips"), safety_path %></li>
                       </small>
                     </ul>
                   </div>
                   <div class="span2">
+                  
                     <ul class="unstyled text-left">
                       <small>
-                        <li style="padding-bottom:5px;"><strong>TYPES</strong></li>
+                      
+                        <li style="padding-bottom:5px;"><strong>RESEARCH</strong></li>
+                        <li> <%= link_to t("navigation.compare_#{type}"), compare_path,:method=>:post %></li>
+                       
+                        <!--
                         <li><%= link_to 'Cars', search_cars_path,:method=>:post  %></li>
                         <li><%= link_to 'Bikes', search_bikes_path,:method=>:post  %></li>
+                         -->
                       </small>
                     </ul>
+                   
                   </div>
                    <div class="span2">
                     <ul class="unstyled text-left">

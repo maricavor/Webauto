@@ -55,6 +55,10 @@ Models =
         $('#search_features').selectpicker('val', selected["features"].split(','))
         $('#search_features').selectpicker('refresh')
         Models.toggle_more_options()
+      if selected["dealers"]
+        $('#search_dealers').selectpicker('val', selected["dealers"].split(','))
+        $('#search_dealers').selectpicker('refresh')
+        Models.toggle_more_options()
       if selected["vehicles"][2]!=null
         ss=selected["vehicles"][2]
         $("#vehicle_model_id option[value='#{ss}']").attr("selected", "selected")
@@ -383,6 +387,15 @@ jQuery ->
   $(document).on 'change',"#search_location", (event) ->
     Models.show_regions_in_search()
     event.preventDefault() 
+  $(document).on 'change',"#search_dealers", (event) ->
+    val=$(this).val()
+    if val == null
+      $('#search_is_dealer').prop('checked',true)
+      $('#search_is_private').prop('checked',true)
+    else
+      $('#search_is_dealer').prop('checked',true)
+      $('#search_is_private').prop('checked',false)
+    event.preventDefault()
   $(document).on 'change',".resetable", (event) ->
     val= $(this).val()
     if val != null

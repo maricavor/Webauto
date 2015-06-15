@@ -71,6 +71,7 @@ et:
     doors: Uksi
     no_doors: Uksi
     features: "Varustus (kõik)"
+    dealers: "Müüja (kõik)"
     keywords: Tekstiotsing
     dealer: Automüüja
     private: Eraisik

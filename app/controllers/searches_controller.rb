@@ -153,7 +153,7 @@ class SearchesController < ApplicationController
   end
 
   def modify(params)
-    %w(bt ft tm dt cl location doors region features).each do |p|
+    %w(bt ft tm dt cl location doors region features dealers).each do |p|
       params[p]=params[p].reject(&:empty?).join(',') if params[p].present?
     end
     if params["fields_attributes"]

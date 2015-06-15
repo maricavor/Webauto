@@ -71,8 +71,9 @@ en:
     doors: Doors
     no_doors: "No. of doors (any)"
     features: "Features (any)"
+    dealers: "Dealers (any)"
     keywords: Keywords
-    dealer: Dealer
+    dealer: Dealer 
     private: Private seller
     search: Search
     sorted_by: "Sorted by:"

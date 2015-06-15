@@ -21,7 +21,7 @@ class RegistrationsController < Devise::RegistrationsController
       if @validatable
         @minimum_password_length = resource_class.password_length.min
       end
-      flash[:error]=resource.errors.full_messages.to_s
+      flash[:error]=resource.errors.full_messages.to_sentence
       respond_with resource
     end
   end
@@ -45,7 +45,7 @@ class RegistrationsController < Devise::RegistrationsController
         respond_with resource, :location => dashboard_path #after_update_path_for(resource)
       else
         clean_up_passwords resource
-        flash[:error]=resource.errors.full_messages.first
+        flash[:error]=resource.errors.full_messages.to_sentence
         respond_with resource
       end
     else
@@ -54,7 +54,7 @@ class RegistrationsController < Devise::RegistrationsController
         sign_in resource_name, resource, :bypass => true
         respond_with resource, :location => dashboard_path #after_update_path_for(resource)
       else
-        flash[:error]=resource.errors.full_messages.first
+        flash[:error]=resource.errors.full_messages.to_sentence
         respond_with resource
       end
     end

@@ -1,4 +1,7 @@
 - after signup and confrmation no flash messages
+- make view stock for dealer and if search form selected only one dealer go to dealer stock page
+- dealer pages like http://www.carzone.ie/car-dealers/ireland/galway/4x4-exporter-galway-dpp-8a6aa153446d45a5014478772b594400/cars?
+- Olete registreeritud. Teile saabub e-mail, millega kinnitate oma registreerimissoovi.
 - no city support Jälgimäe tee 1, Tänassilma, 76406, Harjumaa, Eesti
 - port forwarding  rhc port-forward -a applicationName
 - check for vehicle.destroyed? in dashboard
