@@ -117,9 +117,10 @@ en:
   service_histories: [{name: "Full service history", id: 1},{name: "Part service history", id: 2},{name: "No service history", id: 3}]
   features: [{name: "Leather upholstery", id: "leather_upholstery"},{name: "Heated seats", id: "seat_heating_count"},{name: "Navigation", id: "navigation"},{name: "Central locking", id: "central_locking"},{name: "Tow hitch", id: "tow_hitch"},{name: "Cruise control", id: "cruise_control"},{name: "Light alloy wheels", id: "light_alloy_wheels"},{name: "Full service history", id: "service_history_id"},{name: "Power steering", id: "power_steering"},{name: "Power windows", id: "power_windows"},{name: "Climate control",id: "climate_control_id"}]
   index:
-    create_ad: "Create an ad"
+    create_ad: "CREATE A FREE LISTING"
     most_popular: Most Popular
     most_expensive: Most Expensive
+    classified_ads: Classified vehicle ad's portal
     recently_added: Recently Added
     recently_viewed: Recently Viewed
     view_all: View All
@@ -268,7 +269,7 @@ en:
     show:
       incl_vat: "inc 20% VAT"
       exl_vat: "exl 20% VAT"
-      no_details: No details
+      no_details: "-"
       back: Back
       back_to_results: Back to search results
       visits:
@@ -480,7 +481,7 @@ en:
     close: Close
     send_to_friend: Send to a friend
     report_ad: Report this ad
-    acknowledge: "By clicking the send button you acknowledge that you have read and agree to abide by the Webauto Terms and Conditions and Privacy Policy."
+    acknowledge: "By clicking the send button you acknowledge that you have read and agree to abide by the Webauto <a href='%{terms_link}'>Terms and Conditions</a> and <a href='%{privacy_link}'>Privacy Policy.</a>"
   users:
     dashboard:
       dashboard: Dashboard

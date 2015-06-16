@@ -20,7 +20,7 @@
               <span class="help">Do not fill in this field. It is an anti-spam measure.</span>
             </div>
         
-            <p  class="text-info" style="margin-top:10px;"><small><%= t("inquiries.acknowledge") %></small></p>
+            <p  class="text-info" style="margin-top:10px;"><small><%= t("inquiries.acknowledge",:privacy_link=>privacy_path,:terms_link=>terms_path).html_safe %></small></p>
             <% if mode=="inquiry" %>
             <div class="row-fluid">
               <div class="span4">

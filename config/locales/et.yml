@@ -117,9 +117,10 @@ et:
   service_histories: [{name: "Täielik hooldusajalugu", id: 1},{name: "Mittetäielik hooldusajalugu", id: 2},{name: "Hooldusajalugu puudub", id: 3}]
   features: [{name: "Nahkpolster", id: "leather_upholstery"},{name: "Istmesoojendus", id: "seat_heating_count"},{name: "Nav. seade", id: "navigation"},{name: "Kesklukustus", id: "central_locking"},{name: "Veokonks", id: "tow_hitch"},{name: "Püsikiiruse hoidja", id: "cruise_control"},{name: "Valuveljed", id: "light_alloy_wheels"},{name: "Täielik hooldusajalugu", id: "service_history_id"},{name: "Roolivõimendi", id: "power_steering"},{name: "El. aknad", id: "power_windows"},{name: "Kliimaseade",id: "climate_control_id"}]
   index:
-    create_ad: "Lisa kuulutus"
+    create_ad: "LISA KUULUTUS TASUTA"
     most_popular: Populaarsed
     most_expensive: Kõige kallimad
+    classified_ads: Autokuulutuste portaal
     recently_added: Viimati lisatud
     recently_viewed: Viimati vaadatud
     view_all: Näita kõiki
@@ -480,7 +481,7 @@ et:
     send_to_friend: Soovita sõbrale
     report_ad: Teata ebasobivast kuulutusest
     report: Teata ebasobivast kuulutusest
-    acknowledge: "Klikkides nupule \"Saada\" kinnitate, et nõustute Webauto kasutustingimuste ja privaatsuspoliitikaga."
+    acknowledge: "Klikkides nupule \"Saada\" kinnitate, et nõustute Webauto <a href='%{terms_link}'>kasutustingimuste</a> ja <a href='%{privacy_link}'>privaatsuspoliitikaga</a>."
   users:
     dashboard:
       dashboard: Töölaud

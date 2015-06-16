@@ -150,6 +150,8 @@ end
   def fueltype_str
    self.fueltype ? "#{self.fueltype}" : "&nbsp;".html_safe
   end
+ 
+  
   def warranty_km_str
    self.warranty_km.present? ? "#{self.warranty_km} km" : ""
   end
