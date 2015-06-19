@@ -16,7 +16,7 @@ class AdvertsController < ApplicationController
   def new
     @advert=Advert.new
     #@advert.build_vehicle(user_id: current_user.id,type_id: @current_type.id)
-    ############
+    #############
   end
   def create
     @advert = Advert.new(params[:advert])
