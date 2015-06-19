@@ -56,7 +56,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     #process :copyright=>'Webauto '
     process :resize_to_limit => [1000, 10000]
     process :watermark, :if=> :picture?
-
+    #######
     def picture?(file)
       model.class.to_s.underscore=="picture"
     end
