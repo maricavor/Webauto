@@ -2,41 +2,66 @@
 <div class="row-fluid">
   <div class="span12">
     <div class="page-header">
-      <h2>Browse all dealers on Webauto</h2>
+      <h2>Car dealers in Estonia</h2>
     </div>
-        <p></p>
-          <table class="table table-hover">
-      <thead>
-        <tr>
-        	<th></th>
-          <th>NAME</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @users.each do |u| %>
-        <% picture=u.dealer_picture  %>
-          <tr id="user_<%= u.id %>">
-            <td width="150">
-       <div class="thumbnail">              
-      <% if picture %>
-      <%= image_tag(picture.file_url(:original)) %>
-    <% else %>
-      <%= image_tag "/thumbnail.png",size: "300x200" %>
-    <% end %>
     </div>
-</td>
-<td>
-            <strong>
-                   <%= u.company_name %>
-            </strong>  
-            </td>  
-            <td>
-            <%= link_to "View stock", "#" %>
-            </td>        
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    </div>
+
+<div class="row-fluid">
+  <div id="search_form" class="span3">
+     <%= render 'dealers/partials/search_form' %>
+  </div><!--/span-->
+  <div id="search_results" class="span9">
+
+    <% if @dealers.count>0 %>
+
+    <div class="row-fluid">
+     <div class="span12">
+       <div class="search_preloader"></div>
+      <div class="paginator">
+      <%= render 'dealers/partials/paginator' %>
+        
+      </div>
+    </div>
   </div>
-</div>
+
+      <div class="row-fluid">
+        <div class="span8">
+          <div class="page_entries_info">
+          <%= render 'dealers/partials/page_entries_info' %>
+            
+          </div>
+        </div>
+        <div class="span4">
+        
+        </div>
+      </div>
+     
+      <div id="dealers">
+        <%= render 'dealers/partials/dealers',dealers: @dealers %>
+      </div>
+  
+      <% if @dealers.count>4 %>
+       <div class="row-fluid">
+      <div class="span12">
+        <div class="page_entries_info">
+           <%= render 'dealers/partials/page_entries_info' %>
+        </div>
+      </div>
+    </div>
+     <div class="row-fluid">
+      <div class="span12">
+        <div class="paginator">
+         <%= render 'dealers/partials/paginator' %>
+        </div>
+      </div>
+    </div>
+      <% end %>
+    <% else %>
+
+     <div class="alert">
+      <%= t("adverts.index.nothing") %>
+      </div>
+    <% end %>
+  </div><!--/span-->
+</div><!--/row-->

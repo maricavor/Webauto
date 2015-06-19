@@ -47,6 +47,9 @@ Models =
       if selected["location"]
         $('#search_location').selectpicker('val', selected["location"].split(','))
         $('#search_location').selectpicker('refresh')
+      if selected["region"]
+        $('#search_dealer_region').selectpicker('val', selected["region"].split(','))
+        $('#search_dealer_region').selectpicker('refresh')
       if selected["doors"]
         $('#search_doors').selectpicker('val', selected["doors"].split(','))
         $('#search_doors').selectpicker('refresh')
@@ -230,7 +233,12 @@ jQuery ->
 
   if $('#vehicle_country_id').val()!="8"
     $('#vehicle_state_id').hide()  
+    $('#vehicle_state_id_field').hide()  
     $('#vehicle_city_id').hide()  
+    $('#vehicle_city_id_field').hide()  
+  else
+    $('#vehicle_city_id_field').show()  
+    $('#vehicle_state_id_field').show()  
   #Models.toggleLogo()
   Models.init(grouped_models,$('#vehicle_make_id option').filter(':selected')) 
 
@@ -383,6 +391,7 @@ jQuery ->
     $('#search_dealer').prop('checked',true)
     $('#search_private').prop('checked',true)
     $('#search_keywords').val('')
+    $('#search_name').val('')
     event.preventDefault() 
   $(document).on 'change',"#search_location", (event) ->
     Models.show_regions_in_search()

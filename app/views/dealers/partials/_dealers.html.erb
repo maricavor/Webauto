@@ -1,0 +1,8 @@
+
+<% dealers.each do |dealer| %>
+    <div class="row-fluid">
+      <div class="span12 thumbnail"  style="margin-bottom:10px;">
+        <%= render 'dealers/partials/dealer',:dealer=>dealer %>
+      </div>
+    </div>
+<% end %>

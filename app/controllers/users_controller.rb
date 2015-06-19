@@ -3,7 +3,13 @@ class UsersController < ApplicationController
 
   def index
     #authorize! :index, @user, :message => 'Not authorized as an administrator.'
-    @users = User.where(:is_dealer=>true)
+     @title="Webauto | Find a car dealership in Estonia"
+     @dealers = User.search(modify(params)).order("company_name").page(params[:page]).per(10)
+      _country=Country.find(8)
+      _states=_country.states
+      _cities=_country.cities
+      @regions=_states.map{|p| [ p.name.upcase, p.name ] }+_cities.map{|p| [ p.name, p.name ] } 
+     gon.selected={:vehicles=>[[nil,nil]],:region=>params[:region]}
   end
 
   def show
@@ -16,10 +22,8 @@ class UsersController < ApplicationController
 
 
    end
-   def show_phone
 
-
-   end
+  
   def edit
     @user=current_user
 
@@ -64,6 +68,14 @@ class UsersController < ApplicationController
       @vehicles=nil
       @title="No vehicles found"
     end
+  end
+  private
+
+  def modify(params)
+   %w(region).each do |p|
+      params[p]=params[p].reject(&:empty?).join(",") if params[p].present?
+    end
+    params
   end
 
 end

@@ -1,8 +1,9 @@
 $('#vehicle_city_id').html("<%= escape_javascript(options_for_select(@cities)) %>");
 if ($('#vehicle_city_id').has('option').length > 0) {
     $('#vehicle_city_id').show();
-
+    $('#vehicle_city_id_field').show();  
 } else {
     $('#vehicle_city_id').hide();
+    $('#vehicle_city_id_field').hide();  
 
 }

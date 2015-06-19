@@ -44,7 +44,7 @@
         <li role="presentation"><%= link_to t("navigation.dealer_#{type}"), new_search_path(:search=>"dealer"),:role=>"menuitem",:tabindex=>"-1"  %></li>
         <li role="presentation"><%= link_to t("navigation.private_#{type}"), new_search_path(:search=>"private"),:role=>"menuitem",:tabindex=>"-1"  %></li>
         <li role="presentation"><%= link_to t("navigation.help_buying_#{type}"), buying_a_car_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
-        <li role="presentation"><%= link_to t('navigation.find_dealer'), users_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
+        <li role="presentation"><%= link_to t('navigation.find_dealer'), dealers_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
       </ul>
     </li>
     <li  class="dropdown">

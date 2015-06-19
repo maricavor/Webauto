@@ -11,7 +11,7 @@
       <h2><%=t("adverts.photos.comments") %></h2>
     </div>
 
-    <%= vehicle_form_for @advert, :html=>{:class=>"form-vertical"},:authenticity_token => true,:remote=>true do |f| %>
+    <%= vehicle_form_for @advert, :html=>{:class=>"form-vertical"},:authenticity_token => true,:remote=>false do |f| %>
   
      <%= f.hidden_field :photos_saved,value: true %>
   <%= f.fields_for :vehicle do |vehicle_fields| %>

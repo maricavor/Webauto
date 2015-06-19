@@ -3,6 +3,8 @@ Webauto::Application.routes.draw do
 
  
 
+  
+
   # TODO: KLUDGE: MANUALLY BRING THE TYPUS ROUTES IN
   #       Typus used to provide :
   #           Typus::Routes.draw(map)
@@ -71,6 +73,7 @@ Webauto::Application.routes.draw do
     match "vehicles/get_recently_viewed_vehicles",:controller=>'vehicles',:action=>'get_recently_viewed_vehicles'
     match 'help/buying-a-car'=>'help#buying-a-car',:as=>:buying_a_car
     match 'help/selling-a-car'=>'help#selling-a-car',:as=>:selling_a_car
+    get 'dealers(/:page)',:to=> 'users#index',:as => :dealers
     resources :users 
     resources :cars do
       match 'search(/:id)(/:sort)(/:page)' => 'cars#search',:via => [:post,:get], :as => :search,:on => :collection

@@ -17,8 +17,10 @@
             <%= f.text_field :company_name,:label=>"Company name" %>
             <%= f.text_field :address1,:label=>"Address 1" %>
             <%= f.text_field :address2,:label=>"Address 2" %>
-             <%= f.select :country_id,Country.order(:name).collect {|p| [ p.name, p.id ] },{include_blank: true},{:label=>t("users.profile.country"),:id=>"user_country_id" }%>
-               <%= f.select :city_id,City.order(:name).collect {|p| [ p.name, p.id ] },{},{:label=>t("users.profile.city"),:id=>"user_city_id"} %>
+            
+             <%= f.select :country_id,Country.order(:name).collect {|p| [ p.name, p.id ] },{include_blank: true},{:label=>t("users.profile.country"),:id=>"vehicle_country_id" }%>
+             <%= f.select :state_id,State.order(:name).collect {|p| [ p.name, p.id ] },{},{:label=>t("users.profile.state"),:id=>"vehicle_state_id"} %>
+               <%= f.select :city_id,City.order(:name).collect {|p| [ p.name, p.id ] },{},{:label=>t("users.profile.city"),:id=>"vehicle_city_id"} %>
            
             <%= f.text_field :postal_code,:label=>"Postal code" %>
             <%= f.text_field :company_reg,:label=>"Registration code" %>

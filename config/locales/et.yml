@@ -5,9 +5,9 @@ et:
     cars_for_sale: Osta auto
     all_cars: Kõik autod
     private_cars: Eraisikult
-    dealer_cars: Automüüjalt
+    dealer_cars: Autodiilerilt
     help_buying_cars: Auto ostuabi
-    find_dealer: Automüüja otsing
+    find_dealer: Autodiileri otsing
     sell_your_cars: Müü auto
     create_ad: Lisa kuulutus
     manage_ad: Minu kuulutused
@@ -73,7 +73,7 @@ et:
     features: "Varustus (kõik)"
     dealers: "Müüja (kõik)"
     keywords: Tekstiotsing
-    dealer: Automüüja
+    dealer: Autodiiler
     private: Eraisik
     search: Otsi
     sorted_by: ""
@@ -277,7 +277,7 @@ et:
         one: 1 vaatamine
         other: "%{count} vaatamist"
       private: Eraisik
-      dealer: Automüüja
+      dealer: Autodiiler
       images: Pilt
       a_of_b: " %{a} (%{b})"
       contact_dealer: Võta ühendust automüüjaga

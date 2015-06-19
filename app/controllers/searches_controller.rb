@@ -21,6 +21,7 @@ class SearchesController < ApplicationController
     if params[:search]=="dealer"
       @search.is_dealer=true
       @search.is_private=false
+      @search.dealers="#{params[:value]}"  if params[:value].present?
     elsif params[:search]=="private"
       @search.is_dealer=false
       @search.is_private=true

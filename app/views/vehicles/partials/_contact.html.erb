@@ -3,15 +3,16 @@
  <div class="row-fluid">
   <div class="span12">
    <h4><%= t("vehicles.show.contact_#{@user.is_dealer ? 'dealer' : 'private_seller'}")  %></h4>
+
     <address>
       <% if @user.is_dealer %>
      
-        <%= @user.company_name %><br>
+        <strong><%= @user.company_name %></strong><br>
           <%= @user.address1 %><br>
-            <% if @user.address2!="" %>
+            <% if @user.address2.present? %>
               <%= @user.address2 %><br>
               <% end %>
-              <%= @user.postal_code %><br>
+              <%= "#{@user.state.name}, #{@user.postal_code}" %><br>
                 <%= "#{@user.country.name}, #{@user.city.name}" %><br><br>
                   <% end %>
                   <%= @user.name %><br>

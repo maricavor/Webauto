@@ -28,12 +28,15 @@ class VehiclesController < ApplicationController
 
  def search
     @remote=false
-    @class="search "
-    #@recently_viewed=get_recently_viewed_vehicles
-    #@last_search=get_last_search
     if params[:id]
      set_current_sort
      @search = Search.find(params[:id])
+     dealers=@search.dealers.split(",")
+     if dealers.size==1
+      @dealer=User.find(dealers[0])
+    else
+      @dealer=nil
+    end
      @search.fields.build if @search.fields.size==0
      @solr_search=@search.run("normal",@current_sort[1].split(' '),params[:page],@per_page)
      total=@solr_search.total 

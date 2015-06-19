@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name,:email, :primary_phone,:secondary_phone, :password, :password_confirmation, :remember_me,:tos_agreement,:company_name,:company_reg,:address1,:address2,:country_id,:city_id,:postal_code,:phone1,:phone2,:company_kmkr,:webpage,:is_dealer,:price_alert,:sold_alert,:interest_alert,:auto_alerts,:feature_alerts,:locale
+  attr_accessible :name,:email, :primary_phone,:secondary_phone, :password, :password_confirmation, :remember_me,:tos_agreement,:company_name,:company_reg,:address1,:address2,:country_id,:city_id,:state_id,:postal_code,:phone1,:phone2,:company_kmkr,:webpage,:is_dealer,:price_alert,:sold_alert,:interest_alert,:auto_alerts,:feature_alerts,:locale
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -18,9 +18,28 @@ class User < ActiveRecord::Base
   has_one :dealer_picture,:dependent=>:destroy
   belongs_to :city
   belongs_to :country
+  belongs_to :state
+  #scope :dealers, where("is_dealer = ?", true)
   validates :tos_agreement, acceptance: true,:on => :create
   validates :company_name, presence: true, :if => "is_dealer == true"
-
+  def to_param
+    if self.is_dealer?
+      "#{self.id} #{self.company_name}".parameterize
+    end
+  end
+  def self.search(search_params)
+    dealers=User.where("is_dealer = ?", true)
+  if search_params
+    dealers=dealers.where('company_name LIKE ?', "%#{search_params[:name]}%") if search_params[:name].present?
+    if search_params[:region].present?
+      regions=search_params[:region].split(',')
+    dealers=dealers.joins(:state,:city).where("states.name IN (:states) OR cities.name IN (:cities)",:states=>regions,:cities=>regions) 
+  end
+  else
+    dealers
+  end
+  dealers
+end
   def self.find_for_facebook_oauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider

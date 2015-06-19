@@ -1,0 +1,26 @@
+ <div class="refine_search well well-small" >
+  <div class="visible-phone">
+    
+      <%= link_to_expand_search %><%= link_to_collapse_search %>
+  </div>
+    <div class="hidden-phone">
+     <h4><%=t("search.search_vehicles") %></h4>
+     
+  </div>
+    <div class="expandable hidden-phone">
+<small><%= link_to t("search.reset_search"),"#",class: "reset_search" %></small>
+
+
+<div class="sidebar-nav" style="padding-bottom:0;">
+<%= form_tag dealers_path, :method => :get, :id => "dealers_search",:class=>"vehicles_custom_search",:authenticity_token => true, :remote=>false do %>
+
+  
+    <%= text_field_tag :name, params[:name],:placeholder=>"Company name",:id=>"search_name" %>
+    <%= select_tag "region[]",options_for_select(@regions),:id=>"search_dealer_region",:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>t("search.city"),:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>2",:'data-count-selected-text'=>t("search.count_selected_text") %>
+    <p style="margin-top:5px;"><button class="btn btn-info btn-block" type="submit" ><%= t("search.search") %></button></p>
+  
+ 
+<% end %>
+</div><!--/.well -->
+ </div>
+  </div>

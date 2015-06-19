@@ -1,0 +1,44 @@
+
+
+  
+  <table width="100%" class="dealer">
+    <tr>
+     <td width="20%" style="padding:10px;">
+       <% picture=dealer.dealer_picture  %>
+            <% if picture %>
+                   
+      
+      <%= image_tag(picture.file_url(:original)) %>
+   
+    
+     <% end %>
+</td>
+      <td width="60%">
+        <address>
+  <strong>  <%= dealer.company_name %></strong><br>
+   <%= "#{dealer.address1}, #{dealer.city.name}, #{dealer.postal_code}" %><br>
+    <%= "#{dealer.country.name}, #{dealer.state.name}" %><br>
+   <abbr title="Phone">P:</abbr>
+                   <span id="primary_phone"><%= dealer.primary_phone %><%= " ,#{dealer.secondary_phone}" if dealer.secondary_phone!="" %></span>
+                  
+              
+
+               
+ 
+</address>
+
+
+
+
+      </td>
+      
+<td width="20%" align="center"  class="lead muted" >
+
+              Total Stock <br>
+              <%= dealer.adverts.where(:activated=>true).count %>
+            
+            </td>  
+
+    </tr>
+  
+  </table>
