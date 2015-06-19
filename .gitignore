@@ -12,6 +12,4 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-/public/uploads/dealer_picture/**
-/public/uploads/picture/**
 /solr/data
