@@ -43,7 +43,7 @@ class Vehicle < ActiveRecord::Base
   validates :state_id,:presence => true,:on=>:update,:if=>:estonian?
   validates :city_id,:presence => true,:on=>:update,:if=>:state?
   validate :description_length,:on=>:update,:if => Proc.new { |v| v.advert.photos? }
-
+  #################
   #is_impressionable #:counter_cache => true, :column_name => :popularity,:unique =>  [:session_hash]
   translates :description, :fallbacks_for_empty_translations => true
   globalize_accessors :locales => [:et, :en], :attributes => [:description]
