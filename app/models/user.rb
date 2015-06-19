@@ -75,8 +75,17 @@ end
     address=""
     address+=self.address1.to_s if self.address1.present?
     address+='+'+self.address2.to_s if self.address2.present?
-    address+='+'+self.city.name.to_s if self.city
-    address+='+'+self.country.name.to_s if self.country
+    address+='+'+self.city_name.to_s
+    address+='+'+self.country_name.to_s
     address
+  end
+  def city_name
+    self.city ? self.city.name : ""
+  end
+    def country_name
+    self.country ? self.country.name : ""
+  end
+    def state_name
+    self.state ? self.state.name : ""
   end
 end

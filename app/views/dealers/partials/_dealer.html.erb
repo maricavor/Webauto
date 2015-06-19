@@ -7,8 +7,8 @@
         <address>
   <strong>  <%= link_to dealer.company_name, new_search_path(:search=>"dealer",:value=>dealer) %></strong><br>
   <%= dealer.address1 %><br>
-   <%= "#{dealer.city.name}, #{dealer.postal_code}" %><br>
-    <%= "#{dealer.country.name}, #{dealer.state.name}" %><br>
+   <%= "#{dealer.city_name}, #{dealer.postal_code}" %><br>
+    <%= "#{dealer.country_name}, #{dealer.state_name}" %><br>
    <abbr title="Primary phone">P:</abbr>
                    <span id="primary_phone"><%= dealer.primary_phone %></span>
                     <% if dealer.secondary_phone!="" %>
