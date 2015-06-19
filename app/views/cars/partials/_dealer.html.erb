@@ -1,20 +1,19 @@
 
-
-  
-  <table width="100%" class="dealer">
-    <tr>
-     <td width="20%" style="padding:10px;">
+ <div class="row-fluid">
+     <div class="span3">
        <% picture=dealer.dealer_picture  %>
             <% if picture %>
                    
       
-      <%= image_tag(picture.file_url(:original)) %>
+      <%= image_tag(picture.file_url(:original),:style=>"margin-bottom:10px;") %>
    
     
      <% end %>
-</td>
-      <td width="60%">
-        <address>
+     </div>
+          <div class="span7">
+
+
+     <address>
   <strong>  <%= dealer.company_name %></strong><br>
    <%= "#{dealer.address1}, #{dealer.city_name}, #{dealer.postal_code}" %><br>
     <%= "#{dealer.country_name}, #{dealer.state_name}" %><br>
@@ -26,19 +25,13 @@
                
  
 </address>
-
-
-
-
-      </td>
-      
-<td width="20%" align="center"  class="lead muted" >
-
-              Total Stock <br>
+     </div>
+       <div class="span2">
+       <p class="lead muted text-center hidden-phone">
+      Total Stock <br>
               <%= dealer.adverts.where(:activated=>true).count %>
-            
-            </td>  
-
-    </tr>
+            </p>
+     </div>
+     </div>
   
-  </table>
+  
