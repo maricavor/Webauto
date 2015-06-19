@@ -4,8 +4,9 @@
   <% price_diff=vehicle.price_diff %>
   <div class="image">
     <% if picture %>
+   
       <%= link_to image_tag(picture.file_url(:thumb)),  send("#{type.singularize.underscore}_path", vehicle) %>
- 
+
     <% else %>
      <%= link_to image_tag("/thumbnail.png"),  send("#{type.singularize.underscore}_path", vehicle) %>
     
