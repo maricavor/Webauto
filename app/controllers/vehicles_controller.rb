@@ -37,6 +37,7 @@ class VehiclesController < ApplicationController
     else
       @dealer=nil
     end
+    ###
      @search.fields.build if @search.fields.size==0
      @solr_search=@search.run("normal",@current_sort[1].split(' '),params[:page],@per_page)
      total=@solr_search.total 
