@@ -40,10 +40,10 @@ fi
 
 
 
-if [ ! -d ${OPENSHIFT_DATA_DIR}uploads ]; then
-  echo " Creating permanent uploads directory"
-  mkdir ${OPENSHIFT_DATA_DIR}uploads
-fi
+#if [ ! -d ${OPENSHIFT_DATA_DIR}uploads ]; then
+#  echo " Creating permanent uploads directory"
+#  mkdir ${OPENSHIFT_DATA_DIR}uploads
+#fi
 
 echo "Creating soft link to ${OPENSHIFT_DATA_DIR}uploads"
 ln -sf ${OPENSHIFT_DATA_DIR}uploads ${OPENSHIFT_REPO_DIR}public/uploads/
