@@ -1,9 +1,11 @@
 - make links for dealer like on carzone.ie
+- when ad is cancelled add completely delete action 
 - what is config.action_mailer.asset_host???
 - http://stackoverflow.com/questions/1300838/how-to-convert-an-address-into-a-google-maps-link-not-map
 - https://github.com/openshift/wordpress-example/blob/master/.openshift/action_hooks/deploy
 - git rm --cached -r <dir>
 - about carrierwave here -> http://stackoverflow.com/questions/17727788/deploying-ruby-on-rails-is-there-a-good-alternative-for-heroku
+- http://yuan3y.com/2014/10/setting-up-an-upload-folder-in-openshift/
 - https://forums.openshift.com/best-place-to-store-images
 - car reviews on http://www.autotrader.co.uk/
 - after signup and confrmation no flash messages - Olete registreeritud. Teile saabub e-mail, millega kinnitate oma registreerimissoovi.
