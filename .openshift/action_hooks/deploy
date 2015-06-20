@@ -39,6 +39,7 @@ else
 fi
 
 pushd ${OPENSHIFT_REPO_DIR} > /dev/null
+echo "Creating soft link to ${OPENSHIFT_DATA_DIR}uploads"
 ln -nfs ${OPENSHIFT_DATA_DIR}/uploads ${OPENSHIFT_REPO_DIR}/public/uploads
 echo "exec rake db:migrate RAILS_ENV=${RAILS_ENV:-production}"
 ruby_with_nodejs_context "bundle exec rake db:migrate RAILS_ENV=${RAILS_ENV:-production}"
