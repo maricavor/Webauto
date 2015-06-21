@@ -36,7 +36,7 @@ class ImageUploader < CarrierWave::Uploader::Base
     
     # For Rails 3.1+ asset pipeline compatibility:
     # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
-    "/thumbnail.png"
+    "#{Rails.root}/public/thumbnail.png"
     #"/images/fallback/" + [version_name, "default.png"].compact.join('_')
   end
 
@@ -63,7 +63,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_fill => [300, 200],:if=> :picture?
+    process :resize_to_fill => [300, 200]#,:if=> :picture?
      def picture?(file)
       model.class.to_s.underscore=="picture"
     end
