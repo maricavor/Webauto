@@ -23,7 +23,7 @@
     
     <%= f.select :colour_id,t('colours').collect {|c| [ c["name"], c["id"] ] },{include_blank: true},{label: t("adverts.edit.color")} %>
     <%= f.text_field :specific_colour,label: t("adverts.edit.spec_color") %>
-    <%= f.check_box :metallic_colour,label: t("adverts.edit.metallic_color") %>
+    <!--<%= f.check_box :metallic_colour,label: t("adverts.edit.metallic_color") %>-->
     
     
     

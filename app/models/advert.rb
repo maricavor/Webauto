@@ -12,7 +12,7 @@ class Advert < ActiveRecord::Base
   #validate :vehicle_price_valid, :if=>:contact?
   before_create :generate_uid
 
-  before_save :set_status_and_make_model
+  before_update :set_status_and_make_model
   after_destroy :check_status_and_inform,:deactivate
   #validates :ad_type, inclusion: AD_TYPES
  def vehicle
@@ -100,7 +100,7 @@ end
   end
 
   def set_status_and_make_model
-    Rails.logger.info "******************set status and make model"
+    #Rails.logger.info "******************set status and make model"
     vehicle=self.vehicle
     if vehicle.make
     make_model=vehicle.make.name+" "+vehicle.model_name

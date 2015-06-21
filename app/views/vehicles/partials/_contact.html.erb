@@ -23,7 +23,7 @@
                      <span id="secondary_phone"> <%= secret_phone(@user.secondary_phone,@vehicle.advert,"secondary") %></span>
                     <% end %>
                   </address>
-                   <%= image_tag @user.dealer_picture.file_url(:original), :class=>"thumbnail" if @user.dealer_picture %>
+                   <%= image_tag @user.dealer_picture.file_url(:thumb) if @user.dealer_picture %>
   </div>
   </div>
 
