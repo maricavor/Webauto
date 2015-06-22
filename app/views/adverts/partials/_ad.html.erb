@@ -1,6 +1,6 @@
 <% v=ad.vehicle %>
 <% !ad.activated || ad.destroyed? ? path=preview_advert_path(ad) : path=send("#{v.type.name.singularize.underscore}_path", v) %>
-  <% picture=v.pictures.first if v.pictures %>
+  <% picture=v.pictures.first if v %>
 <td width="150">
    <div class="thumbnail">   
         
