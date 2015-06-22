@@ -1,4 +1,6 @@
+- change statuses of adverts not working also check soft deletion of all associations
 - make links for dealer like on carzone.ie
+- delete also vehicle_translations after really destroy
 - when ad is cancelled add completely delete action 
 - what is config.action_mailer.asset_host???
 - http://stackoverflow.com/questions/1300838/how-to-convert-an-address-into-a-google-maps-link-not-map

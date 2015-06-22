@@ -3,7 +3,7 @@ class Advert < ActiveRecord::Base
   acts_as_paranoid
   attr_accessible :contact_number,:make_model,:status,:email, :activated,:sold, :popularity, :price, :secondary_number, :type, :uid,:vehicle_attributes,:deleted_at,:basics_saved,:details_saved,:features_saved,:photos_saved,:contact_saved,:ad_type,:user_id
   attr_writer :current_step
-  has_one :vehicle,:inverse_of => :advert,:dependent => :destroy
+  has_one :vehicle#,:dependent => :destroy
   has_one :order
   has_many :search_alerts
   
@@ -13,7 +13,8 @@ class Advert < ActiveRecord::Base
   before_create :generate_uid
 
   before_update :set_status_and_make_model
-  after_destroy :check_status_and_inform,:deactivate
+  after_destroy :deactivate,:check_status_and_inform
+  #before_destroy :deactivate
   #validates :ad_type, inclusion: AD_TYPES
  def vehicle
   Vehicle.unscoped { super }
@@ -96,26 +97,34 @@ end
     self.uid = random
   end
   def deactivate
-   self.update_attributes(:activated=>false)
+ if self.status!="cancelled"
+    Rails.logger.info "******************deactivate"
+    self.activated=false
+    self.status="cancelled"
+    self.save(validate: false)
+ end
   end
 
   def set_status_and_make_model
-    #Rails.logger.info "******************set status and make model"
+    Rails.logger.info "******************set status and make model"
+
     vehicle=self.vehicle
-    if vehicle.make
-    make_model=vehicle.make.name+" "+vehicle.model_name
+    make_model=vehicle.make_name+" "+vehicle.model_name
     vehicle.make_model=make_model
     self.make_model=make_model
-    end
-    if self.destroyed?
-      self.status="cancelled"
+    
+    if self.activated?
+      self.status="activated"
     elsif self.unfinished?
       self.status="unfinished"
-    elsif self.activated?
-      self.status="activated"
     else
+      if self.deleted?
+        self.status="cancelled"
+      else
       self.status="not_activated"
     end
+    end
+  
   end
   def check_status_and_inform
       Resque.enqueue(SoldMailer, self.id)

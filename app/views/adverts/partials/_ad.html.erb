@@ -27,7 +27,8 @@
         <td>
            <% if ad.status=="cancelled" %>
             <span class="label label-important"><%= t("adverts.index.cancelled") %></span>
-         <% elsif ad.status=="unfinished" %>
+            <% else %>
+         <% if ad.status=="unfinished" %>
          <span class="label label-warning"><%= t("adverts.index.unfinished") %></span>
          <% else %>
          <% if ad.status=="activated" %>
@@ -35,6 +36,7 @@
          <% else %>
          <span class="label label-info"><%= t("adverts.index.not_activated") %></span>
          <% end %>
+            <% end %>
          <% end %>
         </td>
         <td>
@@ -68,16 +70,17 @@
            <li> 
           <%= link_to t("adverts.index.restore"), restore_advert_path(ad),  data: { confirm: t("adverts.index.restore_sure") },:remote=>true,:class=>"restore_link" %>
            </li>
+
+            <li>
+          <%= link_to 'Delete',really_destroy_advert_path(ad),data: { confirm: 'Are you sure?' },:remote=>true,:class=>"delete_link" %>
+           </li>
+         
           <% else %>
            <li>
           <%= link_to t("adverts.index.remove"), ad, method: :delete, data: { confirm: t("adverts.index.remove_sure") },:remote=>true,:class=>"delete_link" %>
 
            </li>
-          <!--
-            <li>
-          <%= link_to 'Really destroy',really_destroy_advert_path(ad),data: { confirm: 'Are you sure?' } %>
-           </li>
-         -->
+      
           <% end %>
        
   </ul>

@@ -19,7 +19,7 @@ NB! This is a preview of your advert #<%= @advert.uid  %>.
 <div class="row-fluid page-header">
   <div class="span9">
     <h2> 
-      <%= "#{@vehicle.registered_at.strftime('%Y')} #{@make_name} #{@model_name}"  %>
+      <%= "#{@vehicle.registered_at_year} #{@make_name} #{@model_name}"  %>
       <small class="hidden-phone">
         <%= "#{@vehicle.badge}" %>
       </small>

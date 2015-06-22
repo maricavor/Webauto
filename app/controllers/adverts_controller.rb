@@ -63,24 +63,30 @@ class AdvertsController < ApplicationController
    redirect_to send("#{type.singularize.underscore}_path", vehicle)
  end
   def restore
-    id=@advert.id
     vehicle=@advert.vehicle
-    Advert.restore(id)
-    Vehicle.restore(vehicle.id,:recursive => true)
-    @advert=Advert.find(id)
-     respond_to do |format|
-    if vehicle.save
+    respond_to do |format|
+    @advert.restore
+    unless @advert.deleted?
+     vehicle.restore(:recursive => true)
+     #@advert=Advert.find(id)
+ 
+    #if vehicle.save
+      #@advert.activated=false 
       @advert.save!#for changing status
-      format.html { redirect_to  adverts_url }
+      format.html { redirect_to  adverts_url 
+        flash[:notice]="Successfully restored advert"}
       format.js { flash.now[:notice]="Successfully restored advert"}
     else
-      format.html { redirect_to  adverts_url }
+      format.html { 
+        redirect_to  adverts_url 
+       flash[:notice]="Could not restore advert"
+     }
       format.js {
         render :action => 'restore_fail.js.erb'
         flash.now[:notice]="Could not restore advert"
       }
     end
-    end
+   end
  
   end
 
@@ -148,10 +154,10 @@ class AdvertsController < ApplicationController
   end
   end
   def activate
-    @vehicle=@advert.vehicle
+    #@vehicle=@advert.vehicle
     respond_to do |format|
     if @advert.update_attributes(:activated=>true)
-       @vehicle.save!
+       #@vehicle.save!
       format.html {
        redirect_to  adverts_url 
        flash[:notice]="Successfully activated advert"
@@ -165,10 +171,10 @@ class AdvertsController < ApplicationController
     end
   end
   def deactivate
-     @vehicle=@advert.vehicle
+     #@vehicle=@advert.vehicle
        respond_to do |format|
     if @advert.update_attributes(:activated=>false)
-      @vehicle.save!
+      #@vehicle.save!
       format.html { 
         redirect_to  adverts_url 
       flash[:notice]="Successfully deactivated advert"
@@ -182,20 +188,25 @@ class AdvertsController < ApplicationController
     end
   end
   def really_destroy
-    @advert.destroy!
+    vehicle=@advert.vehicle
+    if @advert.really_destroy!
+    vehicle.really_destroy!
     respond_to do |format|
       format.html { redirect_to  adverts_url }
       format.js {flash.now[:notice]="Successfully destroyed advert"}
     end
   end
+  end
 
   def destroy
-   
-    @advert.destroy
+    vehicle=@advert.vehicle
+    if @advert.destroy
+    vehicle.destroy
     respond_to do |format|
       format.html { redirect_to  adverts_url }
       format.js {flash.now[:notice]="Your Ad has been cancelled"}
     end
+  end
   end
 
   def details

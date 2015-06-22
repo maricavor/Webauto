@@ -1,7 +1,7 @@
 class VehicleObserver < ActiveRecord::Observer
   def after_update(vehicle)
     
-    update_price_and_inform(vehicle) if vehicle.advert.contact_saved
+    update_price_and_inform(vehicle) #if vehicle.advert.contact_saved
   end
   def after_create(vehicle)
     vehicle.watchers << vehicle.user

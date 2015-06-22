@@ -91,7 +91,7 @@ class Vehicle < ActiveRecord::Base
       user.is_dealer
     end
     boolean :activated do
-      advert.activated
+      advert.activated if advert
     end
     boolean :garage_item
     boolean :power_steering
@@ -130,7 +130,7 @@ class Vehicle < ActiveRecord::Base
     return self.price
   end
   def registered_at_date
-   DateTime.parse(self.registered_at)
+   DateTime.parse(self.registered_at) if self.registered_at
   end
   def registered_at_year
     self.registered_at[/(\d{4})/] if self.registered_at
@@ -243,6 +243,13 @@ self.next_service_km.present? ? "#{self.next_service_km} km" : ""
       self.model.name
     else
       self.model_spec
+    end
+  end
+    def make_name
+    if make
+      self.make.name
+    else
+      ""
     end
   end
   def save_price
