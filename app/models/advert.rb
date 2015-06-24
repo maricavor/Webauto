@@ -1,5 +1,5 @@
 class Advert < ActiveRecord::Base
-  AD_TYPES = [ "Free", "Standard"]
+  AD_TYPES = [ "free", "standard"]
   acts_as_paranoid
   attr_accessible :contact_number,:make_model,:status,:email, :activated,:sold, :popularity, :price, :secondary_number, :type, :uid,:vehicle_attributes,:deleted_at,:basics_saved,:details_saved,:features_saved,:photos_saved,:contact_saved,:ad_type,:user_id
   attr_writer :current_step
@@ -15,7 +15,7 @@ class Advert < ActiveRecord::Base
   before_update :set_status_and_make_model
   after_destroy :deactivate,:check_status_and_inform
   #before_destroy :deactivate
-  #validates :ad_type, inclusion: AD_TYPES
+  validates :ad_type, inclusion: AD_TYPES
  def vehicle
   Vehicle.unscoped { super }
 end

@@ -18,4 +18,7 @@ class HomeController < ApplicationController
   end
   def seller_safety
   end
+  def create_ad
+
+  end
 end

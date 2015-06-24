@@ -20,26 +20,26 @@ class Vehicle < ActiveRecord::Base
   has_many :pictures, :order => :position
   has_many :users, :through => :saved_items
   has_many :impressions, :dependent => :destroy
-  validates :make_id, :presence => true, :on => :update
-  validates :type_id, :presence => true, :on => :update
-  validates :model_id, :presence => true, :on => :update
+  validates :make_id, :presence => true#, :on => :update
+  validates :type_id, :presence => true#, :on => :update
+  validates :model_id, :presence => true#, :on => :update
   validates :model_spec, :presence => true, :if => :no_model? # Proc.new {|v| v.model_id==0 }
   #validates :reg_nr, uniqueness: true
-  validates :registered_at, :presence => true,:on => :update
-  validates :engine_power,:presence => true,numericality: { only_integer: true,greater_than: 0},:on => :update
-  validates :engine_size,:presence=>true,:on => :update
+  validates :registered_at, :presence => true#,:on => :update
+  validates :engine_power,:presence => true,numericality: { only_integer: true,greater_than: 0}#,:on => :update
+  validates :engine_size,:presence=>true#,:on => :update
   #validates :year, :presence => true, numericality: { only_integer: true, greater_than_or_equal_to: 1900, less_than_or_equal_to: Date.today.year }
   #validates :year, format: {with: /(19|20)\d{2}/i, message: "should be a four-digit number"}, :allow_blank => true
-  validates :bodytype_id, :presence => true,:on => :update
-  validates :transmission_id, :presence => true,:if => Proc.new { |v| v.advert.details? }
-  validates :fueltype_id, :presence => true,:on => :update
-  validates :odometer, :presence => true,numericality: { only_integer: true},:on => :update
-  validates :price, :presence => true,:format => {:with => /\A\d+(?:\.\d{0,2})?\z/}, :numericality => {:greater_than => 0}, :if => Proc.new { |v| v.advert.contact? }
-  validates :country_id,:presence => true,:if => Proc.new { |v| v.advert.details? }
-  validates :drivetype_id,:presence => true,:if => Proc.new { |v| v.advert.details? }
-  validates :doors,:presence => true,numericality: { only_integer: true,greater_than: 0},:if => Proc.new { |v| v.advert.details? }
-  validates :seats,:presence => true,numericality: { only_integer: true,greater_than: 0},:if => Proc.new { |v| v.advert.details? }
-  validates :colour_id,:presence => true,:on => :update
+  validates :bodytype_id, :presence => true#,:on => :update
+  validates :transmission_id, :presence => true, :on => :update,:if => Proc.new { |v| v.advert.details? }
+  validates :fueltype_id, :presence => true#,:on => :update
+  validates :odometer, :presence => true,numericality: { only_integer: true}#,:on => :update
+  validates :price, :presence => true,:format => {:with => /\A\d+(?:\.\d{0,2})?\z/}, :numericality => {:greater_than => 0}, :on => :update, :if => Proc.new { |v| v.advert.contact? }
+  validates :country_id,:presence => true, :on => :update,:if => Proc.new { |v| v.advert.details? }
+  validates :drivetype_id,:presence => true, :on => :update,:if => Proc.new { |v| v.advert.details? }
+  validates :doors,:presence => true,numericality: { only_integer: true,greater_than: 0}, :on => :update,:if => Proc.new { |v| v.advert.details? }
+  validates :seats,:presence => true,numericality: { only_integer: true,greater_than: 0}, :on => :update,:if => Proc.new { |v| v.advert.details? }
+  validates :colour_id,:presence => true#,:on => :update
   validates :state_id,:presence => true,:on=>:update,:if=>:estonian?
   validates :city_id,:presence => true,:on=>:update,:if=>:state?
   validate :description_length,:on=>:update,:if => Proc.new { |v| v.advert.photos? }
@@ -130,10 +130,10 @@ class Vehicle < ActiveRecord::Base
     return self.price
   end
   def registered_at_date
-   DateTime.parse(self.registered_at) if self.registered_at
+   DateTime.parse(self.registered_at) if self.registered_at.present?
   end
   def registered_at_year
-    self.registered_at[/(\d{4})/] if self.registered_at
+    self.registered_at[/(\d{4})/] if self.registered_at.present?
   end
   def engine_power_str
    self.engine_power.present? ? "#{self.engine_power} kW" : "&nbsp;".html_safe 

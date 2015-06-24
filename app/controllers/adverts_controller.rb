@@ -3,9 +3,10 @@ class AdvertsController < ApplicationController
   skip_before_filter :get_current_type,:get_compared_items, :only=>[:statistics,:restore,:show_secondary_phone,:show_primary_phone,:activate,:deactivate,:destroy,:update]
   before_filter :authenticate_user!, :except=>[:show_secondary_phone,:show_primary_phone]
   before_filter :find_advert, :only => [:really_destroy,:edit,:statistics,:update,:restore,:details,:destroy,:features,:photos,:contact,:show,:preview,:checkout,:activate,:deactivate]
-  before_filter :only=>[:edit] do |controller|
-    controller.init_gon(1)
+  before_filter :only=>[:new,:create,:edit] do |controller|
+    controller.init_gon(@current_type.id)
   end
+
   def index
       @user=current_user
       sort=sort_column + ' ' + sort_direction
@@ -13,30 +14,117 @@ class AdvertsController < ApplicationController
       per=10
       @adverts=@user.adverts.with_deleted.order(sort).page(page).per(per)
   end
+
   def new
     @advert=Advert.new
-    #@advert.build_vehicle(user_id: current_user.id,type_id: @current_type.id)
-    #############
+    @ad_type=params[:ad_type]
+    @action="edit"
+    @advert.current_step=session[:advert_step]=@action
+    @vehicle=@advert.build_vehicle
+    @bodytypes=Bodytype.where(:type_id=>@current_type.id).order(:name)
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @advert }
+    end
   end
+
   def create
-    @advert = Advert.new(params[:advert])
+    @advert = Advert.new(modify(params[:advert]))
+    @ad_type=params[:advert][:ad_type]
+    @bodytypes=Bodytype.where(:type_id=>@current_type.id).order(:name)
+    @advert.current_step = session[:advert_step]
+    @advert.vehicle.registered_at="&nbsp".html_safe if @advert.vehicle.registered_at==""
+    gon.selected={"vehicles"=>[nil,nil,@advert.vehicle.model_id]} 
       respond_to do |format|
      if @advert.save
-       if @advert.ad_type=="Free"
+       if @advert.ad_type=="free"
         service=Service.find(2)
       else
         service=Service.find(1)
       end
-        @advert.create_vehicle!(user_id: current_user.id,type_id: @current_type.id)
+        
         @order=@advert.create_order!
         @order.line_items.create!(service_id: service.id)
-        format.html { redirect_to edit_advert_path(@advert) }
+
+        if params[:save_preview]
+         session[:advert_step] =  nil
+         format.html {
+         redirect_to preview_advert_path(@advert)
+         flash[:notice]="Your advert is saved!"
+       }
+   
       else
-        format.html { render action: "new" }
+        format.html {
+        redirect_to :action=>@advert.next_step, :id=>@advert.uid
+        flash[:notice]="Your advert is saved!"
+      }
+      end
+      else
+        format.html { 
+        flash[:alert]=@advert.errors.full_messages.to_sentence
+        render :action=>"new"
+        #redirect_to new_advert_path(:ad_type=>@advert.ad_type)
+        
+      }
       end
     end
   end
-
+def update
+    @advert.current_step = session[:advert_step]
+    respond_to do |format|
+    if @advert.update_attributes(modify(params[:advert]))
+      if @advert.last_step? || params[:save_show]
+        session[:advert_step] =  nil
+        @redirect_path=car_path(@advert.vehicle)
+        message=params[:save_activate] ? "Your advert is saved and activated!" : "Your advert is saved!"
+        format.html {
+        #redirect_to action: 'preview'
+        redirect_to @redirect_path
+        flash[:notice]=message
+      }
+     format.js {
+        
+        flash.now[:notice]=message
+      }
+   
+      elsif params[:save_preview]
+         session[:advert_step] =  nil
+         @redirect_path=preview_advert_path(@advert)
+         format.html {
+         redirect_to @redirect_path
+         flash[:notice]="Your advert is saved!"
+       }
+       format.js {
+         flash.now[:notice]="Your advert is saved!"
+      }
+   
+      else
+        @redirect_path=url_for action: @advert.next_step
+        format.html {
+        redirect_to @redirect_path
+        flash[:notice]="Your advert is saved!"
+      }
+       format.js {
+         flash.now[:notice]="Your advert is saved!"
+       
+      }
+      end
+    else
+       @redirect_path=url_for action: @advert.current_step
+       format.html {
+      flash[:error]=@advert.errors.full_messages.first
+      redirect_to @redirect_path
+  
+    }
+    format.js { 
+      flash.now[:error]=@advert.errors.full_messages.first
+      
+      
+      }
+    end
+  end
+  end
   def statistics
   @vehicle=@advert.vehicle
   impressions=@vehicle.impressions.where('created_at > ?', 30.days.ago).order("created_at ASC")
@@ -95,7 +183,7 @@ class AdvertsController < ApplicationController
     @advert.current_step=session[:advert_step]=@action
     @vehicle=@advert.vehicle
     @bodytypes=Bodytype.where(:type_id=>@vehicle.type_id).order(:name)
-    gon.selected={"vehicles"=>[@vehicle.make.name,@vehicle.model_name,@vehicle.model_id]} if @vehicle.make
+    gon.selected={"vehicles"=>[@vehicle.make_name,@vehicle.model_name,@vehicle.model_id]} if @vehicle.make
   end
 
   def update

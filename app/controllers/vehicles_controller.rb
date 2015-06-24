@@ -45,7 +45,7 @@ class VehiclesController < ApplicationController
         @vehicles = @solr_search.results
         #@search.update_attributes(:adverts=>@vehicles.map {|v| v.advert_id }.join(',')) if total<=20
       else
-        @vehicles=nil
+        @vehicles=[]
         @title="Nothing found"
       end
       gon.selected=@search.to_gon_object

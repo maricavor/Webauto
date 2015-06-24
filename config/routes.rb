@@ -58,6 +58,7 @@ Webauto::Application.routes.draw do
     match '/about'=>'home#about',:as=>:about
     match '/sitemap'=>'home#site_map',:as=>:site_map
     match '/seller-safety'=>'home#seller_safety',:as=>:safety
+    match '/create_advert'=>'home#create_ad',:as=>:create_ad
     match '/popular-searches'=>'home#popular',:as=>:popular
     match '/searches/destroy_all' => 'searches#destroy_all', :as=>:destroy_all
     match '/searches/show_more(/:advert_id)'=>'searches#show_more',:as=>:show_more
@@ -90,10 +91,15 @@ Webauto::Application.routes.draw do
     resources :adverts do
       match 'page(/:page)' => 'adverts#index',:via => [:post,:get],:on => :collection
       member do
-        get :details,:statistics,:features,:photos,:contact,:restore,:preview,:checkout,:really_destroy,:activate,:deactivate,:show_secondary_phone,:show_primary_phone
+        get :statistics,:restore,:preview,:checkout,:really_destroy,:activate,:deactivate,:show_secondary_phone,:show_primary_phone
       end
     end
-    get '/adverts', to: 'adverts#index', as: 'adverts'
+    match 'adverts/details(/:id)'=>'adverts#details',:as=>:details_advert
+    match 'adverts/features(/:id)'=>'adverts#features',:as=>:features_advert
+    match 'adverts/photos(/:id)'=>'adverts#photos',:as=>:photos_advert
+    match 'adverts/contact(/:id)'=>'adverts#contact',:as=>:contact_advert
+    match 'adverts/new(/:ad_type)'=>'adverts#new',:as=>:new_advert
+    #get '/adverts', to: 'adverts#index', as: 'adverts'
     resources :bikes do
       match 'search(/:id)(/:sort)(/:page)' => 'bikes#search',:via => [:post,:get], :as => :search,:on => :collection
     end

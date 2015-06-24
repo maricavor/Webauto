@@ -1,5 +1,9 @@
  <div style="padding-top:20px; margin-top:20px; border-top: 1px solid #eeeeee;">
+  <% if controller.action_name=="details" %>
+   <%= link_to t("adverts.actions.back"), edit_advert_path(@advert),:class=>"btn"  %>
+   <% else %>
   <%= link_to t("adverts.actions.back"), :back,:class=>"btn"  %>
+  <% end %>
  <% if @action=="checkout" %>
     <% if @advert.activated %>
    <%= link_to t("adverts.actions.show"), send("#{@vehicle.type.name.downcase}_path", @vehicle) ,:class=>"btn" %>

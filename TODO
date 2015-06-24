@@ -1,4 +1,4 @@
-- change statuses of adverts not working also check soft deletion of all associations
+- make new form for advert, do not save advert before vehicle data is enetered
 - make links for dealer like on carzone.ie
 - delete also vehicle_translations after really destroy
 - when ad is cancelled add completely delete action 
