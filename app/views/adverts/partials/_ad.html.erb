@@ -3,7 +3,6 @@
   <% picture=v.pictures.first%>
 <td width="150">
    <div class="thumbnail">   
-        
 <% if picture %>
           <%= link_to image_tag(picture.file_url(:thumb)), path %>
              <% else %>

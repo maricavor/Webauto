@@ -103,7 +103,7 @@ def update
       }
    
       else
-        @redirect_path=url_for action: @advert.next_step
+        @redirect_path=send("#{@advert.next_step}_advert_path",@advert.uid)
         format.html {
         redirect_to @redirect_path
         flash[:notice]="Your advert is saved!"
@@ -114,7 +114,7 @@ def update
       }
       end
     else
-       @redirect_path=url_for action: @advert.current_step
+      @redirect_path=send("#{@advert.current_step}_advert_path",@advert.uid)
        format.html {
       flash[:error]=@advert.errors.full_messages.first
       redirect_to @redirect_path
@@ -189,61 +189,7 @@ def update
     gon.selected={"vehicles"=>[@vehicle.make_name,@vehicle.model_name,@vehicle.model_id]} if @vehicle.make
   end
 
-  def update
-    @advert.current_step = session[:advert_step]
-    respond_to do |format|
-    if @advert.update_attributes(modify(params[:advert]))
-      if @advert.last_step? || params[:save_show]
-        session[:advert_step] =  nil
-        @redirect_path=car_path(@advert.vehicle)
-        message=params[:save_activate] ? "Your advert is saved and activated!" : "Your advert is saved!"
-        format.html {
-        #redirect_to action: 'preview'
-        redirect_to @redirect_path
-        flash[:notice]=message
-      }
-     format.js {
-        
-        flash.now[:notice]=message
-      }
-   
-      elsif params[:save_preview]
-         session[:advert_step] =  nil
-         @redirect_path=preview_advert_path(@advert)
-         format.html {
-         redirect_to @redirect_path
-         flash[:notice]="Your advert is saved!"
-       }
-       format.js {
-         flash.now[:notice]="Your advert is saved!"
-      }
-   
-      else
-        @redirect_path=url_for action: @advert.next_step
-        format.html {
-        redirect_to @redirect_path
-        flash[:notice]="Your advert is saved!"
-      }
-       format.js {
-         flash.now[:notice]="Your advert is saved!"
-       
-      }
-      end
-    else
-       @redirect_path=url_for action: @advert.current_step
-       format.html {
-      flash[:error]=@advert.errors.full_messages.first
-      redirect_to @redirect_path
-  
-    }
-    format.js { 
-      flash.now[:error]=@advert.errors.full_messages.first
-      
-      
-      }
-    end
-  end
-  end
+ 
   def activate
     #@vehicle=@advert.vehicle
     respond_to do |format|
