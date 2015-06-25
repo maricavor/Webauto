@@ -32,8 +32,9 @@ class AdvertsController < ApplicationController
   def create
     @advert = Advert.new(modify(params[:advert]))
     @ad_type=params[:advert][:ad_type]
+    @action="edit"
     @bodytypes=Bodytype.where(:type_id=>@current_type.id).order(:name)
-    @advert.current_step = session[:advert_step]
+    @advert.current_step = session[:advert_step]=@action
     @advert.vehicle.registered_at="&nbsp".html_safe if @advert.vehicle.registered_at==""
     gon.selected={"vehicles"=>[nil,nil,@advert.vehicle.model_id]} 
       respond_to do |format|
@@ -55,12 +56,14 @@ class AdvertsController < ApplicationController
        }
    
       else
+
         format.html {
         redirect_to :action=>@advert.next_step, :id=>@advert.uid
         flash[:notice]="Your advert is saved!"
       }
       end
       else
+        @advert.basics_saved=false
         format.html { 
         flash[:alert]=@advert.errors.full_messages.to_sentence
         render :action=>"new"
