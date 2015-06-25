@@ -167,7 +167,13 @@ Models =
     $('.hidden_field').selectpicker('show')
     $('.less_options').show()
     $('.more_options').hide()
-
+  
+  today: ->
+    today = new Date()
+    mm = today.getMonth()+1
+    yyyy = today.getFullYear()
+    mm='0'+mm if mm<10 
+    return mm+'/'+yyyy
 
   toggleLogo: ->
     i = 0
@@ -194,6 +200,7 @@ jQuery ->
     $('.selectpicker').selectpicker()
     $('.datepicker').datepicker({format: 'mm/yyyy',minViewMode: "months", maxViewMode: "years", language: window.locale})
     #$('#search_region').selectpicker('hide')
+    $('#advert_vehicle_attributes_registered_at').val(Models.today()) if $('#advert_vehicle_attributes_registered_at').val()==""
     $('.hidden_field').selectpicker('hide')
     $('.less_options').hide()
     $('.collapse_search').hide()

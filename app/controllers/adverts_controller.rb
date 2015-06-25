@@ -35,7 +35,7 @@ class AdvertsController < ApplicationController
     @action="edit"
     @bodytypes=Bodytype.where(:type_id=>@current_type.id).order(:name)
     @advert.current_step = session[:advert_step]=@action
-    @advert.vehicle.registered_at="&nbsp".html_safe if @advert.vehicle.registered_at==""
+    
     gon.selected={"vehicles"=>[nil,nil,@advert.vehicle.model_id]} 
       respond_to do |format|
      if @advert.save
@@ -413,10 +413,11 @@ def find_advert
     end
     end
  def modify(params)
+
     if params["vehicle_attributes"]
       params["vehicle_attributes"]["model_spec"]='' if params["vehicle_attributes"]["model_id"]!="0"
       params["vehicle_attributes"]["city_id"]=nil if params["vehicle_attributes"]["state_id"]==""
-     
+   
     end
     params
  end
