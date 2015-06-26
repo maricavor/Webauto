@@ -15,7 +15,13 @@ module ApplicationHelper
     HTML
     html.html_safe
   end
-
+  def http_url(url)
+  unless url=~/^http?:\/\//
+    "http://#{url}"
+  else
+    url
+  end
+  end
   def current_translations
     @translations ||= I18n.backend.send(:translations)
     @translations[I18n.locale].with_indifferent_access

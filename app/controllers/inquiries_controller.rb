@@ -1,5 +1,5 @@
 class InquiriesController < ApplicationController
-  before_filter :find_vehicle
+  before_filter :find_vehicle,:only=>[:create]
   def create
     @inquiry = Inquiry.new(params[:inquiry])
     unless params[:content].present? # honeypot check
@@ -26,6 +26,8 @@ class InquiriesController < ApplicationController
       end
     end
   end
+  
+  
   private
 
   def find_vehicle

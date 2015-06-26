@@ -8,10 +8,11 @@
   <div id="search_results" class="span9">
     <% if @dealer %>
       <div class="row-fluid">
-     <div class="span12" style="margin-bottom:10px;">
+     <div class="span12 thumbnail" style="margin-bottom:10px;">
         <%= render 'cars/partials/dealer',:dealer=>@dealer %>
      </div>
      </div>
+     <%= render "dealers/partials/contactModal" %>
     <% end %>
     <% if @vehicles.count>0 %>
     <div class="row-fluid">

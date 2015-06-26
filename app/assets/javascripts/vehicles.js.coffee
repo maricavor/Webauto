@@ -613,6 +613,9 @@ jQuery ->
   $(document).on 'click',".send_enquiry_btn", (event) ->
     $('form#new_inquiry').trigger('submit.rails')
     true 
+  $(document).on 'click',".dealer_contact_btn", (event) ->
+    $('form#dealer_contact').trigger('submit.rails')
+    true 
   $(document).on 'click',".send_report_btn", (event) ->
     $('form#new_report').trigger('submit.rails')
     true 

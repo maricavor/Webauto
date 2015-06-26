@@ -49,6 +49,7 @@ Webauto::Application.routes.draw do
     as :user do
       get '/users/profile' => 'devise/registrations#edit', :as => :profile
       get '/users/settings' => 'users#edit',:as=>:settings
+      match '/users/(:user_id)/contact' => 'users#contact',:as=>:contact_dealer,:via=>[:post]
     end
     #match '/cars'=>'cars#index',:as=>:cars
     #resource :dashboard, :controller => :users, :only => :show
@@ -76,6 +77,7 @@ Webauto::Application.routes.draw do
     match 'help/selling-a-car'=>'help#selling-a-car',:as=>:selling_a_car
     get 'dealers(/:page)',:to=> 'users#index',:as => :dealers
     resources :users 
+    #match 'inquiries/dealer_message_create',:to=>'inquiries#dealer_message_create',:as=>:user_inquiries
     resources :cars do
       match 'search(/:id)(/:sort)(/:page)' => 'cars#search',:via => [:post,:get], :as => :search,:on => :collection
       match 'solr_search'=>'cars#solr_search',:as=>:solr_search,:on => :collection

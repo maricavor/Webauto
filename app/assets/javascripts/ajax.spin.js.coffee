@@ -83,6 +83,7 @@ loadState = (event) ->
       #$n.after(new Spinner(opts).spin().el)
       #$n.spin search_opts
     else if event.target.id == "new_inquiry"
+      alert "new i quiry"
       $n = $('.inquiry_preloader')
       spinner = new Spinner(inquiry_opts)
       spinner.spin()

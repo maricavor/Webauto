@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!,:except=>[:index]
+  before_filter :authenticate_user!,:except=>[:index,:contact]
 
   def index
     #authorize! :index, @user, :message => 'Not authorized as an administrator.'
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
 
 
    end
-
+  
   
   def edit
     @user=current_user
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       redirect_to settings_path, :alert => "Unable to save settings."
     end
   end
-
+ 
 
   def destroy
     authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
@@ -48,7 +48,30 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
+  def contact
+   @dealer = User.find(params[:user_id])
+   @inquiry = Inquiry.new(params[:inquiry])
+    unless params[:content].present? # honeypot check
+      if @inquiry.deliver(@dealer)
+        respond_to do |format|
+          format.html { redirect_to :back, :notice => "Your message has been submitted. Thank you!" }
+          format.js {
+            flash.now[:notice] = "Your message has been submitted. Thank you!"
+          }
+        end
 
+      else
+        respond_to do |format|
+          format.html { redirect_to :back, :alert => @inquiry.errors.full_messages.to_sentence }
+          format.js {
+            flash.now[:alert] = @inquiry.errors.full_messages.to_sentence
+            render 'fail_contact'
+          }
+        end
+
+      end
+    end
+  end
   def ads
     
     @user=current_user

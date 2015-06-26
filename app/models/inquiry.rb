@@ -13,17 +13,20 @@ class Inquiry
   validates :content,:format => { :with => /^$/ }
 
 
-  def deliver(vehicle)
+  def deliver(obj)
     return false unless valid?
     if self.mode=="inquiry"
-      Notifier.inquiry_submitted(self,vehicle).deliver
+      Notifier.inquiry_submitted(self,obj).deliver
     elsif self.mode=="send_to_friend"
-      Notifier.send_to_friend_submitted(self,vehicle).deliver
+      Notifier.send_to_friend_submitted(self,obj).deliver
+    elsif self.mode=="contact_dealer"
+      Notifier.contact_dealer_submitted(self,obj).deliver
     else
-      Notifier.report_submitted(self,vehicle).deliver
+      Notifier.report_submitted(self,obj).deliver
     end
     #true
   end
+
   def initialize(attributes = {})
     attributes.each do |name, value|
       send("#{name}=", value)

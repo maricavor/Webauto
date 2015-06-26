@@ -31,6 +31,7 @@ class VehiclesController < ApplicationController
     if params[:id]
      set_current_sort
      @search = Search.find(params[:id])
+     @inquiry=Inquiry.new
      @search.dealers ? dealers=@search.dealers.split(",") : dealers=[]
      if dealers.size==1
       @dealer=User.find(dealers[0])
