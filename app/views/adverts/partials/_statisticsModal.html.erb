@@ -5,7 +5,7 @@
   </div>
   <div class="modal-body">
   
-<div id='chart' style="width:'100%'; height:300"></div>
+<div id='chart' style="width:'100%'; height:300"><%= image_tag "/ajax-loader.gif" %></div>
 <%= render_chart(@chart, 'chart') %>
 
   <p class="text-right muted"><small><%= t("adverts.statistics.date") %> <%= @vehicle.created_at.strftime("%d/%m/%Y") %> <%= "(#{time_ago_in_words(@vehicle.created_at)} #{t("datetime.ago")})" %> </small></p>

@@ -11,8 +11,8 @@
 <%= link_to ("<i class='icon-comment'></i> "+t("vehicles.show.comments")+" [#{@vehicle.comments.count}]").html_safe, "#commentsModal",:class=> "btn btn-block",:role=>"button",:'data-toggle'=>"modal" %>
 
 <% if current_user==@vehicle.user %>
-<%= link_to 'Edit', edit_advert_path(@vehicle.advert),:class=> "btn btn-block" %>
-<%= link_to 'Remove Ad', @vehicle.advert, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-danger btn-block" %>
+<%= link_to ("<i class='icon-edit'></i> Edit").html_safe, edit_advert_path(@vehicle.advert),:class=> "btn btn-block" %>
+
 <% end %>
 
 </div>

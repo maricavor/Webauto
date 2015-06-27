@@ -1,6 +1,9 @@
 - personal url for dealer
-- remove contact form from show page and make modal instead
+- make horizontal adverts
+- write registered user features to registration page
+- remove contact form from show page and make modal instead?? fix preloader position
 - add preloader to statistics
+- upgrade ad type possibility
 - delete also vehicle_translations after really destroy
 - what is config.action_mailer.asset_host???
 - http://stackoverflow.com/questions/1300838/how-to-convert-an-address-into-a-google-maps-link-not-map

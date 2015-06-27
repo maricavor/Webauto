@@ -275,7 +275,7 @@ self.next_service_km.present? ? "#{self.next_service_km} km" : ""
   end
 
   def name
-    "#{self.registered_at.strftime('%Y')} #{self.make.name} #{self.model_name} #{self.badge}"
+    "#{self.registered_at_year} #{self.make_name} #{self.model_name} #{self.badge}"
   end
   def previous_price
    pc=self.price_changes.last(2)

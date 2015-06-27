@@ -481,7 +481,7 @@ et:
     send_to_friend: Soovita sõbrale
     report_ad: Teata ebasobivast kuulutusest
     report: Teata ebasobivast kuulutusest
-    acknowledge: "Klikkides nupule \"Saada\" kinnitate, et nõustute Webauto <a href='%{terms_link}'>kasutustingimuste</a> ja <a href='%{privacy_link}'>privaatsuspoliitikaga</a>."
+    acknowledge: "Klikkides nupule \"Saada\" kinnitate, et nõustute Webauto <a href='%{terms_link}'><strong>kasutustingimuste</strong></a> ja <a href='%{privacy_link}'><strong>privaatsuspoliitikaga</strong></a>."
   users:
     dashboard:
       dashboard: Töölaud

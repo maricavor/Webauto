@@ -189,13 +189,13 @@ link_to '<i class="icon-plus icon-white"></i> Add a Car'.html_safe, new_car_path
     end
   end
     def link_to_expand_search
-    content_tag(:h4,class: "expand_search") do
+    content_tag(:h5,class: "expand_search") do
       link_to("#{t('search.open_search')} <i class='icon-chevron-down'></i>".html_safe, '#')
     end
     
   end
    def link_to_collapse_search
-   content_tag(:h4,class: "collapse_search") do
+   content_tag(:h5,class: "collapse_search") do
       link_to("#{t('search.close_search')} <i class='icon-chevron-up'></i>".html_safe, '#')
     end
  

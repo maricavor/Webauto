@@ -481,7 +481,7 @@ en:
     close: Close
     send_to_friend: Send to a friend
     report_ad: Report this ad
-    acknowledge: "By clicking the send button you acknowledge that you have read and agree to abide by the Webauto <a href='%{terms_link}'>Terms and Conditions</a> and <a href='%{privacy_link}'>Privacy Policy.</a>"
+    acknowledge: "By clicking the send button you acknowledge that you have read and agree to abide by the Webauto <a href='%{terms_link}'><strong>Terms and Conditions</strong></a> and <a href='%{privacy_link}'><strong>Privacy Policy</strong>.</a>"
   users:
     dashboard:
       dashboard: Dashboard
