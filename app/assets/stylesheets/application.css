@@ -111,7 +111,7 @@ table.thumbnails{
      -moz-box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
           box-shadow: 0 1px 4px rgba(0, 105, 214, 0.25);
 }
-a.thumbnail img, .thumbnail a img{
+a.thumbnail img, .thumbnail a img {
   max-width: 100%;
     height: auto;
     width: 100%;

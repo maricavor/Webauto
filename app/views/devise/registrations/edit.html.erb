@@ -11,21 +11,28 @@
     <p class="lead"><strong><%= t("users.profile.for_security") %></strong>
       <%= t("users.profile.security") %></p>
         <% if resource.is_dealer? %>
+    <div style="margin-bottom:10px;">
     <%= render 'devise/registrations/fileupload' %>
-
-   
+</div>
 <% end %>
-     <div class="row-fluid">
-        <div class="span6">
+   
     
        <%= vehicle_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html=>{:method => :put,:class=>"form-vertical",:multipart => true,:remote=>false}) do |f| %>
+       <div class="row-fluid">
+  <div class="span6">
       <%= f.text_field :email,:label=>t("users.profile.email"), :disabled=>true %>
       <%= f.text_field :name,:label => t("users.profile.name"),:autofocus => true,:disabled=>!resource.uid.nil? %>
-  
-      <% if resource.is_dealer? %>
+   <%= f.text_field :primary_phone,:label=>t("users.profile.primary_phone"), :size => 20 %>
+      <%= f.text_field :secondary_phone,:label=>t("users.profile.secondary_phone"), :size => 20 %>
+       <% if resource.is_dealer? %>
         <%= f.text_field :company_name,:label=>t("users.profile.company_name") %>
         <%= f.text_field :address1,:label=>t("users.profile.address1") %>
         <%= f.text_field :address2,:label=>t("users.profile.address2") %>
+       <% end %>
+      </div>
+        <div class="span6">
+     <% if resource.is_dealer? %>
+      
        
         <%= f.select :country_id,Country.order(:name).collect {|p| [ p.name, p.id ] },{include_blank: true},{:label=>t("users.profile.country"),:id=>"vehicle_country_id" }%>
              <%= f.select :state_id,State.order(:name).collect {|p| [ p.name, p.id ] },{},{:label=>t("users.profile.state"),:id=>"vehicle_state_id"} %>
@@ -36,26 +43,26 @@
         <%= f.text_field :company_kmkr,:label=>t("users.profile.vat_number") %>
         <%= f.text_field :webpage,:label=>t("users.profile.webpage") %>
       <% end %>
-      <%= f.text_field :primary_phone,:label=>t("users.profile.primary_phone"), :size => 20 %>
-      <%= f.text_field :secondary_phone,:label=>t("users.profile.secondary_phone"), :size => 20 %>
-      
+      <!--
       <% if resource.uid.nil? %>
         <%= f.password_field :password, :autocomplete => "off", :label=> t("users.profile.new_password"),:hint => t("users.profile.hint"), :required => false %>
         <%= f.password_field :password_confirmation, :label=> t("users.profile.password_confirm"),:required => false %>
         <%= f.password_field :current_password,:label=> t("users.profile.current_password"), :hint => t("users.profile.need_password"), :required => true %>
+        <%= f.password_field :current_password,:label=> t("users.profile.current_password"), :hint => t("users.profile.need_password"), :required => true %>
       <% end %>
- 
-    <div style="padding-top:20px;">
+ -->
+   
+   </div>
+   </div>
+ <div style="padding-top:20px; margin-top:20px; border-top: 1px solid #eeeeee;">
+    
       <%= f.submit t("users.profile.update"),:class=>"btn btn-primary" %>
       </div>
     <% end %>
     <!--<h3>Cancel my account</h3>
     <p>Unhappy?
       <%= link_to t("users.profile.cancel"), registration_path(resource_name), :data => { :confirm => t("users.profile.cancel_sure") }, :method => :delete %>.</p>-->
+
+
 </div>
-<div class="span6">
-  
-   
- </div>
-  </div>
 </div>

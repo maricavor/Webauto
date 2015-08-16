@@ -1,8 +1,13 @@
 - personal url for dealer
+- price negotiable?
+- https://dealers.carsforsale.com/everything-included-automotive-marketing
+- carsforsale.com make possible to subscribe to dealers newsletter
+- people also viewed like on linkedin.com also popup
+- validation errors for message to seller make like on http://atlasprofessionals.com/
+- https://pood.elion.ee/productInfo/27/fotokaamera-canon-eos-5d-mark-iii-kere/5260B024?gclid=CjwKEAjw8LOsBRDdub-swPW8riISJAAnmS01ylpQEvkWpqNqkOXCo9HY06EimIJzixDbPEHsE7PU2xoCQrnw_wcB maybe insteda of comments -> arvamused
 - make horizontal adverts
 - write registered user features to registration page
 - remove contact form from show page and make modal instead?? fix preloader position
-- add preloader to statistics
 - upgrade ad type possibility
 - delete also vehicle_translations after really destroy
 - what is config.action_mailer.asset_host???
@@ -13,7 +18,6 @@
 - http://yuan3y.com/2014/10/setting-up-an-upload-folder-in-openshift/
 - https://forums.openshift.com/best-place-to-store-images
 - car reviews on http://www.autotrader.co.uk/
-- after signup and confrmation no flash messages - Olete registreeritud. Teile saabub e-mail, millega kinnitate oma registreerimissoovi.
 - dealer pages like http://www.carzone.ie/car-dealers/ireland/galway/4x4-exporter-galway-dpp-8a6aa153446d45a5014478772b594400/cars?
 - no city support Jälgimäe tee 1, Tänassilma, 76406, Harjumaa, Eesti
 - port forwarding  rhc port-forward -a applicationName

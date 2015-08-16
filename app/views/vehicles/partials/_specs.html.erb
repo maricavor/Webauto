@@ -164,22 +164,22 @@
       <tbody>
         <tr>
           <td><%= t("vehicles.show.warranty") %></td>
-          <td class="right"><%= spec((@vehicle.warranty_valid_to.present? ? distance_of_time_in_words(Date.today,DateTime.strptime(@vehicle.warranty_valid_to, '%m/%Y')).capitalize : ""))  %>/<%= spec(@vehicle.warranty_km_str) %></td>
+          <td class="right"><%= double_spec(@vehicle.warranty_valid_to_str,@vehicle.warranty_km_str) %></td>
         </tr>
       
         <tr>
           <td><%= t("vehicles.show.service_interval") %></td>
-          <td class="right"><%= spec(@vehicle.service_freq_str) %>/<%= spec(@vehicle.service_km_str) %></td>
+          <td class="right"><%= double_spec(@vehicle.service_freq_str,@vehicle.service_km_str) %></td>
         </tr>
     
            <tr>
           <td><%= t("vehicles.show.next_service") %></td>
-          <td class="right"><%= spec((@vehicle.next_service.present? ? distance_of_time_in_words(Date.today,DateTime.strptime(@vehicle.next_service, '%m/%Y')).capitalize : "")) %>/<%= spec(@vehicle.next_service_km_str) %></td>
+          <td class="right"><%= double_spec(@vehicle.next_service_str,@vehicle.next_service_km_str) %></td>
         </tr>
       
        <tr>
           <td><%= t("vehicles.show.inspection_valid_to") %></td>
-          <td class="right"><%= spec((@vehicle.inspection_valid_to.present? ? distance_of_time_in_words(Date.today,DateTime.strptime(@vehicle.inspection_valid_to, '%m/%Y')).capitalize : ""))  %></td>
+          <td class="right"><%= spec(@vehicle.inspection_valid_to_str)  %></td>
         </tr>
            <tr>
           <td><%= t("vehicles.show.service_history") %></td>
@@ -202,6 +202,12 @@
           <td><%= t("vehicles.show.seats") %></td>
           <td class="right"><%= spec(@vehicle.seats_str) %></td>
         </tr>
+        <% if @vehicle.wrecked %>
+        <tr>
+          <td><%= t("vehicles.show.wrecked") %></td>
+          <td class="right"><%= spec(@vehicle.wrecked ? t("vehicles.show.yes") : t("vehicles.show.no")) %></td>
+        </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
@@ -222,6 +228,12 @@
           <td><%= t("vehicles.show.owners") %></td>
           <td class="right"><%= spec(@vehicle.owners_str) %></td>
         </tr>
+         <% if @vehicle.exchange %>
+        <tr>
+          <td><%= t("vehicles.show.exchange") %></td>
+          <td class="right"><%= spec(@vehicle.exchange ? t("vehicles.show.yes") : t("vehicles.show.no")) %></td>
+        </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

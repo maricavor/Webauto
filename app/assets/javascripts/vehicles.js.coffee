@@ -58,6 +58,8 @@ Models =
         $('#search_features').selectpicker('val', selected["features"].split(','))
         $('#search_features').selectpicker('refresh')
         Models.toggle_more_options()
+      if selected["wrecked"] or selected["exchange"]
+        Models.toggle_more_options()
       if selected["dealers"]
         $('#search_dealers').selectpicker('val', selected["dealers"].split(','))
         $('#search_dealers').selectpicker('refresh')
@@ -165,6 +167,7 @@ Models =
 
   toggle_more_options: ->
     $('.hidden_field').selectpicker('show')
+    $('.hidden_fields').show()
     $('.less_options').show()
     $('.more_options').hide()
   
@@ -202,6 +205,7 @@ jQuery ->
     #$('#search_region').selectpicker('hide')
     $('#advert_vehicle_attributes_registered_at').val(Models.today()) if $('#advert_vehicle_attributes_registered_at').val()==""
     $('.hidden_field').selectpicker('hide')
+    $('.hidden_fields').hide()
     $('.less_options').hide()
     $('.collapse_search').hide()
     $('#moreTab a[href="#similar"]').tab('show')
@@ -381,6 +385,7 @@ jQuery ->
     event.preventDefault()
   $(document).on 'click', 'form .less_options', (event) ->
     $('.hidden_field').selectpicker('hide')
+    $('.hidden_fields').hide()
     $(this).hide()
     $('.more_options').show()
     $('.hidden_field').val('')

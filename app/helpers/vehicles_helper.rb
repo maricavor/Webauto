@@ -125,6 +125,16 @@ module VehiclesHelper
     end
       html.html_safe
   end
+  def double_spec(spec1,spec2)
+    specs=[]
+    specs << spec1 if spec1!=""
+    specs << spec2 if spec2!=""
+    if specs.size>1
+      return spec(specs[0])+"/"+spec(specs[1])
+    else
+      return spec(specs[0])
+    end
+  end
   def spec_title(title)
     html = <<-HTML
     <span class="lead text-info">#{title}

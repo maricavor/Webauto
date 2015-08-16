@@ -91,12 +91,12 @@ en:
     email: Email
     password: Password
     forgot_password: Reset password
-    forgot_password_note: We will send you the password reset instructions to your email address
+    forgot_password_note: Please enter the email address that you used to register and we'll send you the password reset instructions
     send: Send instructions
     sign_in: Sign in
     change_password: Change password
-    new_to: New to Webauto?
-    get_started: Get started now. It's fast and easy
+    new_to: Are you a New User?
+    get_started: "If you are selling a vehicle for the first time on Webauto you must register first. Please begin registration by clicking the Sign up button below:"
     remember_me: Remember me
     sign_in_btn: Sign in
     sign_up: Sign up
@@ -233,7 +233,7 @@ en:
       seats: "Seats:"
       owners: "Owners:"
       climate: "Climate control:"
-      wrecked: "Wrecked"
+      wrecked: "Crashed"
       exchange: "Vehicle exchange"
       other_info: Other info
     features:

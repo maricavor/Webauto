@@ -16,7 +16,7 @@
     <%= link_to t("signin.unlock"), new_unlock_path(resource_name) %><br />
   <% end -%>
   <br />
-  <%- if devise_mapping.omniauthable? %>
+  <%- if devise_mapping.omniauthable? and controller_name!="passwords" %>
   <p class="muted">Sign in with</p>
  
     <%- resource_class.omniauth_providers.each do |provider| %>

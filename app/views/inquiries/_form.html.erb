@@ -14,6 +14,7 @@
         <% end %>
     
             <%= f.text_area :message,:rows=>5,:placeholder=>t("inquiries.write_message"),:class=>"span12" %>
+           
             <%= f.hidden_field :mode,:value=>mode %>
             <div class="honeypot">
               <%= f.text_field :content, :value=>nil, tabindex: '-1' %>

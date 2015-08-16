@@ -1,7 +1,7 @@
 class Search < ActiveRecord::Base
   extend FriendlyId
   attr_accessor :updating_name
-  attr_accessible :updating_name,:adverts,:bt, :cl, :dt, :fpgt, :fplt, :ft, :keywords, :kmgt, :kmlt, :pwgt, :pwlt, :tm, :tp, :fields_attributes,:location,:region,:engine_size,:doors,:stgt,:stlt,:slug,:keywords,:user_id,:user_ip,:name,:updated_at,:yeargt,:yearlt,:is_dealer,:is_private,:features,:dealers,:sort,:exception,:alert_freq
+  attr_accessible :updating_name,:adverts,:bt, :cl, :dt, :fpgt, :fplt, :ft, :keywords, :kmgt, :kmlt, :pwgt, :pwlt, :tm, :tp, :fields_attributes,:location,:region,:engine_size,:doors,:stgt,:stlt,:slug,:keywords,:user_id,:user_ip,:name,:updated_at,:yeargt,:yearlt,:is_dealer,:is_private,:wrecked,:exchange,:features,:dealers,:sort,:exception,:alert_freq
   has_many :fields, class_name: "MakeModelField",:dependent=>:destroy
   has_many :search_alerts,:dependent=>:destroy
   accepts_nested_attributes_for :fields, allow_destroy: true,reject_if: lambda {|attributes| attributes['make_name'].blank?}
@@ -53,7 +53,7 @@ class Search < ActiveRecord::Base
   def to_gon_object
     mds = []
     self.fields.each { |f| mds.push([f.make_name,f.model_name])}
-    {"vehicles"=>mds,"bt"=>self.bt,"ft"=>self.ft,"tm"=>self.tm,"dt"=>self.dt,"stgt"=>self.stgt,"stlt"=>self.stlt,"cl"=>self.cl,"location"=>self.location,"doors"=>self.doors,"region"=>self.region,"features"=>self.features,"dealers"=>self.dealers}
+    {"vehicles"=>mds,"bt"=>self.bt,"ft"=>self.ft,"tm"=>self.tm,"dt"=>self.dt,"stgt"=>self.stgt,"stlt"=>self.stlt,"cl"=>self.cl,"location"=>self.location,"doors"=>self.doors,"region"=>self.region,"features"=>self.features,"dealers"=>self.dealers,"wrecked"=>self.wrecked,"exchange"=>self.exchange}
   end
   def first_field_id
     self.fields.size>0 ? self.fields.first.id : nil
@@ -154,6 +154,8 @@ class Search < ActiveRecord::Base
       doors=self.doors
       is_dealer=self.is_dealer
       is_private=self.is_private
+      wrecked=self.wrecked
+      exchange=self.exchange
       fields=self.fields
       features=self.features
       dealers=self.dealers
@@ -179,7 +181,7 @@ class Search < ActiveRecord::Base
             end
           end
         end
-      end
+        end
         unless features.nil?
         features.split(",").each do |feat|
           if ["climate_control_id","service_history_id"].include?(feat)
@@ -223,6 +225,8 @@ class Search < ActiveRecord::Base
           with(:is_dealer,true) if is_dealer
           with(:is_dealer,false) if is_private
         end
+        with(:wrecked,true) if wrecked
+        with(:exchange,true) if exchange
       if mode=="normal"
         order_by(sort[0], sort[1])
         order_by(:created_at, :desc) if sort[0]=="popularity"

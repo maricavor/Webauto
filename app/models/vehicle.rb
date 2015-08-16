@@ -93,6 +93,8 @@ class Vehicle < ActiveRecord::Base
     boolean :activated do
       advert.activated if advert
     end
+    boolean :wrecked
+    boolean :exchange
     boolean :garage_item
     boolean :power_steering
     boolean :power_windows
@@ -150,8 +152,18 @@ end
   def fueltype_str
    self.fueltype ? "#{self.fueltype}" : "&nbsp;".html_safe
   end
- 
-  
+  def warranty_valid_to_str
+    self.warranty_valid_to.present? ? ActionController::Base.helpers.distance_of_time_in_words(Date.today,DateTime.strptime(self.warranty_valid_to, '%m/%Y')).capitalize : ""
+  end
+  def next_service_str
+   self.next_service.present? ? ActionController::Base.helpers.distance_of_time_in_words(Date.today,DateTime.strptime(self.next_service, '%m/%Y')).capitalize : ""
+
+  end
+  def inspection_valid_to_str
+   self.inspection_valid_to.present? ? ActionController::Base.helpers.distance_of_time_in_words(Date.today,DateTime.strptime(self.inspection_valid_to, '%m/%Y')).capitalize : ""
+
+  end
+
   def warranty_km_str
    self.warranty_km.present? ? "#{self.warranty_km} km" : ""
   end

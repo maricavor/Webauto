@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
     yield resource if block_given?
     if resource_saved
       if resource.active_for_authentication?
-        set_flash_message :notice, :signed_up if is_flashing_format?
+        set_flash_message :notice, :signed_up #if is_flashing_format?
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)
       else
@@ -34,9 +34,8 @@ class RegistrationsController < Devise::RegistrationsController
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
     prev_unconfirmed_email = resource.unconfirmed_email if resource.respond_to?(:unconfirmed_email)
     if resource.uid.nil?
-      if resource.update_with_password(resource_params)
+      if resource.update_without_password(resource_params)
         if is_navigational_format?
-
           flash_key = update_needs_confirmation?(resource, prev_unconfirmed_email) ?
             :update_needs_confirmation : :updated
           set_flash_message :notice, flash_key
@@ -65,4 +64,5 @@ class RegistrationsController < Devise::RegistrationsController
     set_flash_message :notice, :destroyed
     sign_out_and_redirect(resource)
   end
+
 end

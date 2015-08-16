@@ -15,7 +15,7 @@ class Advert < ActiveRecord::Base
   before_update :set_status_and_make_model
   after_destroy :deactivate,:check_status_and_inform
   #before_destroy :deactivate
-  validates :ad_type, inclusion: AD_TYPES
+  validates :ad_type, inclusion: AD_TYPES,:on => :create
  def vehicle
   Vehicle.unscoped { super }
 end

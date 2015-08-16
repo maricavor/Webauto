@@ -9,6 +9,7 @@ class ConfirmationsController < Devise::ConfirmationsController
     self.resource = resource_class.send_confirmation_instructions(resource_params)
 
     if successfully_sent?(resource)
+      flash[:notice]="Successfully sent"
       respond_with({}, :location => after_resending_confirmation_instructions_path_for(resource_name))
     else
       flash[:error]=resource.errors.full_messages.first
@@ -25,6 +26,7 @@ class ConfirmationsController < Devise::ConfirmationsController
       sign_in(resource_name, resource)
       respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
     else
+      flash[:notice]="Success"
       respond_with_navigational(resource.errors, :status => :unprocessable_entity){ render :new }
     end
   end
