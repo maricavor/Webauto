@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,:confirmable,
-    :recoverable, :rememberable, :trackable, :validatable,:omniauthable
+    :recoverable, :rememberable, :trackable, :validatable,:omniauthable,  :omniauth_providers => [:google_oauth2,:facebook]
   # Setup accessible (or protected) attributes for your model
   has_many :searches
   has_many :comments
