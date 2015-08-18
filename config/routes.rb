@@ -37,7 +37,7 @@ Webauto::Application.routes.draw do
 
   mount Resque::Server.new, at: "/resque"
   devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => {
-    omniauth_callbacks: "users/omniauth_callbacks"
+    omniauth_callbacks: "omniauth_callbacks"
   }
   scope '(:locale)' do
     authenticated :user do
