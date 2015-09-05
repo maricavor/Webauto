@@ -40,6 +40,7 @@ gem 'globalize-accessors'
 gem 'ancestry'
 group :development, :test do
   gem 'sunspot_solr', "2.1.0"
+  gem 'html_routes', '~> 1.0'
 end
 gem 'sunspot_rails'
 gem 'whenever', :require => false

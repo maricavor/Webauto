@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :name,:email, :primary_phone,:secondary_phone, :password, :password_confirmation, :remember_me,:tos_agreement,:company_name,:company_reg,:address1,:address2,:country_id,:city_id,:state_id,:postal_code,:phone1,:phone2,:company_kmkr,:webpage,:is_dealer,:price_alert,:sold_alert,:interest_alert,:auto_alerts,:feature_alerts,:locale
+  attr_accessible :name,:email, :primary_phone,:secondary_phone, :password, :password_confirmation, :remember_me,:tos_agreement,:company_name,:company_reg,:address1,:address2,:country_id,:city_id,:state_id,:postal_code,:phone1,:phone2,:company_kmkr,:webpage,:is_dealer,:price_alert,:sold_alert,:interest_alert,:auto_alerts,:feature_alerts,:locale,:provider,:uid
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -22,11 +22,11 @@ class User < ActiveRecord::Base
   #scope :dealers, where("is_dealer = ?", true)
   validates :tos_agreement, acceptance: true,:on => :create
   validates :company_name, presence: true, :if => "is_dealer == true"
-  def to_param
-    if self.is_dealer?
-      "#{self.id} #{self.company_name}".parameterize
-    end
-  end
+  #def to_param
+  #  if self.is_dealer?
+  #    "#{self.id} #{self.company_name}".parameterize
+  #  end
+  #end
   def self.search(search_params)
     dealers=User.where("is_dealer = ?", true)
   if search_params
@@ -60,6 +60,7 @@ end
     else
       registered_user = User.where(:email => access_token.info.email).first
       if registered_user
+        #registered_user.update_attributes(provider:access_token.provider,uid: access_token.uid)
         return registered_user
       else
         user = User.create(name: data["name"],

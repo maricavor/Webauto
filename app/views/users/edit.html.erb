@@ -7,7 +7,8 @@
     <div class="page-header">
       <h2><%= t("users.settings.settings")  %></h2>
     </div>
-    <%= vehicle_form_for @user, :html=>{:class=>"form-vertical"},:authenticity_token => true,:remote=>false do |f| %>
+    <%= vehicle_form_for @user,:html=>{:class=>"form-vertical"},:authenticity_token => true,:remote=>false do |f| %>
+
       <p class="lead">
         <%= t("users.settings.notifications")  %>
       </p>

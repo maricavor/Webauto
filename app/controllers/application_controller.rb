@@ -20,7 +20,10 @@ class ApplicationController < ActionController::Base
     _type_id=session[:type_id] || 1
     @current_type=Type.find(_type_id)
   end
-
+# Returns true if the given user is the current user.
+  def current_user?(user)
+    user == current_user
+  end
 
  
   protected

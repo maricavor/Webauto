@@ -36,19 +36,22 @@ Webauto::Application.routes.draw do
 
 
   mount Resque::Server.new, at: "/resque"
+
   devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => {
     omniauth_callbacks: "omniauth_callbacks"
   }
+ 
   scope '(:locale)' do
     authenticated :user do
       root :to => 'cars#index'
     end
     root :to => "cars#index"
-
     devise_for :users, :controllers => {:registrations => "registrations"}, skip: [:omniauth_callbacks]
+    resources :users,:except => [:show] 
+    match "/users/dashboard" => "users#show", :as => :dashboard
     as :user do
-      get '/users/profile' => 'devise/registrations#edit', :as => :profile
       get '/users/settings' => 'users#edit',:as=>:settings
+      get '/users/profile' => 'devise/registrations#edit', :as => :profile
       match '/users/(:user_id)/contact' => 'users#contact',:as=>:contact_dealer,:via=>[:post]
     end
     #match '/cars'=>'cars#index',:as=>:cars
@@ -63,7 +66,7 @@ Webauto::Application.routes.draw do
     match '/popular-searches'=>'home#popular',:as=>:popular
     match '/searches/destroy_all' => 'searches#destroy_all', :as=>:destroy_all
     match '/searches/show_more(/:advert_id)'=>'searches#show_more',:as=>:show_more
-    match "/users/dashboard" => "users#show", :as => :dashboard
+    
     #match "/ads(/:page)" => "users#ads", :as => :ads
     match 'searches/new(/:search)(/:value)(/:model)'=>'searches#new',:as=>:new_search
     match 'vehicles/update_region_select/:id', :controller=>'vehicles', :action => 'update_region_select'
@@ -76,7 +79,7 @@ Webauto::Application.routes.draw do
     match 'help/buying-a-car'=>'help#buying-a-car',:as=>:buying_a_car
     match 'help/selling-a-car'=>'help#selling-a-car',:as=>:selling_a_car
     get 'dealers(/:page)',:to=> 'users#index',:as => :dealers
-    resources :users 
+    
     #match 'inquiries/dealer_message_create',:to=>'inquiries#dealer_message_create',:as=>:user_inquiries
     resources :cars do
       match 'search(/:id)(/:sort)(/:page)' => 'cars#search',:via => [:post,:get], :as => :search,:on => :collection

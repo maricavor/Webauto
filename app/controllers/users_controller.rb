@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!,:except=>[:index,:contact]
-
+  before_filter :correct_user,   only: [:update]
   def index
     #authorize! :index, @user, :message => 'Not authorized as an administrator.'
      @title="Webauto | Find a car dealership in Estonia"
@@ -26,7 +26,6 @@ class UsersController < ApplicationController
   
   def edit
     @user=current_user
-
   end
   def update
     @user = User.find(params[:id])
@@ -100,5 +99,9 @@ class UsersController < ApplicationController
     end
     params
   end
-
+ # Confirms the correct user.
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
 end

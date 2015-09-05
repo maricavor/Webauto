@@ -1,6 +1,13 @@
+- create ominauth like here: http://railscasts.com/episodes/235-omniauth-part-1?view=asciicast
+- use for faking users: https://www.railstutorial.org/book/updating_and_deleting_users
+- wrecked and exchanged by default are false
+- picture in profile do not use thumb resized
 - personal url for dealer
+- simulate user visiting car page
 - https://gist.github.com/fnichol/867550
 - resend instructions not working
+- users/settings not working
+- remove table headers in saved cars etc if no available
 - http://www.sitepoint.com/rails-authentication-oauth-2-0-omniauth/
 - reset password and resend instructions form no validation errors?
 - price negotiable?

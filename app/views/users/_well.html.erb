@@ -1,6 +1,6 @@
 <div class="well" style="margin-top: 20px; padding: 8px 0;">
   <ul class="nav nav-list">
-    <% if active=="dashboard" %><li class="active"><% else %><li><% end %><%= link_to ('<i class="icon-home"></i> '+t("navigation.dashboard")).html_safe, dashboard_url %></li>
+    <% if active=="dashboard" %><li class="active"><% else %><li><% end %><%= link_to ('<i class="icon-home"></i> '+t("navigation.dashboard")).html_safe, dashboard_path %></li>
       <li class="nav-header"><%= t("navigation.favourites") %></li>
       <!--<% if active=="garage" %><li class="active"><%= link_to '<i class="icon-garage-white"></i> Garage'.html_safe,  garage_items_url %></li><% else %><li><%= link_to '<i class="icon-garage"></i> Garage'.html_safe,  garage_items_url %></li><% end %>-->
       <% if active=="searches" %><li class="active"><% else %><li><% end %><%= link_to ('<i class="icon-search"></i> '+t("navigation.saved_searches")).html_safe, searches_url %></li>
@@ -12,7 +12,7 @@
             <% if active=="profile" %><li class="active"><% else %><li><% end %><%= link_to ('<i class="icon-user"></i> '+t("navigation.profile")).html_safe, profile_path %></li>
               <% if active=="settings" %>
                 <li class="active"><% else %><li><% end %><%= link_to ('<i class="icon-wrench"></i> '+t("navigation.settings")).html_safe, settings_path %></li>
-                <li><%= link_to ('<i class="icon-off"></i> '+t("navigation.signout")).html_safe, searches_path %></li>
+                <li><%= link_to ('<i class="icon-off"></i> '+t("navigation.signout")).html_safe, destroy_user_session_path, :method=>'delete' %></li>
               </ul>
             </div>
             <!-- /well -->
