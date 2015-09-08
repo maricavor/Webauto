@@ -23,6 +23,7 @@
 - what is config.action_mailer.asset_host???
 - http://stackoverflow.com/questions/1300838/how-to-convert-an-address-into-a-google-maps-link-not-map
 - https://github.com/openshift/wordpress-example/blob/master/.openshift/action_hooks/deploy
+- https://help.github.com/articles/adding-a-remote/
 - git rm --cached -r <dir>
 - about carrierwave here -> http://stackoverflow.com/questions/17727788/deploying-ruby-on-rails-is-there-a-good-alternative-for-heroku
 - http://yuan3y.com/2014/10/setting-up-an-upload-folder-in-openshift/

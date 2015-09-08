@@ -24,6 +24,6 @@ class SavedItem < ActiveRecord::Base
   def unwatch
     watchers=self.vehicle.watchers
     usr=self.user
-    watchers >> usr if watchers.include?(usr)
+    watchers.delete(usr) if watchers.include?(usr)
   end
 end
