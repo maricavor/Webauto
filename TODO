@@ -1,6 +1,5 @@
 - create ominauth like here: http://railscasts.com/episodes/235-omniauth-part-1?view=asciicast
 - use for faking users: https://www.railstutorial.org/book/updating_and_deleting_users
-- wrecked and exchanged by default are false
 - picture in profile do not use thumb resized
 - personal url for dealer
 - simulate user visiting car page
