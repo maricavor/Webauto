@@ -1,11 +1,49 @@
 - create ominauth like here: http://railscasts.com/episodes/235-omniauth-part-1?view=asciicast
+- integrate repairpal
+- make dealers controller for dealer personal url
+- change color of minibutton when activated (saved or compared)
+- Account connections - Sign in faster by connecting your social media account - check autotrader.co.uk
+- delete all for saved items like saved searches
+- write proper text in flash alerts and page titles
+- contact form validation errors make small above form like in modals
+- reposition spinner
+- add view inventory for dealer car
+- good ideas from cargurus.com about reviews and garage
+- popular searches page (http://www.cargurus.com/Cars/forsale), about and contact
+- use for faking users: https://www.railstutorial.org/book/updating_and_deleting_users
+- picture in profile do not use thumb resized
+- personal url for dealer
+- simulate user visiting car page
+- https://gist.github.com/fnichol/867550
+- resend instructions not working or remove this link
+- remove table headers in saved cars etc if no available
+- http://www.sitepoint.com/rails-authentication-oauth-2-0-omniauth/
+- reset password and resend instructions form no validation errors?
+- price negotiable?
+- https://dealers.carsforsale.com/everything-included-automotive-marketing
+- carsforsale.com make possible to subscribe to dealers newsletter
+- people also viewed like on linkedin.com also popup
+- validation errors for message to seller make like on http://atlasprofessionals.com/
+- https://pood.elion.ee/productInfo/27/fotokaamera-canon-eos-5d-mark-iii-kere/5260B024?gclid=CjwKEAjw8LOsBRDdub-swPW8riISJAAnmS01ylpQEvkWpqNqkOXCo9HY06EimIJzixDbPEHsE7PU2xoCQrnw_wcB maybe insteda of comments -> arvamused
+- make horizontal adverts
+- write registered user features to registration page
+- remove contact form from show page and make modal instead?? fix preloader position
+- upgrade ad type possibility
+- delete also vehicle_translations after really destroy
+- what is config.action_mailer.asset_host???
+- create ominauth like here: http://railscasts.com/episodes/235-omniauth-part-1?view=asciicast
+- some ideas from http://www.datamotive.com.au/
+- cannot delete saved item
+- write proper email texts
+- car facts report like on http://www.carsales.com.au/ for money
+- estimated car insurance and loans like on http://www.carsales.com.au/
+- email the dealer form reset messages when reloaded
 - use for faking users: https://www.railstutorial.org/book/updating_and_deleting_users
 - picture in profile do not use thumb resized
 - personal url for dealer
 - simulate user visiting car page
 - https://gist.github.com/fnichol/867550
 - resend instructions not working
-- users/settings not working
 - remove table headers in saved cars etc if no available
 - http://www.sitepoint.com/rails-authentication-oauth-2-0-omniauth/
 - reset password and resend instructions form no validation errors?
@@ -23,7 +61,6 @@
 - what is config.action_mailer.asset_host???
 - http://stackoverflow.com/questions/1300838/how-to-convert-an-address-into-a-google-maps-link-not-map
 - https://github.com/openshift/wordpress-example/blob/master/.openshift/action_hooks/deploy
-- https://help.github.com/articles/adding-a-remote/
 - git rm --cached -r <dir>
 - about carrierwave here -> http://stackoverflow.com/questions/17727788/deploying-ruby-on-rails-is-there-a-good-alternative-for-heroku
 - http://yuan3y.com/2014/10/setting-up-an-upload-folder-in-openshift/
@@ -231,6 +268,10 @@
 - drive2.ru
 - toshl.com
 - 
+
+
+
+
 
 
 

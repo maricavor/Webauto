@@ -5,6 +5,10 @@ Webauto::Application.routes.draw do
 
   
 
+  get "contact_form/new"
+
+  get "contact_form/create"
+
   # TODO: KLUDGE: MANUALLY BRING THE TYPUS ROUTES IN
   #       Typus used to provide :
   #           Typus::Routes.draw(map)
@@ -56,7 +60,7 @@ Webauto::Application.routes.draw do
     end
     #match '/cars'=>'cars#index',:as=>:cars
     #resource :dashboard, :controller => :users, :only => :show
-    match '/contact'=>'home#contact',:as=>:contact
+    match '/contact'=>'contact_forms#new',:as=>:contact
     match '/terms-conditions'=>'home#terms',:as=>:terms
     match '/privacy-policy'=>'home#privacy',:as=>:privacy
     match '/about'=>'home#about',:as=>:about
@@ -143,5 +147,6 @@ Webauto::Application.routes.draw do
       end
     end
     get '/saved_items', to: 'saved_items#index', as: 'saved_items'
+    resources :contact_forms
   end
 end

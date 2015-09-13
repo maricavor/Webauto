@@ -1,0 +1,37 @@
+<% content_for :title,@title %>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="page-header">
+     <h2>Contact us</h2>
+    
+    </div>
+     <p class="muted">
+NOTE: Webauto does not sell cars. If you have a question about a listing on our site, please contact the seller by filling out the form you see when viewing the listing details. 
+</p>
+       
+  </div>
+
+</div>
+
+<div class="row-fluid">
+ <div class="span6">
+    <%= form_for @contact_form  do |f| %>
+     <%= f.select :type, [[ "General feedback", "General feedback" ],[ "Problem", "Problem" ],[ "Feature request", "Feature request" ],[ "Question", "Question" ]]  %>
+      <% unless current_user %>
+        <%= f.text_field :email,:placeholder=>t("inquiries.email"),:class=>"span12" %><br>
+        <% else %>
+        <%= f.hidden_field :email,:value=> current_user.email %>
+        <% end %>
+        <%= f.text_area :message,:rows=>5,:required => false,:placeholder=>t("inquiries.write_message"),:class=>"span12" %>
+         <div class="honeypot">
+              <%= f.text_field :nickname, :value=>nil, tabindex: '-1' %>
+              <span class="help">Do not fill in this field. It is an anti-spam measure.</span>
+            </div>
+
+            <%= f.submit t("inquiries.send"),class: "btn btn-info" %>
+            <%= link_to "Cancel",root_url,class: "btn" %>
+ <% end %>
+ </div>
+  <div class="span6">
+  </div>
+</div>

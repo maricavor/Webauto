@@ -16,9 +16,9 @@ class UsersController < ApplicationController
     #@user = User.find(params[:id])
     #@user = !params[:id].nil? ? User.find(params[:id]) : current_user
     @user=current_user
-    @saved_items=@user.saved_items.last(3)
+    @saved_items=@user.saved_items.last(4)
     @saved_searches=@user.saved_searches.last(3)
-    @last_searches=@user.searches.order("created_at desc").last(3)
+    @last_searches=@user.searches.order("created_at desc").last(5)
 
 
    end

@@ -1,2 +1,7 @@
-$("#saved_item_<%= @saved_item.id %>").remove();
+$("#saved_item_<%= @saved_item.id %>").hide('slow', function() {
+    $target.remove();
+});
 $('#saved_items_progress').html("<%= j(render partial:'progress') %>");
+if ("<%= @saved_items.size %>" == "0") {
+    $('#saved_items').html("");
+}
