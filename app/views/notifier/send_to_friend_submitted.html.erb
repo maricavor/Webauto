@@ -15,7 +15,7 @@
       <p><%= image_tag(@vehicle.pictures.first.file_url(:thumb)) %></p>
       <p><strong>VEHICLE DETAILS:</strong></p>
       <p>
-        <%= "#{@vehicle.registered_at.strftime('%Y')} #{@vehicle.make.name} #{@vehicle.model_name}" "#{@vehicle.badge}"  %></p>
+        <%= "#{@vehicle.registered_at_year} #{@vehicle.make.name} #{@vehicle.model_name}" "#{@vehicle.badge}"  %></p>
       <p>More information</p>
       <hr>
         <p><strong>Want to SELL YOUR CAR fast?

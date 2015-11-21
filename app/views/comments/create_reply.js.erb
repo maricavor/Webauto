@@ -1,6 +1,7 @@
 $(".reply_form").remove();
-$('.comments-modal-message').html('');
+//$('.modal-message').html('');
 $("#comment_<%= @comment.parent_id %>").append("<%= escape_javascript(render(@comment)) %>");
 var reply = $("#comment_<%= @comment.parent_id %>").find(".nested_comment :last");
 reply.hide().fadeIn('slow');
 $(".action_buttons").html("<%= j(render partial:'vehicles/partials/action_buttons')%>");
+$('.modal-message').html("<%= j(render partial:'layouts/messages')%>");

@@ -19,8 +19,8 @@ class Inquiry
       Notifier.inquiry_submitted(self,obj).deliver
     elsif self.mode=="send_to_friend"
       Notifier.send_to_friend_submitted(self,obj).deliver
-    elsif self.mode=="contact_dealer"
-      Notifier.contact_dealer_submitted(self,obj).deliver
+    elsif self.mode=="contact_user"
+      Notifier.contact_user_submitted(self,obj).deliver
     else
       Notifier.report_submitted(self,obj).deliver
     end

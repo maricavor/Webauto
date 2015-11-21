@@ -16,14 +16,9 @@
                 <%= "#{@user.country.name}, #{@user.city.name}" %><br><br>
                   <% end %>
                   <%= @user.name %><br>
-                    <abbr title="Primary phone">P:</abbr>
-                   <span id="primary_phone"><%= secret_phone(@user.primary_phone,@vehicle.advert,"primary") %></span>
-                    <% if @user.secondary_phone!="" %>
-                      <abbr title="Secondary phone">P:</abbr>
-                     <span id="secondary_phone"> <%= secret_phone(@user.secondary_phone,@vehicle.advert,"secondary") %></span>
-                    <% end %>
+                   <span id="phone_numbers"><%= secret_phone(@user) %></span>
                   </address>
-                   <%= image_tag @user.dealer_picture.file_url(:thumb) if @user.dealer_picture %>
+                   <%= image_tag @user.dealer_picture.file_url(:original) if @user.dealer_picture %>
   </div>
   </div>
 
@@ -33,9 +28,9 @@
                
      
       <% if @user.is_dealer %>
-                  <div class="row-fluid">
+                  <div class="row-fluid" style="margin-top:20px;">
 
-  <div class="span12" style="margin-top:10px;" >
+  <div class="span12"  >
        <iframe width="100%" height="200" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCN5utK_Nhf6SuuzW66T2b2OerxjdAJm_U&q=<%=@user.full_address %>&attribution_source=Google+Maps+Embed+API
       &attribution_web_url=http://www.butchartgardens.com/
       &attribution_ios_deep_link_id=comgooglemaps://?daddr=Butchart+Gardens+Victoria+BC">
@@ -44,11 +39,8 @@
 </div>
 <% end %>
        <% if @user.email.present? && mode=="show" %>
-            <div class="row-fluid">
-  <div class="span12" style="margin-top:10px;">
-    <%= render partial: "inquiries/form",locals: {mode: "inquiry"} %>
-             </div>
-              </div>
+       <%= render "users/contactModal",:user=>@user %>
+         
 
                      
                 <% end %>

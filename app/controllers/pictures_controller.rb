@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   before_filter :authenticate_user!
-  skip_before_filter :get_current_type
+  skip_before_filter :get_current_type,:get_compared_items
 
   def create
     # @picture =Picture.new(params[:picture])
@@ -15,22 +15,22 @@ class PicturesController < ApplicationController
     if @count<@max_pictures
     if @picture.save
       @count+=1
-      flash.now[:notice] = "Successfully added image."
+      flash.now[:notice] = t("pictures.added")
     else
-      flash.now[:alert] = "Failed to upload image: "+@picture.errors.full_messages.join(', ')
+      flash.now[:alert] = t("pictures.failure") + @picture.errors.full_messages.join(', ')
     end
     else
-      flash.now[:alert] = "You cannot have more than #{@max_pictures} photos on this account."
+      flash.now[:alert] = t("pictures.cannot_have",:max=>@max_pictures)
     end
   end
 
   def fail_upload
-    flash.now[:alert] = "Failed to upload image "+params[:file]+": "+params[:error]
+    flash.now[:alert] = t("pictures.failed_to_upload",:file=>params[:file],:error=>params[:error])
   end
   def update
     @picture = Picture.find(params[:id])
     if @picture.update_attributes(params[:picture])
-      flash[:notice] = "Successfully updated picture."
+      flash[:notice] = t("pictures.updated")
       redirect_to @picture.vehicle
     else
       render :action => 'edit'
@@ -46,8 +46,8 @@ class PicturesController < ApplicationController
     @count=@pictures.count
     
      respond_to do |format|
-      format.html { redirect_to :back, :notice => "Successfully deleted image." }
-      format.js {flash.now[:notice] = "Successfully deleted image."}
+      format.html { redirect_to :back, :notice => t("pictures.destroyed") }
+      format.js {flash.now[:notice] = t("pictures.destroyed") }
       format.json { head :no_content }
     end
   end

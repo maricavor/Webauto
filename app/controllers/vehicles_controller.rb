@@ -16,7 +16,7 @@ class VehiclesController < ApplicationController
   end
   
   def index
-  
+    @title="Used Cars For Sale - Webauto.ee"
     @search= Search.new
     @remote=false
     @search.fields.build
@@ -31,14 +31,12 @@ class VehiclesController < ApplicationController
     if params[:id]
      set_current_sort
      @search = Search.find(params[:id])
-     @inquiry=Inquiry.new
+     @title="Used cars for sale - Webauto.ee"
      @search.dealers ? dealers=@search.dealers.split(",") : dealers=[]
      if dealers.size==1
-      @dealer=User.find(dealers[0])
-    else
-      @dealer=nil
-    end
-    ###
+      dealer=User.find(dealers[0])
+      redirect_to send("search_dealer_path", dealer.dealer_name,:search_id=>@search,:sort=>"most_recent")
+     end
      @search.fields.build if @search.fields.size==0
      @solr_search=@search.run("normal",@current_sort[1].split(' '),params[:page],@per_page)
      total=@solr_search.total 
@@ -47,7 +45,7 @@ class VehiclesController < ApplicationController
         #@search.update_attributes(:adverts=>@vehicles.map {|v| v.advert_id }.join(',')) if total<=20
       else
         @vehicles=[]
-        @title="Nothing found"
+        @title=t("vehicles.nothing")
       end
       gon.selected=@search.to_gon_object
     else
@@ -176,15 +174,15 @@ class VehiclesController < ApplicationController
   
   def show
     @user=@vehicle.user
+    @title=@vehicle.name+@vehicle.transmission
     @pictures=@vehicle.pictures
     @comment=@vehicle.comments.build
     #@recently_viewed=get_recently_viewed_vehicles - [@vehicle]
     @inquiry=Inquiry.new
     @remote=false
     @search= Search.new
-    @class='search '
     @make=@vehicle.make
-    @make_name=@make.name if @make
+    @make_name=@vehicle.make_name
     @model_name=@vehicle.model_name
 
     #@similar_vehicles=Vehicle.where("id <> ? AND make_id = ? AND model_id = ? AND advert_id IS NOT ?",@vehicle.id,@make.id,@vehicle.model.id,nil).order("popularity desc","created_at desc").limit(6)
@@ -272,7 +270,7 @@ end
         without(:advert_id,nil)
         without(:id,id)
         with(:activated,true)
-        order_by(:popularity,:desc)
+        #order_by(:popularity,:desc)
         order_by(:created_at, :desc)
         paginate(:page => 1, :per_page => 6)
       end
@@ -305,7 +303,7 @@ end
         with(:price).less_than_or_equal_to(price+1500) 
         with(:odometer).greater_than_or_equal_to(odometer-20000) if odometer.present?
         with(:odometer).less_than_or_equal_to(odometer+20000) if odometer.present?
-        order_by(:popularity,:desc)
+        #order_by(:popularity,:desc)
         order_by(:created_at, :desc)
         paginate(:page => 1, :per_page => 6)
       end
@@ -321,8 +319,8 @@ end
     @saved_item=current_user.saved_items.find_by_vehicle_id(@vehicle.id)
     @saved_item.destroy
       respond_to do |format|
-        format.html {redirect_to dashboard_url, notice: 'Vehicle was successfully unsaved.'}
-        format.js { flash.now[:notice] = 'Vehicle was successfully unsaved.'}
+        format.html {redirect_to dashboard_url, notice: t("vehicles.unsaved")}
+        format.js { flash.now[:notice] = t("vehicles.unsaved")}
       end
   end
 
@@ -336,8 +334,9 @@ end
     @compared_item.session_hash = request.session_options[:id] 
     if @compared_item.save
       respond_to do |format|
-        format.html {redirect_to send("#{@vehicle.type.name.singularize.underscore}_path", @vehicle), notice: 'Vehicle was successfully added to compare list.'}
-        format.js { flash.now[:notice] = 'Vehicle was successfully added to compare list.'}
+        format.html {
+          redirect_to send("#{@vehicle.type.name.singularize.underscore}_path", @vehicle), notice: t("vehicles.compared")}
+        format.js { flash.now[:notice] = t("vehicles.compared")}
       end
     else
       respond_to do |format|
@@ -359,14 +358,15 @@ end
     @saved_item.price=@vehicle.price
     if @saved_item.save
       respond_to do |format|
-        format.html {redirect_to dashboard_url, notice: 'Vehicle was successfully saved.'}
-        format.js { flash.now[:notice] = 'Vehicle was successfully saved.'}
+        format.html {redirect_to dashboard_url, notice: t("vehicles.saved")}
+        format.js { flash.now[:notice] = t("vehicles.saved")}
       end
     else
       respond_to do |format|
-        format.html {  redirect_to send("#{@vehicle.type.name.singularize.underscore}_path", @vehicle) ,alert: 'Vehicle already saved.'}
+        format.html {  
+          redirect_to send("#{@vehicle.type.name.singularize.underscore}_path", @vehicle) ,alert: t("vehicles.already_saved")}
         format.js {
-          flash.now[:alert] =  'Vehicle already saved.'
+          flash.now[:alert] =  t("vehicles.already_saved")
           render 'fail_save'
         }
       end
@@ -380,7 +380,7 @@ end
       pic.position = params["pic"].index(pic.id.to_s)+1
       pic.save!
     end
-    flash[:notice] =  'Photos resorted: '+params["pic"].to_s
+    flash[:notice] =  t("vehicles.photos_resorted") + params["pic"].to_s
     flash.discard
     #render :nothing => true
   end
@@ -389,8 +389,8 @@ end
       country=Country.find(params["country_id"])
       _states=country.states
       _cities=country.cities
-      _states.size>0 ? @states=_states.map{|a| [a.name,a.id]}.insert(0,["Select state",""]) : @states=[]
-      _cities.size>0 ? @cities=_cities.map{|a| [a.name,a.id]}.insert(0,["Select city",""]) : @cities=[]
+      _states.size>0 ? @states=_states.map{|a| [a.name,a.id]}.insert(0,[t("adverts.details.select_state"),""]) : @states=[]
+      _cities.size>0 ? @cities=_cities.map{|a| [a.name,a.id]}.insert(0,[t("adverts.details.select_city"),""]) : @cities=[]
     else
       @states=[]
       @cities=[]
@@ -400,7 +400,7 @@ end
     if params["state_id"]!=""
       state=State.find(params["state_id"])
       _cities=state.cities
-      _cities.size>0 ? @cities=_cities.map{|a| [a.name,a.id]}.insert(0,["Select city",""]) : @cities=[]
+      _cities.size>0 ? @cities=_cities.map{|a| [a.name,a.id]}.insert(0,[t("adverts.details.select_city"),""]) : @cities=[]
     else
       @cities=[]
     end
@@ -455,16 +455,16 @@ end
     if @vehicle.watchers.exists?(current_user)
       @vehicle.watchers -= [current_user]
       respond_to do |format|
-        format.html {redirect_to @vehicle, notice: "You are no longer watching this vehicle."}
-        format.js { flash.now[:notice] = "You are no longer watching this vehicle."}
+        format.html {redirect_to @vehicle, notice: t("vehicles.not_watching")}
+        format.js { flash.now[:notice] = t("vehicles.not_watching")}
       end
 
     else
       @vehicle.watchers << current_user
       respond_to do |format|
-        format.html {  redirect_to :back,notice: "You are now watching this vehicle."}
+        format.html {  redirect_to :back,notice: t("vehicles.watching")}
         format.js {
-          flash.now[:notice]="You are now watching this vehicle."
+          flash.now[:notice]=t("vehicles.watching")
         }
       end
 
@@ -473,24 +473,12 @@ end
   end
 
 
-  def get_property_records(t_id)
-    @bodytypes=Bodytype.where(:type_id=>t_id).order(:name)
-    @states=State.order(:name)
-    @cities=City.order(:name)
-  end
-  def init_gon(t_id)
-    @makes=Make.where(:type_id=>t_id).order(:name)
-    Rails.cache.fetch 'cached_gon' do
-      @models=Model.order(:name)
-      @series=Serie.all
-      grouped_models_hash(@makes,@models,@series)
-    end
-    gon.grouped_models=Rails.cache.read 'cached_gon'
-  end
+
+ 
   def get_index_vehicles(t_id)
-    _vehicles=Vehicle.activated.where(["type_id = ? and advert_id IS NOT ?",t_id,nil])
-    @popular_vehicles = _vehicles.order("popularity desc","created_at desc").limit(8)
-    @recent_vehicles = _vehicles.order("created_at desc").limit(8)
+    _adverts=Advert.where(:type_id =>t_id,:activated=>true)
+    @popular_adverts = _adverts.order("popularity desc","created_at desc").limit(8)
+    @recent_adverts = _adverts.order("created_at desc").limit(8)
     @viewed_vehicles=get_viewed_vehicles(t_id)
   end
   def get_recently_viewed_vehicles
@@ -520,25 +508,28 @@ end
   end
   end
   private
+
   def update_impressions
     impressionist_hash = Digest::SHA2.hexdigest(Time.now.to_f.to_s+rand(10000).to_s)
+    if session_hash!=nil
+    unless @vehicle.impressions.where(:session_hash=>session_hash).exists? #or ip_address.exists?
     if current_user
       @impression = @vehicle.impressions.create(:controller_name => controller_name,:action_name => action_name,:user_id => user_id,:request_hash => impressionist_hash,:session_hash => session_hash,:ip_address => request.remote_ip,:referrer => request.referer) unless @user==current_user
     else
-       @impression = @vehicle.impressions.create(:controller_name => controller_name,:action_name => action_name,:user_id => nil,:request_hash => impressionist_hash,:session_hash => session_hash,:ip_address => request.remote_ip,:referrer => request.referer)
+      @impression = @vehicle.impressions.create(:controller_name => controller_name,:action_name => action_name,:user_id => nil,:request_hash => impressionist_hash,:session_hash => session_hash,:ip_address => request.remote_ip,:referrer => request.referer)
     end
-    @vehicle.update_attributes(:popularity=>@vehicle.impressionist_count)
+    end
+    end
+    @vehicle.advert.update_attributes(:popularity=>@vehicle.impressionist_count(:filter=>:session_hash))
   end
 
   def get_viewed_vehicles(t_id)
     vehicles=[]
-    impressions=Impression.order("created_at desc")
+    impressions=Impression.order("created_at desc").first(20)
     impressions.each do |i|
       vehicle=i.vehicle
       unless vehicles.include?(vehicle)
-      if vehicle.type_id==t_id && vehicle.advert.activated
-          vehicles << vehicle 
-        end
+      vehicles << vehicle if vehicle.type_id==t_id 
     end
      end
     vehicles.first(8)
@@ -576,21 +567,9 @@ end
   end
 
 
-  def is_numeric?(obj)
-    obj.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/) == nil ? false : true
-  end
 
-  def set_current_sort
-    @sort_fields=[[t("search.most_recent"),"created_at desc","most_recent"],[t("search.most_popular"),"popularity desc","most_popular"],[t("search.price_high_low"),"price desc","price_high_to_low"],[t("search.price_low_high"),"price asc","price_low_to_high"],[t("search.make_model_a_z"),"make_model asc","make_model_asc"],[t("search.make_model_z_a"),"make_model desc","make_model_desc"],[t("search.kms_high_low"),"odometer desc","kms_high_to_low"],[t("search.kms_low_high"),"odometer asc","kms_low_to_high"],[t("search.year_high_low"),"registered_at_date desc","newest_first"],[t("search.year_low_high"),"registered_at_date asc","oldest_first"]]
 
-    unless is_numeric? params[:sort]
-      sort=params[:sort] || "most_recent"
-    else
-      sort="most_recent"
-    end
-    @current_sort=@sort_fields.detect{|s| s[2]==sort}
 
-  end
   def get_full_details(prms)
     request = Net::HTTP.post_form(URI.parse('http://195.80.106.137:9050/saap'), prms)
     response=request.body.force_encoding("UTF-8")
@@ -635,7 +614,6 @@ end
   end
   def save_vehicle
   if @vehicle.save
-    puts "*************************"
   end
   end
   def get_last_search
@@ -666,7 +644,7 @@ end
     advert=@vehicle.advert
     unless advert.activated || advert.destroyed?
     redirect_to root_url
-    flash[:alert]="Ad is deactivated or removed!"
+    flash[:alert]=t("vehicles.ad_status")
     end
 
    end

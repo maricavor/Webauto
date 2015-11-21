@@ -1,0 +1,4 @@
+
+$('#authentications').html("<%= j(render 'devise/registrations/authentications',authentications: current_user.authentications) %>");
+$('#more_services').html("<%= j(render 'devise/registrations/more_services',authentications: current_user.authentications) %>");
+$('.site-message').html("<%= j(render partial:'layouts/messages')%>");

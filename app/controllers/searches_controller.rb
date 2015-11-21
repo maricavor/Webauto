@@ -1,11 +1,12 @@
 class SearchesController < ApplicationController
   before_filter :authenticate_user!, :only=>[:index,:show,:edit,:update]
   before_filter :find_search,:only=>[:destroy,:show,:update,:edit]
-  before_filter :set_max_searches,:only=>[:remove_all,:index]
+  before_filter :set_max_searches,:only=>[:remove_all,:index,:destroy]
   before_filter :set_search,:only=>[:new,:popular,:expensive]
   skip_before_filter :get_current_type,:only=>[:edit,:update]
   
   def index
+    @title= "Saved Searches & Email Alerts - Webauto.ee"
     @searches=current_user.saved_searches.order("created_at desc")
     @count=@searches.count
     @search=Search.new
@@ -51,9 +52,8 @@ class SearchesController < ApplicationController
 
   end
   def show_more
-    if params[:advert_id]
-      advert=Advert.with_deleted.find_by_uid(params[:advert_id])
-      vehicle=advert.vehicle
+    if params[:id]
+      vehicle=Vehicle.with_deleted.find(params[:id])
       search=Search.new
       search.tp=vehicle.type_id
       search.tm=vehicle.transmission_id
@@ -75,10 +75,10 @@ class SearchesController < ApplicationController
 
     respond_to do |format|
       format.html {
-        flash[:notice] = "You have removed all searches!"
+        flash[:notice] = t("searches.remove_all")
         redirect_to searches_url
       }
-      format.js { flash.now[:notice]= "You have removed all searches!" }
+      format.js { flash.now[:notice]= t("searches.remove_all") }
     end
 
   end
@@ -90,8 +90,15 @@ class SearchesController < ApplicationController
   end
   def create
     @search = Search.new(modify(params[:search]))
+    if @search.dealer_name
+    dealer=User.find(@search.dealer_name)
+    @search.dealers=dealer.id.to_s
+    @search.save!
+    redirect_to send("search_dealer_path", dealer.dealer_name,:search_id=>@search,:sort=>"most_recent")
+    else
     @search.save!
     redirect_to send("search_#{@current_type.path_name}_path", @search,:sort=>"most_recent")
+    end
   end
 
 
@@ -100,18 +107,18 @@ class SearchesController < ApplicationController
     if @search.update_attributes(modify(params[:search]))
       respond_to do |format|
         format.html {
-          flash[:notice]= 'Your search has been saved!'
+          flash[:notice]= t("searches.saved")
           redirect_to searches_url
         }
         format.js {   
-          flash.now[:notice]= 'Your search has been saved!' 
+          flash.now[:notice]= t("searches.saved") 
         }
       end
     else
       respond_to do |format|
         format.html { 
-          flash[:error]= 'Your search has not been saved!'
-                      redirect_to searches_url
+          flash[:error]= t("searches.not_saved")
+          redirect_to searches_url
                     }
         format.js {
 
@@ -134,10 +141,9 @@ class SearchesController < ApplicationController
     @search.search_alerts.destroy_all
     @searches=current_user.saved_searches.order("created_at desc")
     @count=@searches.count
-    @max_searches=10
     respond_to do |format|
-      format.html { redirect_to searches_url, :notice => 'Search deleted'  }
-      format.js
+      format.html { redirect_to searches_url, :notice => t("searches.removed")  }
+      format.js { flash.now[:notice]= t("searches.removed") }
       format.json { head :no_content }
     end
   end

@@ -1,5 +1,6 @@
 <% index=-1 %>
 <% vehicles.each do |vehicle| %>
+
   <% index +=1%>
   <%  if index==@row_size %>
     <% index=index-@row_size %>
@@ -14,5 +15,6 @@
       <% if index==@row_size-1 || vehicle==vehicles.last %>
       
     </div>
+ 
   <% end %>
 <% end %>

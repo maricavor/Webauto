@@ -1,0 +1,6 @@
+<%- User.omniauth_providers.each do |provider| %>
+<% unless authentications.map{|a| a.provider}.include? provider.to_s.downcase %>
+      <%= link_to image_tag("/#{provider.to_s.downcase}.png", :border => 0,:size=>"48x48",:alt=>"#{provider.to_s}"), omniauth_authorize_path(:user, provider) %>
+    <% end -%>
+
+<% end -%>

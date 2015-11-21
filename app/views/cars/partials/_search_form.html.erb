@@ -9,7 +9,7 @@
   </div>
     <div class="expandable hidden-phone">
 <small><%= link_to t("search.reset_search"),"#",class: "reset_search" %></small>
-<% if controller.action_name=="search" %>
+<% if controller.action_name=="search" or controller_name=="dealers" %>
 <% if user_signed_in? %>
 <% if  @solr_search.total<=20 && @solr_search.total>0 %>
   <!-- Button to trigger modal -->
@@ -93,9 +93,14 @@
     <%= f.select :ft,t('fueltypes').collect {|c| [ c["name"], c["id"] ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>t("search.fueltype"),:'data-width'=>"100%",:'data-selected-text-format'=>"count>2",:'data-count-selected-text'=>t("search.count_selected_text")} %>
     <%= f.select :tm,t('transmissions').collect {|p| [p["name"], p["id"] ]},{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>t("search.transmission"),:'data-width'=>"100%",:'data-selected-text-format'=>"count>2",:'data-count-selected-text'=>t("search.count_selected_text")} %>
     
-    
+    <% unless @dealer %>
+
     <%= f.select :location,Country.order(:name).collect {|p| [ p.name, p.id ] },{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>t("search.country"),:'data-live-search'=>"false",:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>2",:'data-count-selected-text'=>t("search.count_selected_text")} %>
     <%= f.select :region,[],{},{:class=>"selectpicker show-tick show-menu-arrow",:multiple=>"multiple", :title=>t("search.city"),:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>2",:'data-count-selected-text'=>t("search.count_selected_text")} %>
+    <% else %>
+    <%= f.hidden_field :dealer_name,:value=>@dealer.dealer_name %>
+    <% end %>
+    
     <%= f.select :cl,t('colours').collect {|c| [ c["name"], c["id"] ] },{},{:class=>"selectpicker show-tick show-menu-arrow hidden_field",:multiple=>"multiple", :title=>t("search.colour"),:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>2",:'data-count-selected-text'=>t("search.count_selected_text")} %>
     <%= f.select :dt,t('drivetypes').collect {|p| [p["name"], p["id"] ]},{},{:class=>"selectpicker show-tick show-menu-arrow hidden_field",:multiple=>"multiple", :title=>t("search.drivetype"),:'data-width'=>"100%",:'data-selected-text-format'=>"count>1",:'data-count-selected-text'=>t("search.count_selected_text")} %>
      
@@ -122,7 +127,10 @@
 
     <%= f.select :doors,get_doors,{},{:class=>"selectpicker show-tick show-menu-arrow hidden_field",:'data-subtext'=>t("search.doors"),:multiple=>"multiple", :title=>t("search.no_doors"),:'data-width'=>"100%",:'data-size'=>"10"} %>
     <%= f.select :features,get_features,{},{:class=>"selectpicker show-tick show-menu-arrow hidden_field",:multiple=>"multiple", :title=>t("search.features"),:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>1",:'data-count-selected-text'=>t("search.count_selected_text")} %>
-    <%= f.select :dealers,User.where(is_dealer: true).order(:name).collect {|p| [ p.company_name, p.to_param ] },{},{:class=>"selectpicker show-tick show-menu-arrow hidden_field",:multiple=>"multiple", :title=>t("search.dealers"),:'data-live-search'=>"false",:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>2",:'data-count-selected-text'=>t("search.count_selected_text")} %>
+   <% unless @dealer %>
+    <%= f.select :dealers,User.where(is_dealer: true).order(:name).collect {|p| [ p.company_name, p.to_param ] },{},{:class=>"selectpicker show-tick show-menu-arrow hidden_field",:multiple=>"multiple", :title=>t("search.dealers"),:'data-live-search'=>"false",:'data-width'=>"100%",:'data-size'=>"10",:'data-selected-text-format'=>"count>1",:'data-count-selected-text'=>t("search.count_selected_text")} %>
+
+    <% end %>
      <div class="checkboxes hidden_fields">
       <label class="checkbox">
         <%= f.check_box :wrecked %>
@@ -138,9 +146,8 @@
 
       <p><%= link_to_more_options %><%= link_to_less_options %></p>
     <%= f.text_field :keywords,:placeholder=>t("search.keywords") %>
-
-
-    <div class="checkboxes">
+<% unless @dealer %>
+    <div class="checkboxes" id="seller_type_select">
       <label class="checkbox">
         <%= f.check_box :is_dealer %>
         <%= t("search.dealer") %>
@@ -151,6 +158,9 @@
 
       </label>
     </div>
+      <% else %>
+    <%= f.hidden_field :is_dealer,:value=>true %>
+    <% end %>
     <div style="clear: both;"></div>
     <%= f.hidden_field :user_ip,:value=>request.remote_ip %>
     <%= f.hidden_field :user_id,:value=>current_user.id if current_user %>

@@ -24,10 +24,10 @@ class Notifier < ActionMailer::Base
     @user=search.user
     mail(to: @user.email,subject: "Latest cars that match your search criteria")
   end
-def contact_dealer_submitted(inquiry,dealer)
-    @dealer=dealer
+def contact_user_submitted(inquiry,user)
+    @user=user
     @inquiry=inquiry
-    mail(to: @dealer.email,from: %("#{inquiry.name}" <#{inquiry.email}>), reply_to: inquiry.email, subject: "Dealer inquiry")
+    mail(to: @user.email,from: %("#{inquiry.name}" <#{inquiry.email}>), reply_to: inquiry.email, subject: "User inquiry")
   end
   def inquiry_submitted(inquiry,vehicle)
     @vehicle=vehicle

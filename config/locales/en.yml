@@ -20,11 +20,11 @@ en:
     language: Language
     social_networks: Social networks
     social_networks_text: "Connect with us on Facebook, YouTube and Twitter"
-    terms: "Terms & Conditions"
+    terms: "Terms of Use"
     privacy: Privacy
     contact: Contact us
-    about: About
-    sitemap: Site map
+    about: About 
+    sitemap: Sitemap
     popular_searches: Popular searches
     dashboard: Dashboard
     saved_searches: Saved searches/Email alerts
@@ -35,7 +35,7 @@ en:
     signout: Sign out
     favourites: FAVOURITES
     sell: SELL
-    create_ad: Create Ad
+    create_ad: Create ad
   search:
     open_search: Open search
     close_search: Close search
@@ -107,6 +107,7 @@ en:
     sign_in_with_facebook: "Sign in with Facebook"
     forgot_note: "Kui Teil on meelest läinud parool, siis sisestage oma registreerimisel sisestatud e-posti aadress."
   big: " the file is too big!"
+  translation_na: "%{locale} translation not available"
   car_stereo_cd: "CD Player"
   colours: [{name: "Beige", id: 1}, {name: "Black", id: 2}, {name: "Blue", id: 3}, {name: "Brown", id: 4}, {name: "Dark beige", id: 5}, {name: "Dark blue", id: 6}, {name: "Dark brown", id: 7}, {name: "Dark gray", id: 8}, {name: "Dark green", id: 9}, {name: "Dark orange", id: 10}, {name: "Dark purple", id: 11}, {name: "Dark red", id: 12}, {name: "Dark yellow", id: 13}, {name: "Golden", id: 14}, {name: "Gray", id: 15}, {name: "Green", id: 16}, {name: "Light beige", id: 17}, {name: "Light blue", id: 18}, {name: "Light brown", id: 19}, {name: "Light gray", id: 20}, {name: "Light green", id: 21}, {name: "Light orange", id: 22}, {name: "Light purple", id: 23}, {name: "Light red", id: 24}, {name: "Light yellow", id: 25}, {name: "Orange", id: 26}, {name: "Pink", id: 27}, {name: "Purple", id: 28}, {name: "Red", id: 29}, {name: "Silver", id: 30}, {name: "White", id: 31}, {name: "Yellow", id: 32}]
   fueltypes: [{name: "Petrol", id: 1}, {name: "Diesel", id: 2}, {name: "Petrol + Gas (LPG)", id: 3},{name: "Petrol + Gas (CNG)", id: 4},{name: "Gas (LPG)", id: 5},{name: "Gas (CNG)", id: 6},{name: "Hybrid", id: 7},{name: "Electric", id: 8},{name: "Ethanol", id: 9}]
@@ -148,7 +149,7 @@ en:
       advert: advert
       status: STATUS
       created: Created
-      cancelled: Cancelled
+      cancelled: Sold
       unfinished: Unfinished
       activated: Activated
       not_activated: Not activated
@@ -303,7 +304,7 @@ en:
       transmission: Transmission
       brought_from: Brought From
       vin: Vin
-      show: Show 
+      show: Show phone
       specification: Specification
       features: Features
       engine_power: Engine power
@@ -481,7 +482,11 @@ en:
     close: Close
     send_to_friend: Send to a friend
     report_ad: Report this ad
-    acknowledge: "By clicking the send button you acknowledge that you have read and agree to abide by the Webauto <a href='%{terms_link}'><strong>Terms and Conditions</strong></a> and <a href='%{privacy_link}'><strong>Privacy Policy</strong>.</a>"
+    acknowledge: "By clicking the send button you acknowledge that you have read and agree to abide by the Webauto <a href='%{terms_link}' target='_blank'><strong>Terms and Conditions</strong></a> and <a href='%{privacy_link}' target='_blank'><strong>Privacy Policy</strong>.</a>"
+  dealers:
+    index: 
+      title: "Dealer Services - webauto.ee"
+      nothing: "Nothing found"
   users:
     dashboard:
       dashboard: Dashboard

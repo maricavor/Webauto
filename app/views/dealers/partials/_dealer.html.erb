@@ -5,17 +5,13 @@
     <tr>
       <td width="40%">
         <address>
-  <strong>  <%= link_to dealer.company_name, new_search_path(:search=>"dealer",:value=>dealer) %></strong><br>
+  <strong>  <%= link_to dealer.company_name, dealer_path(dealer.dealer_name) %></strong><br>
   <%= dealer.address1 %><br>
    <%= "#{dealer.city_name}, #{dealer.postal_code}" %><br>
     <%= "#{dealer.country_name}, #{dealer.state_name}" %><br>
-   <abbr title="Primary phone">P:</abbr>
-                   <span id="primary_phone"><%= dealer.primary_phone %></span>
-                    <% if dealer.secondary_phone!="" %>
-                      <abbr title="Secondary phone">P:</abbr>
-                     <span id="secondary_phone"> <%= dealer.secondary_phone %></span>
-                     <% end %>
- 
+    <span id="phone_numbers"><%= secret_phone(dealer) %></span>
+    
+  
 </address>
 
 
@@ -27,7 +23,7 @@
             <% if picture %>
                    
       
-      <%= image_tag(picture.file_url(:thumb)) %>
+      <%= image_tag(picture.file_url(:original)) %>
    
     
      <% end %>
@@ -35,12 +31,12 @@
 <td width="20%" align="center"  class="lead muted" >
 
               Total Stock <br>
-              <%= dealer.adverts.where(:activated=>true).count %>
+              <%= dealer.total_stock(@current_type.id).count %>
             
             </td>  
       <td align="right" >
-        <%= link_to "View Stock",  new_search_path(:search=>"dealer",:value=>dealer),:class=>"btn btn-primary"  %>
-
+     
+        <%= link_to "View Stock",  dealer_path(dealer.dealer_name),:class=>"btn btn-primary"  %>
       </td>
     </tr>
   

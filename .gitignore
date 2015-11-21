@@ -15,3 +15,5 @@
 /public/uploads/dealer_picture/**
 /public/uploads/picture/**
 /solr/data
+/config/application.yml
+/config/database.yml

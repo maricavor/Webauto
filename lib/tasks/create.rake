@@ -1,5 +1,47 @@
 # encoding: UTF-8
 namespace :create do
+  task :users => :environment do
+  1000.times do |n|
+  name  = Faker::Name.name
+  email = "example#{n+1}@webauto.ee"
+  encrypted_password = User.new(:password=>"password").encrypted_password
+  user=User.new
+  user.name=name
+  user.email=email
+  user.encrypted_password=encrypted_password
+  user.is_dealer=false
+  user.tos_agreement=true
+
+  user.save!(validate: false)
+  
+  
+end
+
+  end
+  task :impressions => :environment do
+
+  
+    vehicles=Vehicle.activated
+    vehicles.each do |v|
+      random=rand(20..50)
+      random.times do |n|
+      random_date= rand(1.month.ago..Time.now)
+      ipv4 = Array.new(4){rand(256)}.join('.')
+      random_user=User.offset(rand(User.count)).first
+      impressionist_hash = Digest::SHA2.hexdigest(Time.now.to_f.to_s+rand(10000).to_s)
+      session_hash=Digest::SHA2.hexdigest(Time.now.to_f.to_s)
+    
+    unless v.impressions.where(:session_hash=>session_hash).exists? #or ip_address.exists?
+  
+      impression = v.impressions.create(:controller_name => "cars",:action_name => "show",:user_id => random_user.id,:request_hash => impressionist_hash,:session_hash => session_hash,:ip_address => ipv4,:referrer => "http://localhost:3000/en",:created_at=>random_date) 
+  
+   
+    end
+    end
+    v.advert.update_attributes(:popularity=>v.impressionist_count(:filter=>:session_hash))
+    
+  end
+  end
   task :cars => :environment do
     require 'nokogiri'
     require 'open-uri'

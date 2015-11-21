@@ -1,24 +1,57 @@
-- create ominauth like here: http://railscasts.com/episodes/235-omniauth-part-1?view=asciicast
-- integrate repairpal
-- make dealers controller for dealer personal url
-- change color of minibutton when activated (saved or compared)
-- Account connections - Sign in faster by connecting your social media account - check autotrader.co.uk
-- delete all for saved items like saved searches
+- create/translate page titles
+- record  only unique sessions and ip addressess; for returning visitors use same ip or user_id and different sessions 
+- delete all unneccessary links and views
+- remove possibility to delete and restore adverts, if deleted keep only picture and name
+- check statistics link, not opening
+- check what happens if goes to recently_view vehicle, should it be in the viewed vehicles list
+- translate omniauth errors
+- what to do with orders, services and line_items controllers??
+- maybe add all configuration to application.yml, like max_saves etc.
+- update watermark
+
+- add change password possibility in profile (maybe in modal)???
 - write proper text in flash alerts and page titles
-- contact form validation errors make small above form like in modals
 - reposition spinner
-- add view inventory for dealer car
-- good ideas from cargurus.com about reviews and garage
 - popular searches page (http://www.cargurus.com/Cars/forsale), about and contact
+- resend instructions not working or remove this link
+
+- reset password and resend instructions form no validation errors?
+- write proper email texts
+
+- translate registration form
+- possibilitites to translate other text fields
+- preloader for advert edit continue button
+- translate validations and controllers, make client side validations
+- before_filter :get_current_type,:get_compared_items in application controller write except
+- how many people have saved this vehicle
+
+
+- later check if impressions with different sessions, check amount of time last between sessions for robots or faking clicks
+- paid option for user to check from which searches was his car viewed (from impressions)
+- create comment button move to modal bottom???
+- for feedback: report a bug/share an idea like on mail.ee
+- photo descriptions and background photo (like in za rulem magazine)
+- possibility to upload service/maintenance cheques
+
+- if dealer car, show more from this dealer
+
+- Featured Dealerships, dealer sorting by name  check carsales.com.au
+
+- best car picture contest, allow users to rate pictures
+- integrate repairpal
+- Account connections - Sign in faster by connecting your social media account - check autotrader.co.uk
+
+
+
+- good ideas from cargurus.com about reviews and garage
+
 - use for faking users: https://www.railstutorial.org/book/updating_and_deleting_users
-- picture in profile do not use thumb resized
-- personal url for dealer
 - simulate user visiting car page
 - https://gist.github.com/fnichol/867550
-- resend instructions not working or remove this link
-- remove table headers in saved cars etc if no available
+
+
 - http://www.sitepoint.com/rails-authentication-oauth-2-0-omniauth/
-- reset password and resend instructions form no validation errors?
+
 - price negotiable?
 - https://dealers.carsforsale.com/everything-included-automotive-marketing
 - carsforsale.com make possible to subscribe to dealers newsletter
@@ -27,24 +60,24 @@
 - https://pood.elion.ee/productInfo/27/fotokaamera-canon-eos-5d-mark-iii-kere/5260B024?gclid=CjwKEAjw8LOsBRDdub-swPW8riISJAAnmS01ylpQEvkWpqNqkOXCo9HY06EimIJzixDbPEHsE7PU2xoCQrnw_wcB maybe insteda of comments -> arvamused
 - make horizontal adverts
 - write registered user features to registration page
-- remove contact form from show page and make modal instead?? fix preloader position
+
 - upgrade ad type possibility
 - delete also vehicle_translations after really destroy
 - what is config.action_mailer.asset_host???
-- create ominauth like here: http://railscasts.com/episodes/235-omniauth-part-1?view=asciicast
+
 - some ideas from http://www.datamotive.com.au/
-- cannot delete saved item
-- write proper email texts
+
+
 - car facts report like on http://www.carsales.com.au/ for money
 - estimated car insurance and loans like on http://www.carsales.com.au/
-- email the dealer form reset messages when reloaded
+
 - use for faking users: https://www.railstutorial.org/book/updating_and_deleting_users
-- picture in profile do not use thumb resized
-- personal url for dealer
+
+
 - simulate user visiting car page
 - https://gist.github.com/fnichol/867550
-- resend instructions not working
-- remove table headers in saved cars etc if no available
+
+
 - http://www.sitepoint.com/rails-authentication-oauth-2-0-omniauth/
 - reset password and resend instructions form no validation errors?
 - price negotiable?
@@ -55,7 +88,7 @@
 - https://pood.elion.ee/productInfo/27/fotokaamera-canon-eos-5d-mark-iii-kere/5260B024?gclid=CjwKEAjw8LOsBRDdub-swPW8riISJAAnmS01ylpQEvkWpqNqkOXCo9HY06EimIJzixDbPEHsE7PU2xoCQrnw_wcB maybe insteda of comments -> arvamused
 - make horizontal adverts
 - write registered user features to registration page
-- remove contact form from show page and make modal instead?? fix preloader position
+
 - upgrade ad type possibility
 - delete also vehicle_translations after really destroy
 - what is config.action_mailer.asset_host???
@@ -70,8 +103,8 @@
 - no city support Jälgimäe tee 1, Tänassilma, 76406, Harjumaa, Eesti
 - port forwarding  rhc port-forward -a applicationName
 - for pushing to github use git push master master
-- check for vehicle.destroyed? in dashboard
-- install recapthcha for forms https://www.google.com/recaptcha/intro/index.html
+
+- recapthcha for forms https://www.google.com/recaptcha/intro/index.html
 - https://www.truecar.com/used-cars-for-sale/
 - https://eu.fotolia.com/id/53461455
 - http://www.auto24.ee/foorum/foorum.php?tid=80450
@@ -79,16 +112,14 @@
 - good price analysis https://www.truecar.com/used-cars-for-sale/listing/WDDHF8JB2DA746360/2013-mercedes-benz-e-class/
 - take validation errors from autosoov.ee
 - vahetusvoimalus, avariiline, metallic???
-- translate registration form
-- possibilitites to translate other text fields
-- preloader for advert edit continue button
+
 - eripakkumised auto.soov.ee
 - more similar ads like on http://en.auto.soov.ee/ads/suzuki-grand-vitara-2-0-l-suv-off-road-2006-petrol-2171669.html
 - some more features from auto.soov.ee
 - features search like http://auto.soov.ee/otsing/soiduautod
 - calculate how many people searched vehicle, maybe save search results - add session_id to searches
 - when you change resque task always restart resque server!!!
-- make nicer forms: user profile ad registration
+
 - create new statuses of adverts, see screenshot in WEBAUTO folder
 - ACTIEAUTO.NL
 - AUTOTEST.NL
@@ -98,14 +129,14 @@
 - for description, details etc txt-fields make possible to enter in other languages
 - if other model how to handle search in custom breadcrumb??
 - car suggestion emails according to viewed vehicles
-- translate validations and controllers, make client side validations
+
 - write features in price tables
 - make proper impression counting
 - personal vehicle suggestion based on analyzed database
 - convert to bootstrap 3 http://www.bootply.com/bootstrap-3-migration-guide
 - http://railscasts.com/episodes/312-sending-html-email?view=asciicast
 
-- before_filter :get_current_type,:get_compared_items in application controller write except
+
 - what is COUNT in resque?
 - vehicle views like on linkedin.com + returning visitors
 
@@ -121,7 +152,7 @@
 - redo spinner use spin.js  http://carlosbecker.com/posts/building-a-simple-and-non-intrusive-ajax-status-with-coffeescript-in-rubyonrails/
 
 - only show cars with www.carsales.com.au
-- how many people have saved this vehicle
+
 - Popular 1 viewed per hour
 
 - http://www.wbotelhos.com/capty/
@@ -228,7 +259,7 @@
 - https://github.com/kristianmandrup/bootstrap-addons-rails
 - instead of progres bar for every picture make like in linkedin.com preloader 
 - after vehicle destroy check if pictures are destroyed in public dir
-- show total views on mouseover
+
 
 - view unfinished ads like in carsales.com.au
 
@@ -247,7 +278,7 @@
 - how many people looking at this car right now! see http://goodybag.github.io/bootstrap-notify/
 - deal with popstate, otherwise chrome renders the page twice (https://gist.github.com/nragaz/782275)
 - comment generator (see carsale.com.au) and ad completeness
-- transform date select to one select menu (01.2014)
+
 
 
 - check if user can update another user or other car

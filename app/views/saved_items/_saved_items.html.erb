@@ -47,7 +47,7 @@
                 <strong>
                    <% if vehicle.destroyed? %>
                    <%= s.name %>
-                    <br><small class="muted"><%= link_to t("saved_items.index.search_similar"), show_more_path(advert) %></small>
+                    <br><small class="muted"><%= link_to t("saved_items.index.search_similar"), show_more_path(vehicle) %></small>
                  <% else %>
                   <%= link_to s.name,  send("#{vehicle.type.name.downcase}_path", vehicle) %>
                  <% end %>
@@ -81,7 +81,7 @@
   </a>
   <ul class="dropdown-menu pull-right">
        <% if vehicle.destroyed? %>
-     <li><%= link_to t("saved_items.index.search_similar"), show_more_path(advert) %></li>
+     <li><%= link_to t("saved_items.index.search_similar"), show_more_path(vehicle) %></li>
        <% end %>
      <li><%= link_to t("searches.index.delete"), s, method: :delete, data: { confirm: t("searches.index.delete_sure") },:remote=>true %></li>
         
@@ -96,8 +96,5 @@
         <% end %>
       </tbody>
     </table>
-
-    <!--
-    <p class="text-right"><small><%= link_to t("searches.index.delete_all"), remove_all_saved_items_path,  data: { confirm: t("searches.index.sure") },:method => :get %></small></p>
-  -->
+<p class="text-right" id="delete_all_items"><small><%= link_to t("saved_items.index.delete_all"), remove_all_saved_items_path,  data: { confirm: t("searches.index.sure")},:method => :get,:remote=>true %></small></p>
   <% end %>

@@ -5,7 +5,7 @@
     <h3 id="commentsModalLabel"><%= t("comments.comments")  %></h3>
   </div>
   <div class="modal-body">
-    <div class="comments-modal-message"></div>
+    <div class="modal-message"></div>
     <%= render partial: "comments/form",locals: {parent: nil} if current_user %>
     <div id="comments">
       <% if @vehicle.comments.exists? %>

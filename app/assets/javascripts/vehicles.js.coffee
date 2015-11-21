@@ -390,6 +390,9 @@ jQuery ->
     $('.more_options').show()
     $('.hidden_field').val('')
     $('.hidden_field').selectpicker('render')
+    $('#search_is_dealer').prop('checked',true)
+    $('#search_is_private').prop('checked',true)
+    $('#seller_type_select').show()
     event.preventDefault()
   $(document).on 'click', '.reset_search', (event) ->
     $('.selectpicker').val('')
@@ -413,9 +416,11 @@ jQuery ->
     if val == null
       $('#search_is_dealer').prop('checked',true)
       $('#search_is_private').prop('checked',true)
+      $('#seller_type_select').show()
     else
       $('#search_is_dealer').prop('checked',true)
       $('#search_is_private').prop('checked',false)
+      $('#seller_type_select').hide()
     event.preventDefault()
   $(document).on 'change',".resetable", (event) ->
     val= $(this).val()
@@ -592,22 +597,16 @@ jQuery ->
 
 
   $("#commentsModal").on "hidden", ->
-    $('.comments-modal-message').html('')
+    $('.modal-message').html('')
 
   $("#contactModal").on "hidden", ->
-    $("#thank_you").hide()
-    $("#new_inquiry").show()
-    $('.contact-modal-message').html('')
+    $('.modal-message').html('')
   
   $("#sendToFriendModal").on "hidden", ->
-    $("#thank_you_friend").hide()
-    $("#new_send_to_friend").show()
-    $('.send-to-friend-modal-message').html('')
+    $('.modal-message').html('')
   
   $("#reportAdModal").on "hidden", ->
-    $("#thank_you_friend").hide()
-    $("#new_report").show()
-    $('.report-modal-message').html('')
+    $('.modal-message').html('')
 
   $(document).on 'click',".save_search_btn", (event) ->
     $('form#save_search_form').trigger('submit.rails')
@@ -618,8 +617,8 @@ jQuery ->
   $(document).on 'click',".send_enquiry_btn", (event) ->
     $('form#new_inquiry').trigger('submit.rails')
     true 
-  $(document).on 'click',".dealer_contact_btn", (event) ->
-    $('form#dealer_contact').trigger('submit.rails')
+  $(document).on 'click',".user_contact_btn", (event) ->
+    $('form#user_contact').trigger('submit.rails')
     true 
   $(document).on 'click',".send_report_btn", (event) ->
     $('form#new_report').trigger('submit.rails')

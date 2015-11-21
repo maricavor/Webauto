@@ -1,3 +1,4 @@
-$("#new_report").hide();
+//$("#new_report").hide();
 $('#new_report')[0].reset();
-$("#reportAdModal .modal-body").append("<%= j(render partial:'inquiries/thank_you_friend')%>").hide().fadeIn('slow');
+//$("#reportAdModal .modal-body").append("<%= j(render partial:'inquiries/thank_you_friend')%>").hide().fadeIn('slow');
+$('.modal-message').html("<%= j(render partial:'layouts/messages')%>");

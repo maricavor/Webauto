@@ -1,18 +1,10 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!,:except=>[:index,:contact]
-  before_filter :correct_user,   only: [:update]
-  def index
-    #authorize! :index, @user, :message => 'Not authorized as an administrator.'
-     @title="Webauto | Find a car dealership in Estonia"
-     @dealers = User.search(modify(params)).order("company_name").page(params[:page]).per(10)
-      _country=Country.find(8)
-      _states=_country.states
-      _cities=_country.cities
-      @regions=_states.map{|p| [ p.name.upcase, p.name ] }+_cities.map{|p| [ p.name, p.name ] } 
-     gon.selected={:vehicles=>[[nil,nil]],:region=>params[:region]}
-  end
+  before_filter :authenticate_user!,:except=>[:contact,:show_phone]
+  before_filter :correct_user, only: [:update]
+  skip_before_filter :get_current_type,:get_compared_items, :only=>[:show_phone,:contact]
 
   def show
+    @title="Member Centre - Webauto.ee"
     #@user = User.find(params[:id])
     #@user = !params[:id].nil? ? User.find(params[:id]) : current_user
     @user=current_user
@@ -25,52 +17,30 @@ class UsersController < ApplicationController
   
   
   def edit
+    @title="Settings - Webauto.ee"
     @user=current_user
   end
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to settings_path, :notice => "Settings updated."
+      redirect_to settings_path, :notice => t("users.updated")
     else
-      redirect_to settings_path, :alert => "Unable to save settings."
+      redirect_to settings_path, :alert => t("users.not_saved")
     end
   end
  
 
   def destroy
-    authorize! :destroy, @user, :message => 'Not authorized as an administrator.'
+    authorize! :destroy, @user, :message => t("users.not_authorized")
     user = User.find(params[:id])
     unless user == current_user
       user.destroy
-      redirect_to users_path, :notice => "User deleted."
+      redirect_to users_path, :notice =>  t("users.deleted")
     else
-      redirect_to users_path, :notice => "Can't delete yourself."
+      redirect_to users_path, :notice =>  t("users.not_deleted")
     end
   end
-  def contact
-   @dealer = User.find(params[:user_id])
-   @inquiry = Inquiry.new(params[:inquiry])
-    unless params[:content].present? # honeypot check
-      if @inquiry.deliver(@dealer)
-        respond_to do |format|
-          format.html { redirect_to :back, :notice => "Your message has been submitted. Thank you!" }
-          format.js {
-            flash.now[:notice] = "Your message has been submitted. Thank you!"
-          }
-        end
-
-      else
-        respond_to do |format|
-          format.html { redirect_to :back, :alert => @inquiry.errors.full_messages.to_sentence }
-          format.js {
-            flash.now[:alert] = @inquiry.errors.full_messages.to_sentence
-            render 'fail_contact'
-          }
-        end
-
-      end
-    end
-  end
+  
   def ads
     
     @user=current_user
@@ -88,17 +58,42 @@ class UsersController < ApplicationController
  
     else
       @vehicles=nil
-      @title="No vehicles found"
+      @title=t("users.nothing")
+    end
+  end
+   def show_phone
+    user=User.find(params[:id])
+    @primary_phone=user.primary_phone
+    @secondary_phone=user.secondary_phone
+    render 'users/show_phone', :formats => [:js]
+  end
+def contact
+   @user = User.find(params[:id])
+   @inquiry = Inquiry.new(params[:inquiry])
+    unless params[:content].present? # honeypot check
+      if @inquiry.deliver(@user)
+        respond_to do |format|
+          format.html { redirect_to :back, :notice => t("inquiries.created") }
+          format.js {
+            flash.now[:notice] = t("inquiries.created")
+          }
+        end
+
+      else
+        respond_to do |format|
+          format.html { redirect_to :back, :alert => @inquiry.errors.full_messages.to_sentence }
+          format.js {
+            flash.now[:alert] = @inquiry.errors.full_messages.to_sentence
+            render 'fail_contact'
+          }
+        end
+
+      end
     end
   end
   private
 
-  def modify(params)
-   %w(region).each do |p|
-      params[p]=params[p].reject(&:empty?).join(",") if params[p].present?
-    end
-    params
-  end
+
  # Confirms the correct user.
     def correct_user
       @user = User.find(params[:id])

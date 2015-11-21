@@ -1,14 +1,6 @@
 require 'resque/server'
 Webauto::Application.routes.draw do
 
- 
-
-  
-
-  get "contact_form/new"
-
-  get "contact_form/create"
-
   # TODO: KLUDGE: MANUALLY BRING THE TYPUS ROUTES IN
   #       Typus used to provide :
   #           Typus::Routes.draw(map)
@@ -44,19 +36,24 @@ Webauto::Application.routes.draw do
   devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => {
     omniauth_callbacks: "omniauth_callbacks"
   }
- 
+  #match '/auth/:provider/callback' => 'authentications#create'
   scope '(:locale)' do
     authenticated :user do
       root :to => 'cars#index'
     end
     root :to => "cars#index"
-    devise_for :users, :controllers => {:registrations => "registrations"}, skip: [:omniauth_callbacks]
-    resources :users,:except => [:show] 
+    devise_for :users, :controllers => {:registrations => "registrations",:sessions=> "sessions"}, skip: [:omniauth_callbacks]
+    resources :users,:except => [:show] do
+      member do
+        get :show_phone
+        post :contact
+      end
+    end
     match "/users/dashboard" => "users#show", :as => :dashboard
     as :user do
       get '/users/settings' => 'users#edit',:as=>:settings
       get '/users/profile' => 'devise/registrations#edit', :as => :profile
-      match '/users/(:user_id)/contact' => 'users#contact',:as=>:contact_dealer,:via=>[:post]
+      
     end
     #match '/cars'=>'cars#index',:as=>:cars
     #resource :dashboard, :controller => :users, :only => :show
@@ -69,7 +66,7 @@ Webauto::Application.routes.draw do
     match '/create_advert'=>'home#create_ad',:as=>:create_ad
     match '/popular-searches'=>'home#popular',:as=>:popular
     match '/searches/destroy_all' => 'searches#destroy_all', :as=>:destroy_all
-    match '/searches/show_more(/:advert_id)'=>'searches#show_more',:as=>:show_more
+    match '/searches/show_more(/:id)'=>'searches#show_more',:as=>:show_more
     
     #match "/ads(/:page)" => "users#ads", :as => :ads
     match 'searches/new(/:search)(/:value)(/:model)'=>'searches#new',:as=>:new_search
@@ -82,8 +79,10 @@ Webauto::Application.routes.draw do
     match "vehicles/get_recently_viewed_vehicles",:controller=>'vehicles',:action=>'get_recently_viewed_vehicles'
     match 'help/buying-a-car'=>'help#buying-a-car',:as=>:buying_a_car
     match 'help/selling-a-car'=>'help#selling-a-car',:as=>:selling_a_car
-    get 'dealers(/:page)',:to=> 'users#index',:as => :dealers
-    
+    match 'dealers/page(/:page)',:to=> 'dealers#index',:as => :dealers
+    match 'dealers/:id(/:sort)(/:page)',:to=>'dealers#show',:as => :dealer,:via => [:post,:get]
+    match 'dealers/:id/search(/:search_id)(/:sort)(/:page)',:to=>'dealers#show',:as => :search_dealer,:via => [:post,:get]
+    #match 'dealers/(:id)/contact' => 'dealers#contact',:as=>:contact_dealer,:via=>[:post]
     #match 'inquiries/dealer_message_create',:to=>'inquiries#dealer_message_create',:as=>:user_inquiries
     resources :cars do
       match 'search(/:id)(/:sort)(/:page)' => 'cars#search',:via => [:post,:get], :as => :search,:on => :collection
@@ -92,6 +91,7 @@ Webauto::Application.routes.draw do
         get :save, :watch,:unsave,:compare
       end
     end
+    resources :authentications,:only => [:destroy]
     resources :orders
     resources :services
     resources :line_items
@@ -100,7 +100,7 @@ Webauto::Application.routes.draw do
     resources :adverts do
       match 'page(/:page)' => 'adverts#index',:via => [:post,:get],:on => :collection
       member do
-        get :statistics,:restore,:preview,:checkout,:really_destroy,:activate,:deactivate,:show_secondary_phone,:show_primary_phone
+        get :statistics,:restore,:preview,:checkout,:really_destroy,:activate,:deactivate
       end
     end
     match 'adverts/details(/:id)'=>'adverts#details',:as=>:details_advert

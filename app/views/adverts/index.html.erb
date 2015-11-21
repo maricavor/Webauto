@@ -4,13 +4,11 @@
     <%= render 'users/well',:active=>"ads" %>
   </div>
   <div class="span9">
-
     <div class="search_preloader"></div>
     <div class="page-header">
       <h2><%= t("adverts.index.ad_management") %></h2>
     </div>
     <% if @adverts.count>0 %>
-
       <div class="paginator">
         <%= render 'adverts/partials/paginator' %>
       </div>
@@ -43,8 +41,8 @@
           <%= render 'adverts/partials/paginator' %>
         </div>
       <% end %>
-    <% else %>
-      <div class='alert'><%= t("adverts.index.nothing") %></div>
+    
+      
     <% end %>
   </div>
 </div>

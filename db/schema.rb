@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150511182554) do
+ActiveRecord::Schema.define(:version => 20150919122309) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(:version => 20150511182554) do
   end
 
   add_index "adverts", ["deleted_at"], :name => "index_adverts_on_deleted_at"
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "bodytype_translations", :force => true do |t|
     t.integer  "bodytype_id"
@@ -249,7 +257,10 @@ ActiveRecord::Schema.define(:version => 20150511182554) do
     t.decimal  "engine_size", :precision => 2, :scale => 1
     t.boolean  "is_dealer",                                 :default => true
     t.boolean  "is_private",                                :default => true
+    t.boolean  "wrecked",                                   :default => false
+    t.boolean  "exchange",                                  :default => false
     t.string   "features"
+    t.string   "dealers"
     t.string   "sort"
     t.integer  "exception"
     t.text     "adverts"
@@ -318,6 +329,7 @@ ActiveRecord::Schema.define(:version => 20150511182554) do
     t.string   "address2"
     t.integer  "city_id"
     t.integer  "country_id"
+    t.integer  "state_id"
     t.string   "postal_code"
     t.string   "phone1"
     t.string   "phone2"
@@ -475,8 +487,8 @@ ActiveRecord::Schema.define(:version => 20150511182554) do
     t.string   "car_stereo_details"
     t.boolean  "car_stereo_cd",                                                                       :default => false
     t.boolean  "car_stereo_mp3",                                                                      :default => false
-    t.boolean  "car_stereo_usb",                                                                      :default => false
     t.boolean  "car_stereo_aux",                                                                      :default => false
+    t.boolean  "car_stereo_usb",                                                                      :default => false
     t.boolean  "car_stereo_card",                                                                     :default => false
     t.boolean  "car_stereo_original",                                                                 :default => false
     t.boolean  "car_stereo_with_remote",                                                              :default => false

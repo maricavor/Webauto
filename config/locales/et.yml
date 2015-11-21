@@ -107,6 +107,7 @@ et:
     unlock: "Didn't receive unlock instructions?"
     forgot_note: "Kui Teil on meelest läinud parool, siis sisestage oma registreerimisel sisestatud e-posti aadress."
   big: " fail on liiga suur!"
+  translation_na: "%{locale} translation not available"
   car_stereo_cd: "CD Mängija"
   colours: [{name: "Beež", id: 1}, {name: "Must", id: 2}, {name: "Sinine", id: 3}, {name: "Pruun", id: 4}, {name: "Tumebeež", id: 5}, {name: "Tumesinine", id: 6}, {name: "Tumepruun", id: 7}, {name: "Tumehall", id: 8}, {name: "Tumeroheline", id: 9}, {name: "Tumeoranž", id: 10}, {name: "Tumelilla", id: 11}, {name: "Tumepunane", id: 12}, {name: "Tumekollane", id: 13}, {name: "Kuldne", id: 14}, {name: "Hall", id: 15}, {name: "Roheline", id: 16}, {name: "Helebeež", id: 17}, {name: "Helesinine", id: 18}, {name: "Helepruun", id: 19}, {name: "Helehall", id: 20}, {name: "Heleroheline", id: 21}, {name: "Heleoranž", id: 22}, {name: "Hellelilla", id: 23}, {name: "Helepunane", id: 24}, {name: "Helekollane", id: 25}, {name: "Oranž", id: 26}, {name: "Roosa", id: 27}, {name: "Lilla", id: 28}, {name: "Punane", id: 29}, {name: "Hõbedane", id: 30}, {name: "Valge", id: 31}, {name: "Kollane", id: 32}]
   fueltypes: [{name: "Bensiin", id: 1}, {name: "Diisel", id: 2}, {name: "Bensiin + Gaas (LPG)", id: 3},{name: "Bensiin + Gas (CNG)", id: 4},{name: "Gaas (LPG)", id: 5},{name: "Gaas (CNG)", id: 6},{name: "Hübriid", id: 7},{name: "Elekter", id: 8},{name: "Etanool", id: 9}]
@@ -290,7 +291,7 @@ et:
       unsave: Ära salvesta
       share: Soovita sõbrale
       report: Ebasobiv kuulutus
-      comments: Kommentaarid
+      comments: Arvamused
       bodystyle: Keretüüp
       badge: Versioon
       drivetype: Vedav sild
@@ -303,7 +304,7 @@ et:
       transmission: Käigukast
       brought_from: Toodud riigist
       vin: Vin kood
-      show: Näita 
+      show: Näita telefoni number
       specification: Tehnilised näitajad
       features: Varustus
       engine_power: Mootori võimsus
@@ -481,7 +482,11 @@ et:
     send_to_friend: Soovita sõbrale
     report_ad: Teata ebasobivast kuulutusest
     report: Teata ebasobivast kuulutusest
-    acknowledge: "Klikkides nupule \"Saada\" kinnitate, et nõustute Webauto <a href='%{terms_link}'><strong>kasutustingimuste</strong></a> ja <a href='%{privacy_link}'><strong>privaatsuspoliitikaga</strong></a>."
+    acknowledge: "Klikkides nupule \"Saada\" kinnitate, et nõustute Webauto <a href='%{terms_link}' target='_blank'><strong>kasutustingimuste</strong></a> ja <a href='%{privacy_link}' target='_blank'><strong>privaatsuspoliitikaga</strong></a>."
+  dealers:
+    index: 
+      title: "Webauto | Find a car dealership in Estonia"
+      nothing: "Nothing found"
   users:
     dashboard:
       dashboard: Töölaud

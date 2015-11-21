@@ -87,16 +87,13 @@ module VehiclesHelper
       content.html_safe
     end    
   end
-
-  def secret_phone(phone,advert,phone_type)
-    if phone.present?
-      if phone_type=="secondary"
-      "#{phone.sub!(/.{4}$/,'* * * *')} <small>#{link_to t('vehicles.show.show'),show_secondary_phone_advert_path(advert),remote: true}</small>".html_safe
-      else
-      "#{phone.sub!(/.{4}$/,'* * * *')} <small>#{link_to t('vehicles.show.show'),show_primary_phone_advert_path(advert),remote: true}</small>".html_safe
-      end
-    end
+  def secret_phone(user)
+    html= <<-HTML
+    <small>#{link_to t('vehicles.show.show'),show_phone_user_path(user),remote: true}</small>
+    HTML
+    html.html_safe
   end
+
   def secret_nr(vehicle)
     nr=vehicle.reg_nr
     if nr.present?

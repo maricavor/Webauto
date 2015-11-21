@@ -1,6 +1,6 @@
 class AdvertsController < ApplicationController
   helper_method :sort_column, :sort_direction
-  skip_before_filter :get_current_type,:get_compared_items, :only=>[:statistics,:restore,:show_secondary_phone,:show_primary_phone,:activate,:deactivate,:destroy,:update]
+  skip_before_filter :get_current_type,:get_compared_items, :only=>[:statistics,:restore,:activate,:deactivate,:destroy,:update]
   before_filter :authenticate_user!, :except=>[:show_secondary_phone,:show_primary_phone]
   before_filter :find_advert, :only => [:really_destroy,:edit,:statistics,:update,:restore,:details,:destroy,:features,:photos,:contact,:show,:preview,:checkout,:activate,:deactivate]
   before_filter :only=>[:new,:create,:edit] do |controller|
@@ -8,6 +8,7 @@ class AdvertsController < ApplicationController
   end
 
   def index
+      @title="My Ads - Webauto.ee"
       @user=current_user
       sort=sort_column + ' ' + sort_direction
       page=params[:page]
@@ -16,13 +17,14 @@ class AdvertsController < ApplicationController
   end
 
   def new
+    @title="Sell My Car - Webauto.ee"
     @advert=Advert.new
     @ad_type=params[:ad_type]
     @action="edit"
     @advert.current_step=session[:advert_step]=@action
     @vehicle=@advert.build_vehicle
     @bodytypes=Bodytype.where(:type_id=>@current_type.id).order(:name)
-
+  
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @advert }
@@ -52,14 +54,14 @@ class AdvertsController < ApplicationController
          session[:advert_step] =  nil
          format.html {
          redirect_to preview_advert_path(@advert)
-         flash[:notice]="Your advert is saved!"
+         flash[:notice]=t("adverts.ad_saved")
        }
    
       else
 
         format.html {
         redirect_to :action=>@advert.next_step, :id=>@advert.uid
-        flash[:notice]="Your advert is saved!"
+        flash[:notice]=t("adverts.ad_saved")
       }
       end
       else
@@ -80,7 +82,7 @@ def update
       if @advert.last_step? || params[:save_show]
         session[:advert_step] =  nil
         @redirect_path=car_path(@advert.vehicle)
-        message=params[:save_activate] ? "Your advert is saved and activated!" : "Your advert is saved!"
+        message=params[:save_activate] ? t("adverts.ad_saved_and_activated") : t("adverts.ad_saved")
         format.html {
         #redirect_to action: 'preview'
         redirect_to @redirect_path
@@ -96,20 +98,20 @@ def update
          @redirect_path=preview_advert_path(@advert)
          format.html {
          redirect_to @redirect_path
-         flash[:notice]="Your advert is saved!"
+         flash[:notice]=t("adverts.ad_saved")
        }
        format.js {
-         flash.now[:notice]="Your advert is saved!"
+         flash.now[:notice]=t("adverts.ad_saved")
       }
    
       else
         @redirect_path=send("#{@advert.next_step}_advert_path",@advert.uid)
         format.html {
         redirect_to @redirect_path
-        flash[:notice]="Your advert is saved!"
+        flash[:notice]=t("adverts.ad_saved")
       }
        format.js {
-         flash.now[:notice]="Your advert is saved!"
+         flash.now[:notice]=t("adverts.ad_saved")
        
       }
       end
@@ -131,6 +133,7 @@ def update
   def statistics
   @vehicle=@advert.vehicle
   impressions=@vehicle.impressions.where('created_at > ?', 30.days.ago).order("created_at ASC")
+  
   @imp_hash={}
   (Date.today - 30.days).upto(Date.today) do |date| 
     @imp_hash[date.strftime("%d/%m")]=0 
@@ -164,17 +167,21 @@ def update
     #if vehicle.save
       #@advert.activated=false 
       @advert.save!#for changing status
-      format.html { redirect_to  adverts_url 
-        flash[:notice]="Successfully restored advert"}
-      format.js { flash.now[:notice]="Successfully restored advert"}
+      format.html { 
+        redirect_to  adverts_url 
+        flash[:notice]=t("adverts.ad_restored")
+      }
+      format.js { 
+        flash.now[:notice]=t("adverts.ad_restored")
+      }
     else
       format.html { 
         redirect_to  adverts_url 
-       flash[:notice]="Could not restore advert"
+       flash[:notice]=t("adverts.ad_not_restored")
      }
       format.js {
         render :action => 'restore_fail.js.erb'
-        flash.now[:notice]="Could not restore advert"
+        flash.now[:notice]=t("adverts.ad_not_restored")
       }
     end
    end
@@ -197,11 +204,11 @@ def update
        #@vehicle.save!
       format.html {
        redirect_to  adverts_url 
-       flash[:notice]="Successfully activated advert"
+       flash[:notice]=t("adverts.ad_activated")
    }
       format.js { 
         
-        flash.now[:notice]="Successfully activated advert"
+        flash.now[:notice]=t("adverts.ad_activated")
     
       }
     end
@@ -214,11 +221,11 @@ def update
       #@vehicle.save!
       format.html { 
         redirect_to  adverts_url 
-      flash[:notice]="Successfully deactivated advert"
+      flash[:notice]=t("adverts.ad_deactivated")
     }
       format.js { 
         
-        flash.now[:notice]="Successfully deactivated advert"
+        flash.now[:notice]=t("adverts.ad_deactivated")
         render :action => "activate.js.erb"
       }
     end
@@ -229,8 +236,12 @@ def update
     if @advert.really_destroy!
     vehicle.really_destroy!
     respond_to do |format|
-      format.html { redirect_to  adverts_url }
-      format.js {flash.now[:notice]="Successfully destroyed advert"}
+      format.html { 
+        redirect_to  adverts_url 
+      }
+      format.js {
+        flash.now[:notice]=t("adverts.ad_destroyed")
+      }
     end
   end
   end
@@ -240,8 +251,13 @@ def update
     if @advert.destroy
     vehicle.destroy
     respond_to do |format|
-      format.html { redirect_to  adverts_url }
-      format.js {flash.now[:notice]="Your Ad has been cancelled"}
+      format.html { 
+        redirect_to  adverts_url 
+        flash[:notice]=t("adverts.ad_cancelled")
+      }
+      format.js {
+        flash.now[:notice]=t("adverts.ad_cancelled")
+      }
     end
   end
   end
@@ -257,7 +273,7 @@ def update
     else
     respond_to do |format|
       format.html { 
-        flash[:error]="Please add basic details first"
+        flash[:error]=t("adverts.add_basic_details")
         redirect_to action: @advert.previous_step
       }
     end
@@ -287,28 +303,7 @@ def update
     @vehicle=@advert.vehicle
     @order=@advert.order
   end
-  def show_secondary_phone
-    advert=Advert.with_deleted.find_by_uid(params[:id])
-    user=advert.user
-    @phone=user.secondary_phone
-    @phone_type="secondary"
-     respond_to do |format|
-          format.js {
-          	render :action => 'show_phone.js.erb'
-          }
-        end
-  end
-  def show_primary_phone
-    advert=Advert.with_deleted.find_by_uid(params[:id])
-    user=advert.user
-    @phone=user.primary_phone
-    @phone_type="primary"
-       respond_to do |format|
-          format.js {
-            render :action => 'show_phone.js.erb'
-          }
-        end
-  end
+ 
 
 def preview
     @vehicle=@advert.vehicle
@@ -351,9 +346,11 @@ def find_advert
         else
           redirect_to root_url
         end
-        flash[:alert]= "You are not authorized to view this!"
+        flash[:alert]= t("adverts.not_authorized")
       }
-      format.json { head :no_content }
+      format.json { 
+        head :no_content 
+      }
     end
 
     end
@@ -363,7 +360,7 @@ def find_advert
     if params["vehicle_attributes"]
       params["vehicle_attributes"]["model_spec"]='' if params["vehicle_attributes"]["model_id"]!="0"
       params["vehicle_attributes"]["city_id"]=nil if params["vehicle_attributes"]["state_id"]==""
-   
+      params["type_id"]=params["vehicle_attributes"]["type_id"]
     end
     params
  end

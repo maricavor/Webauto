@@ -5,3 +5,4 @@ $('#saved_items_progress').html("<%= j(render partial:'progress') %>");
 if ("<%= @saved_items.size %>" == "0") {
     $('#saved_items').html("");
 }
+$('.site-message').html("<%= j(render partial:'layouts/messages')%>");

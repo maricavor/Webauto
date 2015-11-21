@@ -53,6 +53,7 @@ gem 'thin'
 gem "google_visualr", ">= 2.1"
 gem 'bootstrap-datepicker-rails'
 gem 'mail_form'
+gem 'faker'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 
 

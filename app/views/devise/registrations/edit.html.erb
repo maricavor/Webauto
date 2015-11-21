@@ -21,11 +21,15 @@
        <div class="row-fluid">
   <div class="span6">
       <%= f.text_field :email,:label=>t("users.profile.email"), :disabled=>true %>
-      <%= f.text_field :name,:label => t("users.profile.name"),:autofocus => true,:disabled=>!resource.uid.nil? %>
+      <% if resource.is_dealer? %>
+        <%= f.text_field :company_name,:label=>t("users.profile.company_name") %>
+        <% end %>
+      <%= f.text_field :name,:label => t("users.profile.name"),:autofocus => true %>
+   
    <%= f.text_field :primary_phone,:label=>t("users.profile.primary_phone"), :size => 20 %>
       <%= f.text_field :secondary_phone,:label=>t("users.profile.secondary_phone"), :size => 20 %>
        <% if resource.is_dealer? %>
-        <%= f.text_field :company_name,:label=>t("users.profile.company_name") %>
+       
         <%= f.text_field :address1,:label=>t("users.profile.address1") %>
         <%= f.text_field :address2,:label=>t("users.profile.address2") %>
        <% end %>
@@ -44,16 +48,27 @@
         <%= f.text_field :webpage,:label=>t("users.profile.webpage") %>
       <% end %>
       <!--
-      <% if resource.uid.nil? %>
+     
         <%= f.password_field :password, :autocomplete => "off", :label=> t("users.profile.new_password"),:hint => t("users.profile.hint"), :required => false %>
         <%= f.password_field :password_confirmation, :label=> t("users.profile.password_confirm"),:required => false %>
         <%= f.password_field :current_password,:label=> t("users.profile.current_password"), :hint => t("users.profile.need_password"), :required => true %>
         <%= f.password_field :current_password,:label=> t("users.profile.current_password"), :hint => t("users.profile.need_password"), :required => true %>
-      <% end %>
+      
  -->
    
    </div>
    </div>
+
+   <% if resource.authentications %>
+   <div class="authentications" id="authentications">
+   <%= render 'devise/registrations/authentications',:authentications=>resource.authentications %>
+    </div>
+
+   
+  <% end %>
+ <div id="more_services">
+<%= render 'devise/registrations/more_services',:authentications=>resource.authentications %>
+</div>
  <div style="padding-top:20px; margin-top:20px; border-top: 1px solid #eeeeee;">
     
       <%= f.submit t("users.profile.update"),:class=>"btn btn-primary" %>

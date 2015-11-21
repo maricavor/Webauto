@@ -10,8 +10,6 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-
-
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
@@ -25,7 +23,6 @@
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require jquery.capty.min
-//= require bootstrap2-toggle.min
 //= require_tree .
 $(window).on('load', function(e) {
     if (window.location.hash == '#_=_') {

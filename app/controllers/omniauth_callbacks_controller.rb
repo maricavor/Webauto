@@ -1,24 +1,36 @@
 class OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  skip_before_filter :get_current_type,:get_compared_items
   def facebook
-    @user = User.find_for_facebook_oauth(request.env["omniauth.auth"])
-    if @user.persisted?
-      sign_in_and_redirect @user,:location=>root_path,:event => :authentication #this will throw if @user is not activated
-      set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
+    #render :text => request.env["omniauth.auth"].to_yaml
+    authenticate
+  end
+ 
+  def google_oauth2
+    #render :text => request.env["omniauth.auth"].to_yaml
+    authenticate
+  end
+  private
+  def authenticate
+    omniauth =  request.env["omniauth.auth"]
+    authentication = Authentication.find_by_provider_and_uid(omniauth['provider'],omniauth['uid'])
+    if authentication
+      flash[:notice]=t("omniauth.signed_in")
+      sign_in_and_redirect authentication.user,:location=>root_path,:event => :authentication
+    elsif current_user
+      current_user.authentications.create(:provider=>omniauth['provider'],:uid=>omniauth['uid'])
+      flash[:notice]=t("omniauth.success")
+      #set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
+      redirect_to profile_path
     else
-      session["devise.facebook_data"] = request.env["omniauth.auth"]
+      user=User.new
+      user.apply_omniauth(omniauth)
+    if user.save
+      flash[:notice]=t("omniauth.signed_in")
+      sign_in_and_redirect(:user,user)
+    else
+      session[:omniauth]=omniauth.except('extra')
       redirect_to new_user_registration_url
     end
   end
-  def google_oauth2
-     
-    @user = User.find_for_google_oauth2(request.env["omniauth.auth"], current_user)
- 
-    if @user.persisted?
-      flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => "Google"
-      sign_in_and_redirect @user, :event => :authentication
-    else
-      session["devise.google_data"] = request.env["omniauth.auth"]
-      redirect_to new_user_registration_url
-    end
   end
 end

@@ -1,12 +1,12 @@
 class Advert < ActiveRecord::Base
   AD_TYPES = [ "free", "standard"]
   acts_as_paranoid
-  attr_accessible :contact_number,:make_model,:status,:email, :activated,:sold, :popularity, :price, :secondary_number, :type, :uid,:vehicle_attributes,:deleted_at,:basics_saved,:details_saved,:features_saved,:photos_saved,:contact_saved,:ad_type,:user_id
+  attr_accessible :contact_number,:make_model,:status,:email, :activated,:sold, :popularity, :price, :secondary_number, :type, :uid,:vehicle_attributes,:deleted_at,:basics_saved,:details_saved,:features_saved,:photos_saved,:contact_saved,:ad_type,:user_id,:type_id
   attr_writer :current_step
   has_one :vehicle#,:dependent => :destroy
   has_one :order
   has_many :search_alerts
-  
+  has_one :type
   belongs_to :user
   accepts_nested_attributes_for :vehicle#, reject_if: :price_invalid
   #validate :vehicle_price_valid, :if=>:contact?

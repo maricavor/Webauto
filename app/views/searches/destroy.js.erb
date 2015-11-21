@@ -6,3 +6,4 @@ if ("<%= @searches.size %>" == "0") {
     $('#delete_all_searches').remove();
     $('#saved_searches').html("");
 }
+$('.site-message').html("<%= j(render partial:'layouts/messages')%>");

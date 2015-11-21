@@ -1,0 +1,65 @@
+et:
+  adverts:
+    ad_saved: "Your ad is saved!"
+    ad_saved_and_activated: "Your advert is saved and activated!"
+    ad_restored: "Successfully restored advert"
+    ad_not_restored: "Could not restore advert"
+    ad_activated: "Successfully activated advert"
+    ad_deactivated: "Successfully deactivated advert"
+    ad_destroyed: "Successfully destroyed advert"
+    ad_cancelled: "Your advert has been cancelled"
+    add_basic_details: "Please add basic details first"
+    not_authorized: "You are not authorized to view this!"
+  authentications:
+    auth_destroyed: "Successfully destroyed authentication."
+  comments:
+    comm_created: "Comment has been created."
+    reply_created: "Reply has been created."
+    comm_not_created: "Comment has not been created."
+    comm_deleted: "Comment deleted"
+  compared_items:
+    deleted: "Successfully deleted item from compare list."
+  contact_forms:
+    thank_you: "Thank you for your message!"
+    failure: "Sorry, this message appears to be spam and was not delivered."
+  dealer_pictures:
+    success: "Successfully added image."
+    failure: "Failed to upload image: "
+    destroyed: "Successfully deleted image."
+  inquiries:
+    created: "Your message has been submitted. Thank you!"
+  omniauth:
+    signed_in: "Signed in successfully."
+    success: "Authentication successfull."
+  pictures:
+    added: "Successfully added image."
+    failure: "Failed to upload image: "
+    cannot_have: "You cannot have more than %{max} photos on this account."
+    failed_to_upload: "Failed to upload image %{file}: %{error} "
+    updated: "Successfully updated picture."
+    destroyed: "Successfully deleted image."
+  saved_items:
+    destroyed: "Successfully deleted item."
+    remove_all: "You have removed all items!"
+  searches:
+    remove_all: "You have removed all searches!"
+    saved: "Your search has been saved!"
+    not_saved: "Your search has not been saved!"
+    removed: "Your search has been removed!"
+  users:
+    updated: "Settings updated."
+    not_saved: "Unable to save settings."
+    not_authorized: "Not authorized as an administrator."
+    deleted: "User deleted."
+    not_deleted: "Can't delete yourself."
+    nothing: "No vehicles found"
+  vehicles:
+    nothing: "Nothing found"
+    unsaved: "Vehicle was successfully removed from your saved items."
+    compared: "Vehicle was successfully added to compare list."
+    saved: "Vehicle was successfully saved."
+    already_saved: "Vehicle already saved."
+    photos_resorted: "Photos resorted: "
+    not_watching: "You are no longer watching this vehicle."
+    watching: "You are now watching this vehicle."
+    ad_status: "Advert is deactivated or removed!"

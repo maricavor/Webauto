@@ -54,19 +54,14 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   version :original do
     #process :copyright=>'Webauto '
-    process :resize_to_limit => [1000, 10000]
+    process :resize_to_limit => [300, 300], :if=> :dealer_picture?
+    process :resize_to_limit => [1000, 1000], :if=> :picture?
     process :watermark, :if=> :picture?
-    #######
-    def picture?(file)
-      model.class.to_s.underscore=="picture"
-    end
+    
   end
 
-  version :thumb do
-    process :resize_to_fill => [300, 200]#,:if=> :picture?
-     def picture?(file)
-      model.class.to_s.underscore=="picture"
-    end
+  version :thumb,:if=> :picture? do
+    process :resize_to_fill => [300, 200]
   end
   ###
   # Add a white list of extensions which are allowed to be uploaded.
@@ -106,5 +101,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
+ protected
+   def picture?(file)
+      model.class.to_s.underscore=="picture"
+    end
+    def dealer_picture?(file)
+      model.class.to_s.underscore=="dealer_picture"
+    end
 end

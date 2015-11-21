@@ -1,0 +1,19 @@
+<% index=-1 %>
+<% adverts.each do |advert| %>
+  <% index +=1%>
+  <%  if index==@row_size %>
+    <% index=index-@row_size %>
+  <% end %>
+  <% if index==0 %>
+    <div class="row-fluid">
+    
+      <% end %>
+      <div class="span3 thumbnail"  style="margin-bottom:10px;">
+        <%= render 'vehicles/partials/vehicle',:vehicle=>advert.vehicle,:version=>version %>
+      </div>
+      <% if index==@row_size-1 || advert==adverts.last %>
+      
+    </div>
+ 
+  <% end %>
+<% end %>
