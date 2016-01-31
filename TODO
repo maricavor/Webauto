@@ -116,7 +116,6 @@
 - simulate user visiting car page
 - https://gist.github.com/fnichol/867550
 
-
 - http://www.sitepoint.com/rails-authentication-oauth-2-0-omniauth/
 - reset password and resend instructions form no validation errors?
 - price negotiable?
@@ -140,7 +139,7 @@
 - car reviews on http://www.autotrader.co.uk/
 - dealer pages like http://www.carzone.ie/car-dealers/ireland/galway/4x4-exporter-galway-dpp-8a6aa153446d45a5014478772b594400/cars?
 - no city support Jälgimäe tee 1, Tänassilma, 76406, Harjumaa, Eesti
-- port forwarding  rhc port-forward -a applicationName
+- *********** port forwarding  rhc port-forward -a applicationName
 - for pushing to github use git push master master
 
 - recapthcha for forms https://www.google.com/recaptcha/intro/index.html

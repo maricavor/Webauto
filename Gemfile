@@ -28,7 +28,7 @@ gem "figaro", ">= 0.6.3"
 gem "binding_of_caller", ">= 0.7.1", :group => :development, :platforms => [:mri_19, :rbx]
 gem "gon", "~> 4.1.1"
 gem "dynamic_form"
-gem "rmagick", "~> 2.15.4", :require => 'RMagick'
+gem "rmagick", "~> 2.15.4"
 gem "carrierwave"
 #gem 'ransack'
 gem 'progress_bar'
