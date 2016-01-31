@@ -19,6 +19,7 @@
    
     <%= vehicle_fields.text_field :price,label: t("adverts.contact.price") %>
     <%= vehicle_fields.check_box :price_vat,label: t("adverts.contact.price_vat") %>
+	<%= vehicle_fields.hidden_field :current_step,:value=> @action %> 
     <!--<%= vehicle_fields.check_box :price_negotiable,label: t("adverts.contact.negotiable") %>-->
  </div>
   

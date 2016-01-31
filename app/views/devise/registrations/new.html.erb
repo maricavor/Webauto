@@ -7,8 +7,7 @@
     </div>
     </div>
 <div class="row-fluid">
-  <div class="span6 well">
-     <p>Before you can begin selling, we need some information about you.</p>
+  <div class="span5 well">
     <%= vehicle_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html=>{:class=>"form-vertical",:remote=>false}) do |f| %>  
        
           <%= f.text_field :email, :label => "Email" %>
@@ -33,18 +32,20 @@
             <%= f.text_field :phone1,:label=>"Phone" %>
             <%= f.text_field :webpage,:label=>"Webpage" %>
           </fieldset>
-          <%= f.check_box :tos_agreement,label: "I accept the <a href='#{terms_path}' target='_blank'>terms</a> and <a href='#{privacy_path}' target='_blank'>privacy policy</a>".html_safe %>
+       
+          <%= f.check_box :feature_alerts,label: t("users.settings.future_updates_check")  %>
+          <%= f.check_box :tos_agreement,label: "I accept the <a href='#{terms_path}' target='_blank'>Terms and Conditions</a> and <a href='#{privacy_path}' target='_blank'>Privacy Policy</a>".html_safe %>
 
     
     <div style="padding-top:20px;">
-      <%= f.submit "Sign up",:class=>"btn btn-primary" %>
+      <%= f.submit "Sign up",:class=>"btn btn-info" %>
       </div>
     
      
     <% end %>
      <%= render "devise/shared/links" %>
   </div>
-     <div class="span6 text-center">
+     <div class="span7 text-center">
   <br /><br />
  <h3>Spam Protection</h3>
  <p>To protect you from unsolicited email (spam), your email address will not be displayed on your advert. If you allow contact by email, buyers will be able to send you messages through our system. The buyer will not see your email address unless you choose to reply to them.</p>

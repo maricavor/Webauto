@@ -5,13 +5,11 @@ class Advert < ActiveRecord::Base
   attr_writer :current_step
   has_one :vehicle#,:dependent => :destroy
   has_one :order
-  has_many :search_alerts
   has_one :type
   belongs_to :user
   accepts_nested_attributes_for :vehicle#, reject_if: :price_invalid
   #validate :vehicle_price_valid, :if=>:contact?
   before_create :generate_uid,:set_status_and_make_model
-
   before_update :set_status_and_make_model
   after_destroy :deactivate,:check_status_and_inform
   #before_destroy :deactivate
@@ -98,7 +96,7 @@ end
   end
   def deactivate
  if self.status!="cancelled"
-    Rails.logger.info "******************deactivate"
+    #Rails.logger.info "******************deactivate"
     self.activated=false
     self.status="cancelled"
     self.save(validate: false)
@@ -106,7 +104,7 @@ end
   end
 
   def set_status_and_make_model
-    Rails.logger.info "******************set status and make model"
+    #Rails.logger.info "******************set status and make model"
 
     vehicle=self.vehicle
     make_model=vehicle.make_name+" "+vehicle.model_name

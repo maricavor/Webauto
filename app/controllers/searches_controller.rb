@@ -3,10 +3,10 @@ class SearchesController < ApplicationController
   before_filter :find_search,:only=>[:destroy,:show,:update,:edit]
   before_filter :set_max_searches,:only=>[:remove_all,:index,:destroy]
   before_filter :set_search,:only=>[:new,:popular,:expensive]
-  skip_before_filter :get_current_type,:only=>[:edit,:update]
+  skip_before_filter :get_current_type,:get_compared_items,:only=>[:edit,:update]
   
   def index
-    @title= "Saved Searches & Email Alerts - Webauto.ee"
+    @title= "Saved searches - Webauto.ee"
     @searches=current_user.saved_searches.order("created_at desc")
     @count=@searches.count
     @search=Search.new
@@ -22,10 +22,12 @@ class SearchesController < ApplicationController
     if params[:search]=="dealer"
       @search.is_dealer=true
       @search.is_private=false
+     
       @search.dealers="#{params[:value]}"  if params[:value].present?
     elsif params[:search]=="private"
       @search.is_dealer=false
       @search.is_private=true
+      
     elsif params[:search]=="make"
       @search.fields.build(:make_name=>params[:value])
     elsif params[:search]=="model"
@@ -33,7 +35,7 @@ class SearchesController < ApplicationController
     elsif params[:search]=="bodytype"
       @search.bt=params[:value]
     end
-
+    @search.location=8
     @search.save!
 
     redirect_to send("search_#{@current_type.path_name}_path", @search,:sort=>"most_recent")
@@ -51,6 +53,21 @@ class SearchesController < ApplicationController
   def similar
 
   end
+  def show_more_deleted
+    if params[:id]
+      saved_item=SavedItem.find(params[:id])
+      search=Search.new
+      search.tp=saved_item.type_id
+      search.tm=saved_item.transmission_id
+      search.user_ip=request.remote_ip
+      search.fields.build(make_name: saved_item.make_name,model_name: saved_item.model_name)
+      search.save!
+      redirect_to send("search_#{@current_type.path_name}_path", search,:sort=>"most_recent")
+    else
+      render :nothing=>true
+    end
+
+  end
   def show_more
     if params[:id]
       vehicle=Vehicle.with_deleted.find(params[:id])
@@ -58,7 +75,7 @@ class SearchesController < ApplicationController
       search.tp=vehicle.type_id
       search.tm=vehicle.transmission_id
       search.user_ip=request.remote_ip
-      search.fields.build(make_name: vehicle.make.name,model_name: vehicle.model.name)
+      search.fields.build(make_name: vehicle.make_name,model_name: vehicle.model_name)
       search.save!
       redirect_to send("search_#{@current_type.path_name}_path", search,:sort=>"most_recent")
     else
@@ -117,13 +134,13 @@ class SearchesController < ApplicationController
     else
       respond_to do |format|
         format.html { 
-          flash[:error]= t("searches.not_saved")
+          flash[:error]= @search.errors.full_messages.first
           redirect_to searches_url
                     }
         format.js {
 
-          flash.now[:error]= @search.errors.full_messages.to_sentence
-          render 'fail_update.js.erb'
+          flash.now[:error]= @search.errors.full_messages.first
+          render 'fail_update'
         }
       end
     end
@@ -160,7 +177,7 @@ class SearchesController < ApplicationController
   end
 
   def modify(params)
-    %w(bt ft tm dt cl location doors region features dealers).each do |p|
+    %w(bt ft tm dt cl doors region features dealers).each do |p|
       params[p]=params[p].reject(&:empty?).join(',') if params[p].present?
     end
     if params["fields_attributes"]
@@ -178,9 +195,9 @@ class SearchesController < ApplicationController
       end
       params["fields_attributes"]=new_fields_attributes
     end
-  if params["name"].present? and @search.adverts.blank?
-    params["adverts"]=@search.run("background").results.map {|v| v.advert_id }.join(',')
-  end
+  #if params["name"].present?# and @search.adverts.blank?
+  #  params["adverts"]=@search.run("background").results.map {|v| v.advert_id }.join(',')
+  #end
     #{"0"=>{"make_name"=>"BMW", "model_name"=>"116"}, "1"=>{"make_name"=>"Audi", "model_name"=>"A2,A3"}}
     #puts new_fields_attributes
     params

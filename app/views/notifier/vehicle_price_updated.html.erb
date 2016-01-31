@@ -5,15 +5,15 @@
   </head>
   <body>
     <p>
-      Hello!
+      Hello, <% @user.name %>!
     </p>
     <p>
-          <% vehicle=@advert.vehicle %>
-          <% picture=vehicle.pictures.first %>
-          <% type=vehicle.type.name %>
-      The price of your saved vehicle <%= vehicle.make_model %>
+         
+          <% picture=@vehicle.pictures.first %>
+          <% type=@vehicle.type.name %>
+      The price of your saved vehicle <%= @vehicle.make_model %>
       has just been updated. Check your saved vehicle: </p> 
-      <%= link_to image_tag("http://webauto-webauto.rhcloud.com"+picture.file_url(:thumb)), url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: vehicle,only_path: false) %>
+      <%= link_to image_tag("http://webauto-webauto.rhcloud.com"+picture.file_url(:thumb)), url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: @vehicle,only_path: false) %>
 
   </body>
 </html>

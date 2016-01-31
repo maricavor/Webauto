@@ -1,8 +1,10 @@
 class SavedItem < ActiveRecord::Base
-  attr_accessible :user_id, :vehicle_id
+  attr_accessible :user_id, :vehicle_id,:type_id
   belongs_to :user
   belongs_to :vehicle
+  
   validates :vehicle_id, :uniqueness => { :scope => :user_id }
+  validate :total_saves,:on=>:create
   after_save :watch
   after_destroy :unwatch
 
@@ -15,15 +17,21 @@ class SavedItem < ActiveRecord::Base
   end
 
   private
+  def total_saves
+    if self.user.saved_items.count>9
+      errors[:base] << 'You cannot save any more adverts!'
+      return
+    end
 
+  end
   def watch
+    if self.vehicle
     watchers=self.vehicle.watchers
     usr=self.user
     watchers << usr unless watchers.include?(usr)
   end
-  def unwatch
-    watchers=self.vehicle.watchers
-    usr=self.user
-    watchers.delete(usr) if watchers.include?(usr)
   end
+  def unwatch
+   VehicleWatcher.where(user_id: self.user_id,vehicle_id: self.vehicle_id).delete_all
+end
 end

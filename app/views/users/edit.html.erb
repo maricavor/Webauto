@@ -5,7 +5,9 @@
   </div>
   <div class="span9">
     <div class="page-header">
-      <h2><%= t("users.settings.settings")  %></h2>
+      <h2><%= t("users.settings.settings")  %>
+		  <small><%= t("users.settings.details") %></small>
+	  </h2>
     </div>
     <%= vehicle_form_for @user,:html=>{:class=>"form-vertical"},:authenticity_token => true,:remote=>false do |f| %>
 

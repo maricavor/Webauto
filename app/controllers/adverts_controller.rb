@@ -8,7 +8,7 @@ class AdvertsController < ApplicationController
   end
 
   def index
-      @title="My Ads - Webauto.ee"
+      @title="My adverts - Webauto.ee"
       @user=current_user
       sort=sort_column + ' ' + sort_direction
       page=params[:page]
@@ -17,7 +17,7 @@ class AdvertsController < ApplicationController
   end
 
   def new
-    @title="Sell My Car - Webauto.ee"
+    @title="Sell my car - Webauto.ee"
     @advert=Advert.new
     @ad_type=params[:ad_type]
     @action="edit"
@@ -67,7 +67,7 @@ class AdvertsController < ApplicationController
       else
         @advert.basics_saved=false
         format.html { 
-        flash[:alert]=@advert.errors.full_messages.to_sentence
+        flash[:alert]=@advert.errors.full_messages.first
         render :action=>"new"
         #redirect_to new_advert_path(:ad_type=>@advert.ad_type)
         
@@ -192,6 +192,7 @@ def update
     @action="edit"
     @advert.current_step=session[:advert_step]=@action
     @vehicle=@advert.vehicle
+    @advert.update_attributes(:activated=>false) if @advert.activated
     @bodytypes=Bodytype.where(:type_id=>@vehicle.type_id).order(:name)
     gon.selected={"vehicles"=>[@vehicle.make_name,@vehicle.model_name,@vehicle.model_id]} if @vehicle.make
   end
@@ -233,8 +234,17 @@ def update
   end
   def really_destroy
     vehicle=@advert.vehicle
+    history_vehicle=vehicle.dup
+    history_vehicle.advert_id=nil
+    history_vehicle.id=vehicle.id
     if @advert.really_destroy!
-    vehicle.really_destroy!
+      #vehicle.comments.destroy
+      #vehicle.price_changes.destroy
+      #vehicle.impressions.destroy
+      #vehicle.update_attributes(:advert_id=>nil)
+     vehicle.really_destroy!
+     VehicleWatcher.where(vehicle_id: history_vehicle.id).delete_all
+     history_vehicle.save!
     respond_to do |format|
       format.html { 
         redirect_to  adverts_url 

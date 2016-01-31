@@ -1,8 +1,8 @@
 
  <div class="row-fluid" style="margin-bottom:10px;">
  <div class="span6">
-<%= link_to ("<i class='icon-cars'></i> "+t("vehicles.show.compare")).html_safe, compare_car_path(@vehicle),:class=> "btn btn-block",:remote=>true %>
 
+<%= compare_vehicle_button %>
 <%= save_vehicle_button %>
 <%= link_to ("<i class='icon-envelope'></i> "+t("vehicles.show.share")).html_safe, "#sendToFriendModal",:class=> "btn btn-block",:role=>"button",:'data-toggle'=>"modal" %>
 </div>

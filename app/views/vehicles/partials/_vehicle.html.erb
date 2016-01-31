@@ -66,7 +66,7 @@
     <table width="100%" class="vehicle_ownership">
       <tr>
         <td width="50%" >
-          <small><%= vehicle.user.is_dealer? ? "Dealer" : "Private" %>
+          <small> <span class="label"><%= vehicle.user.is_dealer? ? "Dealer" : "Private" %></span>
             </small>
         </td>
         <td width="50%" align="right" >

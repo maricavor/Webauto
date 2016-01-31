@@ -207,7 +207,7 @@ GEM
       redis (~> 3.0)
       resque (~> 1.25)
       rufus-scheduler (~> 3.0)
-    rmagick (2.13.1)
+    rmagick (2.15.4)
     rsolr (1.0.12)
       builder (>= 2.1.2)
     rufus-scheduler (3.0.9)
@@ -303,7 +303,7 @@ DEPENDENCIES
   rails (= 3.2.13)
   resque
   resque-scheduler
-  rmagick (~> 2.13.1)
+  rmagick (~> 2.15.4)
   sass-rails (~> 3.2.3)
   simple_form (>= 2.1.0)
   sunspot_rails
@@ -312,3 +312,6 @@ DEPENDENCIES
   typus
   uglifier (>= 1.0.3)
   whenever
+
+BUNDLED WITH
+   1.10.6

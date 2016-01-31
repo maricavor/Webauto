@@ -9,7 +9,22 @@ class OrdersController < ApplicationController
       format.json { render json: @orders }
     end
   end
-
+  def alerts
+    @searches=current_user.searches.where("name IS NOT NULL").where(:alert_freq=>"Alert")
+       #Rails.logger.info _searches.map {|s| s.name }.join(',')
+     @searches.each do |s|
+       #Rails.logger.info "Checking saved search "+s.name+" for user "+s.user.email
+       #Rails.logger.info "Adverts: "+s.adverts
+       _current_adverts=s.run("background").results.map {|v| v.advert_id }.join(',') 
+       #Rails.logger.info "Found adverts: "+_current_adverts
+        _new_adverts=_current_adverts.split(',')-s.adverts.split(',')
+       #Rails.logger.info "New adverts: "+new_adverts.join(',')
+       if _new_adverts.size>0
+         s.update_attributes(:adverts=>_current_adverts,:new_adverts=>_new_adverts.join(','))
+         #Notifier.adverts_created(_new_adverts, s).deliver
+       end
+  end
+  end
   # GET /orders/1
   # GET /orders/1.json
   def show

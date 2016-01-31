@@ -1,6 +1,8 @@
 class Vehicle < ActiveRecord::Base
   acts_as_paranoid
-  attr_accessible :reg_nr, :advert_id, :make_id, :model_id, :model_spec, :make_model,:bodytype_id, :type_id, :year, :badge, :vin, :registered_at, :bodytype_details, :odometer, :colour_id, :specific_colour, :metallic_colour, :price, :price_vat, :transmission_id, :fueltype_id, :drivetype_id, :climate_control_id, :user_id, :country_id, :origin_id, :registered, :is_active, :inspection_valid_to, :doors, :seats, :description, :power_steering, :power_steering_details, :central_locking, :with_remote, :abs, :airbags, :alarm, :alarm_details, :alarm_with_tow_away_protection, :alarm_with_motion_sensor, :alarm_with_two_way_comm, :immobilizer, :anti_skidding, :anti_skidding_details, :stability_control, :stability_control_details, :braking_force_reg, :braking_force_reg_details, :traction_control, :traction_control_details, :third_brake_light, :rain_sensor, :seatbelt_pretightener, :xenon, :xenon_low_beam, :xenon_high_beam, :headlight_washer, :special_light, :fog_lights, :fog_lights_front, :fog_lights_rear, :headlight_range, :extra_lights, :extra_lights_details, :auto_light, :summer_tires, :summer_tires_details, :summer_tires_size, :winter_tires, :winter_tires_details, :winter_tires_size, :all_season_tires, :spike_tires, :light_alloy_wheels, :dust_shields_details, :dust_shields, :light_alloy_wheels_details, :light_alloy_wheels_size, :steering_wheel_adjustment, :steering_wheel_height_and_depth, :steering_wheel_electrical, :steering_wheel_with_memory, :steering_wheel_multifunctional, :steering_wheel_leather, :car_stereo, :car_stereo_details, :car_stereo_cd, :car_stereo_mp3, :car_stereo_usb, :car_stereo_aux, :car_stereo_card, :car_stereo_original, :car_stereo_with_remote, :speakers_count, :subwoofer, :electric_antenna, :cd_changer, :navigation, :computer, :car_phone, :hands_free, :hands_free_details, :gsm, :mats, :textile_mats, :rubber_mats, :velour_mats, :leather_shift_lever, :leather_hand_break, :electrical_seats_with_memory, :electrical_seats_count, :seat_heating_count, :front_armrest, :rear_armrest, :down_folding_back_rest, :electric_mirrors, :heated_mirrors, :folding_mirrors, :mirrors_with_memory, :power_windows, :tinted_windows, :sunroof, :sunroof_details, :cruise_control, :distance_monitoring, :engine_preheating, :engine_preheating_details, :spot_lights, :parking_aid, :parking_aid_front, :parking_aid_rear, :inside_temperature_indicator, :roof_railings, :roof_rack, :outside_temperature_indicator, :front_window_heating, :rear_window_heating, :isolation_net, :luggage_cover, :tow_hitch, :tow_hitch_removable, :tow_hitch_electrical, :other_equipment, :sump_shield, :side_steps, :engine_power, :engine_size, :engine_type, :fueltank, :fuel_cons_city, :fuel_cons_freeway, :fuel_cons_combined, :acceleration, :max_speed, :transmission_details, :net_weight, :gross_weight, :load_capacity, :length, :width, :height, :warranty_valid_to, :service_book, :wrecked, :wrecked_details, :exchange, :exchange_details, :other_info, :gears, :cylinders, :emissions, :state_id, :city_id, :rear_wiper, :trim, :cloth_upholstery, :vinyl_upholstery, :faux_leather_upholstery, :wood_grain, :chrome, :leather_upholstery, :garage_item, :wheelbase, :warranty_km, :service_freq, :service_km, :price_negotiable, :deleted_at, :next_service, :next_service_km, :service_history_id, :owners,:show_reg_nr
+  attr_accessor :current_step
+  attr_accessible :reg_nr, :advert_id, :make_id, :model_id, :model_spec, :make_model,:bodytype_id, :type_id, :year, :badge,:series, :vin, :registered_at, :bodytype_details, :odometer, :colour_id, :specific_colour, :metallic_colour, :price, :price_vat, :transmission_id, :fueltype_id, :drivetype_id, :climate_control_id, :user_id, :country_id, :origin_id, :registered, :is_active, :inspection_valid_to, :doors, :seats, :description, :power_steering, :power_steering_details, :central_locking, :with_remote, :abs, :airbags, :alarm, :alarm_details, :alarm_with_tow_away_protection, :alarm_with_motion_sensor, :alarm_with_two_way_comm, :immobilizer, :anti_skidding, :anti_skidding_details, :stability_control, :stability_control_details, :braking_force_reg, :braking_force_reg_details, :traction_control, :traction_control_details, :third_brake_light, :rain_sensor, :seatbelt_pretightener, :xenon, :xenon_low_beam, :xenon_high_beam, :headlight_washer, :special_light, :fog_lights, :fog_lights_front, :fog_lights_rear, :headlight_range, :extra_lights, :extra_lights_details, :auto_light, :summer_tires, :summer_tires_details, :summer_tires_size, :winter_tires, :winter_tires_details, :winter_tires_size, :all_season_tires, :spike_tires, :light_alloy_wheels, :dust_shields_details, :dust_shields, :light_alloy_wheels_details, :light_alloy_wheels_size, :steering_wheel_adjustment, :steering_wheel_height_and_depth, :steering_wheel_electrical, :steering_wheel_with_memory, :steering_wheel_multifunctional, :steering_wheel_leather, :car_stereo, :car_stereo_details, :car_stereo_cd, :car_stereo_mp3, :car_stereo_usb, :car_stereo_aux, :car_stereo_card, :car_stereo_original, :car_stereo_with_remote, :speakers_count, :subwoofer, :electric_antenna, :cd_changer, :navigation, :computer, :car_phone, :hands_free, :hands_free_details, :gsm, :mats, :textile_mats, :rubber_mats, :velour_mats, :leather_shift_lever, :leather_hand_break, :electrical_seats_with_memory, :electrical_seats_count, :seat_heating_count, :front_armrest, :rear_armrest, :down_folding_back_rest, :electric_mirrors, :heated_mirrors, :folding_mirrors, :mirrors_with_memory, :power_windows, :tinted_windows, :sunroof, :sunroof_details, :cruise_control, :distance_monitoring, :engine_preheating, :engine_preheating_details, :spot_lights, :parking_aid, :parking_aid_front, :parking_aid_rear, :inside_temperature_indicator, :roof_railings, :roof_rack, :outside_temperature_indicator, :front_window_heating, :rear_window_heating, :isolation_net, :luggage_cover, :tow_hitch, :tow_hitch_removable, :tow_hitch_electrical, :other_equipment, :sump_shield, :side_steps, :engine_power, :engine_size, :engine_type, :fueltank, :fuel_cons_city, :fuel_cons_freeway, :fuel_cons_combined, :acceleration, :max_speed, :transmission_details, :net_weight, :gross_weight, :load_capacity, :length, :width, :height, :warranty_valid_to, :service_book, :wrecked, :wrecked_details, :exchange, :exchange_details, :other_info, :gears, :cylinders, :emissions, :state_id, :city_id, :rear_wiper, :trim, :cloth_upholstery, :vinyl_upholstery, :faux_leather_upholstery, :wood_grain, :chrome, :leather_upholstery, :garage_item, :wheelbase, :warranty_km, :service_freq, :service_km, :price_negotiable, :deleted_at, :next_service, :next_service_km, :service_history_id, :owners,:show_reg_nr,:current_step
+
   belongs_to :type
   belongs_to :user
   belongs_to :bodytype
@@ -13,6 +15,7 @@ class Vehicle < ActiveRecord::Base
   has_many :comments, :dependent => :destroy
   has_many :price_changes, :dependent => :destroy, :order => [ :created_at ]
   has_many :saved_items
+  has_many :compared_items
   has_and_belongs_to_many :watchers, :join_table => "vehicle_watchers", :class_name => "User"
   scope :is_dealer, joins(:user).where('users.is_dealer' => true)
   scope :is_private, joins(:user).where('users.is_dealer' => false)
@@ -20,6 +23,7 @@ class Vehicle < ActiveRecord::Base
   has_many :pictures, :order => :position
   has_many :users, :through => :saved_items
   has_many :impressions, :dependent => :destroy
+  validates :bodytype_id, :presence => true#,:on => :update
   validates :make_id, :presence => true#, :on => :update
   validates :type_id, :presence => true#, :on => :update
   validates :model_id, :presence => true#, :on => :update
@@ -30,26 +34,29 @@ class Vehicle < ActiveRecord::Base
   validates :engine_size,:presence=>true#,:on => :update
   #validates :year, :presence => true, numericality: { only_integer: true, greater_than_or_equal_to: 1900, less_than_or_equal_to: Date.today.year }
   #validates :year, format: {with: /(19|20)\d{2}/i, message: "should be a four-digit number"}, :allow_blank => true
-  validates :bodytype_id, :presence => true#,:on => :update
-  validates :transmission_id, :presence => true, :on => :update,:if => Proc.new { |v| v.advert.details? }
+ 
+  validates :transmission_id, :presence => true, :on => :update,:if => :details? 
   validates :fueltype_id, :presence => true#,:on => :update
   validates :odometer, :presence => true,numericality: { only_integer: true}#,:on => :update
-  validates :price, :presence => true,:format => {:with => /\A\d+(?:\.\d{0,2})?\z/}, :numericality => {:greater_than => 0}, :on => :update, :if => Proc.new { |v| v.advert.contact? }
-  validates :country_id,:presence => true, :on => :update,:if => Proc.new { |v| v.advert.details? }
-  validates :drivetype_id,:presence => true, :on => :update,:if => Proc.new { |v| v.advert.details? }
-  validates :doors,:presence => true,numericality: { only_integer: true,greater_than: 0}, :on => :update,:if => Proc.new { |v| v.advert.details? }
-  validates :seats,:presence => true,numericality: { only_integer: true,greater_than: 0}, :on => :update,:if => Proc.new { |v| v.advert.details? }
+  validates :price, :presence => true,:format => {:with => /\A\d+(?:\.\d{0,2})?\z/}, :numericality => {:greater_than => 0}, :on => :update, :if => :contact? 
+  validates :country_id,:presence => true, :on => :update,:if => :details? 
+  validates :drivetype_id,:presence => true, :on => :update,:if => :details? 
+  validates :doors,:presence => true,numericality: { only_integer: true,greater_than: 0}, :on => :update,:if => :details? 
+  validates :seats,:presence => true,numericality: { only_integer: true,greater_than: 0}, :on => :update,:if => :details? 
   validates :colour_id,:presence => true#,:on => :update
   validates :state_id,:presence => true,:on=>:update,:if=>:estonian?
   validates :city_id,:presence => true,:on=>:update,:if=>:state?
-  validate :description_length,:on=>:update,:if => Proc.new { |v| v.advert.photos? }
+  validate :description_length,:on=>:update,:if => :photos? 
   #################
   #is_impressionable #:counter_cache => true, :column_name => :popularity,:unique =>  [:session_hash]
   translates :description, :fallbacks_for_empty_translations => true
   globalize_accessors :locales => [:et, :en], :attributes => [:description]
+  class Translation
+      acts_as_paranoid
+  end
   searchable :auto_index => true, :auto_remove => true do
     text :description_et,:description_en
-    text :make_model, :model_spec, :badge, :wrecked_details, :exchange_details, :bodytype_details, :engine_type, :transmission_details, :power_steering_details, :alarm_details, :anti_skidding_details, :stability_control_details, :braking_force_reg_details, :traction_control_details, :extra_lights_details, :summer_tires_details, :summer_tires_size, :winter_tires_size, :winter_tires_details, :light_alloy_wheels_size, :light_alloy_wheels_details, :car_stereo_details, :hands_free_details, :sunroof_details, :engine_preheating_details, :other_equipment
+    text :make_model, :model_spec, :badge, :series,:wrecked_details, :exchange_details, :bodytype_details, :engine_type, :transmission_details, :power_steering_details, :alarm_details, :anti_skidding_details, :stability_control_details, :braking_force_reg_details, :traction_control_details, :extra_lights_details, :summer_tires_details, :summer_tires_size, :winter_tires_size, :winter_tires_details, :light_alloy_wheels_size, :light_alloy_wheels_details, :car_stereo_details, :hands_free_details, :sunroof_details, :engine_preheating_details, :other_equipment
     integer :odometer
     integer :type_id
     integer :id
@@ -105,6 +112,9 @@ class Vehicle < ActiveRecord::Base
     boolean :cruise_control
     boolean :light_alloy_wheels
     integer :service_history_id
+    integer :popularity do
+      advert.popularity if advert
+    end
   end
 
   def to_param
@@ -118,7 +128,7 @@ class Vehicle < ActiveRecord::Base
   def origin
     Country.find(self.origin_id) if self.origin_id
   end
-  
+ 
   def final_price
     last_price_change=self.price_changes.last
     if last_price_change.nil?
@@ -150,6 +160,9 @@ end
   end
   def fueltype_str
    self.fueltype ? "#{self.fueltype}" : "&nbsp;".html_safe
+  end
+  def series_badge
+    "#{self.series} #{self.badge}"
   end
   def warranty_valid_to_str
     self.warranty_valid_to.present? ? ActionController::Base.helpers.distance_of_time_in_words(Date.today,DateTime.strptime(self.warranty_valid_to, '%m/%Y')).capitalize : ""
@@ -257,7 +270,7 @@ self.next_service_km.present? ? "#{self.next_service_km} km" : ""
     end
   end
     def make_name
-    if make
+    if self.make
       self.make.name
     else
       ""
@@ -287,6 +300,9 @@ self.next_service_km.present? ? "#{self.next_service_km} km" : ""
 
   def name
     "#{self.registered_at_year} #{self.make_name} #{self.model_name} #{self.badge}"
+  end
+  def short_name
+    "#{self.registered_at_year} #{self.make_name} #{self.model_name}"
   end
   def engine_name
      "#{self.engine_size} L #{self.engine_power} kW #{self.transmission}"
@@ -351,19 +367,21 @@ self.next_service_km.present? ? "#{self.next_service_km} km" : ""
 
   private
   def estonian?
-    self.advert.details? && self.country_id==8
+    self.current_step=="details" && self.country_id==8
   end
   def state?
-    self.advert.details? && self.state_id!=nil
+    self.current_step=="details" && self.state_id!=nil
   end
-  def generate_ad_number
-    record = true
-    while record
-      random = "WA#{Array.new(9) { rand(9) }.join}"
-      record = Vehicle.find(:first, :conditions => ["ad_number = ?", random])
-    end
-    self.ad_number = random
+  def details?
+    self.current_step=="details"
   end
+  def contact?
+    self.current_step=="contact"
+  end
+  def photos?
+    self.current_step=="photos"
+  end
+
 
 
   def generate_keywords

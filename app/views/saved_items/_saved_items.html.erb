@@ -12,24 +12,18 @@
       <tbody>
         <% @saved_items.each do |s| %>
         <% vehicle=s.vehicle %>
-
-        <% picture=vehicle.pictures.first  %>
+	     <% picture=vehicle.pictures.first  %>
+ 	   
+        
           <tr id="saved_item_<%= s.id %>">
             <td width="150">
        <div class="thumbnail">          
       <div class="image">
+		
       <% if vehicle.destroyed? %>
-      <% if picture %>
-      <%= image_tag(picture.file_url(:thumb)) %>
-   
-    <% else %>
-      <%= image_tag "/thumbnail.png",size: "300x200" %>
-    
-    <% end %>
-      
-      <figcaption class="red">
-          <strong><%=t("saved_items.index.sold") %></strong>
-      </figcaption>
+      <%= render 'saved_items/sold_picture',:picture=>picture %>
+    <% elsif vehicle.advert.activated==false %>
+	  <%= render 'saved_items/deactivated_picture',:picture=>picture %>
       <% else %>
         <% if picture %>
       <%= link_to image_tag(picture.file_url(:thumb)), send("#{vehicle.type.name.downcase}_path", vehicle) %>
@@ -39,18 +33,24 @@
     
     <% end %>
       <% end %>
+	   
   </div>
     </div>
 </td>
 <td>
             
                 <strong>
-                   <% if vehicle.destroyed? %>
-                   <%= s.name %>
+					 
+                   <% if vehicle.destroyed?%>
+                   <%= vehicle.short_name %>
                     <br><small class="muted"><%= link_to t("saved_items.index.search_similar"), show_more_path(vehicle) %></small>
+				    <% elsif vehicle.advert.activated==false %>
+                    <%= vehicle.short_name %>
+                     <br><small class="muted"><%= link_to t("saved_items.index.search_similar"), show_more_path(vehicle) %></small>
                  <% else %>
-                  <%= link_to s.name,  send("#{vehicle.type.name.downcase}_path", vehicle) %>
+                  <%= link_to vehicle.short_name,  send("#{vehicle.type.name.downcase}_path", vehicle) %>
                  <% end %>
+				 
             </strong>
                   
                 
@@ -59,10 +59,13 @@
             <td>
              
                 <% if vehicle.destroyed? %>
-                <small><%=t("saved_items.index.last_listed") %></small> <span class="text-success"> <strong><%= currency(s.price) %></strong></span>
+                <small><%=t("saved_items.index.last_listed") %></small> <span class="text-success"> <strong><%= currency(vehicle.price) %></strong></span>
+			    <% elsif vehicle.advert.activated==false %>
+				   <small><%=t("saved_items.index.last_listed") %></small> <span class="text-success"> <strong><%= currency(vehicle.price) %></strong></span>
                 <% else %>
-                <strong><%= currency(s.price) %></strong>
+                <strong><%= currency(vehicle.price) %></strong>
                 <% end %>
+				 
             </td>
           
             <td class="muted">
@@ -80,9 +83,13 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu pull-right">
+	  
        <% if vehicle.destroyed? %>
      <li><%= link_to t("saved_items.index.search_similar"), show_more_path(vehicle) %></li>
+	 <% elsif vehicle.advert.activated==false %>
+	 <li><%= link_to t("saved_items.index.search_similar"), show_more_path(vehicle) %></li>
        <% end %>
+	   
      <li><%= link_to t("searches.index.delete"), s, method: :delete, data: { confirm: t("searches.index.delete_sure") },:remote=>true %></li>
         
         

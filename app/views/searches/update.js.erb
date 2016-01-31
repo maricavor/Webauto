@@ -1,8 +1,5 @@
 if ($('#saveSearchModal').hasClass('in')){
 $('.save-search-modal-message').html("<%= j(render partial:'layouts/messages')%>");
-}else{
-//$('#saveSearchModal').modal('hide');
-$('.site-message').html("<%= j(render partial:'layouts/messages')%>");
 }
 <% if @search.updating_name %>
 $('#link_to_search_<%= @search.id %>').html("<%= j(render 'searches/link_to_search', s: @search)%>");

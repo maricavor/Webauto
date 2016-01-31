@@ -65,16 +65,17 @@ class CronTask
  end
  def notify(freq)
    _searches=Search.where("name IS NOT NULL").where(:alert_freq=>freq)
-      Rails.logger.info _searches.map {|s| s.name }.join(',')
+      #Rails.logger.info _searches.map {|s| s.name }.join(',')
     _searches.each do |s|
-      Rails.logger.info "Checking saved search "+s.name+" for user "+s.user.email
-      Rails.logger.info "Adverts: "+s.adverts
+      #Rails.logger.info "Checking saved search "+s.name+" for user "+s.user.email
+      #Rails.logger.info "Adverts: "+s.adverts
       _current_adverts=s.run("background").results.map {|v| v.advert_id }.join(',') 
-      Rails.logger.info "Found adverts: "+_current_adverts
+      #Rails.logger.info "Found adverts: "+_current_adverts
        new_adverts=_current_adverts.split(',')-s.adverts.split(',')
-      Rails.logger.info "New adverts: "+new_adverts.join(',')
+      #Rails.logger.info "New adverts: "+new_adverts.join(',')
       if new_adverts.size>0
-        Notifier.adverts_created(new_adverts, s).deliver
+        s.update_attributes(:adverts=>_current_adverts,:new_adverts=>new_adverts.join(','))
+        Notifier.adverts_created(s).deliver
       end
  end
 end

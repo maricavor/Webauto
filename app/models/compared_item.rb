@@ -6,6 +6,10 @@ class ComparedItem < ActiveRecord::Base
   validates :vehicle_id, :uniqueness => { :scope => :session_hash }
   validate :quantity_of_items
 
+  def vehicle
+    Vehicle.unscoped {super}
+  end
+
   private
 
   def quantity_of_items

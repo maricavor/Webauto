@@ -12,35 +12,37 @@ class CommentsController < ApplicationController
   def create
     @comment=@vehicle.comments.build(params[:comment].merge(:user_id => current_user.id))
     @user=@vehicle.user
-    respond_to do |format|
+    
     if @comment.save
 
       if @comment.parent_id.nil?
-        
-          format.html { redirect_to @vehicle, :notice => t("comments.comm_created") }
+        respond_to do |format|
+         
           format.js {
             flash.now[:notice] = t("comments.comm_created")
           }
-       
+        end
       else
-       
+       respond_to do |format|
           format.js {
-            render 'create_reply'
             flash.now[:notice] = t("comments.reply_created")
+            render 'create_reply'
+            
           }
+        end
         end
 
    
     else
-     
-        format.html { redirect_to @vehicle, :alert => t("comments.comm_not_created") }
+     respond_to do |format|
+        
         format.js {
-          flash.now[:alert] = @comment.errors.full_messages.to_sentence
-          render 'fail_create.js.erb'
+          flash.now[:error] = @comment.errors.full_messages.to_sentence
+          render 'fail_create'
         }
-     
+      end
     end
-     end
+    
   end
   def destroy
     @comment = @vehicle.comments.find(params[:id])

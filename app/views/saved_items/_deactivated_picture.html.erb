@@ -1,0 +1,11 @@
+      <% if picture %>
+      <%= image_tag(picture.file_url(:thumb)) %>
+   
+    <% else %>
+      <%= image_tag "/thumbnail.png",size: "300x200" %>
+    
+    <% end %>
+      
+      <figcaption class="info">
+          <strong> <%= t("adverts.index.not_activated") %></strong>
+      </figcaption>

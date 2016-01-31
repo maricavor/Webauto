@@ -1,0 +1,22 @@
+ <% if vehicles %>
+ <div class="row-fluid">
+
+<% vehicles.take(6).each do |vehicle| %>
+         <div class="span2 thumbnail"  style="margin-bottom:10px;">
+        <%= render 'vehicles/partials/vehicle',:vehicle=>vehicle,:version=>version %>
+      </div>    
+  <% end %>
+  
+  </div> 
+   
+  
+       <div class="row-fluid">
+	          <div class="span12 text-right">
+	         <small><%= link_to t("users.dashboard.view_all"), dealer_path(user.dealer_name) %></small>
+	       </div>
+		    </div> 
+			 
+			 
+  <% else %>
+  <small>Nothing found</small>
+      <% end %>

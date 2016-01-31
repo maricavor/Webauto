@@ -9,7 +9,7 @@
    <%= link_to t("adverts.actions.show"), send("#{@vehicle.type.name.downcase}_path", @vehicle) ,:class=>"btn" %>
   <% else %>
   <%= link_to t("adverts.actions.preview"),preview_advert_path(@advert) ,:class=>"btn" %>
-  <%= f.submit t("adverts.actions.activate"),:class=>"btn btn-info",:name=> 'save_activate' %>
+  <%= f.submit t("adverts.actions.activate_show"),:class=>"btn btn-info",:name=> 'save_activate' %>
   <% end %>
 <% else %>
  <% if @advert.activated %>

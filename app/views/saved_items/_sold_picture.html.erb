@@ -1,0 +1,11 @@
+      <% if picture %>
+      <%= image_tag(picture.file_url(:thumb)) %>
+   
+    <% else %>
+      <%= image_tag "/thumbnail.png",size: "300x200" %>
+    
+    <% end %>
+      
+      <figcaption class="red">
+          <strong><%=t("saved_items.index.sold") %></strong>
+      </figcaption>

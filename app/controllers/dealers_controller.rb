@@ -2,16 +2,17 @@ class DealersController < ApplicationController
   before_filter :set_params,:only=>[:show]
   def set_params
     @row_size=4
-    @per_page=16
+    @per_page=20
   end
   def index
      @title=t("dealers.index.title")
-     @dealers = User.search(modify(params)).order("company_name").page(params[:page]).per(1)
-      _country=Country.find(8)
-      _states=_country.states
-      _cities=_country.cities
-      @regions=_states.map{|p| [ p.name.upcase, p.name ] }+_cities.map{|p| [ p.name, p.name ] } 
-     gon.selected={:vehicles=>[[nil,nil]],:region=>params[:region]}
+     @dealers = User.search(modify(params)).order("company_name").page(params[:page]).per(@per_page)
+      @countries=Country.order(:name).collect {|p| [ p.name, p.id ]}
+      if params[:location]
+        gon.selected={:vehicles=>[[nil,nil]],:location=>params[:location],:region=>params[:region]}
+   else
+     gon.selected={:vehicles=>[[nil,nil]],:location=>8,:region=>params[:region]}
+   end
   end
 
   def show

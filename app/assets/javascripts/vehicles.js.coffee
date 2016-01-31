@@ -45,11 +45,11 @@ Models =
         $('#search_cl').selectpicker('refresh')
         Models.toggle_more_options()
       if selected["location"]
-        $('#search_location').selectpicker('val', selected["location"].split(','))
+        $('#search_location').selectpicker('val', selected["location"])
         $('#search_location').selectpicker('refresh')
       if selected["region"]
-        $('#search_dealer_region').selectpicker('val', selected["region"].split(','))
-        $('#search_dealer_region').selectpicker('refresh')
+        $('#search_region').selectpicker('val', selected["region"].split(','))
+        $('#search_region').selectpicker('refresh')
       if selected["doors"]
         $('#search_doors').selectpicker('val', selected["doors"].split(','))
         $('#search_doors').selectpicker('refresh')
@@ -257,6 +257,7 @@ jQuery ->
   Models.toggle('#advert_vehicle_attributes_anti_skidding','#anti_skidding_details')
   Models.toggle('#advert_vehicle_attributes_stability_control','#stability_control_details')
   Models.toggle('#advert_vehicle_attributes_braking_force_reg','#braking_force_reg_details')
+  Models.toggle('#advert_vehicle_attributes_traction_control','#traction_control_details')
   Models.toggle('#advert_vehicle_attributes_engine_preheating','#engine_preheating_details')
   Models.toggle('#advert_vehicle_attributes_central_locking','#with_remote')
   Models.toggle('#advert_vehicle_attributes_sunroof','#sunroof_details')
@@ -597,16 +598,23 @@ jQuery ->
 
 
   $("#commentsModal").on "hidden", ->
-    $('.modal-message').html('')
-
+    $('.comments-modal-message').html('')
+    $('#new_comment')[0].reset()
+   
   $("#contactModal").on "hidden", ->
-    $('.modal-message').html('')
+    $('.contact-modal-message').html('')
+    $('#user_contact')[0].reset()
   
   $("#sendToFriendModal").on "hidden", ->
     $('.modal-message').html('')
+    $('#new_send_to_friend')[0].reset()
   
   $("#reportAdModal").on "hidden", ->
     $('.modal-message').html('')
+    $('#new_report')[0].reset()
+	
+  $("#saveSearchModal").on "hidden", ->
+    $('.save-search-modal-message').html('')
 
   $(document).on 'click',".save_search_btn", (event) ->
     $('form#save_search_form').trigger('submit.rails')
@@ -638,6 +646,8 @@ jQuery ->
       $.get("/vehicles/"+e.target.className.substring(4)+"/show_similar")
     else if hash=="#more"
       $.get("/vehicles/"+e.target.className.substring(4)+"/show_interesting")
+    else if hash=="#dealer_more"
+      $.get("/vehicles/"+e.target.className.substring(4)+"/show_more_dealer")  
     else
       $.get("/vehicles/"+e.target.className.substring(4)+"/show_viewed")
     return

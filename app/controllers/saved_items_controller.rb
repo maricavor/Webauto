@@ -13,8 +13,8 @@ class SavedItemsController < ApplicationController
     end
   end
   def index
-    @title= "Saved Cars - Webauto.ee"
-    @saved_items=current_user.saved_items.order("created_at desc")
+    @title= "Saved adverts - Webauto.ee"
+    @saved_items=current_user.saved_items.where(:type_id=>@current_type).order("created_at desc")
     @count=@saved_items.count
   end
   def remove_all

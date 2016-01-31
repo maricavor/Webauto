@@ -42,7 +42,7 @@ Webauto::Application.routes.draw do
       root :to => 'cars#index'
     end
     root :to => "cars#index"
-    devise_for :users, :controllers => {:registrations => "registrations",:sessions=> "sessions"}, skip: [:omniauth_callbacks]
+    devise_for :users, :controllers => {:registrations => "registrations",:sessions=> "sessions",:passwords=>"passwords"}, skip: [:omniauth_callbacks]
     resources :users,:except => [:show] do
       member do
         get :show_phone
@@ -55,6 +55,7 @@ Webauto::Application.routes.draw do
       get '/users/profile' => 'devise/registrations#edit', :as => :profile
       
     end
+    match '/alerts'=>'orders#alerts',:as=>:alerts
     #match '/cars'=>'cars#index',:as=>:cars
     #resource :dashboard, :controller => :users, :only => :show
     match '/contact'=>'contact_forms#new',:as=>:contact
@@ -67,7 +68,7 @@ Webauto::Application.routes.draw do
     match '/popular-searches'=>'home#popular',:as=>:popular
     match '/searches/destroy_all' => 'searches#destroy_all', :as=>:destroy_all
     match '/searches/show_more(/:id)'=>'searches#show_more',:as=>:show_more
-    
+    match '/searches/show_more_deleted(/:id)'=>'searches#show_more_deleted',:as=>:show_more_deleted
     #match "/ads(/:page)" => "users#ads", :as => :ads
     match 'searches/new(/:search)(/:value)(/:model)'=>'searches#new',:as=>:new_search
     match 'vehicles/update_region_select/:id', :controller=>'vehicles', :action => 'update_region_select'
@@ -88,7 +89,7 @@ Webauto::Application.routes.draw do
       match 'search(/:id)(/:sort)(/:page)' => 'cars#search',:via => [:post,:get], :as => :search,:on => :collection
       match 'solr_search'=>'cars#solr_search',:as=>:solr_search,:on => :collection
       member do
-        get :save, :watch,:unsave,:compare
+        get :save, :watch,:unsave,:compare,:uncompare
       end
     end
     resources :authentications,:only => [:destroy]
@@ -124,7 +125,7 @@ Webauto::Application.routes.draw do
       match 'search(/:id)(/:sort)(/:page)' => 'vehicles#search',:via => [:post,:get], :as => :search,:on => :collection
       member do
          post :sort_photos
-         get :show_interesting,:show_similar,:show_viewed,:show_reg_nr,:show_vin
+         get :show_interesting,:show_similar,:show_more_dealer,:show_viewed,:show_reg_nr,:show_vin
        end
 
     end
@@ -146,7 +147,7 @@ Webauto::Application.routes.draw do
         get 'remove_all'
       end
     end
-    get '/saved_items', to: 'saved_items#index', as: 'saved_items'
+    get '/saved_adverts', to: 'saved_items#index', as: 'saved_items'
     resources :contact_forms
   end
 end

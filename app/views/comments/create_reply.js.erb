@@ -4,4 +4,4 @@ $("#comment_<%= @comment.parent_id %>").append("<%= escape_javascript(render(@co
 var reply = $("#comment_<%= @comment.parent_id %>").find(".nested_comment :last");
 reply.hide().fadeIn('slow');
 $(".action_buttons").html("<%= j(render partial:'vehicles/partials/action_buttons')%>");
-$('.modal-message').html("<%= j(render partial:'layouts/messages')%>");
+$('.comments-modal-message').html("<%= j(render partial:'layouts/messages')%>");

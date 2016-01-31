@@ -6,7 +6,9 @@
   <div class="span9">
     <div class="search_preloader"></div>
     <div class="page-header">
-      <h2><%= t("adverts.index.ad_management") %></h2>
+      <h2><%= t("adverts.index.ad_management") %>
+	   <small><%= t("adverts.index.details") %></small>
+   </h2>
     </div>
     <% if @adverts.count>0 %>
       <div class="paginator">

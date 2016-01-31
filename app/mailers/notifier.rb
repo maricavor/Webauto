@@ -8,18 +8,17 @@ class Notifier < ActionMailer::Base
     @user= user
     mail(to: user.email, subject: "[webauto] #{comment.vehicle.make_model}")
   end
-  def vehicle_price_updated(advert,user)
-    @advert = advert
+  def vehicle_price_updated(vehicle,user)
+    @vehicle = vehicle
     @user= user
-    mail(to: user.email, subject: "[webauto] #{advert.vehicle.make_model}")
+    mail(to: user.email, subject: "[webauto] #{vehicle.make_model}")
   end
   def vehicle_status_sold(advert,user)
     @advert = advert
     @user= user
     mail(to: user.email, subject: "[webauto] #{advert.vehicle.make_model}")
   end
-  def adverts_created(adverts,search)
-    @adverts=adverts
+  def adverts_created(search)
     @search=search
     @user=search.user
     mail(to: @user.email,subject: "Latest cars that match your search criteria")

@@ -97,7 +97,7 @@ module VehiclesHelper
   def secret_nr(vehicle)
     nr=vehicle.reg_nr
     if nr.present?
-    "#{spec(nr.sub!(/.{4}$/,'* * * *'))} <small>#{link_to t('vehicles.show.show'),show_reg_nr_vehicle_path(vehicle),remote: true}</small>".html_safe
+    "#{spec(nr.sub!(/.{4}$/,'* * * *'))} <small>#{link_to t('vehicles.show.show_nr'),show_reg_nr_vehicle_path(vehicle),remote: true}</small>".html_safe
     else
     spec("")
     end
@@ -105,7 +105,7 @@ module VehiclesHelper
    def secret_vin(vehicle)
     vin=vehicle.vin
     if vin.present?
-    "#{spec(vin.sub!(/.{8}$/,'* * * *'))} <small>#{link_to t('vehicles.show.show'),show_vin_vehicle_path(vehicle),remote: true}</small>".html_safe
+    "#{spec(vin.sub!(/.{8}$/,'* * * *'))} <small>#{link_to t('vehicles.show.show_vin'),show_vin_vehicle_path(vehicle),remote: true}</small>".html_safe
     else
     spec("")
     end
@@ -166,7 +166,7 @@ link_to '<i class="icon-plus icon-white"></i> Add a Car'.html_safe, new_car_path
   def save_vehicle_button
     if current_user
       if current_user.saved_items.exists?(:vehicle_id => @vehicle.id)
-        link_to ("<i class='icon-star'></i> "+t("vehicles.show.unsave")).html_safe, unsave_car_path(@vehicle),:id=>"save_vehicle_button",:class=> "btn btn-block",:remote=>true
+        link_to ("<i class='icon-star'></i> "+t("vehicles.show.unsave")).html_safe, unsave_car_path(@vehicle),:id=>"save_vehicle_button",:class=> "btn btn-block btn-info",:remote=>true
       else
         link_to ("<i class='icon-star-empty'></i> "+t("vehicles.show.save")).html_safe, save_car_path(@vehicle),:id=>"save_vehicle_button",:class=> "btn btn-block",:remote=>true
       end
@@ -174,10 +174,17 @@ link_to '<i class="icon-plus icon-white"></i> Add a Car'.html_safe, new_car_path
       link_to ("<i class='icon-star-empty'></i> "+t("vehicles.show.save")).html_safe, save_car_path(@vehicle),:id=>"save_vehicle_button",:class=> "btn btn-block"
     end
   end
+  def compare_vehicle_button
+  if @vehicle.compared_items.exists?(:session_hash=>request.session_options[:id])
+    link_to ("<i class='icon-cars'></i> "+t("vehicles.show.uncompare")).html_safe, uncompare_car_path(@vehicle),:remote=>true,:class=>"btn btn-block btn-info"
+  else
+    link_to ("<i class='icon-cars'></i> "+t("vehicles.show.compare")).html_safe, compare_car_path(@vehicle),:remote=>true,:class=>"btn btn-block"
+  end
+end
  def save_vehicle_button_mini(vehicle)
     if current_user
       if current_user.saved_items.exists?(:vehicle_id => vehicle.id)
-        link_to '<i class="icon-star"></i>'.html_safe, unsave_car_path(vehicle),:id=>"save_vehicle_button",:class=>"btn btn-mini",:remote=>true
+        link_to '<i class="icon-star"></i>'.html_safe, unsave_car_path(vehicle),:id=>"save_vehicle_button",:class=>"btn btn-mini btn-info",:remote=>true
       else
         link_to '<i class="icon-star-empty"></i>'.html_safe, save_car_path(vehicle),:id=>"save_vehicle_button",:class=>"btn btn-mini",:remote=>true
       end
@@ -185,6 +192,14 @@ link_to '<i class="icon-plus icon-white"></i> Add a Car'.html_safe, new_car_path
       link_to '<i class="icon-star-empty"></i>'.html_safe, save_car_path(vehicle),:class=>"btn btn-mini",:id=>"save_vehicle_button"
     end
   end
+  def compare_vehicle_button_mini(vehicle)
+       if vehicle.compared_items.exists?(:session_hash=>request.session_options[:id])
+         link_to "<i class='icon-cars'></i>".html_safe, uncompare_car_path(vehicle),:remote=>true,:class=>"btn btn-mini btn-info"
+       else
+         link_to "<i class='icon-cars'></i>".html_safe, compare_car_path(vehicle),:remote=>true,:class=>"btn btn-mini"
+       end
+    
+   end
   def link_to_more_options
    content_tag(:small) do
       link_to(t("search.more_options"), '#',class: "more_options")

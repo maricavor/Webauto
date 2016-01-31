@@ -3,6 +3,7 @@ class ComparedItemsController < ApplicationController
   # GET /compared_items.json
   def index
     @compared_items = ComparedItem.where(:session_hash=>request.session_options[:id]).last(4)
+    #@compared_items=_compared_items.map {|ci| ci unless ci.vehicle.nil?}
     @title="Compare Vehicles - Webauto.ee"
     respond_to do |format|
       format.html # index.html.erb

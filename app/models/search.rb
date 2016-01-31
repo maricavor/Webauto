@@ -1,9 +1,9 @@
 class Search < ActiveRecord::Base
   extend FriendlyId
   attr_accessor :updating_name,:dealer_name
-  attr_accessible :updating_name,:dealer_name,:adverts,:bt, :cl, :dt, :fpgt, :fplt, :ft, :keywords, :kmgt, :kmlt, :pwgt, :pwlt, :tm, :tp, :fields_attributes,:location,:region,:engine_size,:doors,:stgt,:stlt,:slug,:keywords,:user_id,:user_ip,:name,:updated_at,:yeargt,:yearlt,:is_dealer,:is_private,:wrecked,:exchange,:features,:dealers,:sort,:exception,:alert_freq
+  attr_accessible :updating_name,:dealer_name,:adverts,:bt, :cl, :dt, :fpgt, :fplt, :ft, :keywords, :kmgt, :kmlt, :pwgt, :pwlt, :tm, :tp, :fields_attributes,:location,:region,:engine_size,:doors,:stgt,:stlt,:slug,:keywords,:user_id,:user_ip,:name,:updated_at,:yeargt,:yearlt,:is_dealer,:is_private,:wrecked,:exchange,:features,:dealers,:sort,:exception,:alert_freq,:new_adverts
   has_many :fields, class_name: "MakeModelField",:dependent=>:destroy
-  has_many :search_alerts,:dependent=>:destroy
+
   accepts_nested_attributes_for :fields, allow_destroy: true,reject_if: lambda {|attributes| attributes['make_name'].blank?}
   belongs_to :user
   belongs_to :type,:foreign_key=>"tp"
@@ -13,7 +13,7 @@ class Search < ActiveRecord::Base
   validate :total_searches,:on=>:update,:if=>:should_validate?
   friendly_id :create_permalink, :use => :slugged
   after_create :update_popularity
-  #after_update :create_search_alerts
+ 
   def create_permalink
     ## use current_user in model??????
     #if user_signed_in?  && !self.name.nil?
@@ -238,19 +238,4 @@ class Search < ActiveRecord::Base
         solr_search
     end
 
-    def create_search_alerts
-    if self.alert_freq!="No Alert" && self.alert_freq!=nil
-    if self.name.present?
-    results=self.run("background").results.map {|v| v.advert_id }.join(',')
-    self.update_attributes(:adverts=>results)
-    #self.adverts.split(',').each do |a_id|
-    # unless SearchAlert.exists?(:advert_id => a_id, :search_id => self.id)
-    #   alert=SearchAlert.new
-    #   alert.advert_id=a_id
-    #   alert.search_id=self.id
-    #  alert.save!
-    #end
-    end
-end
-  end
 end

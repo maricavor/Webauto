@@ -11,7 +11,7 @@
     <p class="lead"><strong><%= t("users.profile.for_security") %></strong>
       <%= t("users.profile.security") %></p>
         <% if resource.is_dealer? %>
-    <div style="margin-bottom:10px;">
+    <div style="margin-bottom:15px;">
     <%= render 'devise/registrations/fileupload' %>
 </div>
 <% end %>
@@ -71,7 +71,7 @@
 </div>
  <div style="padding-top:20px; margin-top:20px; border-top: 1px solid #eeeeee;">
     
-      <%= f.submit t("users.profile.update"),:class=>"btn btn-primary" %>
+      <%= f.submit t("users.profile.update"),:class=>"btn btn-info" %>
       </div>
     <% end %>
     <!--<h3>Cancel my account</h3>

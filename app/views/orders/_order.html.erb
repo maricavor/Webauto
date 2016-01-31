@@ -1,13 +1,21 @@
 
-<table class="table">
+<table class="table table-bordered table-condensed">
+	<thead>
+	    <tr>
+	      <th>Your cart</th>
+	      <th style="text-align: right;">Total</th>
+	    </tr>
+	  </thead>
+	   <tbody>
 <% @order.line_items.each do |item| %>
-<tr>
+<tr class="info">
 <td><%= item.service.title %></td>
-<td><%= number_to_currency(item.price) %></td>
+<td style="text-align: right;"><%= currency(item.price) %></td>
 </tr>
 <% end %>
 <tr>
-<td>Total</td>
-<td><%= number_to_currency(@order.total_price) %></td>
+<td style="text-align: right;"><strong>Order total:</strong></td>
+<td style="text-align: right;"><%= currency(@order.total_price) %></td>
 </tr>
+  </tbody>
 </table>

@@ -1,9 +1,10 @@
+
 <% if parent.nil? %>
   <%= form_for [@vehicle,@comment],:html=> {:class=> 'comment_form'}, :remote=>true do |f| %>
     <%= f.hidden_field :parent_id,:value=>parent %>
     <%= f.text_area :text,:rows=>3,:placeholder=>t("comments.write_comment"),:class=>"span12"  %>
     <br>
-      <%= f.submit t("comments.create"),:class=> "btn btn-info" %>
+      <%= f.submit t("comments.create"),:class=> "btn btn-link" %>
     <% end %>
   <% else %>
     <%= form_for [@vehicle,@comment],:html=> {:class=> 'reply_form'}, :remote=>true do |f| %>
@@ -11,8 +12,7 @@
       <%= f.hidden_field :parent_id,:value=>parent %>
       <%= f.text_area :text,:rows=>3,:placeholder=>t("comments.write_reply"),:class=>"span12"  %>
       <br>
-        <%= f.submit t("comments.reply"),:class=> "btn btn-info" %>
-        <%= link_to t("comments.cancel"), "#",:class=>"cancel_reply_btn btn" %>
-
+	   <%= f.submit t("comments.reply"),:class=> "btn btn-link"%>
+		 <%= link_to t("comments.cancel"), "#",:class=>"cancel_reply_btn btn btn-link"  %>
       <% end %>
     <% end %>

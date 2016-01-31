@@ -87,11 +87,16 @@
 <div class="span12">
 
  <ul class="nav nav-tabs" id="moreTab">
+	 
       <li><a href="#similar" data-toggle="tab" class="tab_<%= @vehicle.id %>"><%= t("vehicles.show.similar_#{@current_type.path_name}") %></a></li>
       <li><a href="#more" data-toggle="tab" class="tab_<%= @vehicle.id %>"><%= t("vehicles.show.interested") %></a></li>
-      <li><a href="#viewed" data-toggle="tab" class="tab_<%= @vehicle.id %>"><%= t("vehicles.show.recently_viewed") %> </a></li>
+ 	 <% if @user.is_dealer %>
+ 	  <li><a href="#dealer_more" data-toggle="tab" class="tab_<%= @vehicle.id %>">More cars from this dealer</a></li>
+ 	  <% end%>
+      <!--<li><a href="#viewed" data-toggle="tab" class="tab_<%= @vehicle.id %>"><%= t("vehicles.show.recently_viewed") %> </a></li>-->
     </ul>
     <div id="moreTabContent" class="tab-content">
+		
       <div class="tab-pane fade" id="similar">
          
         <div id="similar_vehicles" class="text-center"><%= image_tag "/ajax-loader.gif" %></div>
@@ -102,12 +107,18 @@
         <div id="interesting_vehicles" class="text-center"><%= image_tag "/ajax-loader.gif" %></div>
       
       </div>
-       <div class="tab-pane fade" id="viewed">
+	 <% if @user.is_dealer? %>
+      <div class="tab-pane fade" id="dealer_more">
+        <div id="more_dealer_vehicles" class="text-center"><%= image_tag "/ajax-loader.gif" %></div>
+      </div>
+	 <% end %>
+       <!--<div class="tab-pane fade" id="viewed">
 
          <div id="viewed_vehicles" class="text-center"><%= image_tag "/ajax-loader.gif" %></div>
     
       
       </div>
+		   -->
      
     </div>
     

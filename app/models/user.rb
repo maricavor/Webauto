@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :searches
   has_many :comments
   has_many :saved_searches, :class_name => 'Search', :foreign_key => 'user_id', :conditions => ['name IS NOT NULL']
+  has_many :vehicle_watchers, :dependent=>:destroy
   has_many :saved_items,:dependent=>:destroy
   #has_many :jobs, :foreign_key => 'user_id', :class_name => "Task"
   has_many :vehicles,:dependent=>:destroy
@@ -24,15 +25,20 @@ class User < ActiveRecord::Base
   validates :company_name, presence: true, :if => "is_dealer == true"
  
   def self.search(search_params)
-    dealers=User.where("is_dealer = ?", true)
+    
   if search_params
+    dealers=User.where("is_dealer = ?", true)
     dealers=dealers.where('company_name LIKE ?', "%#{search_params[:name]}%") if search_params[:name].present?
+    if search_params[:location].present?
+      location=search_params[:location]
+    dealers=dealers.where(:country_id=>location)
+  end
     if search_params[:region].present?
       regions=search_params[:region].split(',')
     dealers=dealers.joins(:state,:city).where("states.name IN (:states) OR cities.name IN (:cities)",:states=>regions,:cities=>regions) 
   end
   else
-    dealers
+    dealers=User.where("is_dealer = ? AND country_id = ?", true,8)
   end
   dealers
 end

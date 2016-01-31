@@ -1,7 +1,11 @@
- <abbr title="Phone">P:</abbr>
-                   <span><%= @primary_phone %>
+
+
+			       <span class="lead text-info">
+			   
+                   <%= @primary_phone %>
                     <% if @secondary_phone!="" %>
                       
-                     <%= ", #{@secondary_phone}" %>
+                     <%= " #{@secondary_phone}" %>
                      <% end %>
-                     </span>
+			
+                        </span>

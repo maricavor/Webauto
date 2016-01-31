@@ -8,9 +8,9 @@ class VehicleFormBuilder < ActionView::Helpers::FormBuilder
       field=datepicker(name,*args,super(name,*args,:class=>"span9"))
       else
         if options[:value].present?
-          field=super(name,*args,:id=>options[:id],:class=>"#{options[:type]} span9",:value=>options[:value])
+          field=super(name,*args,:id=>options[:id],:class=>"#{options[:type]} span12",:value=>options[:value])
         else
-      field=super(name,*args,:id=>options[:id],:class=>"#{options[:type]} span9",:placeholder=>options[:placeholder],:disabled=>options[:disabled],:autocomplete=>options[:autocomplete],:autofocus=>options[:autofocus],:hint=>options[:hint])
+      field=super(name,*args,:id=>options[:id],:class=>"#{options[:type]} span12",:placeholder=>options[:placeholder],:disabled=>options[:disabled],:autocomplete=>options[:autocomplete],:autofocus=>options[:autofocus],:hint=>options[:hint])
     end
       end
       content_tag :div, class: "field",id:(options[:id] ? options[:id]+"_field" : "") do

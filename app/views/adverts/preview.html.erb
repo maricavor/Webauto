@@ -9,7 +9,7 @@ NB! This is a preview of your advert #<%= @advert.uid  %>.
 <% if URI(request.referer).path.include? "adverts/new" %>
 <%= link_to t("adverts.actions.back"), edit_advert_path(@advert),:class=>"btn"  %>
 <% else %>
-<%= link_to t("vehicles.show.back"), :back,:class=> "btn btn-small" %>
+<%= link_to t("vehicles.show.back"), :back,:class=> "btn" %>
 <% end %>
 </div>
 <div class="span9">
@@ -41,7 +41,7 @@ NB! This is a preview of your advert #<%= @advert.uid  %>.
 </div>
 <div class="row-fluid">
   <div class="span6">
-    <span class="label"><%= "##{@advert.uid}" %></span>
+    <span class="label"><%= "AD# #{@advert.uid}" %></span>
   </div>
   <div class="span6 text-left visible-phone">
   <span class="label"><%= @user.is_dealer ? "Dealer" : "Private"  %></span>

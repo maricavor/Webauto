@@ -13,8 +13,8 @@ class ApplicationController < ActionController::Base
  
     ip_address=request.remote_ip
     session_hash= request.session_options[:id] 
-    @compared_items=ComparedItem.where(:session_hash=>session_hash,:ip_address=>ip_address)
-   
+      @compared_items=ComparedItem.where(:session_hash=>session_hash,:ip_address=>ip_address)
+
   end
   def get_current_type
     _type_id=session[:type_id] || 1

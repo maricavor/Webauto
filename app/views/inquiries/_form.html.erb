@@ -1,3 +1,4 @@
+<div class="modal-message"></div>
 <%= form_for [@vehicle,@inquiry],:html=>{:id=>"new_#{mode}"},:remote=>true  do |f| %>
   <% if mode=="report" %>
     <%= f.select :report_as,[[t("inquiries.sold"),"Sold"],[t("inquiries.suspicious"),"Suspicious"],[t("inquiries.incorrect"),"Incorrect"]],:class=>"span6" %><br>

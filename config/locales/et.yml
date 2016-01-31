@@ -1,5 +1,8 @@
 et:
   navigation:
+    cookies_message: "See veebileht kasutab küpsiseid. Veebilehe kasutamist jätkates nõustute küpsiste kasutamisega."
+    learn_more: "Kuva üksikasjad"
+    dismiss: "Sain aru!"
     home: Avaleht
     cars: Autod
     cars_for_sale: Osta auto
@@ -73,6 +76,7 @@ et:
     features: "Varustus (kõik)"
     dealers: "Müüja (kõik)"
     keywords: Tekstiotsing
+    location: "Riik (kõik)"
     dealer: Autodiiler
     private: Eraisik
     search: Otsi
@@ -129,6 +133,8 @@ et:
     popular_models: "Populaarsemad mudelid:"
     popular_bodytypes: "Populaarsemad keretüübid:"
   adverts:
+    checkout:
+      seller_details: Seller details
     breadcrumb:
       edit: Sõiduki põhiandmed
       details: Lisaandmed
@@ -143,12 +149,14 @@ et:
       close: Sulge
       views: Vaatamised
     index:
-      ad_management: Kuulutuste haldamine
+      ad_management: Minu kuulutused
+      details: Vehicles you're selling
       create_ad: Lisa kuulutus
       nothing: Kuulutusi ei leitud
       advert: kuulutus
       status: STAATUS
       created: Lisatud
+      updated: Muudetud
       cancelled: Tühistatud
       unfinished: Lõpetamata
       activated: Aktiveeritud
@@ -190,6 +198,7 @@ et:
       back: Tagasi
       show: Näita
       activate: Aktiveeri
+      activate_show: "Aktiveeri ja näita"
       save_preview: Salvesta ja näita eelvaadet
       save_continue: Salvesta ja jätka
       save_show: Salvesta ja näita
@@ -258,6 +267,7 @@ et:
       next: Järgmine
       remove: Eemalda
     contact:
+      name: Contact name
       price_title: Hind
       price: "Hind:"
       price_vat: "Hind sisaldab KM 20%"
@@ -294,6 +304,8 @@ et:
       comments: Arvamused
       bodystyle: Keretüüp
       badge: Versioon
+      series: Seeria
+      series_badge: Seeria/Versioon
       drivetype: Vedav sild
       colour: Värvus
       location: Asukoht
@@ -305,6 +317,8 @@ et:
       brought_from: Toodud riigist
       vin: Vin kood
       show: Näita telefoni number
+      show_vin: Näita
+      show_nr: Näita
       specification: Tehnilised näitajad
       features: Varustus
       engine_power: Mootori võimsus
@@ -459,6 +473,7 @@ et:
       sump_shield: Karterikaitse
       side_steps: Astmelauad
       outside_temperature: Välistemperatuuri näidik
+      uncompare: Lisatud võrdlusse!
     search:
       viewed_by_you: Ma olen vaadanud
   comments:
@@ -483,6 +498,7 @@ et:
     report_ad: Teata ebasobivast kuulutusest
     report: Teata ebasobivast kuulutusest
     acknowledge: "Klikkides nupule \"Saada\" kinnitate, et nõustute Webauto <a href='%{terms_link}' target='_blank'><strong>kasutustingimuste</strong></a> ja <a href='%{privacy_link}' target='_blank'><strong>privaatsuspoliitikaga</strong></a>."
+    acknowledge_comments: "By creating comments you acknowledge that you have read and agree to abide by the Webauto.ee <a href='%{terms_link}' target='_blank'><strong>Terms and Conditions</strong></a> and <a href='%{privacy_link}' target='_blank'><strong>Privacy Policy</strong>.</a>"
   dealers:
     index: 
       title: "Webauto | Find a car dealership in Estonia"
@@ -530,6 +546,7 @@ et:
       remove_sure: 'Olete kindel, et soovite kustutada selle pildi?'
     settings:
       settings: Seaded
+      details: The emails we send you
       notifications: Salvestatud sõiduki teavitused
       notify: "Teavita mind, kui:"
       price_alert: "Hind muutub või on eripakkumine"
@@ -542,7 +559,8 @@ et:
       save: Salvesta
   searches:
     index:
-      saved_searches_and_alerts: "Salvestatud otsingud ja e-agendid"
+      saved_searches_and_alerts: "Salvestatud otsingud"
+      title_details: Searches saved to run again
       available_searches: "otsingut"
       a_of_b: "%{a}(%{b})"
       rename_search: "Muuda otsingu nime"

@@ -23,7 +23,7 @@
                
  
 </address>
-    <%= link_to ("<i class='icon-envelope'></i> Email the Dealer").html_safe, "#contactModal",:'data-toggle'=>"modal",:class=> "btn btn-small" %><%= link_to ("<i class='icon-home'></i> Visit Website").html_safe,http_url(dealer.webpage),:class=> "btn btn-small",:style=>"margin-left:5px;",:target=>"_blank" if dealer.webpage.present? %><%= link_to ("<i class='icon-map-marker'></i> View Map").html_safe,"http://maps.google.com/?q=#{dealer.full_address}",:class=> "btn btn-small",:target=>"_blank",:style=>"margin-left:5px;" %>
+    <%= link_to ("<i class='icon-envelope'></i> Email the Dealer").html_safe, "#contactModal",:'data-toggle'=>"modal" %><%= link_to ("<i class='icon-globe'></i> Visit Website").html_safe,http_url(dealer.webpage),:style=>"margin-left:5px;",:target=>"_blank" if dealer.webpage.present? %><%= link_to ("<i class='icon-map-marker'></i> View Map").html_safe,"http://maps.google.com/?q=#{dealer.full_address}",:target=>"_blank",:style=>"margin-left:5px;" %>
      </div>
        <div class="span2">
        <p class="lead muted text-center hidden-phone">

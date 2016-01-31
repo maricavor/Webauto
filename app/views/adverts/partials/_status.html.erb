@@ -1,0 +1,13 @@
+           <% if ad.status=="cancelled" %>
+            <span class="label label-important"><%= t("adverts.index.cancelled") %></span>
+            <% else %>
+         <% if ad.status=="unfinished" %>
+         <span class="label label-warning"><%= t("adverts.index.unfinished") %></span>
+         <% else %>
+         <% if ad.status=="activated" %>
+         <span class="label label-success"><%= t("adverts.index.activated") %></span>
+         <% else %>
+         <span class="label label-info"><%= t("adverts.index.not_activated") %></span>
+         <% end %>
+            <% end %>
+         <% end %>

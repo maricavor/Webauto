@@ -1,5 +1,8 @@
 en:
   navigation:
+    cookies_message: "This website uses cookies to ensure you get the best experience on our website."
+    learn_more: "More info"
+    dismiss: "Got it!"
     home: Home
     cars: Cars
     cars_for_sale: Cars for sale
@@ -19,16 +22,16 @@ en:
     register: Sign up
     language: Language
     social_networks: Social networks
-    social_networks_text: "Connect with us on Facebook, YouTube and Twitter"
+    social_networks_text: "Connect with us on Facebook and Twitter"
     terms: "Terms of Use"
     privacy: Privacy
-    contact: Contact us
-    about: About 
+    contact: Contact Us
+    about: About Us
     sitemap: Sitemap
     popular_searches: Popular searches
     dashboard: Dashboard
-    saved_searches: Saved searches/Email alerts
-    saved_items: Saved items
+    saved_searches: Saved searches
+    saved_items: Saved adverts
     my_ads: My adverts
     profile: My profile
     settings: Settings
@@ -73,6 +76,7 @@ en:
     features: "Features (any)"
     dealers: "Dealers (any)"
     keywords: Keywords
+    location: "Country (any)"
     dealer: Dealer 
     private: Private seller
     search: Search
@@ -129,6 +133,8 @@ en:
     popular_models: "Popular models:"
     popular_bodytypes: "Popular body types:"
   adverts:
+    checkout:
+      seller_details: Seller details
     breadcrumb:
       edit: Basic info
       details: Details
@@ -143,12 +149,14 @@ en:
       close: Close
       views: Views
     index:
-      ad_management: Ad management
+      ad_management: My adverts
+      details: Vehicles you're selling
       create_ad: Create new ad
       nothing: Nothing found
       advert: advert
       status: STATUS
       created: Created
+      updated: Last update
       cancelled: Sold
       unfinished: Unfinished
       activated: Activated
@@ -169,7 +177,7 @@ en:
       bodytype: Body type
       make: Make
       model_name: Model
-      variant: Variant
+      variant: Badge
       year: Build year
       registered_at: Initial registration 
       odometer: Odometer
@@ -190,9 +198,10 @@ en:
       back: Back
       show: Show
       activate: Activate
-      save_preview: Save and Preview
-      save_continue: Save and Continue
-      save_show: Save and Show
+      activate_show: "Activate & Show"
+      save_preview: "Save & Preview"
+      save_continue: "Save & Continue"
+      save_show: "Save & Show"
     details:
       title: "Tell us more about your %{vehicle}"
       engine_details: Engine details
@@ -258,6 +267,7 @@ en:
       next: Next
       remove: Remove
     contact:
+      name: Contact name
       price_title: Price
       price: "Price:"
       price_vat: "Price includes VAT 20%"
@@ -288,11 +298,13 @@ en:
       interested: "You may also be interested in..."
       compare: Compare
       save: Save 
-      unsave: Unsave
+      unsave: Saved!
       share: Share
       report: Report
       comments: Comments
       bodystyle: Body Style
+      series_badge: Series/Badge
+      series: Series
       badge: Badge
       drivetype: Drive Type
       colour: Colour
@@ -305,6 +317,8 @@ en:
       brought_from: Brought From
       vin: Vin
       show: Show phone
+      show_vin: Show Vin
+      show_nr: Show Reg. Plate
       specification: Specification
       features: Features
       engine_power: Engine power
@@ -459,6 +473,7 @@ en:
       sump_shield: Sump shield
       side_steps: Side steps
       outside_temperature: Outside temperature indicator
+      uncompare: Compared!
     search:
       viewed_by_you: Recently viewed by you
   comments:
@@ -482,7 +497,8 @@ en:
     close: Close
     send_to_friend: Send to a friend
     report_ad: Report this ad
-    acknowledge: "By clicking the send button you acknowledge that you have read and agree to abide by the Webauto <a href='%{terms_link}' target='_blank'><strong>Terms and Conditions</strong></a> and <a href='%{privacy_link}' target='_blank'><strong>Privacy Policy</strong>.</a>"
+    acknowledge: "By clicking the send button you acknowledge that you have read and agree to abide by the Webauto.ee <a href='%{terms_link}' target='_blank'><strong>Terms and Conditions</strong></a> and <a href='%{privacy_link}' target='_blank'><strong>Privacy Policy</strong>.</a>"
+    acknowledge_comments: "By posting comments you acknowledge that you have read and agree to abide by the Webauto.ee <a href='%{terms_link}' target='_blank'><strong>Terms and Conditions</strong></a> and <a href='%{privacy_link}' target='_blank'><strong>Privacy Policy</strong>.</a>"
   dealers:
     index: 
       title: "Dealer Services - webauto.ee"
@@ -490,19 +506,19 @@ en:
   users:
     dashboard:
       dashboard: Dashboard
-      lead: "Staying in touch with Webauto just became a whole lot easier. Now that you're a member, you can manage all your ads and searches in the one place to make buying and selling a cinch."
-      saved_vehicles: Saved vehicles
+      lead: "Staying in touch with Webauto.ee just became a whole lot easier. Now that you're a member, you can manage all your ads and searches in the one place to make buying and selling a cinch."
+      saved_vehicles: Saved adverts
       view_all: View all
-      sold: SOLD
+      sold: Sold
       saved_on: Saved on
       saved_searches: Saved searches
       last_searches: Last searches
       searched_on: Searched on
     profile:
       profile: Profile
-      details: "Your details & preferences"
+      details: "Information about you"
       for_security: "For security:"
-      security: "To change your email address please email to support@webauto.ee"
+      security: "To change your email address please email to support[at]webauto.ee"
       name: Name
       country: Country
       city: City
@@ -530,19 +546,21 @@ en:
       remove_sure: 'Are you sure you want to delete this image?'
     settings:
       settings: Settings
+      details: The emails we send you
       notifications: Saved vehicle notifications
       notify: "For all my saved vehicles, notify me when:"
       price_alert: "The price changes or a special offer is available"
       sold_alert: "The vehicle has been sold"
       interest_alert: "Interest is increasing in the vehicle"
       future_updates: "Feature updates & member benefits"
-      future_updates_text: "As a webauto member, we will update you on any new exciting features, exclusive deals from us and our partners and any important information relating to vehicle ownership. Your member information and contact details will not be shared with any third party outside of the webauto network."
-      future_updates_check: "I want to receive member feature updates, deals and information from carsales as an exclusive carsales member"
+      future_updates_text: "As a Webauto.ee member, we will update you on any new exciting features, exclusive deals from us and our partners and any important information relating to vehicle ownership. Your member information and contact details will not be shared with any third party outside of the Webauto.ee network."
+      future_updates_check: "I'd like to receive special offers, promotions and updates from Webauto.ee"
       language: Default language
       save: Save
   searches:
     index:
-      saved_searches_and_alerts: "Saved Searches & Email Alerts"
+      saved_searches_and_alerts: "Saved searches"
+      title_details: Searches saved to run again
       available_searches: available searches
       a_of_b: " %{a} of %{b}"
       rename_search: "Rename your saved search"
@@ -567,13 +585,14 @@ en:
       run: Run search
   saved_items:
     index:
-      saved_items: Saved items
+      details: Ads you've saved for later
+      saved_items: Saved adverts
       a_of_b: " %{a} of %{b}"
       available_items: available items
       description: DESCRIPTION
       price: PRICE
       recent: RECENT ACTIVITY
-      sold: SOLD
+      sold: Sold
       search_similar: Search similar
       last_listed: Last listed at
       other_people: "Other people have saved this vehicle"

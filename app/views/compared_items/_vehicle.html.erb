@@ -7,11 +7,22 @@
 
 
   <div class="thumbnail" style="max-width: 300px; float:right;">
-    <% if picture %>
-      <%= link_to image_tag(picture.file_url(:thumb)), send("#{vehicle.type.name.downcase}_path", vehicle) %>
-    <% else %>
-      <%= image_tag "/thumbnail.png",size: "300x200" %>
-    <% end %>
+               
+      <div class="image">
+        <% if vehicle.destroyed? %>
+        <%= render 'saved_items/sold_picture',:picture=>picture %>
+	    <% elsif vehicle.advert.activated==false %>
+		  <%= render 'saved_items/deactivated_picture',:picture=>picture %>
+        <% else %>
+          <% if picture %>
+        <%= link_to image_tag(picture.file_url(:thumb)), send("#{vehicle.type.name.downcase}_path", vehicle) %>
+   
+      <% else %>
+        <%= image_tag "/thumbnail.png",size: "300x200" %>
+    
+      <% end %>
+        <% end %>
+		  </div>
   </div>
   
 

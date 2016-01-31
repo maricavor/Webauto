@@ -6,9 +6,9 @@
   <% 4.times do |i| %>
   <td style="border: none;" class="right"><small>
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
   <%= link_to t("compared_items.index.remove"),compared_items[i],method: :delete,:remote=>true %> 
-  <% end %>
+ 
   <% end %>
   </small>
   </td>
@@ -20,29 +20,56 @@
   <% 4.times do |i| %>
   <td style="border: none;">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+  
   <%= render 'compared_items/vehicle',:compared_item=>compared_items[i].vehicle,:version=>"small" %> 
 
-  <% end %>
+ 
+   
     <% else %>
   <div class="thumbnail" style="max-width: 300px; float:right;">
       <%= image_tag "/thumbnail.png",size: "300x200" %>
   </div>
-  <% end %>
+   <% end %>
   </td>
   <% end %>
 </tr>
+<tr>
+  <td style="border: none;">
+  </td>
+  <% 4.times do |i| %>
+  <td style="border: none;" class="right">
+  <% if compared_items[i] %>
+ 
+     <strong>
+		 
+        <% if compared_items[i].vehicle.destroyed?%>
+        <%= compared_items[i].vehicle.make_model %>
+        
+	    <% elsif compared_items[i].vehicle.advert.activated==false %>
+         <%= compared_items[i].vehicle.make_model %>
+ 
+      <% else %>
+       <%= link_to compared_items[i].vehicle.make_model,  send("#{compared_items[i].vehicle.type.name.downcase}_path", compared_items[i].vehicle) %>
+      <% end %>
+	 
+ </strong>
 
+  <% end %>
+
+  </td>
+  <% end %>
+  </tr>
 <tr>
   <td style="border: none;">
   </td>
   <% 4.times do |i| %>
   <td style="border: none;">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
-  <h2 class="text-right text-success"><%= "#{currency(compared_items[i].vehicle.price)}" %></h2>
+ 
+    <h2 class="text-right text-success" style="line-height: 0.7;"><small><s><%= "#{currency(compared_items[i].vehicle.previous_price)}" %></s></small> <%= "#{currency(compared_items[i].vehicle.price)}" %><br><small><%= compared_items[i].vehicle.price_vat ? t("vehicles.show.incl_vat") : t("vehicles.show.exl_vat") %></small></h2>
+
   <% end %>
-  <% end %>
+
   </td>
   <% end %>
   </tr>
@@ -52,10 +79,10 @@
   <% 4.times do |i| %>
  <td class="right" style="border: none;">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
  <span class="label"><%= compared_items[i].vehicle.user.is_dealer ? t("vehicles.show.dealer") : t("vehicles.show.private")  %></span>
   <% end %>
-  <% end %>
+
   </td>
   <% end %>
   
@@ -78,9 +105,9 @@
           <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+  
  <%= spec(compared_items[i].vehicle.drivetype) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -91,10 +118,10 @@
             <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
  <%= spec(compared_items[i].vehicle.colour) %>
   <% end %>
-  <% end %>
+ 
   </td>
   <% end %>
         </tr>
@@ -104,10 +131,10 @@
            <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+  
  <%= spec(compared_items[i].vehicle.location) %>
   <% end %>
-  <% end %>
+
   </td>
   <% end %>
         </tr>
@@ -116,9 +143,9 @@
            <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+
  <%= spec(compared_items[i].vehicle.registered_at) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -129,9 +156,9 @@
                  <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+
  <%= spec(compared_items[i].vehicle.odometer_str) %>
-  <% end %>
+ 
   <% end %>
   </td>
   <% end %>
@@ -141,9 +168,9 @@
  <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
  <%= spec(compared_items[i].vehicle.transmission_str) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -154,9 +181,9 @@
            <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
  <%= spec(compared_items[i].vehicle.origin_name) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -174,9 +201,9 @@
              <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
  <%= spec(compared_items[i].vehicle.engine_power_str) %>
-  <% end %>
+ 
   <% end %>
   </td>
   <% end %>
@@ -187,9 +214,9 @@
                        <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+  
  <%= spec(compared_items[i].vehicle.engine_type) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -200,9 +227,9 @@
     <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+
  <%= spec(compared_items[i].vehicle.engine_size_str) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -213,9 +240,9 @@
             <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+
  <%= spec(compared_items[i].vehicle.cylinders_str) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -226,9 +253,9 @@
                  <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+  
  <%= spec(compared_items[i].vehicle.max_speed_str) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -241,9 +268,9 @@
                          <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
  <%= spec(compared_items[i].vehicle.acceleration_str) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -264,9 +291,9 @@
   <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+
  <%= spec(compared_items[i].vehicle.fueltype) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -277,9 +304,9 @@
             <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+
  <%= spec(compared_items[i].vehicle.fuel_cons_city_str) %>
-  <% end %>
+ 
   <% end %>
   </td>
   <% end %>
@@ -290,9 +317,9 @@
                <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+
  <%= spec(compared_items[i].vehicle.fuel_cons_freeway_str) %>
-  <% end %>
+  
   <% end %>
   </td>
   <% end %>
@@ -303,9 +330,9 @@
                    <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+  
  <%= spec(compared_items[i].vehicle.fuel_cons_combined_str) %>
-  <% end %>
+ 
   <% end %>
   </td>
   <% end %>
@@ -316,9 +343,9 @@
                  <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+
  <%= spec(compared_items[i].vehicle.fueltank_str) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -339,9 +366,9 @@
                      <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
  <%= spec(compared_items[i].vehicle.summer_tires_details) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -352,9 +379,9 @@
                       <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
  <%= spec(compared_items[i].vehicle.summer_tires_size) %>
-  <% end %>
+ 
   <% end %>
   </td>
   <% end %>
@@ -365,9 +392,9 @@
                        <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+  
  <%= spec(compared_items[i].vehicle.winter_tires_details) %><%= spec_details([[compared_items[i].vehicle.all_season_tires,"all season"],[compared_items[i].vehicle.spike_tires,"with spikes"]]) %>
-  <% end %>
+ 
   <% end %>
   </td>
   <% end %>
@@ -378,9 +405,9 @@
                              <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
  <%= spec(compared_items[i].vehicle.winter_tires_size) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -391,9 +418,9 @@
                                   <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+
 <%= spec((compared_items[i].vehicle.light_alloy_wheels ? compared_items[i].vehicle.light_alloy_wheels_details : t("vehicles.show.no")))  %>
-  <% end %>
+ 
   <% end %>
   </td>
   <% end %>
@@ -413,9 +440,9 @@
                                       <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
  <%= spec(compared_items[i].vehicle.height_str) %>
-  <% end %>
+  
   <% end %>
   </td>
   <% end %>
@@ -426,9 +453,9 @@
                                           <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+  
  <%= spec(compared_items[i].vehicle.length_str) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -439,9 +466,9 @@
                                           <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
  <%= spec(compared_items[i].vehicle.width_str) %>
-  <% end %>
+ 
   <% end %>
   </td>
   <% end %>
@@ -452,9 +479,9 @@
                                           <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
  <%= spec(compared_items[i].vehicle.wheelbase_str) %>
-  <% end %>
+ 
   <% end %>
   </td>
   <% end %>
@@ -465,9 +492,9 @@
                                           <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
  <%= spec(compared_items[i].vehicle.gross_weight_str) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -478,9 +505,9 @@
                                           <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+
  <%= spec(compared_items[i].vehicle.load_capacity_str) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -491,9 +518,9 @@
                <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+  
  <%= spec(compared_items[i].vehicle.net_weight_str) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -507,16 +534,15 @@
 
   </td>
   <% end %>
- 
-       </tr>
+   </tr>
         <tr>
           <td><%= t("vehicles.show.warranty") %></td>
                    <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
- <%= spec((compared_items[i].vehicle.warranty_valid_to.present? ? distance_of_time_in_words(Date.today,DateTime.strptime(compared_items[i].vehicle.warranty_valid_to, '%m/%Y')) : ""))  %>/<%= spec(compared_items[i].vehicle.warranty_km_str) %>
-  <% end %>
+  
+ <%= double_spec(compared_items[i].vehicle.warranty_valid_to_str,compared_items[i].vehicle.warranty_km_str)%>
+
   <% end %>
   </td>
   <% end %>
@@ -527,9 +553,9 @@
                       <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
- <%= spec(compared_items[i].vehicle.service_freq_str) %>/<%= spec(compared_items[i].vehicle.service_km_str) %>
-  <% end %>
+ 
+ <%= double_spec(compared_items[i].vehicle.service_freq_str,compared_items[i].vehicle.service_km_str) %>
+  
   <% end %>
   </td>
   <% end %>
@@ -541,9 +567,9 @@
                                      <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
- <%= spec((compared_items[i].vehicle.next_service.present? ? distance_of_time_in_words(Date.today,DateTime.strptime(compared_items[i].vehicle.next_service, '%m/%Y')) : ""))  %>/<%= spec(compared_items[i].vehicle.next_service_km_str) %>
-  <% end %>
+
+<%= double_spec(compared_items[i].vehicle.next_service_str,compared_items[i].vehicle.next_service_km_str) %>
+ 
   <% end %>
   </td>
   <% end %>
@@ -555,10 +581,11 @@
                                                       <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
+
  <%= spec(compared_items[i].vehicle.service_history) %>
   <% end %>
-  <% end %>
+ 
   </td>
   <% end %>
 
@@ -579,9 +606,9 @@
                                                        <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+ 
  <%= spec(compared_items[i].vehicle.origin_str) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -592,9 +619,9 @@
 <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+  
  <%= spec(compared_items[i].vehicle.doors_str) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>
@@ -605,9 +632,9 @@
  <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+
  <%= spec(compared_items[i].vehicle.seats_str) %>
-  <% end %>
+ 
   <% end %>
   </td>
   <% end %>
@@ -617,9 +644,9 @@
           <% 4.times do |i| %>
  <td class="right">
   <% if compared_items[i] %>
-  <% unless compared_items[i].vehicle.nil? %>
+  
  <%= spec(compared_items[i].vehicle.owners_str) %>
-  <% end %>
+
   <% end %>
   </td>
   <% end %>

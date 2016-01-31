@@ -65,32 +65,7 @@ hr.soften {
 /* Footer
 -------------------------------------------------- */
 
-.footer {
-  text-align: center;
-  padding: 30px 0;
-  margin-top: 70px;
-  border-top: 1px solid #e5e5e5;
-  background-color: #f5f5f5;
-}
-.footer p {
-  margin-bottom: 0;
-  color: #777;
-}
-.footer-links {
-  margin: 10px 0;
-}
-.footer-links li {
-  display: inline;
-  padding: 0 2px;
-}
-.footer-links li:first-child {
-  padding-left: 0;
-}
- /* Tighten up footer */
-  .footer {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
+
 
   .bar {
     height: 18px;
@@ -293,7 +268,10 @@ textarea{
   background: rgba( 255, 0, 0, 0.7 );
   color: #000;
 }
-
+.image figcaption.info {
+  background: rgba(58, 135, 173, 0.7 );
+  color: #000;
+}
 .image figcaption strong {
   display: block;
   color: #fff;
@@ -378,3 +356,20 @@ position: relative;
  
  margin-bottom: 10px;
 }
+.price-table tr.info td{
+	 text-align: center;
+}
+/* http://codepen.io/MattIn4D/pen/LiKFC */
+.search_preloader {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+

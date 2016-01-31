@@ -9,14 +9,14 @@
      <% end %>
   </div>
   <div class="modal-body">
-    <div class="modal-message"></div>
+    <div class="contact-modal-message"></div>
    <%= form_for @inquiry,:url=>contact_user_path(user),:html=>{id: "user_contact"},:remote=>true do |f| %>
     <%= f.hidden_field :mode,:value=>"contact_user" %>
       <% unless current_user %>
       <%= f.text_field :name,:placeholder=>t("inquiries.name"),:class=>"span12" %><br>
         <%= f.text_field :email,:placeholder=>t("inquiries.email"),:class=>"span12" %><br>
         <% else %>
-        <%= f.hidden_field :name,:value=> current_user.name%>
+        <%= f.hidden_field :name,:value=> current_user.name %>
         <%= f.hidden_field :email,:value=> current_user.email %>
         <% end %>
     

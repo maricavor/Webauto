@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   skip_before_filter :get_current_type,:get_compared_items, :only=>[:show_phone,:contact]
 
   def show
-    @title="Member Centre - Webauto.ee"
+    @title="Member centre - Webauto.ee"
     #@user = User.find(params[:id])
     #@user = !params[:id].nil? ? User.find(params[:id]) : current_user
     @user=current_user

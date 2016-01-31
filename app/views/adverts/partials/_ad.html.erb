@@ -13,30 +13,30 @@
         <td>
             <strong>
               <% if v.make_model.present? %>
-            <%= link_to v.make_model, path %>
+            <%= link_to v.short_name, path %>
         
             
             <% end %>
           </strong>
+		   <ul class="unstyled">
+		    <li><small><%= v.odometer_str %>  </small></li>
+  		   <li>
+  		    <small><%= v.transmission_str %>  </small></li>
+    		 <li>
+    		    <small><%= v.fueltype %>  </small></li>
+			</ul>
         </td>
         <td><%= currency(v.price) %></td>
         <td class="muted">
-          <small><strong class="text-success"><%= t("adverts.index.created") %></strong>
-            <%= v.created_at.strftime("%d/%m/%Y") %></small></td>
+			 <ul class="unstyled">
+          <li><small><strong class="text-success"><%= t("adverts.index.created") %></strong>
+            <%= v.created_at.strftime("%d/%m/%Y") %></small></li>
+        
+	  </ul>
+	  </td>
         <td>
-           <% if ad.status=="cancelled" %>
-            <span class="label label-important"><%= t("adverts.index.cancelled") %></span>
-            <% else %>
-         <% if ad.status=="unfinished" %>
-         <span class="label label-warning"><%= t("adverts.index.unfinished") %></span>
-         <% else %>
-         <% if ad.status=="activated" %>
-         <span class="label label-success"><%= t("adverts.index.activated") %></span>
-         <% else %>
-         <span class="label label-info"><%= t("adverts.index.not_activated") %></span>
-         <% end %>
-            <% end %>
-         <% end %>
+			    <%= render 'adverts/partials/status',ad: ad %>
+    
         </td>
         <td>
           <div class="btn-group">
@@ -45,18 +45,26 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu pull-right">
+       <% unless ad.activated || ad.destroyed? || ad.unfinished? %>
+      <li>  <%= link_to t("adverts.index.preview"), preview_advert_path(ad) %></li>
+      <% end %>
        <% unless ad.destroyed? %>
        <% unless ad.unfinished? %>
+        <% if ad.activated %>
+        <li> 
+       <%= link_to t("adverts.actions.show"), send("#{ad.vehicle.type.name.downcase}_path", ad.vehicle) %>
+ 	   </li> 
+ 	    <% end %>
      <li><%= link_to t("adverts.index.statistics"), statistics_advert_path(ad),:remote=>true %></li>
      <% end %>
        <li>  <%= link_to t("adverts.index.edit"), edit_advert_path(ad) %></li>
        <% end %>
-         <% unless ad.activated || ad.destroyed? || ad.unfinished? %>
-        <li>  <%= link_to t("adverts.index.preview"), preview_advert_path(ad) %></li>
-        <% end %>
+        
        <% unless ad.unfinished? || ad.destroyed? %>
+       
         <li> 
           <% if ad.activated %>
+	  
           <%= link_to t("adverts.index.deactivate"), deactivate_advert_path(ad),  data: { confirm: t("adverts.index.deactivate_sure") },:remote=>true,:class=>"_link" %>
           <% else %>
 

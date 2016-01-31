@@ -65,7 +65,7 @@
     <%= f.text_field :wrecked_details,placeholder: t("adverts.details.add_details")  %>
     <%= f.check_box :exchange,label: t("adverts.details.exchange") %>
     <%= f.text_field :exchange_details,:placeholder=>t("adverts.details.add_details") %>
-  
+    <%= f.hidden_field :current_step,:value=> @action %> 
     
   </div>
 </div>

@@ -2,12 +2,16 @@
 <div class="well" style="margin-top:10px;">
  <div class="row-fluid">
   <div class="span12">
-   <h4><%= t("vehicles.show.contact_#{@user.is_dealer ? 'dealer' : 'private_seller'}")  %></h4>
+      <% if @user.is_dealer %>
+	     <%= image_tag @user.dealer_picture.file_url(:original),:style=>"margin-bottom:10px;" if @user.dealer_picture %>
+        <h4><%= link_to @user.company_name, dealer_path(@user.dealer_name) %></h4>
+		 <% else %>
+		 <h4>Seller's details</h4>
+		 <% end %>
+  
 
     <address>
       <% if @user.is_dealer %>
-     
-        <strong><%= @user.company_name %></strong><br>
           <%= @user.address1 %><br>
             <% if @user.address2.present? %>
               <%= @user.address2 %><br>
@@ -15,10 +19,19 @@
               <%= "#{@user.state.name}, #{@user.postal_code}" %><br>
                 <%= "#{@user.country.name}, #{@user.city.name}" %><br><br>
                   <% end %>
-                  <%= @user.name %><br>
+                   <strong><%= @user.name %></strong><br>
                    <span id="phone_numbers"><%= secret_phone(@user) %></span>
                   </address>
-                   <%= image_tag @user.dealer_picture.file_url(:original) if @user.dealer_picture %>
+				   <% if @user.is_dealer %>
+				   	<%= link_to ("<i class='icon-search'></i>  View Inventory").html_safe,dealer_path(@user.dealer_name) %><br>
+     				 <% if @user.webpage.present? %>
+     				<%= link_to ("<i class='icon-globe'></i> Visit Website").html_safe,http_url(@user.webpage),:target=>"_blank"  %><br>
+     				 <% end %>
+  				<%= link_to ("<i class='icon-map-marker'></i>  Map & Directions").html_safe,"http://maps.google.com/?q=#{@user.full_address}",:target=>"_blank"%>
+  			
+				  
+				  <% end %>
+                 
   </div>
   </div>
 
@@ -26,7 +39,7 @@
               
                    
                
-     
+     <!--
       <% if @user.is_dealer %>
                   <div class="row-fluid" style="margin-top:20px;">
 
@@ -38,6 +51,7 @@
 </div>
 </div>
 <% end %>
+		 -->
        <% if @user.email.present? && mode=="show" %>
        <%= render "users/contactModal",:user=>@user %>
          

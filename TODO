@@ -1,21 +1,60 @@
+- resque and mysql2 not working, check
+- save all the emails to database
+- what if after saved search, amount of results increases more, make not possible to save
+- create new copyright image
+- check scenario when counting new adverts for alert is less than saved adverts
+- mail texts
+- https://silktide.com/tools/cookie-consent/
+- https://www.niklausgerber.com/blog/preloadme-a-lightweight-jquery-website-preloader
+- check for alert functionality again
+- reset for each field
+- check all resque mails, not working
+- when you delete all adverts on the page, the page stays blank and no more pagination links
+- check all modal messages
+- messages in modals are not disappearing
+- when you use paid services dont forget to change terms and conditions: http://www.carzone.ie/index.cfm?fuseaction=TermsConditions
+- paid service if you do not want to save price update
+- manage better authentications check screenshot on desktop
+- what to do with deleted vehicles?? what about history to look for previously sold vehicles for instant market value
+- View matching dealer cars for private car on show page, how many people recently viewed see carsales.com.au
+- def generate_keywords????? in vehicle.rb
+- DealerDirect feature check carsales.com.au
+- add owner reviews on show adverts page like on carsales.com.au
+- owner review after cancelling advert check carsales.com.au
+- emails after cancelling or restoring advert check emails
+- view inventory for vehicle if dealer see cargurus.com
+- 9 watching, 12 inquiries for every ad like on ebay.co.uk
+- dealer reviews and other features see cargurus.com
+- Email me price drops and new listings for my search see cargurus.com
+- review and activate make similar to carsales.com.au, check also autotrader.co.uk
+- Sergei, your vehicle is getting noticed. See how many people viewed your advert on Webauto. (check LinkedIn)
+- html in dashboard and saved_items similar, make templates
+- reputation and rank system like on cargurus.com
+- in saved items show also how many people saved this vehicle
+ recheck signup and login with google facebook, check desktop screenshot
+- people also viewed not working - remove
+- google map does not view address
+- ad performance -> https://help.carsales.com.au/hc/en-gb/articles/206402915-Ad-Performance
+- more like this https://github.com/sunspot/sunspot#readme
+- Error ActiveRecord::RecordNotFound in CarsController#show make nicer
 - create/translate page titles
 - record  only unique sessions and ip addressess; for returning visitors use same ip or user_id and different sessions 
-- delete all unneccessary links and views
-- remove possibility to delete and restore adverts, if deleted keep only picture and name
-- check statistics link, not opening
+
+
+
 - check what happens if goes to recently_view vehicle, should it be in the viewed vehicles list
 - translate omniauth errors
 - what to do with orders, services and line_items controllers??
 - maybe add all configuration to application.yml, like max_saves etc.
 - update watermark
 
-- add change password possibility in profile (maybe in modal)???
+
 - write proper text in flash alerts and page titles
 - reposition spinner
 - popular searches page (http://www.cargurus.com/Cars/forsale), about and contact
-- resend instructions not working or remove this link
 
-- reset password and resend instructions form no validation errors?
+
+
 - write proper email texts
 
 - translate registration form
@@ -23,7 +62,7 @@
 - preloader for advert edit continue button
 - translate validations and controllers, make client side validations
 - before_filter :get_current_type,:get_compared_items in application controller write except
-- how many people have saved this vehicle
+
 
 
 - later check if impressions with different sessions, check amount of time last between sessions for robots or faking clicks
@@ -33,7 +72,7 @@
 - photo descriptions and background photo (like in za rulem magazine)
 - possibility to upload service/maintenance cheques
 
-- if dealer car, show more from this dealer
+
 
 - Featured Dealerships, dealer sorting by name  check carsales.com.au
 

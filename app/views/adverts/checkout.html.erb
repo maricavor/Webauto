@@ -4,20 +4,171 @@
     <%= render 'adverts/partials/breadcrumb',:step=>@action %>
     <div class="page-header">
       <h2>
-        Please confirm ad #<%= @advert.uid %></h2>
+        Please confirm AD# <%= @advert.uid %></h2>
     </div>
    
   </div>
 </div>
-
-
+		  
+	
+		   
+		  <div class="row-fluid">
+		  <div class="span8">
+	  		  <div class="row-fluid">
+	  		  <div class="span12">
+				  	<%= render 'adverts/partials/status',ad: @advert %> 
+				    </div>
+				  </div>
+			  <%= spec_title(t("vehicles.show.vehicle_details")) %>
 <div class="row-fluid">
-  	  <div class="span12">
-  	  	<%= render 'orders/order' %>
+  	  <div class="span6">
+		 
+    <table class="table table-striped borderless">
+      <tbody>
+    <tr>
+      <td><%= t("vehicles.show.make") %></td>
+      <td class="right"><%= spec(@vehicle.make_name) %></td>
+    </tr>
+        <tr>
+          <td><%= t("vehicles.show.bodystyle") %></td>
+          <td class="right"><%= spec(@vehicle.bodytype_str) %></td>
+        </tr>
+        <tr >
+          <td><%= t("vehicles.show.series") %></td>
+          <td class="right"><%= spec(@vehicle.series) %></td>
+        </tr>
+        <tr >
+          <td><%= t("vehicles.show.badge") %></td>
+          <td class="right"><%= spec(@vehicle.badge) %></td>
+        </tr>
+        <tr >
+          <td><%= t("vehicles.show.drivetype") %></td>
+          <td class="right"><%= spec(@vehicle.drivetype)  %></td>
+        </tr>
+        <tr >
+          <td><%= t("vehicles.show.colour") %></td>
+          <td class="right"><%= spec(@vehicle.colour) %> <%= spec("(#{@vehicle.specific_colour})") if @vehicle.specific_colour.present? %></td>
+        </tr>
+     
+        <tr >
+          <td><%= t("vehicles.show.location") %></td>
+          <td class="right"><%= spec(@vehicle.location) %></td>
+        </tr>
+       
+           <tr >
+          <td><%= t("vehicles.show.reg_plate") %></td>
+          <td id="reg_plate" class="right"><%= spec(@vehicle.reg_nr) %></td>
+        </tr>
+       
+      </tbody>
+    </table>
       
   
 </div>
+ <div class="span6">
+	 
+     <table class="table table-striped borderless">
+       <tbody>
+     <tr>
+       <td><%= t("vehicles.show.model") %></td>
+       <td class="right"><%= spec(@vehicle.model_name) %></td>
+     </tr>
+         <tr>
+           <td><%= t("vehicles.show.initial_reg") %></td>
+           <td class="right"><%= spec(@vehicle.registered_at) %></td>
+         </tr>
+         <tr >
+           <td><%= t("vehicles.show.engine") %></td>
+           <td class="right"><strong>
+             <%= "#{@vehicle.fueltype}" if @vehicle.fueltype %>
+             <%= "#{@vehicle.engine_size} L (#{@vehicle.engine_power} kW)" if @vehicle.engine_size.present?  %></strong></td>
+         </tr>
+         <tr >
+           <td><%= t("vehicles.show.kilometres") %></td>
+           <td class="right"><%= spec(@vehicle.odometer_str) %></td>
+         </tr>
+         <tr >
+           <td><%= t("vehicles.show.transmission") %></td>
+           <td class="right">
+             <%= spec(@vehicle.transmission_str) %></td>
+         </tr>
+       
+         <tr >
+           <td><%= t("vehicles.show.brought_from") %></td>
+           <td class="right"><%= spec(@vehicle.origin_str)  %></td>
+         </tr>
+         <tr>
+           <td><%= t("vehicles.show.price") %></td>
+           <td class="right"><%= spec(currency(@vehicle.price))  %></td>
+         </tr>
+      
+          <tr >
+           <td><%= t("vehicles.show.vin") %></td>
+           <td id="vin" class="right"><%= spec(@vehicle.vin) %></td>
+  
+         </tr>
+        
+       </tbody>
+     </table>
+	 </div>
+	  </div>
+	  <%= spec_title(t("vehicles.show.comments")) %>
+	  <div class="row-fluid">
+	    	  <div class="span12">
+	  <%= @vehicle.description %>
+ 	 </div>
+ 	  </div>
+ 	  <%= spec_title(t("adverts.checkout.seller_details")) %>
+ 	  <div class="row-fluid">
+			  <div class="row-fluid">
+			    	  <div class="span6">
+		  
+			      <table class="table table-striped borderless">
+			        <tbody>
+			      <tr>
+			        <td><%= t("adverts.contact.name") %></td>
+			        <td class="right"><%= spec(@advert.user.name) %></td>
+			      </tr>
+			          <tr>
+			            <td><%= t("adverts.contact.email") %></td>
+			            <td class="right"><%= spec(@advert.user.email) %></td>
+			          </tr>
+			          
+       
+			        </tbody>
+			      </table>
+      
+  
+			  </div>
+			   <div class="span6">
+	 
+			       <table class="table table-striped borderless">
+			         <tbody>
+			       <tr>
+			         <td><%= t("adverts.contact.primary_number")%></td>
+			         <td class="right"><%= spec(@advert.user.primary_phone) %></td>
+			       </tr>
+			           <tr>
+			             <td><%= t("adverts.contact.secondary_number") %></td>
+			             <td class="right"><%= spec(@advert.user.secondary_phone) %></td>
+			           </tr>
+			          
+        
+			         </tbody>
+			       </table>
+			  	 </div>
+			  	  </div>
+  	  </div>
+	  </div>
+  	  <div class="span4">
+
+         
+        	<%= render 'orders/order' %>
+  
 </div>
+</div>
+		 
+
 <div class="row-fluid">
       <div class="span12">
 

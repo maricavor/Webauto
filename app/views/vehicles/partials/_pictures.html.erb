@@ -2,7 +2,7 @@
 <div class="row-fluid" >
   <div class="span12">
     <% if first %>
-      <%= link_to image_tag(first.file_url(:thumb)), first.file_url(:original), :data => {:gallery => 'gallery'}, :title => t("vehicles.show.images")+t("vehicles.show.a_of_b",:a=>"1",:b=>@pictures.size.to_s), :class=>"thumbnail" %>
+      <%= link_to image_tag(first.file_url(:original)), first.file_url(:original), :data => {:gallery => 'gallery'}, :title => t("vehicles.show.images")+t("vehicles.show.a_of_b",:a=>"1",:b=>@pictures.size.to_s), :class=>"thumbnail" %>
     <% else %>
       <%= image_tag "/thumbnail_big.png", :class=>"thumbnail" %>
     <% end %>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+</head>
+<body>
+<p>Dear <%= @user.name %>,
+</p>
+
+<p>
+  We've found <%= @adverts.size %>  new adverts matching your search. Good cars sell quickly, so check them now if you're looking to
+  buy. To view the searches, click on the 'run search' button. You can edit or cancel your saved searches by visiting <%=link_to "saved searches", searches_url %>.
+</p>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>DESCRIPTION</th>
+    <th>PRICE</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @adverts.last(40).each do |ad_id| %>
+   <% ad=Advert.find(ad_id) %>
+ 
+    <% vehicle=ad.vehicle %>
+          <% picture=vehicle.pictures.first %>
+          <% type=vehicle.type.name %>
+      <tr>
+        <td>
+
+          
+          <% if picture %>
+
+              <%= link_to image_tag("http://webauto-webauto.rhcloud.com"+picture.file_url(:thumb)), url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: vehicle,only_path: false) %>
+          <% else %>
+              <%= image_tag "http://webauto-webauto.rhcloud.com/thumbnail.png", size: "300x200" %>
+          <% end %>
+
+
+          <strong>
+            <%= link_to vehicle.name, url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: vehicle,only_path: false) %>
+          </strong>
+
+        </td>
+        <td><span><strong><%= currency(vehicle.price) %></strong></span></td>
+
+
+      </tr>
+       
+    
+  <% end %>
+  </tbody>
+</table>
+</body>
+</html>
