@@ -1,4 +1,4 @@
-- resque and mysql2 not working, check
+- change store dir in image uploader for production
 - save all the emails to database
 - what if after saved search, amount of results increases more, make not possible to save
 - create new copyright image
