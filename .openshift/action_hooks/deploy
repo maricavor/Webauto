@@ -40,14 +40,14 @@ fi
 
 
 pushd ${OPENSHIFT_REPO_DIR} > /dev/null
-
 rm -rf $OPENSHIFT_REPO_DIR/uploads
+rm -rf $OPENSHIFT_REPO_DIR/public/uploads
 echo ".............pre_build............creating symlinks................."
 if [ ! -d "$OPENSHIFT_DATA_DIR/uploads" ]; then
     mkdir $OPENSHIFT_DATA_DIR/uploads
     echo directory made.
 fi
-ln -sf $OPENSHIFT_DATA_DIR/uploads $OPENSHIFT_REPO_DIR/uploads
+ln -sf $OPENSHIFT_DATA_DIR/uploads $OPENSHIFT_REPO_DIR/public/uploads
 echo ".................creating symlinks completed........................"
 
 
