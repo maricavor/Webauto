@@ -41,7 +41,7 @@
 - record  only unique sessions and ip addressess; for returning visitors use same ip or user_id and different sessions 
 
 
-
+- http://yuan3y.com/2014/10/setting-up-an-upload-folder-in-openshift/
 - check what happens if goes to recently_view vehicle, should it be in the viewed vehicles list
 - translate omniauth errors
 - what to do with orders, services and line_items controllers??

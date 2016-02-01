@@ -41,16 +41,28 @@ fi
 
 pushd ${OPENSHIFT_REPO_DIR} > /dev/null
 
-echo "Change directory to ${OPENSHIFT_REPO_DIR}public"
+rm -rf $OPENSHIFT_REPO_DIR/uploads
+echo ".............pre_build............creating symlinks................."
+if [ ! -d "$OPENSHIFT_DATA_DIR/uploads" ]; then
+    mkdir $OPENSHIFT_DATA_DIR/uploads
+    echo directory made.
+fi
+ln -sf $OPENSHIFT_DATA_DIR/uploads $OPENSHIFT_REPO_DIR/uploads
+echo ".................creating symlinks completed........................"
 
-cd ${OPENSHIFT_REPO_DIR}
 
-cd public
+#echo "Change directory to ${OPENSHIFT_REPO_DIR}public"
 
-echo "Creating soft link to ${OPENSHIFT_DATA_DIR}uploads"
+#cd ${OPENSHIFT_REPO_DIR}
 
-ln -s ${OPENSHIFT_DATA_DIR}uploads uploads
+#cd public
 
-echo "exec rake db:migrate RAILS_ENV=${RAILS_ENV:-production}"
-ruby_with_nodejs_context "bundle exec rake db:migrate RAILS_ENV=${RAILS_ENV:-production}"
+#echo "Creating soft link to ${OPENSHIFT_DATA_DIR}uploads"
+
+
+
+#ln -s ${OPENSHIFT_DATA_DIR}uploads uploads
+
+#echo "exec rake db:migrate RAILS_ENV=${RAILS_ENV:-production}"
+#ruby_with_nodejs_context "bundle exec rake db:migrate RAILS_ENV=${RAILS_ENV:-production}"
 popd > /dev/null
