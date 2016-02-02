@@ -97,7 +97,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 			  					        <td height="20">&nbsp;</td>
 			  					        </tr>
 					                  <tr>
-					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">We've found these new adverts matching your search. Good cars sell quickly, so check them now if you're looking to buy. To view the searches, click on the 'run search' button. You can edit or cancel your saved searches by visiting <a style="font-family:Helvetica, Arial, sans-serif; color:#1f68bc" color="#1f68bc" href="http://localhost:3000/en/searches"><span style="color:#1f68bc">saved searches</span></a>.</td>
+					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">We've found these new adverts matching your search. Good cars sell quickly, so check them now if you're looking to buy. To view the searches, click on the 'run search' button. You can edit or cancel your saved searches by visiting <a style="font-family:Helvetica, Arial, sans-serif; color:#1f68bc" color="#1f68bc" href="http://www.webauto.ee/en/searches"><span style="color:#1f68bc">saved searches</span></a>.</td>
 					                    </tr>
 					                  </tbody>
 					                </table>
@@ -172,7 +172,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					                  <tr>
 					                    <td valign="top">
 											<% if picture %>
-<%= link_to image_tag("http://webauto-webauto.rhcloud.com"+picture.file_url(:thumb),:border=>"0", :style=>"display:block; border:1px solid #3eaaca"), url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: v,only_path: false) %>
+<%= link_to image_tag("http://www.webauto.ee"+picture.file_url(:thumb),:border=>"0", :style=>"display:block; border:1px solid #3eaaca"), url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: v,only_path: false) %>
 											<% else %>
 <%= image_tag "/thumbnail.png",size: "300x200"  %>
 											<% end %>
@@ -284,7 +284,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 			          </tr>
 			        <tr>
 			          <td valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">You received this email because you are a registered user and have activated an alert with Webauto.ee.
-If you no longer want to receive these emails, please switch off your alerts <a href="http://localhost:3000/en/searches">here</a>. </td>
+If you no longer want to receive these emails, please switch off your alerts <a href="http://www.webauto.ee/en/searches">here</a>. </td>
 			          </tr>
 			        <tr>
 			          <td valign="top">&nbsp;</td>

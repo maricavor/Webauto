@@ -5,13 +5,15 @@
   </head>
   <body>
     <p style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">
-      Hello, <% @user.name %>!
+      Hello,
     </p>
     <p style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">
-      <%= @comment.user.name %>
-      has just added comment to
+      <%= @comment.user.name %> has just added comment to
       <%= @comment.vehicle.make_model %>
       vehicle. He wrote:</p>
     <blockquote><%= @comment.text %></blockquote>
+	<p>Webauto.ee Team</p>
+
+<p>This message was sent from a notification-only email address that does not accept incoming email. Please do not reply to this message.</p>
   </body>
 </html>
