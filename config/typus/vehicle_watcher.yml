@@ -1,8 +1,8 @@
 # Use the README file as a reference to customize settings.
 
-Drivetype:
+VehicleWatcher:
   fields:
-    default: to_label
-    form: 
-  relationships: vehicles
+    default: user_id, vehicle_id
+    form: user_id, vehicle_id
+  relationships: 
   application: Application

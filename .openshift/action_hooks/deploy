@@ -40,7 +40,7 @@ fi
 
 
 pushd ${OPENSHIFT_REPO_DIR} > /dev/null
-rm -rf $OPENSHIFT_REPO_DIR/uploads
+
 rm -rf $OPENSHIFT_REPO_DIR/public/uploads
 echo ".............pre_build............creating symlinks................."
 if [ ! -d "$OPENSHIFT_DATA_DIR/uploads" ]; then

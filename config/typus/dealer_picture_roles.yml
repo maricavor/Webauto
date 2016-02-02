@@ -1,4 +1,4 @@
 # Use the README file as a reference to customize settings.
 
 admin:
-  Drivetype: create, read, update, delete
+  DealerPicture: create, read, update, delete

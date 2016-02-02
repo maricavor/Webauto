@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+Authentication:
+  fields:
+    default: user_id, provider, uid
+    form: user_id, provider, uid
+  relationships: 
+  application: Application
