@@ -22,7 +22,7 @@ en:
     register: Sign up
     language: Language
     social_networks: Social networks
-    social_networks_text: "Connect with us on Facebook and Twitter"
+    social_networks_text: "Connect with us on Facebook"
     terms: "Terms of Use"
     privacy: Privacy
     contact: Contact Us

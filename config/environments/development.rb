@@ -14,7 +14,7 @@ Webauto::Application.configure do
   config.action_controller.perform_caching = true
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => '127.0.0.1:3000' }
+  config.action_mailer.default_url_options = { :host => 'webauto.ee' }
   config.action_mailer.delivery_method = :smtp
   #config.action_mailer.asset_host = "http://localhost:3000"
   # change to true to allow email to be sent during development
@@ -23,13 +23,13 @@ Webauto::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "example.com",
+    address: "mail.veebimajutus.ee",
+    port: 2525,
+    domain: "webauto.ee",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: "info@webauto.ee",
+    password: "Zxp2zl"
   }
 
 

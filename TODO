@@ -1,5 +1,7 @@
 - in search selection fields put others in the end
+
 - save all the emails to database
+- https://www.phpjabbers.com/auto-classifieds-script/
 - what if after saved search, amount of results increases more, make not possible to save
 - create new copyright image
 - check scenario when counting new adverts for alert is less than saved adverts

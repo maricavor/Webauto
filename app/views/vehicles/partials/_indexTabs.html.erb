@@ -1,20 +1,28 @@
 <ul id="indexTab" class="nav nav-tabs">
-  <li  class="active"><a href="#popular" data-toggle="tab"><%= t("index.most_popular") %></a></li>
+	  <li class="active"><a href="#recent" data-toggle="tab"><%= t("index.recently_added") %></a></li>
  
-  <li><a href="#recent" data-toggle="tab"><%= t("index.recently_added") %></a></li>
+ 
+
   <li><a href="#viewed" data-toggle="tab"><%= t("index.recently_viewed") %></a></li>
+   <li ><a href="#popular" data-toggle="tab"><%= t("index.most_popular") %></a></li>
 </ul>
 <div id="myIndexTabContent" class="tab-content">
-  <div class="tab-pane fade in active" id="popular">
-    <%= render 'vehicles/partials/adverts',adverts: @popular_adverts,:version=>"small" %>
-   <div class="text-right"><small><%= link_to t("index.view_all"),popular_searches_path %></small></div>
-  </div>
+    <div class="tab-pane fade in active" id="recent">
+      <%= render 'vehicles/partials/adverts',adverts: @recent_adverts,:version=>"small"%>
+     <% if @recent_adverts.size>=12 %> 
+	<div class="text-right"><small><%= link_to t("index.view_all"),new_search_path(:search=>"all")%></small></div>
+	<% end %> 
+    </div>
   
-  <div class="tab-pane fade" id="recent">
-    <%= render 'vehicles/partials/adverts',adverts: @recent_adverts,:version=>"small"%>
-  <div class="text-right"><small><%= link_to t("index.view_all"),new_search_path(:search=>"all")%></small></div>
-  </div>
+  
+  
   <div class="tab-pane fade" id="viewed">
     <%= render 'vehicles/partials/vehicles',vehicles: @viewed_vehicles,:version=>"small" %>
+  </div>
+  <div class="tab-pane fade" id="popular">
+    <%= render 'vehicles/partials/adverts',adverts: @popular_adverts,:version=>"small" %>
+   <% if @popular_adverts.size>=12 %> 
+   <div class="text-right"><small><%= link_to t("index.view_all"),popular_searches_path %></small></div>
+   <% end %> 
   </div>
 </div>

@@ -286,8 +286,8 @@ self.next_service_km.present? ? "#{self.next_service_km} km" : ""
   def price_diff
     value=0
     pc=self.price_changes
-    first_value=pc.first.value
     if pc.size > 1
+    first_value=pc.first.value
     last_value=pc.last.value
     if last_value<first_value
     value = (Float(first_value - last_value) / first_value * 100).ceil

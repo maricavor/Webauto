@@ -1,6 +1,6 @@
 
 class Notifier < ActionMailer::Base
-  default from: "sergeit6@gmail.com"
+  default from: "info@webauto.ee"
 
   add_template_helper(ApplicationHelper)
   def comment_updated(comment, user)

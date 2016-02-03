@@ -1,6 +1,6 @@
 class AdvertsController < ApplicationController
   helper_method :sort_column, :sort_direction
-  skip_before_filter :get_current_type,:get_compared_items, :only=>[:statistics,:restore,:activate,:deactivate,:destroy,:update]
+  skip_before_filter :get_current_type,:get_compared_items, :only=>[:statistics,:restore,:activate,:deactivate,:destroy]
   before_filter :authenticate_user!, :except=>[:show_secondary_phone,:show_primary_phone]
   before_filter :find_advert, :only => [:really_destroy,:edit,:statistics,:update,:restore,:details,:destroy,:features,:photos,:contact,:show,:preview,:checkout,:activate,:deactivate]
   before_filter :only=>[:new,:create,:edit] do |controller|

@@ -11,6 +11,7 @@
 <%= f.hidden_field :user_id,value: current_user.id %>
 <%= f.hidden_field :ad_type,value: @ad_type %>
 <%= f.hidden_field :basics_saved,value: true %>
+<%= f.hidden_field :type_id,value: @current_type.id %>
   <div class="row-fluid">
   <%= f.fields_for :vehicle do |vehicle_fields| %>
   

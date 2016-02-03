@@ -1,6 +1,6 @@
 class VehicleObserver < ActiveRecord::Observer
   def after_update(vehicle)
-    update_price_and_inform(vehicle) #if vehicle.advert.contact_saved
+    update_price_and_inform(vehicle) if vehicle.price_changed?
   end
   def after_create(vehicle)
     unless vehicle.advert_id.nil?
