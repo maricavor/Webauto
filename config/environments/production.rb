@@ -61,7 +61,7 @@ Webauto::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => 'webauto-webauto.rhcloud.com' }
+  config.action_mailer.default_url_options = { :host => 'www.webauto.ee' }
   # ActionMailer Config
   # Setup for production - deliveries, no errors raised
   config.action_mailer.delivery_method = :smtp
@@ -70,13 +70,13 @@ Webauto::Application.configure do
   config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
-    address: "smtp.gmail.com",
-    port: 587,
-    domain: "webauto-webauto.rhcloud.com",
+    address: "mail.veebimajutus.ee",
+    port: 2525,
+    domain: "webauto.ee",
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: ENV["GMAIL_USERNAME"],
-    password: ENV["GMAIL_PASSWORD"]
+    user_name: "info@webauto.ee",
+    password: "Zxp2zl"
   }
 
 

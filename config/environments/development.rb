@@ -14,7 +14,7 @@ Webauto::Application.configure do
   config.action_controller.perform_caching = true
 
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'webauto.ee' }
+  config.action_mailer.default_url_options = { :host => 'www.webauto.ee' }
   config.action_mailer.delivery_method = :smtp
   #config.action_mailer.asset_host = "http://localhost:3000"
   # change to true to allow email to be sent during development
