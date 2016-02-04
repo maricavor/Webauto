@@ -416,7 +416,7 @@ end
       pic.position = params["pic"].index(pic.id.to_s)+1
       pic.save!
     end
-    flash[:notice] =  t("vehicles.photos_resorted") + params["pic"].to_s
+    flash[:notice] =  t("vehicles.photos_resorted")# + params["pic"].to_s
     flash.discard
     #render :nothing => true
   end
