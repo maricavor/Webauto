@@ -12,6 +12,7 @@
 - reset for each field
 - check all resque mails, not working
 - when you delete all adverts on the page, the page stays blank and no more pagination links
+- http://thinkautos.co.uk/sign_up
 - check all modal messages
 - messages in modals are not disappearing
 - when you use paid services dont forget to change terms and conditions: http://www.carzone.ie/index.cfm?fuseaction=TermsConditions

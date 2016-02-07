@@ -6,7 +6,7 @@
       <% if active=="searches" %><li class="active"><% else %><li><% end %><%= link_to ('<i class="icon-search"></i> '+t("navigation.saved_searches")).html_safe, searches_url %></li>
         <% if active=="items" %><li class="active"><% else %><li><% end %><%= link_to ('<i class="icon-star"></i> '+t("navigation.saved_items")).html_safe, saved_items_url %></li>
           <li class="nav-header"><%= t("navigation.sell") %></li>
-          <li><%= link_to ('<i class="icon-plus-sign"></i> '+t("navigation.create_ad")).html_safe, new_advert_path %></li>
+          <li><%= link_to ('<i class="icon-plus-sign"></i> '+t("navigation.create_ad")).html_safe, create_ad_path %></li>
           <% if active=="ads" %><li class="active"><% else %><li><% end %><%= link_to ('<i class="icon-pencil"></i> '+t("navigation.my_ads")).html_safe, adverts_url %></li>
             <li class="divider"></li>
             <% if active=="profile" %><li class="active"><% else %><li><% end %><%= link_to ('<i class="icon-user"></i> '+t("navigation.profile")).html_safe, profile_path %></li>
