@@ -89,7 +89,7 @@ class GarageItemsController < ApplicationController
     @garage_item = current_user.garage_items.find(params[:id])
     @vehicle=@garage_item.vehicle
     @garage_item.destroy
-    unless vehicle.advert
+    unless @vehicle.advert
     if @vehicle.pictures.size>0
     @picture=@vehicle.pictures.first
     @picture.destroy
