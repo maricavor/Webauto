@@ -4,5 +4,6 @@ CarrierWave.configure do |config|
     config.enable_processing = true
     config.root = ENV['OPENSHIFT_DATA_DIR']
     config.cache_dir = config.root + 'uploads'
+
   end    
 end

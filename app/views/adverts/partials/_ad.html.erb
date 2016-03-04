@@ -29,9 +29,13 @@
         <td><%= currency(v.price) %></td>
         <td class="muted">
 			 <ul class="unstyled">
+				 <% if ad.destroyed? %>
+	             <li><small><strong class="text-error"><%= t("adverts.index.closed") %></strong>
+	               <%= v.deleted_at.strftime("%d/%m/%Y") %></small></li>
+				   <% else %>
           <li><small><strong class="text-success"><%= t("adverts.index.created") %></strong>
             <%= v.created_at.strftime("%d/%m/%Y") %></small></li>
-        
+        <% end %>
 	  </ul>
 	  </td>
         <td>
@@ -84,7 +88,8 @@
          
           <% else %>
            <li>
-          <%= link_to t("adverts.index.remove"), ad, method: :delete, data: { confirm: t("adverts.index.remove_sure") },:remote=>true,:class=>"delete_link" %>
+			
+          <%= link_to t("adverts.index.remove"), remove_advert_path(ad),:remote=>true %>
 
            </li>
       

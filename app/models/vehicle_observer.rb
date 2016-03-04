@@ -1,11 +1,20 @@
 class VehicleObserver < ActiveRecord::Observer
   def after_update(vehicle)
     update_price_and_inform(vehicle) if vehicle.price_changed?
+   
   end
   def after_create(vehicle)
+    
     unless vehicle.advert_id.nil?
-    vehicle.watchers << vehicle.user
+    vehicle.watchers << vehicle.user 
+    
+    end
+   
   end
+  def after_save(vehicle)
+   
+    update_make_model(vehicle)
+ 
   end
 
   private
@@ -22,6 +31,11 @@ class VehicleObserver < ActiveRecord::Observer
     end
   end
 
-  
+  def update_make_model(v)
+    make_model=v.make_name+" "+v.model_name
+    v.update_column(:make_model,make_model) 
+    v.update_column(:model_spec,nil) if v.model_id!=0
+    v.advert.update_column(:make_model,make_model) if v.advert
+  end
 
 end

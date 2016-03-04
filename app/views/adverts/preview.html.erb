@@ -64,10 +64,12 @@ NB! This is a preview of your advert #<%= @advert.uid  %>.
 <%= link_to 'Edit', edit_advert_path(@vehicle.advert),:class=> "btn btn-block" %>
 </div>
  <div class="span6">
-<%= link_to 'Remove Ad', @vehicle.advert, method: :delete, data: { confirm: 'Are you sure?' },:class=>"btn btn-danger btn-block" %>
+
+<%= link_to 'Remove Ad', remove_advert_path(@vehicle.advert),:remote=>true,:class=>"btn btn-danger btn-block" %>
 </div>
 </div>
     </div>
+	<div id="removeModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="removeModalLabel" aria-hidden="true"></div>
   <% end %>  
   </div>
   <div class="span7">

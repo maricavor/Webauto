@@ -1,0 +1,112 @@
+ <% if @garage_items.size>0 %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th></th>
+          <th><%=t("garage_items.index.description") %></th>
+          <th><%=t("garage_items.index.activity") %></th>
+          <th><%=t("garage_items.index.actions") %></th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <% @garage_items.each do |g| %>
+        <% vehicle=g.vehicle %>
+	
+         <% if vehicle.pictures.size>0 %>
+ 		 <% picture = vehicle.pictures.first %>
+     
+     
+     <% else %>
+ 		 <% picture = Picture.new %>
+      
+    
+     <% end %>
+      
+        
+          <tr id="garage_item_<%= vehicle.id %>">
+            <td width="150" id="garage_item_<%= vehicle.id %>_picture">
+				<%= render 'garage_items/partials/picture',:vehicle=>vehicle,:picture=>picture %>
+       
+</td>
+
+<td>
+            
+                <strong>
+					 
+               
+                   <%= vehicle.short_name %> 
+                    
+				
+				 
+            </strong>
+			<span class="label label-info" style="margin-left:5px;"><%= g.ownership.downcase %></span>
+	   		   <ul class="unstyled">
+	   		    <li><small><%= vehicle.odometer_str %>  </small></li>
+	     		   <li>
+	     		    <small><%= vehicle.transmission_str %>  </small></li>
+	       		 <li>
+	       		    <small><%= vehicle.fueltype %>  </small></li>
+	   			</ul>
+                
+              
+            </td>
+          
+          
+            <td class="muted">
+              <small><strong class="text-success">Updated</strong>
+                <strong><%= "#{time_ago_in_words(g.updated_at)} ago" %></strong>
+                </small>
+				
+            </td>
+            <td>
+                <div class="btn-group">
+  <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">
+    <%=t("searches.index.actions") %>
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu pull-right">
+	    <li><%= link_to "Update", edit_garage_item_path(g)%></li>
+
+		<li><%= link_to "Add photo", "#",:class=>"garage_item_upload_link",:id=>"garage_item_#{vehicle.id}_upload" %></li>
+     <li>
+		 <% if g.advert %>
+	    <% if vehicle.deleted? %>
+		 <%= link_to "Restore ad", restore_advert_path(g.advert) %>
+		  <% else %>
+		  <% if g.advert.activated %>
+		    <%= link_to "Show advert", car_path(vehicle) %>
+		  <% else %>
+		   <%= link_to "Preview advert", preview_advert_path(g.advert) %>
+		  <% end %>
+		 <% end %>
+		 <% else %>
+ 	    <% if g.ownership_id==1 %>
+ 		 <%= link_to "Sell this car", create_ad_path(g) %>
+ 		 <% end %>
+		 <% end %>
+	 </li>
+	 <li><%= link_to t("searches.index.delete"), g, method: :delete, data: { confirm: t("searches.index.delete_sure") },:remote=>true %></li>
+</ul>
+</div>
+<%= form_for picture,:html => { :multipart => true, :id => "fileupload",:class=>"hidden" }  do  %>
+ 
+  <%= hidden_field :picture,:vehicle_id,:value=>vehicle.id %>
+  <%= hidden_field :picture,:position,:value=>1 %>
+
+ 
+   
+ 
+    <%= file_field_tag :picture, :multiple => false, :name => "picture[file]",:id=>"garage_item_#{vehicle.id}_upload_file_field" %>
+ 
+
+
+<% end %>
+            </td>
+          </tr>
+		    <% end %>
+        
+      </tbody>
+    </table>
+	
+  <% end %>

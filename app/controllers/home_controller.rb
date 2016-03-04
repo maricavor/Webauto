@@ -24,5 +24,16 @@ class HomeController < ApplicationController
   end
   def create_ad
     @title="Sell My Car - Webauto.ee"
+    if params[:id]
+      @garage_item=GarageItem.find(params[:id])
+      if @garage_item.advert
+        respond_to do |format|
+        format.html {
+        redirect_to :back 
+        flash[:alert]="Advert already exists"
+      }
+      end
+    end
+    end
   end
 end

@@ -1,0 +1,12 @@
+
+    <%= f.fields_for :pictures,Picture.new do |pic_builder| -%>
+    <%= pic_builder.hidden_field :position,:value=>100 %>
+    <span id="garage_item_fileinput_button" class="btn btn-success fileinput-button <%= @count>=@max_pictures ? 'hidden' : '' %>">
+      <i class="icon-plus icon-white"></i>
+      <span><%=t("adverts.photos.add_pics") %></span>
+    <%= pic_builder.file_field :file, :multiple => false,:id=> 'upload-image' %>
+    </span>
+		
+  <% end %>
+  
+  

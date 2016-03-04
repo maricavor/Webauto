@@ -1,0 +1,19 @@
+      <div class="thumbnail">          
+      <div class="garage_item_image image">
+        <% if picture.new_record? %>
+   <%= image_tag "/thumbnail.png",size: "300x200" %>
+     
+     
+    <% else %>
+	
+    <%= image_tag(picture.file_url(:thumb))%>
+    
+    <% end %>
+  	<% if vehicle.advert %>
+      <figcaption class="info">
+          <strong> FOR SALE </strong>
+      </figcaption>
+  	 <% end %>
+	   
+  </div>
+    </div>

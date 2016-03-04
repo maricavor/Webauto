@@ -157,7 +157,7 @@ ul.dropdown-menu li {
   color: #5a5a5a;
 }
 ul.sortable_pictures { list-style-type: none; margin: 0; padding: 0;}
-ul.sortable_pictures li {margin: 3px 3px 3px 0; padding: 1px; width: 100px; height: 90px;  text-align: center; }
+#garage_item_pictures li, ul.sortable_pictures li {margin: 3px 3px 3px 0; padding: 1px; width: 100px; height: 90px;  text-align: center; }
 
 #vehicle_reg_nr{
     background:#ffffff url('/number_plate.jpg') no-repeat left top; 
@@ -372,4 +372,3 @@ position: relative;
   bottom: 0;
   right: 0;
 }
-

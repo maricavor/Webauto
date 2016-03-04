@@ -1,3 +1,4 @@
+  <% if @pictures %>
   <%= render @pictures %>
        <% (@max_pictures-@count).times do %>
 <li class="ui-state-default ui-state-disabled"> 
@@ -10,3 +11,4 @@
 
 </li>
        <% end %>
+	     <% end %>

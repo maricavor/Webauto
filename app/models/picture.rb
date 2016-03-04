@@ -2,11 +2,12 @@
 include Magick
 class Picture < ActiveRecord::Base
   #acts_as_paranoid
-  attr_accessible :file, :name, :remote_file_url, :vehicle_id,:position,:created_at,:deleted_at
+  attr_accessible :file, :name, :remote_file_url, :vehicle_id,:position,:created_at,:deleted_at,:file_cache
   belongs_to :vehicle
   mount_uploader :file, ImageUploader
   #validate :validate_max_photos
   #after_save :add_text
+
   def default_name
     self.name ||= File.basename(file.filename, '.*').titleize if file
   end

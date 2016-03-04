@@ -13,7 +13,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
-
+ 
   def delete_original_file(new_file)
     # File.delete path if version_name.blank?
     if self.version_name.nil?
@@ -72,7 +72,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   def watermark
     manipulate! do |img|
       logo = Magick::Image.read("#{Rails.root}/public/watermark.png").first
-      img = img.composite(logo, Magick::SouthEastGravity, 10, 35, Magick::OverCompositeOp)
+      img = img.composite(logo, Magick::SouthEastGravity, 10, 15, Magick::OverCompositeOp)
     end
 
 

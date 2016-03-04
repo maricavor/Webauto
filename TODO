@@ -1,5 +1,14 @@
 - in search selection fields put others in the end
+- delete carrierwave temp folders after upload https://github.com/carrierwaveuploader/carrierwave/wiki/How-to:-Delete-cache-garbage-directories
 
+- show also ad status for garage item
+- owner reviews like on carsales.com.au
+- send email when ad is created , check cargurus email
+- garage item share on facebook button see cargurus.com
+- garage items make public page for user see cargurus.com
+- add Other Makes ike on drive2.ru
+- owner review like on autotrader.co.uk
+- add garage and owner review/rating system
 - save all the emails to database
 - https://www.phpjabbers.com/auto-classifieds-script/
 - what if after saved search, amount of results increases more, make not possible to save

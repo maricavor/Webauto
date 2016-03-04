@@ -11,12 +11,10 @@
         <%= link_to "#{current_user.name}  <i class='icon-user icon-white'></i><b class='caret'></b>".html_safe, "#",:role=>"button",:id=>"drop1",:class=>"dropdown-toggle js-activated", :'data-toggle'=>"dropdown" %>
         <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
           <li role="presentation"><%= link_to t("navigation.dashboard"), dashboard_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
-           <!--<li role="presentation"><%= link_to 'Garage', garage_items_url,:role=>"menuitem",:tabindex=>"-1"  %></li>-->
           <li role="presentation"><%= link_to t("navigation.saved_searches"), searches_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
           <li role="presentation"><%= link_to t("navigation.saved_items"), saved_items_url,:role=>"menuitem",:tabindex=>"-1"  %></li>
-
+          <li role="presentation"><%= link_to t("navigation.garage_items"), garage_items_url,:role=>"menuitem",:tabindex=>"-1"  %></li>
           <li role="presentation"><%= link_to t("navigation.my_ads"), adverts_url,:role=>"menuitem",:tabindex=>"-1"  %></li>
-         
           <li role="presentation"><%= link_to t("navigation.profile"), profile_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
           <li role="presentation"><%= link_to t("navigation.settings"), settings_path ,:role=>"menuitem",:tabindex=>"-1"  %></li>
           <li role="presentation" class="divider"></li>

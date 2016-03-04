@@ -1,7 +1,7 @@
 class Advert < ActiveRecord::Base
   AD_TYPES = [ "free", "standard"]
   acts_as_paranoid
-  attr_accessible :contact_number,:make_model,:status,:email, :activated,:sold, :popularity, :price, :secondary_number, :type, :uid,:vehicle_attributes,:deleted_at,:basics_saved,:details_saved,:features_saved,:photos_saved,:contact_saved,:ad_type,:user_id,:type_id
+  attr_accessible :contact_number,:make_model,:status,:email, :activated,:sold, :popularity, :price, :secondary_number, :type, :uid,:vehicle_attributes,:deleted_at,:basics_saved,:details_saved,:features_saved,:photos_saved,:contact_saved,:ad_type,:user_id,:type_id,:delete_reason_id
   attr_writer :current_step
   has_one :vehicle#,:dependent => :destroy
   has_one :order
@@ -9,9 +9,10 @@ class Advert < ActiveRecord::Base
   belongs_to :user
   accepts_nested_attributes_for :vehicle#, reject_if: :price_invalid
   #validate :vehicle_price_valid, :if=>:contact?
-  before_create :generate_uid,:set_status_and_make_model
-  before_update :set_status_and_make_model
-  after_destroy :deactivate,:check_status_and_inform
+  before_create :generate_uid,:set_status
+  before_update :set_status
+  after_destroy :check_status_and_inform,:deactivate
+  after_create :create_line_items
   #before_destroy :deactivate
   validates :ad_type, inclusion: AD_TYPES,:on => :create
  def vehicle
@@ -77,6 +78,9 @@ end
    end
    return false
   end
+  def delete_reason
+    I18n.t('ad_delete_reasons').find { |d| d["id"]==self.delete_reason_id }["name"] if self.delete_reason_id.present?
+  end
   private
   def vehicle_price_valid
      errors.add(:base,"Price wrong")  unless vehicle.price =~ /\A\d+(?:\.\d{0,2})?\z/
@@ -103,21 +107,19 @@ end
  end
   end
 
-  def set_status_and_make_model
+  def set_status
     #Rails.logger.info "******************set status and make model"
-
-    vehicle=self.vehicle
-    make_model=vehicle.make_name+" "+vehicle.model_name
-    vehicle.make_model=make_model
-    self.make_model=make_model
+  
     
+   
+ 
+    if self.deleted?
+      self.status="cancelled"
+    else
     if self.activated?
       self.status="activated"
     elsif self.unfinished?
-      self.status="unfinished"
-    else
-      if self.deleted?
-        self.status="cancelled"
+      self.status="unfinished" 
       else
       self.status="not_activated"
     end
@@ -127,5 +129,17 @@ end
   def check_status_and_inform
       Resque.enqueue(SoldMailer, self.id)
   end
-
+  def create_line_items
+    if self.ad_type=="free"
+     service=Service.find(2)
+   else
+     service=Service.find(1)
+   end
+     
+     order=self.create_order!
+     order.line_items.create!(service_id: service.id)
+    
+ 
+  
+  end
 end

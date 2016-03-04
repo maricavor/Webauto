@@ -1,50 +1,49 @@
+	 <div class="row-fluid">
+	   <div class="span6">
+	 <%= f.fields_for :garage_item do |builder| -%>
+     <%= builder.hidden_field :user_id,value: current_user.id %>
+	  <%= builder.select :ownership_id,t('ownership').collect {|a| [ a["name"], a["id"] ] },{include_blank: false},{label: "Association"} %>
+   <% end %>
+    </div>
+	 <div class="span6">
+	 </div>
+	 </div>
 <div class="row-fluid">
-  <div class="span4">
+  <div class="span6">
     <%= f.collection_select :bodytype_id, @bodytypes, :id, :name,{include_blank: true}, {label: t("adverts.edit.bodytype")} %>
-   
     <%= f.hidden_field :user_id,value: current_user.id %>
     <%= f.hidden_field :type_id,value: @current_type.id %>
+
     <%= f.select :make_id, @makes.collect {|p| [ p.name, p.id ] },{include_blank: true},{label: t("adverts.edit.mark"),id: "vehicle_make_id"} %>
     <%= f.select :model_id,[],{},{label: t("adverts.edit.model_name"),id: "vehicle_model_id"} %>
       <%= f.text_field :model_spec,id:"model_spec"   %>
   
-   <%= f.text_field :registered_at,label:t("adverts.edit.registered_at"),:type=>"datepicker" %>
+    <%= f.text_field :registered_at,label:t("adverts.edit.registered_at"),:type=>"datepicker" %>
     <%= f.text_field :badge,label: t("adverts.edit.variant") %>
 	 <%= f.text_field :series,label: t("adverts.edit.series") %>
     <%= f.text_field :year,label: t("adverts.edit.year") %>
-    
-    
-   
   </div>
-<div class="span4">
+<div class="span6">
 <%= f.text_field :odometer,label: t("adverts.edit.odometer")  %>
 <%= f.text_field :engine_power,label: t("adverts.edit.power")  %>
     <%= f.text_field :engine_size,label: t("adverts.edit.size")  %>
     <%= f.select :fueltype_id, t('fueltypes').collect {|c| [ c["name"], c["id"] ] },{include_blank: true}, {label: t("adverts.edit.fuel")} %>
-    
+     <%= f.select :transmission_id, t('transmissions').collect {|c| [ c["name"], c["id"] ] },{}, {label: t("adverts.details.transmission")}%>
+  
     <%= f.select :colour_id,t('colours').collect {|c| [ c["name"], c["id"] ] },{include_blank: true},{label: t("adverts.edit.color")} %>
     <%= f.text_field :specific_colour,label: t("adverts.edit.spec_color") %>
     <!--<%= f.check_box :metallic_colour,label: t("adverts.edit.metallic_color") %>-->
     
-    
+      <%= f.hidden_field :current_step,:value=> "edit" %> 
     
     
 </div>
-  <div class="span4">
-    <%= f.check_box :registered,label: t("adverts.edit.registered") %>
-    <p><%= t("adverts.edit.enter_reg") %>
-    </p>
-    <%= f.text_field :reg_nr,id: "vehicle_reg_nr" %>
-    <!--<span class="help-block"><%= t("adverts.edit.nb") %>
-    </span>-->
-    <p><%= t("adverts.edit.provide_vin") %></p>
-    <%= f.text_field :vin,label: t("adverts.edit.vin"), id:"vehicle_vin" %>
-    <!--
-    <p><%= link_to t("adverts.edit.find_details"),"#",:class=>"find_details btn btn-large" if controller.action_name  =="new" %></p>
-    <div class="response" style="margin-bottom:20px;"></div>
--->
-     <p><%= f.check_box :show_reg_nr,label: t("adverts.edit.show_reg_nr") %></p>
-  <%= f.hidden_field :current_step,:value=> @action %> 
-  </div>
+  
 
 </div>
+    
+      
+   
+
+
+

@@ -1,8 +1,8 @@
 class AdvertsController < ApplicationController
   helper_method :sort_column, :sort_direction
-  skip_before_filter :get_current_type,:get_compared_items, :only=>[:statistics,:restore,:activate,:deactivate,:destroy]
+  skip_before_filter :get_current_type,:get_compared_items, :only=>[:statistics,:restore,:activate,:deactivate,:destroy,:remove]
   before_filter :authenticate_user!, :except=>[:show_secondary_phone,:show_primary_phone]
-  before_filter :find_advert, :only => [:really_destroy,:edit,:statistics,:update,:restore,:details,:destroy,:features,:photos,:contact,:show,:preview,:checkout,:activate,:deactivate]
+  before_filter :find_advert, :only => [:really_destroy,:edit,:statistics,:remove,:update,:restore,:details,:destroy,:features,:photos,:contact,:show,:preview,:checkout,:activate,:deactivate]
   before_filter :only=>[:new,:create,:edit] do |controller|
     controller.init_gon(@current_type.id)
   end
@@ -18,11 +18,20 @@ class AdvertsController < ApplicationController
 
   def new
     @title="Sell my car - Webauto.ee"
-    @advert=Advert.new
     @ad_type=params[:ad_type]
     @action="edit"
+    if params[:g_id]
+    garage_item=GarageItem.find(params[:g_id])
+    vehicle=garage_item.vehicle
+    @advert=Advert.create(:user_id=>current_user.id,:ad_type=>@ad_type, :basics_saved=>true,:type_id=>@current_type.id)
+    vehicle.update_column(:advert_id,@advert.id)
+    garage_item.update_column(:advert_id,@advert.id)
+    redirect_to edit_advert_path(@advert) and return
+    else
+    @advert=Advert.new
     @advert.current_step=session[:advert_step]=@action
     @vehicle=@advert.build_vehicle
+  end
     @bodytypes=Bodytype.where(:type_id=>@current_type.id).order(:name)
   
     respond_to do |format|
@@ -41,15 +50,7 @@ class AdvertsController < ApplicationController
     gon.selected={"vehicles"=>[nil,nil,@advert.vehicle.model_id]} 
       respond_to do |format|
      if @advert.save
-       if @advert.ad_type=="free"
-        service=Service.find(2)
-      else
-        service=Service.find(1)
-      end
-        
-        @order=@advert.create_order!
-        @order.line_items.create!(service_id: service.id)
-
+       
         if params[:save_preview]
          session[:advert_step] =  nil
          format.html {
@@ -151,6 +152,9 @@ def update
   option = { width: 960,height:450, :title => t("adverts.statistics.views_title"),chartArea:{left:90,top:50,width:860,height:300},:legend=>{:position=>'none'},:vAxis => {:title => t("adverts.statistics.views"),:maxValue=>max_value,:minValue=>0}, :hAxis => {:slantedText=>true,:slantedTextAngle=>90}  }
   @chart = GoogleVisualr::Interactive::ColumnChart.new(data_table, option)
   end
+  def remove
+    @vehicle=@advert.vehicle
+  end
  def show
    vehicle=@advert.vehicle
    type=vehicle.type.name
@@ -158,14 +162,17 @@ def update
  end
   def restore
     vehicle=@advert.vehicle
+    garage_item=vehicle.garage_item
     respond_to do |format|
     @advert.restore
+    garage_item.update_column(:ownership_id,1) if garage_item
     unless @advert.deleted?
      vehicle.restore(:recursive => true)
      #@advert=Advert.find(id)
  
     #if vehicle.save
       #@advert.activated=false 
+      @advert.delete_reason_id=nil
       @advert.save!#for changing status
       format.html { 
         redirect_to  adverts_url 
@@ -234,14 +241,16 @@ def update
   end
   def really_destroy
     vehicle=@advert.vehicle
+    garage_item=vehicle.garage_item
     history_vehicle=vehicle.dup
     history_vehicle.advert_id=nil
     history_vehicle.id=vehicle.id
+    history_vehicle.deleted_at=nil if garage_item
     if @advert.really_destroy!
       #vehicle.comments.destroy
       #vehicle.price_changes.destroy
       #vehicle.impressions.destroy
-      #vehicle.update_attributes(:advert_id=>nil)
+     garage_item.update_column(:advert_id,nil)
      vehicle.really_destroy!
      VehicleWatcher.where(vehicle_id: history_vehicle.id).delete_all
      history_vehicle.save!
@@ -258,11 +267,14 @@ def update
 
   def destroy
     vehicle=@advert.vehicle
+    garage_item=vehicle.garage_item
     if @advert.destroy
+    @advert.update_column(:delete_reason_id,params[:advert][:delete_reason_id]) if params[:advert]
+    garage_item.update_column(:ownership_id,2) if garage_item
     vehicle.destroy
     respond_to do |format|
       format.html { 
-        redirect_to  adverts_url 
+        redirect_to adverts_url 
         flash[:notice]=t("adverts.ad_cancelled")
       }
       format.js {
@@ -344,7 +356,7 @@ end
     Advert.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   end
    def sort_direction
-      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+      %w[asc desc].include?(params[:direction]) ?  params[:direction] : "desc"
   end
 def find_advert
     @advert=Advert.with_deleted.find_by_uid(params[:id])
@@ -368,8 +380,12 @@ def find_advert
  def modify(params)
 
     if params["vehicle_attributes"]
+      if params["vehicle_attributes"]["model_id"]
       params["vehicle_attributes"]["model_spec"]='' if params["vehicle_attributes"]["model_id"]!="0"
+    end
+    if params["vehicle_attributes"]["state_id"]
       params["vehicle_attributes"]["city_id"]=nil if params["vehicle_attributes"]["state_id"]==""
+    end
       params["type_id"]=params["vehicle_attributes"]["type_id"]
     end
     params

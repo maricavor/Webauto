@@ -11,6 +11,7 @@ jQuery ->
       if file.size<=maxFileSize
         if types.test(file.type) || types.test(file.name) 
           #$('#fileupload').append(data.context)
+          $(".garage_item_image").LoadingOverlay("show")
           data.submit()
         else
           $.ajax
@@ -28,6 +29,7 @@ jQuery ->
     
     done: (e, data) ->
       #data.context.remove()
+      $(".garage_item_image").LoadingOverlay("hide", true)
     start: (e, data) ->
       $('#global_progress .bar').css('width','0%')
       $('#global_progress').show()
@@ -41,3 +43,7 @@ jQuery ->
     progressall: (e, data) ->
       progress = parseInt(data.loaded / data.total * 100, 10)
       $('#global_progress .bar').css('width',progress + '%')
+	
+
+    
+    

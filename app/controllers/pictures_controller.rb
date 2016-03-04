@@ -12,6 +12,7 @@ class PicturesController < ApplicationController
     @pictures=Picture.where(:vehicle_id=>@vehicle.id).order(:position)
     @count=@pictures.count
     @max_pictures=7
+  
     if @count<@max_pictures
     if @picture.save
       @count+=1
@@ -29,11 +30,12 @@ class PicturesController < ApplicationController
   end
   def update
     @picture = Picture.find(params[:id])
+    @vehicle=@picture.vehicle
     if @picture.update_attributes(params[:picture])
-      flash[:notice] = t("pictures.updated")
-      redirect_to @picture.vehicle
+      flash.now[:notice] = t("pictures.updated")
+      
     else
-      render :action => 'edit'
+      flash.now[:alert] = t("pictures.failure") + @picture.errors.full_messages.join(', ')
     end
   end
 
@@ -44,7 +46,8 @@ class PicturesController < ApplicationController
     @pictures=Picture.where(:vehicle_id=>@vehicle.id).order(:position)
     @max_pictures=7
     @count=@pictures.count
-    
+ 
+  
      respond_to do |format|
       format.html { redirect_to :back, :notice => t("pictures.destroyed") }
       format.js {flash.now[:notice] = t("pictures.destroyed") }

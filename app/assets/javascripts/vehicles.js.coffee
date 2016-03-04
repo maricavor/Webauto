@@ -204,6 +204,7 @@ jQuery ->
     $('.datepicker').datepicker({format: 'mm/yyyy',minViewMode: "months", maxViewMode: "years", language: window.locale})
     #$('#search_region').selectpicker('hide')
     $('#advert_vehicle_attributes_registered_at').val(Models.today()) if $('#advert_vehicle_attributes_registered_at').val()==""
+    $('#vehicle_registered_at').val(Models.today()) if $('#vehicle_registered_at').val()==""
     $('.hidden_field').selectpicker('hide')
     $('.hidden_fields').hide()
     $('.less_options').hide()
@@ -322,6 +323,7 @@ jQuery ->
     true
   $('#vehicle_make_id').change ->
     Models.init(grouped_models,$('#vehicle_make_id option').filter(':selected'))
+    Models.show_model_spec(false,$('#vehicle_model_id option').filter(':selected').val())
   $(document).on 'change',".make_select", (event) ->
     id = $(this).attr('id').match(/\d+/)
     Models.init_search(grouped_models,$('#search_fields_attributes_'+id+'_make_name option').filter(':selected'),$('#search_fields_attributes_'+id+'_model_name'))
@@ -628,15 +630,19 @@ jQuery ->
   $(document).on 'click',".user_contact_btn", (event) ->
     $('form#user_contact').trigger('submit.rails')
     true 
+  $(document).on 'click',".ad_delete_btn", (event) ->
+    $('form#ad_delete').trigger('submit.rails')
+    true
   $(document).on 'click',".send_report_btn", (event) ->
     $('form#new_report').trigger('submit.rails')
     true 
   $(document).on 'click',".cancel_reply_btn", (event) ->
     $(".reply_form").remove()
     true 
-  $(document).on 'click',"#garage_item_picture", (event) ->
-    $("#picture").click()
-    false 
+  $(document).on 'click',".garage_item_upload_link", (event) ->
+    id=$(this).attr('id')
+    $("#"+id+"_file_field").trigger('click')
+    event.preventDefault()
  
   $("#moreTab a[data-toggle=\"tab\"]").on "shown", (e) ->
     e.target # activated tab
@@ -660,6 +666,7 @@ jQuery ->
       $.get("/vehicles/get_recently_viewed_vehicles")
     return
 
+  
 
 
 

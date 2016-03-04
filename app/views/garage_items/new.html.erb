@@ -7,33 +7,29 @@
     <div class="page-header">
       <h2>Add a Car</h2>
     </div>
-    <p>Add your car to Garage to unlock all the features that help you manage your vehicle.</p>
    
-<%= vehicle_form_for @vehicle,:url => { :action => "create" },:html=>{ :method => :post, :class=>"form-vertical"},:authenticity_token => true,:remote=>false do |f| %>
-
-  <% if @vehicle.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
-
-      <ul>
-      <% @vehicle.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <%= render 'form',:f=>f %>
+		
+   <%= vehicle_form_for @vehicle,:url => { :action => "create" }, :html=>{:class=>"form-vertical", multipart: true},:authenticity_token => true,:remote=>false do |f| %>
+       
+     
+    <%= render 'garage_items/partials/form',:f=>f %>
     
- <div>
- 
-      <%= f.submit "Add Car",:class=>"btn btn-large btn-primary" %>
+   
+     
+     <div class="row-fluid" >
+         <div class="span12" style="padding-top:20px; margin-top:20px; border-top: 1px solid #eeeeee;">
+			 
+     <%= f.submit "Save",:class=>"btn btn-info", id: 'submit-data' %>
+     <%= link_to "Cancel", :back,:class=>"btn"  %>
+     </div>
+   </div>
+   <% end %>
+    
+   
 
-    <%= link_to "Cancel", :back,:class=>"btn btn-large"  %>
-  </div>
-<% end %>
 
 
-<%= link_to 'Back', garage_items_path %>
+
   </div>
 </div>
 

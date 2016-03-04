@@ -20,6 +20,7 @@
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.ru.js
 //= require spin
+//= require loadingoverlay.min
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require jquery.capty.min
@@ -34,6 +35,6 @@ $(window).on('load', function(e) {
 $(document).ready(function() {
     $('.js-activated').dropdownHover().dropdown();
     $('.add_fields').tooltip();
-  
-
+   
+    
 });

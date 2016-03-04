@@ -11,8 +11,9 @@ class User < ActiveRecord::Base
   has_many :saved_searches, :class_name => 'Search', :foreign_key => 'user_id', :conditions => ['name IS NOT NULL']
   has_many :vehicle_watchers, :dependent=>:destroy
   has_many :saved_items,:dependent=>:destroy
+  has_many :garage_items,:dependent=>:destroy
   #has_many :jobs, :foreign_key => 'user_id', :class_name => "Task"
-  has_many :vehicles,:dependent=>:destroy
+  has_many :vehicles
   has_many :adverts
   has_many :impressions
   has_many :authentications

@@ -116,11 +116,13 @@ en:
   colours: [{name: "Beige", id: 1}, {name: "Black", id: 2}, {name: "Blue", id: 3}, {name: "Brown", id: 4}, {name: "Dark beige", id: 5}, {name: "Dark blue", id: 6}, {name: "Dark brown", id: 7}, {name: "Dark gray", id: 8}, {name: "Dark green", id: 9}, {name: "Dark orange", id: 10}, {name: "Dark purple", id: 11}, {name: "Dark red", id: 12}, {name: "Dark yellow", id: 13}, {name: "Golden", id: 14}, {name: "Gray", id: 15}, {name: "Green", id: 16}, {name: "Light beige", id: 17}, {name: "Light blue", id: 18}, {name: "Light brown", id: 19}, {name: "Light gray", id: 20}, {name: "Light green", id: 21}, {name: "Light orange", id: 22}, {name: "Light purple", id: 23}, {name: "Light red", id: 24}, {name: "Light yellow", id: 25}, {name: "Orange", id: 26}, {name: "Pink", id: 27}, {name: "Purple", id: 28}, {name: "Red", id: 29}, {name: "Silver", id: 30}, {name: "White", id: 31}, {name: "Yellow", id: 32}]
   fueltypes: [{name: "Petrol", id: 1}, {name: "Diesel", id: 2}, {name: "Petrol + Gas (LPG)", id: 3},{name: "Petrol + Gas (CNG)", id: 4},{name: "Gas (LPG)", id: 5},{name: "Gas (CNG)", id: 6},{name: "Hybrid", id: 7},{name: "Electric", id: 8},{name: "Ethanol", id: 9}]
   transmissions: [{name: "Automatic", id: 1},{name: "Manual", id: 2},{name: "Semi-Automatic", id: 3}]
+  ownership: [{name: "Own", id: 1},{name: "Owned", id: 2},{name: "Want", id: 3},{name: "Drove", id: 4}]
   drivetypes: [{name: "4 X 4", id: 1},{name: "Front Wheel Drive", id: 2},{name: "Rear Wheel Drive", id: 3}]
   climate_controls: [{name: "Climate Control", id: 1}, {name: "Air Conditioning", id: 2}]
   search_alerts: [{name: "No Alert", id: "No Alert" },{name: "Alert", id: "Alert" }]
   service_histories: [{name: "Full service history", id: 1},{name: "Part service history", id: 2},{name: "No service history", id: 3}]
   features: [{name: "Leather upholstery", id: "leather_upholstery"},{name: "Heated seats", id: "seat_heating_count"},{name: "Navigation", id: "navigation"},{name: "Central locking", id: "central_locking"},{name: "Tow hitch", id: "tow_hitch"},{name: "Cruise control", id: "cruise_control"},{name: "Light alloy wheels", id: "light_alloy_wheels"},{name: "Full service history", id: "service_history_id"},{name: "Power steering", id: "power_steering"},{name: "Power windows", id: "power_windows"},{name: "Climate control",id: "climate_control_id"}]
+  ad_delete_reasons: [{name: "I sold the vehicle on Webauto.ee.", id: 1},{name: "I sold the vehicle through another channel.", id: 2},{name: "I traded the vehicle in for a purchase.", id: 3},{name: "I don't want to sell the vehicle anymore.", id: 4},{name: "Other reasons.", id: 5}]
   index:
     create_ad: "CREATE A FREE LISTING"
     most_popular: Most Popular
@@ -157,8 +159,8 @@ en:
       status: STATUS
       created: Created
       updated: Last update
-      cancelled: Sold
-      unfinished: Unfinished
+      cancelled: Closed
+      unfinished: Incomplete
       activated: Activated
       not_activated: Not activated
       statistics: Statistics
@@ -170,7 +172,7 @@ en:
       activate_sure: "Are you sure?"
       restore: Restore
       restore_sure: "Are you sure you want to restore your advert?"
-      remove: Remove or mark as sold
+      remove: Remove ad
       remove_sure: "Are you sure?" 
     edit:
       title: "What type of vehicle are you selling?"
