@@ -9,7 +9,7 @@
               <% if @vehicle.car_stereo %>
               <li>
                   <%= @vehicle.speakers_count>0 ? "#{t('vehicles.show.speaker_stereo',:n=>@vehicle.speakers_count)}" : "#{t('vehicles.show.car_stereo')}" %>
-                  <%= spec_details([[@vehicle.car_stereo_original,t("vehicles.show.original")],[@vehicle.car_stereo_details,@vehicle.car_stereo_details.downcase]]) %>
+                  <%= spec_details([[@vehicle.car_stereo_original,t("vehicles.show.original")],[@vehicle.car_stereo_details,@vehicle.car_stereo_details]]) %>
                  
                 </li>
               <% end %>

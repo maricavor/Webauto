@@ -63,7 +63,7 @@ module VehiclesHelper
   def spec_details(details)
     _updated=[]
     details.each do |d|
-     _updated << d if d[0]
+     _updated << d if d[0].present?
     end
     text=''
     text+= "(" if _updated.size>0
