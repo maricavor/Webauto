@@ -32,7 +32,7 @@ class AdvertsController < ApplicationController
     @advert.current_step=session[:advert_step]=@action
     @vehicle=@advert.build_vehicle
   end
-    @bodytypes=Bodytype.where(:type_id=>@current_type.id).order(:name)
+    @bodytypes=Bodytype.where(:type_id=>@current_type.id)
   
     respond_to do |format|
       format.html # new.html.erb
@@ -44,7 +44,7 @@ class AdvertsController < ApplicationController
     @advert = Advert.new(modify(params[:advert]))
     @ad_type=params[:advert][:ad_type]
     @action="edit"
-    @bodytypes=Bodytype.where(:type_id=>@current_type.id).order(:name)
+    @bodytypes=Bodytype.where(:type_id=>@current_type.id)
     @advert.current_step = session[:advert_step]=@action
     
     gon.selected={"vehicles"=>[nil,nil,@advert.vehicle.model_id]} 
@@ -200,7 +200,7 @@ def update
     @advert.current_step=session[:advert_step]=@action
     @vehicle=@advert.vehicle
     @advert.update_attributes(:activated=>false) if @advert.activated
-    @bodytypes=Bodytype.where(:type_id=>@vehicle.type_id).order(:name)
+    @bodytypes=Bodytype.where(:type_id=>@vehicle.type_id)
     gon.selected={"vehicles"=>[@vehicle.make_name,@vehicle.model_name,@vehicle.model_id]} if @vehicle.make
   end
 

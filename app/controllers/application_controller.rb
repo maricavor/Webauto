@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
 
   end
     def get_property_records(t_id)
-    @bodytypes=Bodytype.where(:type_id=>t_id).order(:name)
+    @bodytypes=Bodytype.where(:type_id=>t_id)
     @states=State.order(:name)
     @cities=City.order(:name)
   end

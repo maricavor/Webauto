@@ -47,7 +47,7 @@ class Vehicle < ActiveRecord::Base
   validates :seats,:presence => true,numericality: { only_integer: true,greater_than: 0}, :on => :update,:if => :details? 
   validates :colour_id,:presence => true#,:on => :update
   validates :state_id,:presence => true,:on=>:update,:if=>:estonian?
-  validates :city_id,:presence => true,:on=>:update,:if=>:state?
+  #validates :city_id,:presence => true,:on=>:update,:if=>:state?
   validate :description_length,:on=>:update,:if => :photos? 
   #################
   #is_impressionable #:counter_cache => true, :column_name => :popularity,:unique =>  [:session_hash]

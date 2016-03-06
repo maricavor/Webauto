@@ -16,6 +16,7 @@ class VehiclesController < ApplicationController
   end
   
   def index
+
     @title="Used Cars For Sale - Webauto.ee"
     @search= Search.new
     @search.location=8

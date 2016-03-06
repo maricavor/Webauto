@@ -7,8 +7,8 @@ et:
     cars: Autod
     cars_for_sale: Osta auto
     all_cars: Kõik autod
-    private_cars: Eraisikult
-    dealer_cars: Autodiilerilt
+    private_cars: Eraisikud
+    dealer_cars: Autodiilerid
     help_buying_cars: Auto ostuabi
     find_dealer: Autodiileri otsing
     sell_your_cars: Müü auto
@@ -33,7 +33,7 @@ et:
     saved_searches: Salvestatud otsingud
     saved_items: Salvestatud sõidukid
     my_ads: Minu kuulutused
-    profile: Muuda andmeid
+    profile: Minu profiil
     settings: Seaded
     signout: Logi välja
     favourites: LEMMIKUD
@@ -123,7 +123,7 @@ et:
   service_histories: [{name: "Täielik hooldusajalugu", id: 1},{name: "Mittetäielik hooldusajalugu", id: 2},{name: "Hooldusajalugu puudub", id: 3}]
   features: [{name: "Nahkpolster", id: "leather_upholstery"},{name: "Istmesoojendus", id: "seat_heating_count"},{name: "Nav. seade", id: "navigation"},{name: "Kesklukustus", id: "central_locking"},{name: "Veokonks", id: "tow_hitch"},{name: "Püsikiiruse hoidja", id: "cruise_control"},{name: "Valuveljed", id: "light_alloy_wheels"},{name: "Täielik hooldusajalugu", id: "service_history_id"},{name: "Roolivõimendi", id: "power_steering"},{name: "El. aknad", id: "power_windows"},{name: "Kliimaseade",id: "climate_control_id"}]
   index:
-    create_ad: "LISA KUULUTUS TASUTA"
+    create_ad: "LISA KUULUTUS"
     most_popular: Populaarsed
     most_expensive: Kõige kallimad
     classified_ads: Autokuulutuste portaal

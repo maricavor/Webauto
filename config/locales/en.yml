@@ -228,7 +228,7 @@ en:
       load_capacity: "Load carring capacity (kg):"
       warranty_valid_to: "Warranty valid to:"
       warranty_km: "Warranty (km):"
-      service_freq: "Service interval frequency:"
+      service_freq: "Service interval frequency (months):"
       service_km: "Service interval mileage:"
       next_service: "Next service:"
       next_service_km: "Next service (km):"

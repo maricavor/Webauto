@@ -22,7 +22,7 @@ class GarageItemsController < ApplicationController
   def new
     @vehicle=Vehicle.new
     @vehicle.build_garage_item
-    @bodytypes=Bodytype.where(:type_id=>1).order(:name)
+    @bodytypes=Bodytype.where(:type_id=>1)
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @vehicle }
@@ -33,7 +33,7 @@ class GarageItemsController < ApplicationController
   def edit
    @garage_item = current_user.garage_items.find(params[:id])
    @vehicle = @garage_item.vehicle
-   @bodytypes=Bodytype.where(:type_id=>1).order(:name)
+   @bodytypes=Bodytype.where(:type_id=>1)
    gon.selected={"vehicles"=>[@vehicle.make.name,@vehicle.model_name,@vehicle.model_id]} if @vehicle.make
   
   end
@@ -42,7 +42,7 @@ class GarageItemsController < ApplicationController
   # POST /garage_items.json
   def create
     @vehicle = Vehicle.new(modify(params[:vehicle]))
-    @bodytypes=Bodytype.where(:type_id=>1).order(:name)
+    @bodytypes=Bodytype.where(:type_id=>1)
    
  
     gon.selected={"vehicles"=>[nil,nil,@vehicle.model_id]} 
@@ -66,7 +66,7 @@ class GarageItemsController < ApplicationController
   def update
     @garage_item = current_user.garage_items.find(params[:id])
     @vehicle = @garage_item.vehicle
-    @bodytypes=Bodytype.where(:type_id=>1).order(:name)
+    @bodytypes=Bodytype.where(:type_id=>1)
     @type_id=1
     gon.selected={"vehicles"=>[@vehicle.make_name,@vehicle.model_name,@vehicle.model_id]} if @vehicle.make
     respond_to do |format|
