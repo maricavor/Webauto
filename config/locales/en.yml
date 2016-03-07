@@ -520,7 +520,8 @@ en:
       profile: Profile
       details: "Information about you"
       for_security: "For security:"
-      security: "To change your email address please email to support[at]webauto.ee"
+      security: "To change your email address please %{contact_link}."
+      contact_link_text: contact us
       name: Name
       country: Country
       city: City

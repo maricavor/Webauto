@@ -25,7 +25,7 @@ et:
     social_networks_text: ""
     terms: Kasutustingimused
     privacy: Privaatsus
-    contact: Kontaktandmed
+    contact: Kontakt
     about: Meist
     sitemap: Sisukaart
     popular_searches: Populaarsemad otsingud
@@ -519,7 +519,8 @@ et:
       profile: Muuda andmeid
       details: ""
       for_security: ""
-      security: "Selleks, et muuta oma e-posti aadressi palume kirjutada support@webauto.ee"
+      security: "Selleks, et muuta oma e-posti aadressi palume %{contact_link}."
+      contact_link_text: kirjutada meile
       name: Nimi
       country: Riik
       city: Linn

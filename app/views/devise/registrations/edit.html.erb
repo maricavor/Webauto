@@ -9,7 +9,7 @@
         <small><%= t("users.profile.details") %></small></h2>
     </div>
     <p class="lead"><strong><%= t("users.profile.for_security") %></strong>
-      <%= t("users.profile.security") %></p>
+      <%= t("users.profile.security",:contact_link => link_to(t("users.profile.contact_link_text"),contact_path)).html_safe %></p>
         <% if resource.is_dealer? %>
     <div style="margin-bottom:15px;">
     <%= render 'devise/registrations/fileupload' %>
