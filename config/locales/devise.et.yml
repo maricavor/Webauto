@@ -1,21 +1,21 @@
 et:
   devise:
-    sign_up_with: "Registreeru sotsiaalvõrgustiku profiiliga:"
-    sign_in_with: "Logi sisse kasutades:"
+    sign_up_with: "Registreeruge sotsiaalvõrgustiku profiiliga:"
+    sign_in_with: "Logige sisse kasutades:"
     confirmations:
-      confirmed: Sinu konto on edukalt kinnitatud.
-      send_instructions: Mõne minuti jooksul saad sa e-kirja juhistega oma konto kinnitamiseks.
-      send_paranoid_instructions: "Kui sinu e-post on meie andmebaasis, saad varsti e-kirja juhistega, kuidas oma konto kinnitada."
+      confirmed: Teie konto on edukalt kinnitatud.
+      send_instructions: Mõne minuti jooksul saate e-kirja juhistega oma konto kinnitamiseks.
+      send_paranoid_instructions: "Kui Teie e-post on meie andmebaasis, saate varsti e-kirja juhistega, kuidas oma konto kinnitada."
     failure:
-      already_authenticated: Oled juba sisse loginud.
-      inactive: Sinu konto polnud veel aktiveeritud.
+      already_authenticated: Olete juba sisse loginud.
+      inactive: Teie konto polnud veel aktiveeritud.
       invalid: Vigane e-post või salasõna.
-      last_attempt: Sinul on jäänud veel üks katse enne kui su konto lukustatakse.
-      locked: Sinu konto lukustati.
+      last_attempt: Teil on jäänud veel üks katse enne kui konto lukustatakse.
+      locked: Teie konto lukustati.
       not_found_in_database: Vigane e-post või salasõna.
-      timeout: "Sinu sessioon on aegunud, jätkamiseks logi palun sisse."
-      unauthenticated: Sa pead sisse logima või registreeruma enne jätkamist.
-      unconfirmed: "Sa pead oma konto kinnitama, enne jätkamist."
+      timeout: "Teie sessioon on aegunud, jätkamiseks logige palun sisse."
+      unauthenticated: Te peate sisse logima või registreeruma enne jätkamist.
+      unconfirmed: "Te peate oma konto kinnitama, enne jätkamist."
     mailer:
       confirmation_instructions:
         subject: Kinnitamise juhised
@@ -27,32 +27,32 @@ et:
       failure: "Ei õnnestunud autoriseerida %{kind}-kontot, põhjus '%{reason}\'."
       success: "Edukalt autoriseeritud %{kind}-konto."
     passwords:
-      no_token: "Sa ei saa seda lehte külastada mujalt kui salasõna taastamise e-kirjast. Kui sa tuled salasõna taastamise e-kirjast, palun kontrolli, et sa kasutasid täielikku URLi."
-      send_instructions: "Mõne minuti jooksul saad sa kirja juhistega, kuidas oma salasõna taastada."
-      send_paranoid_instructions: "Kui su e-post on meie andmebaasis, saad varsti e-kirja salasõna taastamise lingiga."
-      updated: Sinu salasõna vahetati edukalt. Oled nüüd sisse logitud.
-      updated_not_active: Sinu salasõna vahetati edukalt.
+      no_token: "Te ei saa seda lehte külastada mujalt kui salasõna taastamise e-kirjast. Kui Te tulete salasõna taastamise e-kirjast, palun kontrollige, et Te kasutasite täielikku URLi."
+      send_instructions: "Mõne minuti jooksul saate kirja juhistega, kuidas oma salasõna taastada."
+      send_paranoid_instructions: "Kui Teie e-post on meie andmebaasis, saate varsti e-kirja salasõna taastamise lingiga."
+      updated: Sinu salasõna vahetati edukalt. Olete nüüd sisse logitud.
+      updated_not_active: Teie salasõna vahetati edukalt.
     registrations:
-      destroyed: Nägemist! Sinu konto on edukalt tühistatud. Loodame sind peagi uuesti näha.
-      signed_up: Tere tulemast! Sa registreerusid edukalt.
-      signed_up_but_inactive: "Sa registreerusid edukalt. Siiski ei saa me sind sisse logida, sest su konto pole veel aktiveeritud."
-      signed_up_but_locked: "Sa registreerusid edukalt. Siiski ei saa me sind sisse logida, sest su konto on lukus."
-      signed_up_but_unconfirmed: Kiri kinnituslingiga on saadetud sinu e-posti aadressile. Palun ava see link oma konto kinnitamiseks.
-      update_needs_confirmation: "Sa uuendasid edukalt oma kontot, kuid me peame kontrollima sinu e-posti aadressi. Palun kontrolli oma e-posti ja ava kinnitamise link, et viia lõpule aadressi kinnitamine."
-      updated: Sa uuendasid edukalt oma kontot.
+      destroyed: Nägemist! Teie konto on edukalt tühistatud. Loodame Teid peagi uuesti näha.
+      signed_up: Tere tulemast! Te registreerusite edukalt.
+      signed_up_but_inactive: "Te registreerusite edukalt. Siiski ei saa me Teid sisse logida, sest konto pole veel aktiveeritud."
+      signed_up_but_locked: "Te registreerusite edukalt. Siiski ei saa me teid sisse logida, sest konto on lukus."
+      signed_up_but_unconfirmed: Kiri kinnituslingiga on saadetud Teie e-posti aadressile. Palun avage see link oma konto kinnitamiseks.
+      update_needs_confirmation: "Te uuendasite edukalt oma kontot, kuid me peame kontrollima Teie e-posti aadressi. Palun kontrollige oma e-posti ja avage kinnitamise link, et viia lõpule aadressi kinnitamine."
+      updated: Te uuendasite edukalt oma kontot.
     sessions:
       already_signed_out: 
       signed_in: Edukalt sisse logitud.
       signed_out: Edukalt välja logitud.
     unlocks:
-      send_instructions: "Sa saad mõne minuti jooksul e-kirja juhistega, kuidas oma konto lukust vabastada."
-      send_paranoid_instructions: "Kui su konto eksisteerib, saad sa mõne minuti jooksul e-kirja juhistega, kuidas oma konto lukust vabastada."
-      unlocked: Sinu konto on edukalt lukust vabastatud. Jätkamiseks palun logi sisse.
+      send_instructions: "Te saate mõne minuti jooksul e-kirja juhistega, kuidas oma konto lukust vabastada."
+      send_paranoid_instructions: "Kui Teie konto eksisteerib, saate mõne minuti jooksul e-kirja juhistega, kuidas oma konto lukust vabastada."
+      unlocked: Teie konto on edukalt lukust vabastatud. Jätkamiseks palun logige sisse.
   errors:
     messages:
-      already_confirmed: "on juba kinnitatud, proovi sisse logida"
-      confirmation_period_expired: "vajab kinnitamist %{period} jooksul, palun küsi uus"
-      expired: "on aegunud, palun küsi uus"
+      already_confirmed: "on juba kinnitatud, proovige sisse logida"
+      confirmation_period_expired: "vajab kinnitamist %{period} jooksul, palun küsige uus"
+      expired: "on aegunud, palun küsige uus"
       not_found: ei leitud
       not_locked: ei olnud lukus
       not_saved:

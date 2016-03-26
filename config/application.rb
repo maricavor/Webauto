@@ -53,7 +53,7 @@ module Webauto
                                 # Configure the default encoding used in templates for Ruby 1.9.
                                 config.encoding = "utf-8"
                                 config.i18n.available_locales = [:et, :en]
-                                config.i18n.default_locale = :en 
+                                config.i18n.default_locale = :et 
                                 config.i18n.fallbacks = true
                                 # Configure sensitive parameters which will be filtered from the log file.
                                 config.filter_parameters += [:password, :password_confirmation]
