@@ -589,6 +589,9 @@ en:
       saved_searches: Saved searches
       last_searches: Last searches
       searched_on: Searched on
+      saved_adverts_info: "When you save adverts on Webauto.ee, they'll appear here."
+      saved_searches_info: "When you save your favourite Webauto.ee searches, they'll appear here."
+      no_last_searches: "No last searches"
     profile:
       title: "Profile - Webauto.ee"
       profile: Profile

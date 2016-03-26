@@ -590,6 +590,9 @@ et:
       saved_searches: Salvestatud otsingud
       last_searches: Viimased otsingud
       searched_on: Otsitud
+      saved_adverts_info: ""
+      saved_searches_info: ""
+      no_last_searches: ""
     profile:
       title: "Minu profiil - Webauto.ee"
       profile: Muuda andmeid

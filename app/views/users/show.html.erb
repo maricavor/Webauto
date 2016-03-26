@@ -78,7 +78,7 @@
                   </tr>
             <% end %>
             <% else %>
-            <tr><td>When you save adverts on Webauto.ee, they'll appear here.</td></tr>
+            <tr><td><%= t("users.dashboard.saved_adverts_info") %></td></tr>
             <% end %>
               </tbody>
             </table>
@@ -109,7 +109,7 @@
                     </tr>
                   <% end %>
                   <% else %>
-                     <tr><td>When you save your favourite Webauto.ee searches, they'll appear here.
+                     <tr><td><%= t("users.dashboard.saved_searches_info") %>
 					   <p style="margin-top:5px;"><%= link_to 'Search now', new_search_path(:search=>"all"),:method=>:post  %></p>
 				   </td></tr>  
                   <% end %>
@@ -139,7 +139,7 @@
                     </tr>
                   <% end %>
                   <% else %>
-                   <tr><td>No last searches </td></tr>
+                   <tr><td><%= t("users.dashboard.no_last_searches") %> </td></tr>
                   <% end %>
                 </tbody>
               </table>
