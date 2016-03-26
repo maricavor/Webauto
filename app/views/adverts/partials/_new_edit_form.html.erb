@@ -9,21 +9,21 @@
       <%= f.text_field :model_spec,id:"model_spec"   %>
   
    <%= f.text_field :registered_at,label:t("adverts.edit.registered_at"),:type=>"datepicker" %>
-    <%= f.text_field :badge,label: t("adverts.edit.variant") %>
-	 <%= f.text_field :series,label: t("adverts.edit.series") %>
+    <%= f.text_field :badge,label: t("adverts.edit.variant"),placeholder: "näide: D5, GLX, AWD" %>
+	 <%= f.text_field :series,label: t("adverts.edit.version"),placeholder: "näide: Facelift, Edition 10, Sport Line" %>
     <%= f.text_field :year,label: t("adverts.edit.year") %>
     
     
    
   </div>
 <div class="span4">
-<%= f.text_field :odometer,label: t("adverts.edit.odometer")  %>
-<%= f.text_field :engine_power,label: t("adverts.edit.power")  %>
-    <%= f.text_field :engine_size,label: t("adverts.edit.size")  %>
+<%= f.text_field :odometer,label: t("adverts.edit.odometer"),placeholder: "näide: 75000"  %>
+<%= f.text_field :engine_power,label: t("adverts.edit.power"),placeholder: "näide: 165"  %>
+    <%= f.text_field :engine_size,label: t("adverts.edit.size"),placeholder: "näide: 2.0"  %>
     <%= f.select :fueltype_id, t('fueltypes').collect {|c| [ c["name"], c["id"] ] },{include_blank: true}, {label: t("adverts.edit.fuel")} %>
     
     <%= f.select :colour_id,t('colours').collect {|c| [ c["name"], c["id"] ] },{include_blank: true},{label: t("adverts.edit.color")} %>
-    <%= f.text_field :specific_colour,label: t("adverts.edit.spec_color") %>
+    <%= f.text_field :specific_colour,label: t("adverts.edit.spec_color"),placeholder: "näide: Diamond Silver Metallic" %>
     <!--<%= f.check_box :metallic_colour,label: t("adverts.edit.metallic_color") %>-->
     
     

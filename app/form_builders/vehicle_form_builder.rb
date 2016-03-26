@@ -59,7 +59,7 @@ class VehicleFormBuilder < ActionView::Helpers::FormBuilder
   def check_box(name,*args)
     options=args.extract_options!
     content_tag :label, class: "checkbox #{options[:type]}", id: options[:id] do
-      super+ " "+options[:label]
+      super(name,options)+ " "+options[:label]
     end
   end
 

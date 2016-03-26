@@ -1,5 +1,7 @@
 et:
   devise:
+    sign_up_with: "Registreeru sotsiaalvõrgustiku profiiliga:"
+    sign_in_with: "Logi sisse kasutades:"
     confirmations:
       confirmed: Sinu konto on edukalt kinnitatud.
       send_instructions: Mõne minuti jooksul saad sa e-kirja juhistega oma konto kinnitamiseks.

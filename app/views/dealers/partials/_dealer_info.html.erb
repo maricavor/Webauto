@@ -23,11 +23,11 @@
                
  
 </address>
-    <%= link_to ("<i class='icon-envelope'></i> Email the Dealer").html_safe, "#contactModal",:'data-toggle'=>"modal" %><%= link_to ("<i class='icon-globe'></i> Visit Website").html_safe,http_url(dealer.webpage),:style=>"margin-left:5px;",:target=>"_blank" if dealer.webpage.present? %><%= link_to ("<i class='icon-map-marker'></i> View Map").html_safe,"http://maps.google.com/?q=#{dealer.full_address}",:target=>"_blank",:style=>"margin-left:5px;" %>
+    <%= link_to ("<i class='icon-envelope'></i> "+t("dealers.index.email_dealer")).html_safe, "#contactModal",:'data-toggle'=>"modal" %><%= link_to ("<i class='icon-globe'></i> "+t("dealers.index.visit")).html_safe,http_url(dealer.webpage),:style=>"margin-left:5px;",:target=>"_blank" if dealer.webpage.present? %><%= link_to ("<i class='icon-map-marker'></i> "+t("dealers.index.view_map")).html_safe,"http://maps.google.com/?q=#{dealer.full_address}",:target=>"_blank",:style=>"margin-left:5px;" %>
      </div>
        <div class="span2">
        <p class="lead muted text-center hidden-phone">
-      Total Stock <br>
+      <%=t("dealers.index.total_stock")%> <br>
               <%= dealer.total_stock(@current_type.id).count %>
             </p>
      </div>

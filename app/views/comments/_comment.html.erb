@@ -9,7 +9,7 @@
             <small><%= link_to t("comments.reply"), new_vehicle_comment_path(@vehicle,:parent_id=>comment),:remote=>true,:class=>"muted" %></small>
             <span class="muted">&bull;</span>
           <% end %>
-          <small><%= link_to t("comments.delete"), [@vehicle, comment], :confirm => 'Are you sure?',
+          <small><%= link_to t("comments.delete"), [@vehicle, comment], :confirm => t("adverts.index.remove_sure"),
 :method => :delete, :remote => true,:class=>"muted" %></small>
         <% end %>
       <% end %>

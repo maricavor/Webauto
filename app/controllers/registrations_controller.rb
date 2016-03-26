@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
    super
   end
    def edit
-    @title="Profile - Webauto.ee"
+  
     super
    end
     # POST /resource

@@ -19,9 +19,9 @@
   <br />
   <%- if devise_mapping.omniauthable? and controller_name!="passwords" %>
   <% if controller_name=="registrations" %>
-  <p class="muted">Sign up with</p>
+  <p class="muted"><%= t('devise.sign_up_with') %></p>
  <% else %>
- <p class="muted">Sign in with</p>
+ <p class="muted"><%= t('devise.sign_in_with') %></p>
  <% end %>
     <%- resource_class.omniauth_providers.each do |provider| %>
       <%= link_to image_tag("/#{provider.to_s.downcase}.png", :border => 0,:size=>"48x48"), omniauth_authorize_path(resource_name, provider) %>

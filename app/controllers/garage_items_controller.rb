@@ -5,7 +5,7 @@ class GarageItemsController < ApplicationController
    before_filter :init_gon, :only=>[:new,:create,:edit,:update] 
    before_filter :set_max_items,:only=>[:index,:destroy]
   def index
-    @title= "My Garage - Webauto.ee"
+    @title= t("garage_items.index.title")
     @garage_items=current_user.garage_items.order("created_at desc")
     @count=@garage_items.count
 
@@ -20,6 +20,7 @@ class GarageItemsController < ApplicationController
   # GET /garage_items/new
   # GET /garage_items/new.json
   def new
+    @title=t("garage_items.new.title")
     @vehicle=Vehicle.new
     @vehicle.build_garage_item
     @bodytypes=Bodytype.where(:type_id=>1)
@@ -31,6 +32,7 @@ class GarageItemsController < ApplicationController
 
   # GET /garage_items/1/edit
   def edit
+    @title=t("garage_items.edit.title")
    @garage_item = current_user.garage_items.find(params[:id])
    @vehicle = @garage_item.vehicle
    @bodytypes=Bodytype.where(:type_id=>1)

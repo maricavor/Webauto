@@ -1,12 +1,12 @@
 
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="removeModalLabel">Remove ad</h3>
+    <h3 id="removeModalLabel"><%= t("adverts.index.remove_ad")%></h3>
   </div>
   <div class="modal-body">
-<small><strong>You are removing the ad for your</strong></small>
+<small><strong><%= t("adverts.index.removing")%></strong></small>
 <h4><%= "#{@vehicle.name} - #{currency(@vehicle.price)}" %></h4>
-<p>Please tell us why you're removing this advert (optional):</p> 
+<p><%= t("adverts.index.why_removing")%></p> 
 <%= form_for @advert, method: :delete,:html=>{id: "ad_delete"} do |f| %>
  <% I18n.t('ad_delete_reasons').each do |d| %>
 <label class="radio">
@@ -19,6 +19,6 @@
 <% end %>
   </div>
   <div class="modal-footer">
-    <button class="ad_delete_btn btn btn-danger">Remove</button>
+    <button class="ad_delete_btn btn btn-danger"><%= t("adverts.index.remove")%></button>
     <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t("adverts.statistics.close") %></button>
   </div>

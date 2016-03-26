@@ -1,4 +1,5 @@
 class ContactForm < MailForm::Base
+
   attributes :type,  :validate => ["General feedback", "Problem","Feature request","Question"]
   attribute :email,     :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
   attribute :message,   :validate => { :presence => true }

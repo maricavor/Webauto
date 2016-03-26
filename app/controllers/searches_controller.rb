@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
   skip_before_filter :get_current_type,:get_compared_items,:only=>[:edit,:update]
   
   def index
-    @title= "Saved searches - Webauto.ee"
+    @title= t("searches.index.title")
     @searches=current_user.saved_searches.order("created_at desc")
     @count=@searches.count
     @search=Search.new

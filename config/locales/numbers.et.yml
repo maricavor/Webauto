@@ -76,8 +76,8 @@ et:
         one: vähem kui %{count} sekund
         other: vähem kui %{count} sekundit
       over_x_years:
-        one: üle %{count} aasta
-        other: üle %{count} aasta
+        one: "üle %{count} aasta"
+        other: "üle %{count} aastat"
       x_days:
         one: "%{count} päev"
         other: "%{count} päeva"
@@ -101,13 +101,13 @@ et:
     format: "%{attribute} %{message}"
     messages:
       accepted: peab olema heaks kiidetud
-      blank: on täitmata
+      blank: on sisestamata
       confirmation: ei vasta kinnitusele
       empty: on tühi
       equal_to: peab olema võrdne arvuga %{count}
       even: peab olema paarisarv
       exclusion: on reserveeritud
-      greater_than: ei tohi olla suurem kui %{count}
+      greater_than: peab olema suurem kui %{count}
       greater_than_or_equal_to: peab olema suurem või võrdne arvuga %{count}
       inclusion: ei leidu nimekirjas
       invalid: ei ole korrektne

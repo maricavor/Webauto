@@ -20,7 +20,6 @@ en:
   compared_items:
     deleted: "Successfully deleted item from compare list."
   contact_forms:
-    thank_you: "Thank you for your message!"
     failure: "Sorry, this message appears to be spam and was not delivered."
   dealer_pictures:
     success: "Successfully added image."

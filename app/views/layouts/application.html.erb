@@ -70,7 +70,7 @@
                   <div class="span2">
                     <ul class="unstyled text-left" >
                       <small>
-                        <li style="padding-bottom:5px;"><strong><%= t("navigation.sell_your_#{type}").upcase %></strong></li>
+                        <li style="padding-bottom:5px;"><strong><%= t("navigation.sell_your_#{type}_upcase") %></strong></li>
                         <li><%= link_to t("navigation.create_ad"),create_ad_path%></li>
                         <li><%= link_to t("navigation.manage_ad"),adverts_url %></li>
                         <li><%= link_to t("navigation.seller_help"),selling_a_car_path  %></li>
@@ -83,7 +83,7 @@
                     <ul class="unstyled text-left">
                       <small>
                       
-                        <li style="padding-bottom:5px;"><strong>RESEARCH</strong></li>
+                        <li style="padding-bottom:5px;"><strong><%= t("navigation.research_upcase") %></strong></li>
                         <li> <%= link_to t("navigation.compare_#{type}"), compare_path,:method=>:post %></li>
                        
                         <!--
@@ -99,7 +99,7 @@
                       <small>
                         <li style="padding-bottom:5px;"><strong><%= t("navigation.language").upcase %></strong></li>
                         <li><%= locale_select(:en,"English",request.path_parameters) %></li>
-                        <!--<li><%= locale_select(:et,"Eesti",request.path_parameters) %></li>-->
+                        <li><%= locale_select(:et,"Eesti",request.path_parameters) %></li>
                       </small>
                     </ul>
                   </div>
@@ -107,7 +107,7 @@
                   <div class="span4">
                     <ul class="unstyled text-left">
                       <small>
-                        <li style="padding-bottom:5px;"><strong><%= t("navigation.social_networks").upcase %></strong></li>
+                        <li style="padding-bottom:5px;"><strong><%= t("navigation.social_networks_upcase") %></strong></li>
                         <li><%= t("navigation.social_networks_text") %></li>
 						      <li>&nbsp;</li>
                         <li><div class="fb-like" data-href="https://www.webauto.ee" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div></li>

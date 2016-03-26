@@ -22,7 +22,7 @@
  <% locales=I18n.available_locales.map {|l| l.to_s} %>
 <ul class="nav nav-tabs" id="commentTab">
  <% locales.each do |loc| %>
-  <li class="<%= 'active' if loc==I18n.locale.to_s %>"><a href="#<%= loc %>" data-toggle="tab"><%= loc %></a></li>
+  <li class="<%= 'active' if loc==I18n.locale.to_s %>"><a href="#<%= loc %>" data-toggle="tab"><%= (loc=="en" ? "in english" : "eesti keeles") %></a></li>
  <% end %>
 </ul>
  

@@ -17,7 +17,7 @@ class VehiclesController < ApplicationController
   
   def index
 
-    @title="Used Cars For Sale - Webauto.ee"
+    @title=t("vehicles.index.title")
     @search= Search.new
     @search.location=8
     @remote=false
@@ -34,7 +34,7 @@ class VehiclesController < ApplicationController
     if params[:id]
      set_current_sort
      @search = Search.find(params[:id])
-     @title="Used cars for sale - Webauto.ee"
+     @title=t("vehicles.index.title")
      @search.dealers ? dealers=@search.dealers.split(",") : dealers=[]
      if dealers.size==1
       dealer=User.find(dealers[0])

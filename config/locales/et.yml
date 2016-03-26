@@ -1,4 +1,24 @@
 et:
+  registrations:
+    can_sign_in: "Võite sisse logida oma kontole kasutades:"
+    sure: "Olete kindel, et soovite eemaldada selle?"
+    add_more: "Lisage veel sisselogimise teenuseid:"
+    add_service: "Kasutage sisselogimiseks:"
+  home:
+    create_ad:
+      header: "Müü oma auto Webauto.ee-s!"
+      free: TASUTA
+      until_sold: Kuni auto müümiseni
+      unlimited: ""
+      start_selling: Lisa müügikuulutus
+      includes: "Iga kuulutus sisaldab:"
+      photos: Kuni 7 fotot
+      slideshow: Piltide slaidiesitlus
+      notifications: Salvestatud kuulutuste teavitused
+      statistics: Vaatamise statistika
+      already: "Oled juba kuulutanud?"
+      manage: Muuda kuulutust
+      title: "Lisa uus kuulutus - Webauto.ee"
   navigation:
     cookies_message: "See veebileht kasutab küpsiseid. Veebilehe kasutamist jätkates nõustute küpsiste kasutamisega."
     learn_more: "Kuva üksikasjad"
@@ -7,21 +27,24 @@ et:
     cars: Autod
     cars_for_sale: Osta auto
     all_cars: Kõik autod
-    private_cars: Eraisikud
+    private_cars: Eramüüjad
     dealer_cars: Autodiilerid
     help_buying_cars: Auto ostuabi
     find_dealer: Autodiileri otsing
-    sell_your_cars: Müü auto
+    sell_your_cars: Kuuluta
+    sell_your_cars_upcase: MÜÜ AUTO
     create_ad: Lisa kuulutus
     manage_ad: Minu kuulutused
     seller_help: Auto müügiabi
     safety_tips: Turvanõuanded
     research: Analüüs
+    research_upcase: ANALÜÜS
     compare_cars: Autode võrdlus
     login: Logi sisse
     register: Registreeru
     language: Keel
     social_networks: Sotsiaalsed võrgustikud
+    social_networks_upcase: SOTSIAALSED VÕRGUSTIKUD
     social_networks_text: ""
     terms: Kasutustingimused
     privacy: Privaatsus
@@ -39,6 +62,8 @@ et:
     favourites: LEMMIKUD
     sell: MÜÜK
     create_ad: Lisa kuulutus
+    garage_items: Minu sõidukid
+    comment_login: "Kommentaari postitamiseks <a href='%{login}'>logige sisse</a> või <a href='%{register}'>registreeruge</a>!"
   search:
     open_search: Ava otsing
     close_search: Sulge otsing
@@ -53,6 +78,9 @@ et:
     model: "Mudel (kõik)"
     make: "Mark (kõik)"
     any: Kõik
+    select: Vali
+    select_model: mudel
+    other_model: "Muu mudel (palun täpsusta)"
     models: mudelid
     selected: valitud
     count_selected_text: "<strong>{0} valitud</strong>"
@@ -74,7 +102,7 @@ et:
     doors: Uksi
     no_doors: Uksi
     features: "Varustus (kõik)"
-    dealers: "Müüja (kõik)"
+    dealers: "Autodiiler (kõik)"
     keywords: Tekstiotsing
     location: "Riik (kõik)"
     dealer: Autodiiler
@@ -92,15 +120,16 @@ et:
     year_high_low: "Aasta (High to Low)"
     year_low_high: "Aasta (Low to High)"
   signin:
-    email: E-post
+    email: E-mail
     password: Parool
+    new_password: Uus parool
     forgot_password: Parooli muutmine
     forgot_password_note: Saadame teile parooli muutmise juhised e-posti aadressile.
     send: Saada
     sign_in: Logi sisse
     change_password: Muuda parooli
     new_to: Ei ole veel Webauto.ee kasutaja?
-    get_started: Registreeru kohe. See on kiire ja lihtne
+    get_started: Loo meie keskkonnas endale konto
     remember_me: Mäleta mind
     sign_in_btn: Logi sisse
     resend: Resend
@@ -116,12 +145,13 @@ et:
   colours: [{name: "Beež", id: 1}, {name: "Must", id: 2}, {name: "Sinine", id: 3}, {name: "Pruun", id: 4}, {name: "Tumebeež", id: 5}, {name: "Tumesinine", id: 6}, {name: "Tumepruun", id: 7}, {name: "Tumehall", id: 8}, {name: "Tumeroheline", id: 9}, {name: "Tumeoranž", id: 10}, {name: "Tumelilla", id: 11}, {name: "Tumepunane", id: 12}, {name: "Tumekollane", id: 13}, {name: "Kuldne", id: 14}, {name: "Hall", id: 15}, {name: "Roheline", id: 16}, {name: "Helebeež", id: 17}, {name: "Helesinine", id: 18}, {name: "Helepruun", id: 19}, {name: "Helehall", id: 20}, {name: "Heleroheline", id: 21}, {name: "Heleoranž", id: 22}, {name: "Hellelilla", id: 23}, {name: "Helepunane", id: 24}, {name: "Helekollane", id: 25}, {name: "Oranž", id: 26}, {name: "Roosa", id: 27}, {name: "Lilla", id: 28}, {name: "Punane", id: 29}, {name: "Hõbedane", id: 30}, {name: "Valge", id: 31}, {name: "Kollane", id: 32}]
   fueltypes: [{name: "Bensiin", id: 1}, {name: "Diisel", id: 2}, {name: "Bensiin + Gaas (LPG)", id: 3},{name: "Bensiin + Gas (CNG)", id: 4},{name: "Gaas (LPG)", id: 5},{name: "Gaas (CNG)", id: 6},{name: "Hübriid", id: 7},{name: "Elekter", id: 8},{name: "Etanool", id: 9}]
   transmissions: [{name: "Automaat", id: 1},{name: "Manuaal", id: 2},{name: "Poolautomaat", id: 3}]
-  ownership: [{name: "Own", id: 1},{name: "Owned", id: 2},{name: "Want", id: 3},{name: "Drove", id: 4}]
+  ownership: [{name: "Oman", id: 1},{name: "Omandasin", id: 2},{name: "Tahan sõita", id: 3},{name: "Olen sõitnud", id: 4}]
   drivetypes: [{name: "Nelikvedu", id: 1},{name: "Esivedu", id: 2},{name: "Tagavedu", id: 3}]
   climate_controls: [{name: "Kliimaautomaatik", id: 1}, {name: "Konditsioneer", id: 2}]
   search_alerts: [{name: "Ära teavita", id: "No Alert" },{name: "Teavita mind", id: "Alert" }]
   service_histories: [{name: "Täielik hooldusajalugu", id: 1},{name: "Mittetäielik hooldusajalugu", id: 2},{name: "Hooldusajalugu puudub", id: 3}]
   features: [{name: "Nahkpolster", id: "leather_upholstery"},{name: "Istmesoojendus", id: "seat_heating_count"},{name: "Nav. seade", id: "navigation"},{name: "Kesklukustus", id: "central_locking"},{name: "Veokonks", id: "tow_hitch"},{name: "Püsikiiruse hoidja", id: "cruise_control"},{name: "Valuveljed", id: "light_alloy_wheels"},{name: "Täielik hooldusajalugu", id: "service_history_id"},{name: "Roolivõimendi", id: "power_steering"},{name: "El. aknad", id: "power_windows"},{name: "Kliimaseade",id: "climate_control_id"}]
+  ad_delete_reasons: [{name: "Ma müüsin auto Webauto.ee-s.", id: 1},{name: "Ma müüsin auto läbi teise kanali.", id: 2},{name: "I traded the vehicle in for a purchase.", id: 3},{name: "I don't want to sell the vehicle anymore.", id: 4},{name: "Other reasons.", id: 5}]
   index:
     create_ad: "LISA KUULUTUS"
     most_popular: Populaarsed
@@ -135,7 +165,8 @@ et:
     popular_bodytypes: "Populaarsemad keretüübid:"
   adverts:
     checkout:
-      seller_details: Seller details
+      seller_details: Müüja andmed
+      heading: "Palun kinnitage kuulutus #%{id}"
     breadcrumb:
       edit: Sõiduki põhiandmed
       details: Lisaandmed
@@ -146,12 +177,13 @@ et:
     statistics:
       views_title: "Viimase 30 päeva vaatamise statistika"
       statistics: "Kuulutuse #%{id} vaatamise statistika"
-      date: Kuulutus lisatud
+      date: "Sisetamise kuupäev:"
       close: Sulge
       views: Vaatamised
     index:
+      title: "Minu kuulutused - Webauto.ee"
       ad_management: Minu kuulutused
-      details: Vehicles you're selling
+      details: ""
       create_ad: Lisa kuulutus
       nothing: Kuulutusi ei leitud
       advert: kuulutus
@@ -162,23 +194,27 @@ et:
       unfinished: Lõpetamata
       activated: Aktiveeritud
       not_activated: Mitteaktiivne
-      statistics: Vaatamise statistika
+      statistics: Vaata statistikat
       preview: Eelvaade
       edit: Muuda kuulutust
-      deactivate: Deaktiveeri
-      deactivate_sure: "Olete kindel, et soovite deaktiveerida oma kuulutust?"
+      deactivate: Peida kuulutus
+      deactivate_sure: "Olete kindel, et soovite ajutiselt peita kuulutust?"
       activate: Aktiveeri
       activate_sure: "Kas olete kindel?"
-      restore: Taasta
+      restore: Taasta kuulutus
       restore_sure: "Olete kindel, et soovite taastada oma kuulutust?"
-      remove: Eemalda või märgi müüduks
+      remove_ad: Kustuta kuulutus
+      remove: Kustuta
       remove_sure: "Kas olete kindel?"
+      removing: ""
+      why_removing: "Palun teatage, miks Te soovite selle kuulutuse eemaldamist:"
     edit:
-      title: "Mis tüüpi sõidukit te tahate müüa?"
+      heading: "Mis tüüpi sõidukit te tahate müüa?"
       bodytype: Liik ja keretüüp
       make: Mark
       model_name: Mudel
-      variant: Mudeli versioon
+      variant: Mudeli variant
+      version: Mudeli versioon
       year: Ehitusaasta
       registered_at: Esmane registreerimine 
       odometer: Läbisõit
@@ -197,12 +233,13 @@ et:
       find_details: Leia andmed
     actions:
       back: Tagasi
-      show: Näita
+      show: Näita kuulutus
       activate: Aktiveeri
       activate_show: "Aktiveeri ja näita"
       save_preview: Salvesta ja näita eelvaadet
       save_continue: Salvesta ja jätka
       save_show: Salvesta ja näita
+      preview: Eelvaade
     details:
       title: "Lisa rohkem infot oma %{vehicle} kohta"
       engine_details: Mootori andmed
@@ -237,7 +274,7 @@ et:
       gears: "Käikude arv:"
       drivetype: "Vedav sild:"
       location: "Asukoht:"
-      select_state: "Vali riik"
+      select_state: "Vali maakond"
       select_city: "Vali linn"
       brought_from: "Toodud riigist:"
       doors: "Ustearv:"
@@ -249,7 +286,7 @@ et:
       other_info: Muu info
     features:
       title: "Mis varustus on Teie sõidukil?"
-      lead: "Lisa või eemalda tehases paigaldatud, järelturu või standardseid sõiduki varustusi."
+      lead: ""
       safety_security: "Turva- ja ohutusvarustus"
       airbags: Turvapadjad
       speakers: Spiikerid
@@ -262,13 +299,13 @@ et:
       upload_photos: Fotode lisamine
       photos_lead: "Paku täiendavat kindlustunnet ostjale, lisades oma sõiduki pilte. Fotod peavad olema gif, jpg, jpeg või png laiendusega ja maksimaalselt 5 MB suurusega. Klõpsa ja lohista, et muuta fotode järjekorda."
       add_pics: Lisa fotod
-      a_of_b: "%{a} of %{b} "
+      a_of_b: "%{a} foto(t) üles laaditud %{b} lubatust"
       available: ""
       previous: Eelmine
       next: Järgmine
       remove: Eemalda
     contact:
-      name: Contact name
+      name: Nimi
       price_title: Hind
       price: "Hind:"
       price_vat: "Hind sisaldab KM 20%"
@@ -276,9 +313,15 @@ et:
       contact_title: Kontaktandmed
       primary_number: "Telefon 1:"
       secondary_number: "Telefon 2:"
-      email: "E-post:"
+      email: "E-mail:"
+    preview:
+      title: "Kuulutuse eelvade - Webauto.ee"
+      nb: "NB! See on kuulutuse #%{id} eelvaade"
   vehicles:
     show:
+      vehicle_details: Sõiduki andmed
+      model: Mudel
+      price: Hind
       incl_vat: "sisaldab KM 20%"
       exl_vat: "KM 0%"
       no_details: "-"
@@ -292,17 +335,20 @@ et:
       dealer: Autodiiler
       images: Pilt
       a_of_b: " %{a} (%{b})"
-      contact_dealer: Võta ühendust automüüjaga
-      contact_private_seller: Võta ühendust 
+      contact_dealer: Saada kiri 
+      contact_private_seller: Saada kiri 
       recently_viewed: Teised on samuti vaadanud
+      sellers_details: "Võta müüjaga ühendust"
       similar_cars: Sarnased kuulutused
-      interested: "Ma võin olla huvitatud..."
+      more: Selle automüüja teised kuulutused
+      nothing: Kuulutusi ei leitud
+      interested: "Teile võib meeldida ka"
       compare: Lisa võrdlusse
       save: Salvesta 
       unsave: Ära salvesta
       share: Soovita sõbrale
       report: Ebasobiv kuulutus
-      comments: Arvamused
+      comments: Kommentaarid
       bodystyle: Keretüüp
       badge: Versioon
       series: Seeria
@@ -317,7 +363,7 @@ et:
       transmission: Käigukast
       brought_from: Toodud riigist
       vin: Vin kood
-      show: Näita telefoni number
+      show: Näita telefoninumbrit
       show_vin: Näita
       show_nr: Näita
       specification: Tehnilised näitajad
@@ -344,7 +390,7 @@ et:
       winter_tires: Talverehvid
       winter_tire_size: Talverehvi suurus
       light_alloy_wheels: Valuveljed  
-      no: Ei
+      noooo: Ei
       all_season: lamellrehvid
       with_spikes: naastrehvid
       dimensions_weights: "Mõõdud ja massid"
@@ -372,7 +418,7 @@ et:
       seats: Istekohti
       origin: Toodud riigist
       owners: Omanikute arv
-      ad_updated: "Kuulutuse viimane muutmine oli"
+      ad_updated: "Viimati muudetud"
       audio_visual: "Audio, video ja kommunikatsioon"
       speaker_stereo: "%{n}x spiikritega stereo"
       car_stereo: "Stereo"
@@ -477,6 +523,10 @@ et:
       uncompare: Lisatud võrdlusse!
     search:
       viewed_by_you: Ma olen vaadanud
+      advert: kuulutus
+      adverts: kuulutust
+    index:
+      title: "Kasutatud sõidukid - Webauto.ee"
   comments:
     write_comment: "Sinu kommentaar..."
     comments: Kommentaarid
@@ -486,8 +536,13 @@ et:
     write_reply: "Lisa vastus..."
     delete: Kustuta
   inquiries:
-    write_message: "Sinu küsimus..."
-    send: Saada küsimus
+    feedback: Üldine tagasiside
+    problem: Probleem
+    feature: Funktsiooninõue
+    question: Küsimus
+    cancel: Tühista
+    write_message: "Teie küsimus..."
+    send: Saada 
     name: Saatja nimi
     email: Saatja e-post
     friends_email: Sõbra e-post
@@ -498,16 +553,36 @@ et:
     send_to_friend: Soovita sõbrale
     report_ad: Teata ebasobivast kuulutusest
     report: Teata ebasobivast kuulutusest
-    acknowledge: "Klikkides nupule \"Saada\" kinnitate, et nõustute Webauto <a href='%{terms_link}' target='_blank'><strong>kasutustingimuste</strong></a> ja <a href='%{privacy_link}' target='_blank'><strong>privaatsuspoliitikaga</strong></a>."
-    acknowledge_comments: "By creating comments you acknowledge that you have read and agree to abide by the Webauto.ee <a href='%{terms_link}' target='_blank'><strong>Terms and Conditions</strong></a> and <a href='%{privacy_link}' target='_blank'><strong>Privacy Policy</strong>.</a>"
+    note: "<strong>Teade:</strong> Webauto.ee ei müü autosid. Kui Teil on küsimusi automüügi kuulutuse kohta, pöörduge müüja poole, täites kontaktvormi kuulutuse leheküljel."
+    acknowledge: "Vajutades nupule \"Saada\" nõustute Webauto.ee <a href='%{terms_link}' target='_blank'><strong>kasutustingimuste</strong></a> ja <a href='%{privacy_link}' target='_blank'><strong>privaatsuspoliitikaga</strong></a>."
+    acknowledge_comments: "Postitades kommentaari nõustute Webauto.ee <a href='%{terms_link}' target='_blank'><strong>kasutustingimuste</strong></a> ja <a href='%{privacy_link}' target='_blank'><strong>privaatsuspoliitikaga</strong>.</a>"
   dealers:
     index: 
-      title: "Webauto | Find a car dealership in Estonia"
-      nothing: "Nothing found"
+      title: "Autodiilerid - Webauto.ee"
+      nothing: "Autodiilereid ei leitud"
+      heading: Autodiilerid
+      company_name: Ettevõtte nimi
+      total_stock: Sõidukite arv
+      view_stock: Näita kuulutusi
+      show_inventory: Näita teisi kuulutusi
+      map_directions: Vaata kaardilt
+      email_dealer: Saada kiri
+      visit: Koduleht
+      view_map: Vaata kaardilt
+      dealer: autodiiler
+      dealers: autodiilerit
   users:
+    new:
+      title: Loo uus kasutaja
+      accept: "Nõustun <a href='%{terms_link}' target='_blank'>kasutustingimustega</a> ja <a href='%{privacy_link}' target='_blank'>privaatsuspoliitikaga</a>"
+      dealer_company: "Olen autodiiler/ettevõte"
+      spam: ""
+      spam_text: ""
+      tos_agreement: "Palun nõustuge meie kasutustingimustega"
     dashboard:
+      title: Töölaud - Webauto.ee
       dashboard: Töölaud
-      lead: "Staying in touch with Webauto just became a whole lot easier. Now that you're a member, you can manage all your ads and searches in the one place to make buying and selling a cinch."
+      lead: ""
       saved_vehicles: Salvestatud sõidukid
       view_all: Näita kõiki
       sold: MÜÜDUD
@@ -516,22 +591,24 @@ et:
       last_searches: Viimased otsingud
       searched_on: Otsitud
     profile:
+      title: "Minu profiil - Webauto.ee"
       profile: Muuda andmeid
       details: ""
       for_security: ""
       security: "Selleks, et muuta oma e-posti aadressi palume %{contact_link}."
-      contact_link_text: kirjutada meile
+      contact_link_text: võtta meiega ühendust
       name: Nimi
       country: Riik
       city: Linn
-      primary_phone: Telefon 1
-      secondary_phone: Telefon 2
-      email: E-post
+      state: Maakond
+      primary_phone: Telefon
+      secondary_phone: Telefon
+      email: E-mail
       new_password: Uus parool
       password: Parool
-      password_confirm: Parooli kinnitus
+      password_confirm: "<strong>Parooli kinnitus</strong>"
       current_password: Praegune parool
-      company_name: Firma nimi
+      company_name: Ettevõtte nimi
       address1: Aadress 1
       address2: Aadress 2
       postal_code: Postiindeks
@@ -547,60 +624,96 @@ et:
       remove: Kustuta
       remove_sure: 'Olete kindel, et soovite kustutada selle pildi?'
     settings:
+      title: "Seaded - Webauto.ee"
       settings: Seaded
-      details: The emails we send you
+      details: ""
       notifications: Salvestatud sõiduki teavitused
       notify: "Teavita mind, kui:"
-      price_alert: "Hind muutub või on eripakkumine"
+      price_alert: "Hind muutub"
       sold_alert: "Sõiduk on müüdud"
       interest_alert: "Suureneb huvi sõiduki vastu"
       future_updates: "Uudiskirjad"
-      future_updates_text: "Webauto liikmena, me informeerime teid kõikidest uutest põnevatest funktsioonidest, eksklusiivsetest diilidest meilt ja meie partneritelt ja kõikidest olulistest asjadest, mis on seotud sõiduki omandiga. Teie tevitusi ja kontaktandmeid ei jagata ühegi kolmanda poolega väljaspool Webauto võrku."
-      future_updates_check: "Eksklusiivse Webauto liikmena soovin saada uudiseid, pakkumiseid ja muud informatsiooni minu e-postile"
+      future_updates_text: "Webauto.ee liikmena, me informeerime teid kõikidest uutest põnevatest funktsioonidest, eksklusiivsetest diilidest meilt ja meie partneritelt ja kõikidest olulistest asjadest, mis on seotud sõiduki omandiga. Teie tevitusi ja kontaktandmeid ei jagata ühegi kolmanda poolega väljaspool Webauto.ee võrku."
+      future_updates_check: "Soovin saada Webauto.ee uudiseid, pakkumiseid ja muud informatsiooni e-postiga"
       language: Keel
       save: Salvesta
   searches:
     index:
+      title: "Salvestatud otsingud - Webauto.ee"
       saved_searches_and_alerts: "Salvestatud otsingud"
-      title_details: Searches saved to run again
+      title_details: ""
       available_searches: "otsingut"
       a_of_b: "%{a}(%{b})"
-      rename_search: "Muuda otsingu nime"
+      rename_search: "Muuda otsingu pealkirja"
       save_search: "Salvesta otsing"
       save: Salvesta
       close: Sulge
-      name: Nimi
+      name: Pealkiri
       alerts_on: "Jah"
       alerts_off: "Ei"
-      search_name: NIMI
+      search_name: PEALKIRI
       details: DETAILID
       freq: TEAVITAMINE
-      activity: AKTIIVSUS
+      activity: VIIMASED TOIMINGUD
       delete_all: Kustuta kõik
       sure: "Olete kindel, et soovite kustutada kõik otsingud?"
       no_alert: Ära teavita
       actions: Tegevused
-      rename: Muuda nime
+      rename: Muuda pealkirja
       delete: Kustuta
       delete_sure: "Olete kindel, et soovite kustutada?"
       saved_on: Salvestatud
-      run: Run search
+      run: Käivita otsing
   saved_items:
     index:
+      title: "Salvestatud sõidukid - Webauto.ee"
+      details: ""
       saved_items: Salvestatud sõidukid
       a_of_b: " %{a}(%{b})"
       available_items: sõidukit
       description: KIRJELDUS
       price: HIND
-      recent: AKTIIVSUS
+      recent: VIIMASED TOIMINGUD
       sold: MÜÜDUD
       search_similar: Otsi sarnaseid
-      last_listed: Viimane hind oli
+      last_listed: Viimane hind 
       other_people: "Teised inimesed on salvestatud selle sõiduki"
   compared_items:
     index:
-      title: Autode võrdlus
+      title: "Autode võrdlus - Webauto.ee"
+      heading: Autode võrdlus
       remove: Eemalda
+  garage_items:
+    index:
+      title: "Minu sõidukid - Webauto.ee"
+      update: Muuda
+      activity: VIIMASED TOIMINGUD
+      actions: TEGEVUSED
+      add_car: Lisa auto
+      add_photo: Lisa pilt
+      preview: Kuulutuse eelvaade
+      show: Näita kuulutus
+      restore: Taasta kuulutus
+      for_sale: MÜÜGIS
+      sell: Kuuluta
+      updated: Muudetud
+      ago: tagasi
+      association: Omandivorm
+      save: Salvesta
+      cancel: Tühista
+      edit: Muuda andmeid
+    edit:
+      title: "Muuda auto andmeid - Webauto.ee"
+    new:
+      title: "Lisa auto - Webauto.ee"
+  contact_forms:
+    thankyou: "Täname Teid kirja eest!"
+    thankyou_text: "Me võtame Teiega ühendust niipea kui võimalik."
+    title: "Kontakt - Webauto.ee"
+  orders:
+    your_cart: ""
+    order_total: "Kokku tasuda:" 
+    total: Kokku
   views:
     pagination:
       first: "&laquo;"
@@ -612,19 +725,50 @@ et:
     page_entries_info:
       one_page:
         display_entries:
-          zero: "<div class='alert'>Kuulutusi ei leitud</div>"
+          zero: "<div class='alert'>%{entry_name} ei leitud</div>"
           one: "<small>Näitan <span class='badge badge-info'>1</span> %{entry_name}</small>"
-          other: "<small>Näitan <span class='badge badge-info'>%{count}</span> kuulutust</small>"
+          other: "<small>Näitan <span class='badge badge-info'>%{count}</span> %{entry_name}</small>"
       more_pages:
-        display_entries: "<small>Kokku <span class='badge badge-info'>%{total}</span> sõidukit. Näitan <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span></small>"
+        display_entries: "<small>Kokku <span class='badge badge-info'>%{total}</span>. Näitan <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span></small>"
   activerecord:
+    attributes:
+      user:
+        password: Parool
+        email: E-mail
+        company_name: Ettevõtte nimi
+      search:
+        name: Pealkiri
+      vehicle:
+        bodytype_id: Keretüüp
+        make_id: Mark
+        model_id: Mudel
+        engine_power: Mootori võimsus
+        odometer: Läbisõit
+        engine_size: Mootori maht
+        fueltype_id: Kütus
+        colour_id: Värv
+        country_id: Asukoht
+        drivetype_id: Vedav sild
+        state_id: Maakond
+        doors: Ustearv
+        seats: Istekohtade arv
+        price: Hind
+      comment:
+        text: Kommentaar
     errors:
-      models:
+      models:   
         compared_item:
           attributes:
             vehicle_id:
-              taken: Already taken
+              taken: on juba võetud
         user:
           attributes:
             current_password:
-              blank: cannot be blank
+              blank: on sisestamata
+  mail_form:
+    models:
+      contact_form: "Kontaktvorm"
+    attributes:
+      contact_form:
+        email: "E-mail"
+        message: "Küsimus"

@@ -5,7 +5,7 @@
   </div>
   <div class="span9">
     <div class="page-header">
-      <h2>Add a Car</h2>
+      <h2><%= t("garage_items.index.add_car") %></h2>
     </div>
    
 		
@@ -19,8 +19,8 @@
      <div class="row-fluid" >
          <div class="span12" style="padding-top:20px; margin-top:20px; border-top: 1px solid #eeeeee;">
 			 
-     <%= f.submit "Save",:class=>"btn btn-info", id: 'submit-data' %>
-     <%= link_to "Cancel", :back,:class=>"btn"  %>
+     <%= f.submit t("garage_items.index.save"),:class=>"btn btn-info", id: 'submit-data' %>
+     <%= link_to t("garage_items.index.cancel"), :back,:class=>"btn"  %>
      </div>
    </div>
    <% end %>

@@ -1,6 +1,8 @@
-- in search selection fields put others in the end
+- service translates title
+- https://www.privaatnumber.ee/#/
+- add show price history checkbox in price
 - delete carrierwave temp folders after upload https://github.com/carrierwaveuploader/carrierwave/wiki/How-to:-Delete-cache-garbage-directories
-
+- add link to sõiduki taustakontroll
 - show also ad status for garage item
 - owner reviews like on carsales.com.au
 - send email when ad is created , check cargurus email

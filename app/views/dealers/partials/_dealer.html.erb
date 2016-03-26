@@ -30,13 +30,13 @@
 </td>
 <td width="20%" align="center"  class="lead muted" >
 
-              Total Stock <br>
+              <%=t("dealers.index.total_stock")%><br>
               <%= dealer.total_stock(@current_type.id).count %>
             
             </td>  
       <td align="right" >
      
-        <%= link_to "View Stock",  dealer_path(dealer.dealer_name),:class=>"btn btn-info"  %>
+        <%= link_to t("dealers.index.view_stock"),  dealer_path(dealer.dealer_name),:class=>"btn btn-info"  %>
       </td>
     </tr>
   

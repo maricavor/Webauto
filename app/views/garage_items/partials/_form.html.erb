@@ -2,7 +2,7 @@
 	   <div class="span6">
 	 <%= f.fields_for :garage_item do |builder| -%>
      <%= builder.hidden_field :user_id,value: current_user.id %>
-	  <%= builder.select :ownership_id,t('ownership').collect {|a| [ a["name"], a["id"] ] },{include_blank: false},{label: "Association"} %>
+	  <%= builder.select :ownership_id,t('ownership').collect {|a| [ a["name"], a["id"] ] },{include_blank: false},{label: t("garage_items.index.association") } %>
    <% end %>
     </div>
 	 <div class="span6">
@@ -20,7 +20,7 @@
   
     <%= f.text_field :registered_at,label:t("adverts.edit.registered_at"),:type=>"datepicker" %>
     <%= f.text_field :badge,label: t("adverts.edit.variant") %>
-	 <%= f.text_field :series,label: t("adverts.edit.series") %>
+	 <%= f.text_field :series,label: t("adverts.edit.version") %>
     <%= f.text_field :year,label: t("adverts.edit.year") %>
   </div>
 <div class="span6">

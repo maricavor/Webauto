@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
+  attr_accessor :tos_agreement
   attr_accessible :name,:email, :primary_phone,:secondary_phone, :password, :password_confirmation, :remember_me,:tos_agreement,:company_name,:company_reg,:address1,:address2,:country_id,:city_id,:state_id,:postal_code,:phone1,:phone2,:company_kmkr,:webpage,:is_dealer,:price_alert,:sold_alert,:interest_alert,:auto_alerts,:feature_alerts,:locale,:provider,:uid,:encrypted_password
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
@@ -22,8 +23,12 @@ class User < ActiveRecord::Base
   belongs_to :country
   belongs_to :state
   #scope :dealers, where("is_dealer = ?", true)
-  validates :tos_agreement, acceptance: true,:on => :create
+ 
   validates :company_name, presence: true, :if => "is_dealer == true"
+  #validates :tos_agreement, acceptance: {message: I18n.t("users.new.tos_agreement")},:on => :create
+  validate :validate_tos,:on=>:create
+
+  
  
   def self.search(search_params)
     
@@ -107,5 +112,10 @@ end
   end
   def total_stock(type_id)
    self.adverts.where(:activated=>true,:type_id=>type_id)
+  end
+  def validate_tos
+    if self.tos_agreement
+      errors.add(:_,I18n.t("users.new.tos_agreement"))
+    end
   end
 end

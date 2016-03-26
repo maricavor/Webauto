@@ -11,7 +11,7 @@
 <%= link_to ("<i class='icon-comment'></i> "+t("vehicles.show.comments")+" [#{@vehicle.comments.count}]").html_safe, "#commentsModal",:class=> "btn btn-block",:role=>"button",:'data-toggle'=>"modal" %>
 <% if current_user %>
 <% if current_user.email.present? %>
-<%= link_to ("<i class='icon-envelope'></i> Contact seller").html_safe, "#contactModal",:role=>"button",:'data-toggle'=>"modal",:class=> "btn btn-block" %>
+<%= link_to ("<i class='icon-envelope'></i> "+t("vehicles.show.contact_private_seller")).html_safe, "#contactModal",:role=>"button",:'data-toggle'=>"modal",:class=> "btn btn-block" %>
 <% end %>
 <% end %>
 </div>

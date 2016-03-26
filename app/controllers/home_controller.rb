@@ -20,10 +20,9 @@ class HomeController < ApplicationController
     @title="Sitemap - Webauto.ee"
   end
   def seller_safety
-    @title="webauto.ee"
   end
   def create_ad
-    @title="Sell My Car - Webauto.ee"
+    @title=t("home.create_ad.title")
     if params[:id]
       @garage_item=GarageItem.find(params[:id])
       if @garage_item.advert

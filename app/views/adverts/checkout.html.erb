@@ -4,7 +4,7 @@
     <%= render 'adverts/partials/breadcrumb',:step=>@action %>
     <div class="page-header">
       <h2>
-        Please confirm AD# <%= @advert.uid %></h2>
+        <%= t("adverts.checkout.heading",:id=> @advert.uid) %></h2>
     </div>
    
   </div>

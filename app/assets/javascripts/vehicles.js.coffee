@@ -4,10 +4,10 @@ if gon
 
 
 Models =
-  init: (gm,t) ->
-    if t.val()!=""
-      make=t.text()
-      body=Models.option_tag(make,"","Select #{make} model")
+  init: (gm,txt) ->
+    if txt.val()!=""
+      make=txt.text()
+      body=Models.option_tag(make,"",t("search.select")+" #{make} "+t("search.select_model"))
       if gm
         for serie,models of gm[make] 
           match = /undefined/i.test(serie)
@@ -18,7 +18,7 @@ Models =
             for m in models
               body += Models.option_tag(make,m[1],m[0])
             body += "</optgroup>"
-        body +=Models.option_tag(make,0,"Other model (please specify)") 
+        body +=Models.option_tag(make,0,t("search.other_model")) 
         $('#vehicle_model_id').html(body) 
     else
       $('#vehicle_model_id').empty()

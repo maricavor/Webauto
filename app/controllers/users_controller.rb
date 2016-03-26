@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   skip_before_filter :get_current_type,:get_compared_items, :only=>[:show_phone,:contact]
 
   def show
-    @title="Member centre - Webauto.ee"
+    @title=t("users.dashboard.title")
     #@user = User.find(params[:id])
     #@user = !params[:id].nil? ? User.find(params[:id]) : current_user
     @user=current_user
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   
   
   def edit
-    @title="Settings - Webauto.ee"
+    @title=t("users.settings.title")
     @user=current_user
   end
   def update

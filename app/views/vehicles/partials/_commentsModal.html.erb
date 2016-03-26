@@ -10,7 +10,8 @@
     <%= render partial: "comments/form",locals: {parent: nil} %>
 	
     <% else %>
-     <%= link_to t("navigation.login"), new_user_session_path %> or <%= link_to t("navigation.register"), new_user_registration_path %> now to post a comment!
+  
+	  <%= t("navigation.comment_login",login: new_user_session_path,register:new_user_registration_path).html_safe %>
     <% end %>
 	
     <div id="comments">
@@ -20,7 +21,9 @@
        <!-- No Comments  -->
       <% end %>
     </div>
+	<% if current_user  %>
 	<p class="text-info" style="margin-top:10px;"><small><%= t("inquiries.acknowledge_comments",:privacy_link=>privacy_path,:terms_link=>terms_path).html_safe %></small></p>
+	<% end %>
   </div>
   <div class="modal-footer">
     <div class="preloader"></div>

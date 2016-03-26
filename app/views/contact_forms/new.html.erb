@@ -2,7 +2,7 @@
 <div class="row-fluid">
   <div class="span12">
     <div class="page-header">
-     <h2>Contact us</h2>
+     <h2><%= t("navigation.contact")%></h2>
     
     </div>
 
@@ -13,9 +13,9 @@
 
 <div class="row-fluid">
  <div class="span6 well">
-	 <p class="lead"><strong>Note:</strong> Webauto does not sell cars. If you have a question about a listing on our site, please contact the seller by filling out the form you see when viewing the listing details.</p>
+	 <p class="lead"><%= t("inquiries.note").html_safe %></p>
     <%= form_for @contact_form  do |f| %>
-     <%= f.select :type, [[ "General feedback", "General feedback" ],[ "Problem", "Problem" ],[ "Feature request", "Feature request" ],[ "Question", "Question" ]]  %>
+     <%= f.select :type, [[ t("inquiries.feedback"),"General feedback" ],[ t("inquiries.problem"), "Problem" ],[ t("inquiries.feature"), "Feature request" ],[ t("inquiries.question"), "Question" ]]  %>
       <% unless current_user %>
         <%= f.text_field :email,:placeholder=>t("inquiries.email"),:class=>"span12" %><br>
         <% else %>
@@ -28,7 +28,7 @@
             </div>
 <p class="text-info" style="margin-top:10px;"><small><%= t("inquiries.acknowledge",:privacy_link=>privacy_path,:terms_link=>terms_path).html_safe %></small></p>
             <%= f.submit t("inquiries.send"),class: "btn btn-info" %>
-            <%= link_to "Cancel",root_url,class: "btn" %>
+            <%= link_to t("inquiries.cancel"),root_url,class: "btn" %>
  <% end %>
  </div>
   <div class="span6">

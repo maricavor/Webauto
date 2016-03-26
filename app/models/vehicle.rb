@@ -32,21 +32,27 @@ class Vehicle < ActiveRecord::Base
   validates :model_spec, :presence => true, :if => :no_model? # Proc.new {|v| v.model_id==0 }
   #validates :reg_nr, uniqueness: true
   validates :registered_at, :presence => true#,:on => :update
-  validates :engine_power,:presence => true,numericality: { only_integer: true,greater_than: 0}#,:on => :update
-  validates :engine_size,:presence=>true,:format => { :with => /\A\d+(?:\.\d{0,2})?\z/ }, :numericality => {:greater_than => 0, :less_than => 10}#,:on => :update
+  
+ 
   #validates :year, :presence => true, numericality: { only_integer: true, greater_than_or_equal_to: 1900, less_than_or_equal_to: Date.today.year }
   #validates :year, format: {with: /(19|20)\d{2}/i, message: "should be a four-digit number"}, :allow_blank => true
  
-  validates :transmission_id, :presence => true, :on => :update,:if => :details? 
-  validates :fueltype_id, :presence => true#,:on => :update
+  
+  
   validates :odometer, :presence => true,numericality: { only_integer: true}#,:on => :update
-  validates :price, :presence => true,:format => {:with => /\A\d+(?:\.\d{0,2})?\z/}, :numericality => {:greater_than => 0}, :on => :update, :if => :contact? 
-  validates :country_id,:presence => true, :on => :update,:if => :details? 
-  validates :drivetype_id,:presence => true, :on => :update,:if => :details? 
-  validates :doors,:presence => true,numericality: { only_integer: true,greater_than: 0}, :on => :update,:if => :details? 
-  validates :seats,:presence => true,numericality: { only_integer: true,greater_than: 0}, :on => :update,:if => :details? 
+  validates :engine_power,:presence => true,numericality: { only_integer: true,greater_than: 0}#,:on => :update
+  validates :engine_size,:presence=>true,:format => { :with => /\A\d+(?:\.\d{0,2})?\z/ }, :numericality => {:greater_than => 0, :less_than => 10}#,:on => :update
+  validates :fueltype_id, :presence => true#,:on => :update
   validates :colour_id,:presence => true#,:on => :update
+  validates :transmission_id, :presence => true, :on => :update,:if => :details? 
+  validates :drivetype_id,:presence => true, :on => :update,:if => :details?
+  validates :country_id,:presence => true, :on => :update,:if => :details? 
   validates :state_id,:presence => true,:on=>:update,:if=>:estonian?
+  validates :doors,:presence => true,numericality: { only_integer: true,greater_than: 0}, :on => :update,:if => :details? 
+    validates :seats,:presence => true,numericality: { only_integer: true,greater_than: 0}, :on => :update,:if => :details?  
+  validates :price, :presence => true,:format => {:with => /\A\d+(?:\.\d{0,2})?\z/}, :numericality => {:greater_than => 0}, :on => :update, :if => :contact? 
+  
+  
   #validates :city_id,:presence => true,:on=>:update,:if=>:state?
   validate :description_length,:on=>:update,:if => :photos? 
   #################

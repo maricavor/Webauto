@@ -1,1 +1,1 @@
-<%= page_entries_info @vehicles, :entry_name => @current_type.name.singularize %>
+<%= page_entries_info @vehicles, :entry_name => "" %><small> <%= @vehicles.count>1 ? t('vehicles.search.adverts') : t('vehicles.search.advert') %></small>

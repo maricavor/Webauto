@@ -8,7 +8,7 @@ class AdvertsController < ApplicationController
   end
 
   def index
-      @title="My adverts - Webauto.ee"
+      @title=t("adverts.index.title")
       @user=current_user
       sort=sort_column + ' ' + sort_direction
       page=params[:page]
@@ -17,7 +17,7 @@ class AdvertsController < ApplicationController
   end
 
   def new
-    @title="Sell my car - Webauto.ee"
+    @title=t("adverts.breadcrumb.edit")+" - Webauto.ee"
     @ad_type=params[:ad_type]
     @action="edit"
     if params[:g_id]
@@ -196,12 +196,17 @@ def update
   end
 
  def edit
+    @title=t("adverts.breadcrumb.edit")+" - Webauto.ee"
     @action="edit"
     @advert.current_step=session[:advert_step]=@action
     @vehicle=@advert.vehicle
-    @advert.update_attributes(:activated=>false) if @advert.activated
+    if @advert.activated
+    @advert.update_attributes(:activated=>false) 
+    flash[:notice]=t("adverts.ad_deactivated")
+  end
     @bodytypes=Bodytype.where(:type_id=>@vehicle.type_id)
     gon.selected={"vehicles"=>[@vehicle.make_name,@vehicle.model_name,@vehicle.model_id]} if @vehicle.make
+    
   end
 
  
@@ -285,6 +290,7 @@ def update
   end
 
   def details
+    @title=t("adverts.breadcrumb.details")+" - Webauto.ee"
     @action="details"
     @advert.current_step=session[:advert_step]=@action
     if @advert.basics_saved
@@ -302,11 +308,13 @@ def update
     end
   end
    def features
+    @title=t("adverts.breadcrumb.features")+" - Webauto.ee"
     @action="features"
     @advert.current_step=session[:advert_step]=@action
     @vehicle=@advert.vehicle
   end
   def photos
+    @title=t("adverts.breadcrumb.photos")+" - Webauto.ee"
     @action="photos"
     @advert.current_step=session[:advert_step]=@action
     @vehicle=@advert.vehicle
@@ -315,19 +323,26 @@ def update
     @max_pictures=7
   end
   def contact
+    @title=t("adverts.breadcrumb.contact")+" - Webauto.ee"
     @action="contact"
     @advert.current_step=session[:advert_step]=@action
     @vehicle=@advert.vehicle
   end
   def checkout
+    @title=t("adverts.breadcrumb.checkout")+" - Webauto.ee"
     @action="checkout"
     @advert.current_step=session[:advert_step]=@action
     @vehicle=@advert.vehicle
     @order=@advert.order
+    if @advert.activated
+    @advert.update_attributes(:activated=>false) 
+    flash[:notice]=t("adverts.ad_deactivated")
+  end
   end
  
 
 def preview
+    @title=t("adverts.preview.title")
     @vehicle=@advert.vehicle
     @user=@vehicle.user
     @pictures=@vehicle.pictures

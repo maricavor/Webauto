@@ -13,7 +13,7 @@ class SavedItemsController < ApplicationController
     end
   end
   def index
-    @title= "Saved adverts - Webauto.ee"
+    @title=t("saved_items.index.title") 
     @saved_items=current_user.saved_items.where(:type_id=>@current_type).order("created_at desc")
     @count=@saved_items.count
   end

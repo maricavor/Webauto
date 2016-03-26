@@ -4,7 +4,7 @@ class ComparedItemsController < ApplicationController
   def index
     @compared_items = ComparedItem.where(:session_hash=>request.session_options[:id]).last(4)
     #@compared_items=_compared_items.map {|ci| ci unless ci.vehicle.nil?}
-    @title="Compare Vehicles - Webauto.ee"
+    @title=t("compared_items.index.title")
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @compared_items }

@@ -1,4 +1,24 @@
 en:
+  registrations:
+    can_sign_in: "You can sign in to your account using:"
+    sure: "Are you sure you want to remove this authentication option?"
+    add_more: "Add more services to sign in with:"
+    add_service: "Add service to sign in with:"
+  home:
+    create_ad:
+      header: Sell Your Car with Webauto.ee!
+      free: FREE
+      until_sold: Until Sold
+      unlimited: UNLIMITED FREE EDITS
+      start_selling: Start selling
+      includes: "Every ad includes:"
+      photos: 7 photos
+      slideshow: Image slide show
+      notifications: Saved advert notifications
+      statistics: View statistics
+      already: "Already have an ad?"
+      manage: Manage Your Ad
+      title: "Sell My Car - Webauto.ee"
   navigation:
     cookies_message: "This website uses cookies to ensure you get the best experience on our website."
     learn_more: "More info"
@@ -12,16 +32,19 @@ en:
     help_buying_cars: Help buying a car
     find_dealer: Find a dealer
     sell_your_cars: Sell your car
+    sell_your_cars_upcase: SELL YOUR CAR
     create_ad: Create an ad
     manage_ad: Manage my ad
     seller_help: Seller help
     safety_tips: Safety tips
     research: Research
+    research_upcase: RESEARCH
     compare_cars: Compare cars
     login: Login
     register: Sign up
     language: Language
     social_networks: Social networks
+    social_networks_upcase: SOCIAL NETWORKS
     social_networks_text: "Connect with us on Facebook"
     terms: "Terms of Use"
     privacy: Privacy
@@ -39,6 +62,8 @@ en:
     favourites: FAVOURITES
     sell: SELL
     create_ad: Create ad
+    garage_items: My Garage
+    comment_login:  "<a href='%{login}'>Login</a> or <a href='%{register}'>Register</a> now to post a comment!"
   search:
     open_search: Open search
     close_search: Close search
@@ -53,6 +78,9 @@ en:
     model: "Model (any)"
     make: "Make (any)"
     any: Any
+    select: Select
+    select_model: model
+    other_model: "Other model (please specify)"
     models: Model
     selected: selected
     count_selected_text: "<strong>{0} of {1} selected</strong>"
@@ -93,7 +121,8 @@ en:
     year_low_high: "Year (Low to High)"
   signin:
     email: Email
-    password: Password
+    password: Password 
+    new_password: New password
     forgot_password: Reset password
     forgot_password_note: Please enter the email address that you used to register and we'll send you the password reset instructions
     send: Send instructions
@@ -137,6 +166,7 @@ en:
   adverts:
     checkout:
       seller_details: Seller details
+      heading: "Please confirm AD#%{id}"
     breadcrumb:
       edit: Basic info
       details: Details
@@ -151,6 +181,7 @@ en:
       close: Close
       views: Views
     index:
+      title: "My adverts - Webauto.ee"
       ad_management: My adverts
       details: Vehicles you're selling
       create_ad: Create new ad
@@ -172,14 +203,18 @@ en:
       activate_sure: "Are you sure?"
       restore: Restore
       restore_sure: "Are you sure you want to restore your advert?"
-      remove: Remove ad
+      remove_ad: Remove ad
+      remove: Remove
       remove_sure: "Are you sure?" 
+      removing: "You are removing the ad for your"
+      why_removing: "Please tell us why you're removing this advert (optional):"
     edit:
-      title: "What type of vehicle are you selling?"
+      heading: "What type of vehicle are you selling?"
       bodytype: Body type
       make: Make
       model_name: Model
-      variant: Badge
+      variant: Variant
+      version: Version
       year: Build year
       registered_at: Initial registration 
       odometer: Odometer
@@ -204,6 +239,7 @@ en:
       save_preview: "Save & Preview"
       save_continue: "Save & Continue"
       save_show: "Save & Show"
+      preview: Preview
     details:
       title: "Tell us more about your %{vehicle}"
       engine_details: Engine details
@@ -278,8 +314,14 @@ en:
       primary_number: "Contact number:"
       secondary_number: "Secondary number:"
       email: "Email:"
+    preview:
+      title: "Advert preview - Webauto.ee"
+      nb: "NB! This is a preview of your advert #%{id}"
   vehicles:
     show:
+      vehicle_details: Vehicle details
+      model: Model
+      price: Price
       incl_vat: "inc 20% VAT"
       exl_vat: "exl 20% VAT"
       no_details: "-"
@@ -296,7 +338,10 @@ en:
       contact_dealer: Contact dealer
       contact_private_seller: Contact private seller
       recently_viewed: People also viewed 
+      sellers_details: "Seller's details"
       similar_cars: Similar cars
+      more: More cars from this dealer
+      nothing: Nothing found
       interested: "You may also be interested in..."
       compare: Compare
       save: Save 
@@ -478,6 +523,10 @@ en:
       uncompare: Compared!
     search:
       viewed_by_you: Recently viewed by you
+      advert: advert
+      adverts: adverts
+    index:
+      title: "Used Cars For Sale - Webauto.ee"
   comments:
     write_comment: "Write a comment..."
     comments: Comments
@@ -487,6 +536,11 @@ en:
     write_reply: "Write a reply..."
     delete: Delete
   inquiries:
+    feedback: General feedback
+    problem: Problem
+    feature: Feature request
+    question: Question
+    cancel: Cancel
     write_message: "Write a message..."
     send: Send Message
     name: Sender's name
@@ -499,14 +553,33 @@ en:
     close: Close
     send_to_friend: Send to a friend
     report_ad: Report this ad
+    note: "<strong>Note:</strong> Webauto.ee does not sell cars. If you have a question about a listing on our site, please contact the seller by filling out the form you see when viewing the listing details."
     acknowledge: "By clicking the send button you acknowledge that you have read and agree to abide by the Webauto.ee <a href='%{terms_link}' target='_blank'><strong>Terms and Conditions</strong></a> and <a href='%{privacy_link}' target='_blank'><strong>Privacy Policy</strong>.</a>"
     acknowledge_comments: "By posting comments you acknowledge that you have read and agree to abide by the Webauto.ee <a href='%{terms_link}' target='_blank'><strong>Terms and Conditions</strong></a> and <a href='%{privacy_link}' target='_blank'><strong>Privacy Policy</strong>.</a>"
   dealers:
     index: 
-      title: "Dealer Services - webauto.ee"
+      title: "Dealer Services - Webauto.ee"
       nothing: "Nothing found"
+      heading: Car dealers
+      company_name: Company name
+      total_stock: Total Stock
+      view_stock: View Stock
+      show_inventory: Show Inventory
+      map_directions: "Map & Directions"
+      email_dealer: Email the Dealer
+      visit: Visit Website
+      view_map: View Map
+      dealer: dealer
+      dealers: dealers
   users:
+    new: 
+      title: Create an account
+      accept: "I accept the <a href='%{terms_link}' target='_blank'>Terms and Conditions</a> and <a href='%{privacy_link}' target='_blank'>Privacy Policy</a>"
+      spam: Spam Protection
+      spam_text: "To protect you from unsolicited email (spam), your email address will not be displayed on your advert. If you allow contact by email, buyers will be able to send you messages through our system. The buyer will not see your email address unless you choose to reply to them."
+      tos_agreement: Please accept our Terms of service
     dashboard:
+      title: Dashboard - Webauto.ee
       dashboard: Dashboard
       lead: "Staying in touch with Webauto.ee just became a whole lot easier. Now that you're a member, you can manage all your ads and searches in the one place to make buying and selling a cinch."
       saved_vehicles: Saved adverts
@@ -517,6 +590,7 @@ en:
       last_searches: Last searches
       searched_on: Searched on
     profile:
+      title: "Profile - Webauto.ee"
       profile: Profile
       details: "Information about you"
       for_security: "For security:"
@@ -525,6 +599,7 @@ en:
       name: Name
       country: Country
       city: City
+      state: State
       primary_phone: Primary phone
       secondary_phone: Secondary phone
       email: Email
@@ -548,6 +623,7 @@ en:
       remove: Remove
       remove_sure: 'Are you sure you want to delete this image?'
     settings:
+      title: "Settings - Webauto.ee"
       settings: Settings
       details: The emails we send you
       notifications: Saved vehicle notifications
@@ -562,6 +638,7 @@ en:
       save: Save
   searches:
     index:
+      title: "Saved searches - Webauto.ee"
       saved_searches_and_alerts: "Saved searches"
       title_details: Searches saved to run again
       available_searches: available searches
@@ -588,6 +665,7 @@ en:
       run: Run search
   saved_items:
     index:
+      title: "Saved adverts - Webauto.ee"
       details: Ads you've saved for later
       saved_items: Saved adverts
       a_of_b: " %{a} of %{b}"
@@ -597,12 +675,44 @@ en:
       recent: RECENT ACTIVITY
       sold: Sold
       search_similar: Search similar
-      last_listed: Last listed at
+      last_listed: Last price
       other_people: "Other people have saved this vehicle"
   compared_items:
     index:
-      title: Compare vehicles
+      title: "Compare Vehicles - Webauto.ee"
+      heading: Compare vehicles
       remove: Remove
+  garage_items:
+    index:
+      title: "My Garage - Webauto.ee"
+      update: Update
+      activity: RECENT ACTIVITY
+      actions: ACTIONS
+      add_car: Add a Car
+      add_photo: Add photo
+      preview: Preview advert
+      show: Show advert
+      restore: Restore ad
+      for_sale: FOR SALE
+      sell: Create advert
+      updated: Updated
+      ago: ago
+      association: Ownership
+      save: Save
+      cancel: Cancel
+      edit: Edit car
+    edit:
+      title: "Edit your Car - Webauto.ee"
+    new:
+      title: "Add a Car - Webauto.ee"
+  contact_forms:
+    thankyou: "Thank you for your message."
+    thankyou_text: "We'll get back to you as soon as possible."
+    title: "Contact Us - Webauto.ee" 
+  orders:
+    your_cart: Your cart
+    order_total: "Order total:"
+    total: "Kokku"
   views:
     pagination:
       first: "&laquo;"
@@ -620,6 +730,30 @@ en:
       more_pages:
         display_entries: "<small>Displaying %{entry_name} <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span> of <span class='badge badge-info'>%{total}</span> in total</small>"
   activerecord:
+    attributes:
+      user:
+        password: Password
+        email: Email
+        company_name: Company name
+      search:
+        name: Name
+      vehicle:
+        bodytype_id: Bodytype
+        make_id: Make
+        model_id: Model
+        engine_power: Engine power
+        odometer: Odometer
+        engine_size: Engine size
+        fueltype_id: Fueltype
+        colour_id: Colour
+        country_id: Country
+        drivetype_id: Drivetype
+        state_id: State
+        doors: Doors
+        seats: Seats
+        price: Price
+      comment:
+        text: Comment
     errors:
       models:
         compared_item:
@@ -630,3 +764,10 @@ en:
           attributes:
             current_password:
               blank: cannot be blank
+  mail_form:
+    models:
+      contact_form: "Contact Form"
+    attributes:
+      contact_form:
+        email: "E-mail"
+        message: "Message"

@@ -3,9 +3,9 @@
       <thead>
         <tr>
           <th></th>
-          <th><%=t("garage_items.index.description") %></th>
+          <th><%=t("saved_items.index.description") %></th>
           <th><%=t("garage_items.index.activity") %></th>
-          <th><%=t("garage_items.index.actions") %></th>
+          <th></th>
          
         </tr>
       </thead>
@@ -40,7 +40,7 @@
 				
 				 
             </strong>
-			<span class="label label-info" style="margin-left:5px;"><%= g.ownership.downcase %></span>
+			<span class="label label-info" style="margin-left:5px;"><%=  g.ownership.downcase %></span>
 	   		   <ul class="unstyled">
 	   		    <li><small><%= vehicle.odometer_str %>  </small></li>
 	     		   <li>
@@ -54,8 +54,8 @@
           
           
             <td class="muted">
-              <small><strong class="text-success">Updated</strong>
-                <strong><%= "#{time_ago_in_words(g.updated_at)} ago" %></strong>
+              <small><strong class="text-success"><%=t("garage_items.index.updated")%></strong>
+                <strong><%= "#{time_ago_in_words(g.updated_at)} "+t("garage_items.index.ago") %></strong>
                 </small>
 				
             </td>
@@ -66,23 +66,23 @@
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu pull-right">
-	    <li><%= link_to "Update", edit_garage_item_path(g)%></li>
+	    <li><%= link_to t("garage_items.index.update"), edit_garage_item_path(g)%></li>
 
-		<li><%= link_to "Add photo", "#",:class=>"garage_item_upload_link",:id=>"garage_item_#{vehicle.id}_upload" %></li>
+		<li><%= link_to t("garage_items.index.add_photo"), "#",:class=>"garage_item_upload_link",:id=>"garage_item_#{vehicle.id}_upload" %></li>
      <li>
 		 <% if g.advert %>
 	    <% if vehicle.deleted? %>
-		 <%= link_to "Restore ad", restore_advert_path(g.advert) %>
+		 <%= link_to t("garage_items.index.restore"), restore_advert_path(g.advert) %>
 		  <% else %>
 		  <% if g.advert.activated %>
-		    <%= link_to "Show advert", car_path(vehicle) %>
+		    <%= link_to t("garage_items.index.show"), car_path(vehicle) %>
 		  <% else %>
-		   <%= link_to "Preview advert", preview_advert_path(g.advert) %>
+		   <%= link_to t("garage_items.index.preview"), preview_advert_path(g.advert) %>
 		  <% end %>
 		 <% end %>
 		 <% else %>
  	    <% if g.ownership_id==1 %>
- 		 <%= link_to "Sell this car", create_ad_path(g) %>
+ 		 <%= link_to t("garage_items.index.sell"), create_ad_path(g) %>
  		 <% end %>
 		 <% end %>
 	 </li>

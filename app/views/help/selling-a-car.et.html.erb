@@ -1,67 +1,88 @@
-<% content_for :title,@title %>
+<% content_for :title,"Auto müügiabi - Webauto.ee" %>
 <div class="row-fluid">
   <div class="span12">
     <div class="page-header">
-      <h2>How to sell a car</h2>
+      <h2>Kuidas müüa autot</h2>
     </div>
-        <p class="lead">Selling a car might sound daunting, but we're here to help ensure it's as quick and easy as possible.</p>
-        <p><%= link_to 'Advertise your car', new_advert_path  %></p>
-        <h3>Setting the price</h3>
-   <p>Pricing your car correctly can mean you get a quick sale, so it's worth taking the time to think the price through. </p>
+        <p class="lead">Auto müümine võib tunduda hirmutav, kuid meie oleme siin selleks, et muuta see kiireks ja nii lihtsaks kui võimalik.</p>
+        <p><%= link_to 'Lisa kuulutus', create_ad_path  %></p>
+        <h3>Hinna määramine</h3>
+   <p>Oma autole õige hinna määramine võib tähendada kiiret müüki, nii et hinna läbimõtlemisele kulutatud aeg on seda väärt.</p>
 <ul>
 
-<li>Compare your car with similar models for sale privately on Webauto.ee</li>
-<li>Consider your car's mileage, age, condition and features for a more accurate price</li>
-<li>Factor in room for the buyer to haggle</li>
+<li>Võrrelge oma autot sarnaste müügil olevate mudelitega privaatselt lehel Webauto.ee</li>
+<li>Täpsema hinna määramiseks arvestage oma auto läbisõidu, vanuse, seisukorra ja omadustega
+</li>
+<li>Arvestage hinda ka ruum ostjapoolse tingimise jaoks
+</li>
 </ul>
-<h3>Writing the car advert</h3>
+<h3>Automüügikuulutuse kirjutamine</h3>
 
 <ul>
-<li>Ensure your ad reads well and sells your car's strong points, without exaggerating</li>
-<li>Write clearly, avoiding jargon or complicated terms e.g. 'metallic red' rather than 'Fire Opal'</li>
-<li>Include key features and desirable equipment such as leather seats or air-conditioning</li>
-<li>Include any recorded service history</li>
-<li>Keep the advert as concise as possible</li>
+<li>Veenduge, et Teie kuulutus on hästi loetav ning müüb Teie auto tugevaid külgi ilma liialdusteta
+</li>
+<li>Kirjutage selgelt, vältides slängi ja keerulisi termineid, nt mitte "tuliopaal", vaid "metallikpunane"
+</li>
+<li>Lisage peamised omadused ja soovitav varustus, nagu näiteks nahkistmed või kliimaseade
+</li>
+<li>Lisage ka kogu ametlik hooldusajalugu
+</li>
+<li>Koostage kuulutus nii lühikesena kui võimalik
+</li>
 </ul>
-<h3>Taking great photos</h3>
-<p>Good photos make it far more likely for you to have a successful sale quickly, and taking them needn't take a long time.</p>
-<li>Clean your car inside and out</li>
-<li>Make sure your pictures are sharp and in focus</li>
-<li>Take pictures when the car is well-lit and dry</li>
-<li>Clear space around the car so you can get the whole car in</li>
-<li>Photograph important details such as alloy wheels and don't forget the interior</li>
+<h3>Suurepäraste fotode tegemine</h3>
+<p>Head fotod muudavad eduka müügi tunduvalt tõenäolisemaks ning nende tegemisele ei kulu ilmtingimata palju aega.</p>
+<li>Puhastage oma auto seest ja väljast</li>
+<li>Veenduge, et fotod oleksid teravad ja fookuses</li>
+<li>Tehke fotod siis, kui auto on hästi valgustatud ja kuiv</li>
+<li>Puhastage auto ümber olev ala, et saaksite kogu auto pildile</li>
+<li>Pildistage olulisi detaile, näiteks valuvelgi, ning ärge unustage ka interjööri</li>
 </ul>
-<h3>Preparing your car for sale</h3>
-<p>A clean car looks like a cared-for car, so spending a morning making it sparkle could add hundreds of pounds to its value.</p>
+<h3>Auto ettevalmistamine müügiks</h3>
+<p>Puhas auto paistab autona, mille eest on hoolt kantud, nii et kogu hommiku kulutamine auto säravaks muutmiseks võib selle väärtusele lisada sadu eurosid.
+</p>
 <ul>
-<li>A good wash creates the best first impression</li>
-<li>Cleaning the interior is essential and an air-freshener might help</li>
-<li>Check – and top up – oil and water levels and make sure the tyres are correctly inflated</li>
-<li>Gather all the paperwork and arrange it so buyers can examine it easily</li>
+<li>Korralik pesemine loob parima esmamulje.</li>
+<li>Interjööri puhastamine on väga oluline ja abiks võib olla ka õhupuhasti.</li>
+<li>Kontrollige õli- ja veetaset, vajadusel lisage, samuti veenduge, et rehvid on õigesti täidetud.
+</li>
+<li>Koguge kokku kõik paberid ja korrastage nad nii, et ostjal oleks neid lihtne uurida.
+</li>
 </ul>
-<h3>Dealing with buyers</h3>
-<p>Buyers will almost always want a test drive and to inspect your car thoroughly before handing over any money.</p>
+<h3>Ostjatega suhtlemine</h3>
+<p>Ostjad tahavad enne raha üleandmist peaaegu alati teha testsõidu ja nad vaatavad Teie auto põhjalikult üle.</p>
 <ul>
-<li>Always ensure any buyer test driving your car is suitably insured – if not fully covered by their normal insurer they should obtain temporary car insurance for the test drive. Ask to see proof first</li>
-<li>Never leave the buyer alone with the car keys and turn off the engine if you swap drivers</li>
-<li>Give the buyer time to view the car and let them arrange further inspections if they want to</li>
-<li>Be wary of buyers requesting specific personal details. You shouldn't need to provide them with your account details or any banking information</li>
-<li>Where possible, arrange to meet at a neutral location like a police station car park and try to take someone with you</li>
-<li>Make sure you take key information like registration details, vehicle service history and other certificates</li>
-<li>Is the buyer who they say they are? Before they take your car out for a spin, ask to see their licence. Bring a pen and paper so you can write it down</li>
+<li>Kontrollige alati, et kõigil testsõitu tegevatel ostjatel oleks asjakohane kindlustus – kui nende tavapärase kindlustusandja poolne kindlustus puudub, peaksid nad testsõidu jaoks hankima ajutise autokindlustuse. Küsige kõigepealt tõestust.
+</li>
+<li>Ärge jätke ostjat kunagi autovõtmetega üksi ja sõitjaid vahetades keerake süüde välja.
+</li>
+<li>Andke ostjale auto vaatamiseks aega ja laske soovi korral korraldada täiendav ülevaatus</li>
+<li>Olge ettevaatlik ostjate suhtes, kes nõuavad konkreetseid isiklikke andmeid. Te ei peaks neile andma oma kontoandmeid või mistahes muud pangateavet.
+</li>
+<li>Võimalusel korraldage kohtumine neutraalses asukohas, näiteks politseijaoskonna parklas, ja proovige keegi endaga kaasa võtta.
+</li>
+<li>Veenduge, et võtate kaasa peamise teabe, näiteks registreerimisandmed, sõiduki hooldusajaloo ja muud dokumendid.
+</li>
+<li>Kas ostja on see, kellena ta ennast tutvustab? Enne kui ostja teie autoga sõitma läheb, küsige tema juhiluba näha. Võtke kaasa paber ja pliiats, et saaksite andmed üles märkida.
+</li>
 </ul>
-<h3>Closing the deal</h3>
-<p>Buyers will want to haggle your price down, and some will be eager to pay, but make sure you're satisfied the payment is genuine before you take the car</p>
+<h3>Tehingu lõpuleviimine</h3>
+<p>Ostjad tahavad hinda allapoole tingida ja mõned neist on maksmisel väga innukad, kuid Teie peate olema kindel, et makse on tõeline enne, kui auto üle annate.</p>
 <ul>
-<li>Expect a haggle – buyers expect to get some money off so have your lowest price in mind and stick to it</li>
-<li>Be sure you're happy with the method of payment</li>
-<li>Don't take your ad down until you are certain you have received payment from the buyer – it won't cost you anything to have it up longer.</li>
+<li>Olge valmis tingimiseks – ostjad eeldavad, et saavad hinda alla kaubelda, nii et mõelge välja oma madalaim hind ning jääge selle juurde.
+</li>
+<li>Te peate olema maksemeetodiga rahul.
+</li>
+<li>Ärge võtke oma kuulutust maha enne, kui olete kindel, et olete ostjalt makse saanud – kuulutuse pikem ülevalhoidmine ei maksa teile midagi.
+</li>
 </ul>
-<h3>Doing the paperwork</h3>
-
+<h3>Paberimajandus</h3>
 <ul>
-<li>Write a receipt for you and the buyer</li>
-<li>Let your insurance company know you've sold the car</li>
+<li>Sõlmige alati kirjalik ostu-müügileping kahes eksemplaris
+</li>
+<li>Teatage oma kindlustusfirmale, et olete auto maha müünud
+</li>
 </ul>
+<p><a href="http://www.mnt.ee/public/ark_blanketid/myygileping.doc" target="_blank">Ostu-müügilepingu näidisvorm</a></p>
   </div>
 </div>

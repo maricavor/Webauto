@@ -111,7 +111,7 @@
         </tr>
         <tr>
           <td><%= t("vehicles.show.light_alloy_wheels") %></td>
-          <td class="right"><%= spec((@vehicle.light_alloy_wheels ? @vehicle.light_alloy_wheels_details : t("vehicles.show.no")))  %></td>
+          <td class="right"><%= spec((@vehicle.light_alloy_wheels ? @vehicle.light_alloy_wheels_details : t("vehicles.show.noooo")))  %></td>
         </tr>
         
       </tbody>
@@ -205,7 +205,7 @@
         <% if @vehicle.wrecked %>
         <tr>
           <td><%= t("vehicles.show.wrecked") %></td>
-          <td class="right"><%= spec(@vehicle.wrecked ? t("vehicles.show.yes") : t("vehicles.show.no")) %></td>
+          <td class="right"><%= spec(@vehicle.wrecked ? t("vehicles.show.yes") : t("vehicles.show.noooo")) %></td>
         </tr>
         <% end %>
       </tbody>
@@ -231,7 +231,7 @@
          <% if @vehicle.exchange %>
         <tr>
           <td><%= t("vehicles.show.exchange") %></td>
-          <td class="right"><%= spec(@vehicle.exchange ? t("vehicles.show.yes") : t("vehicles.show.no")) %></td>
+          <td class="right"><%= spec(@vehicle.exchange ? t("vehicles.show.yes") : t("vehicles.show.noooo")) %></td>
         </tr>
         <% end %>
       </tbody>

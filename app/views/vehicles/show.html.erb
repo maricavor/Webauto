@@ -91,7 +91,7 @@
       <li><a href="#similar" data-toggle="tab" class="tab_<%= @vehicle.id %>"><%= t("vehicles.show.similar_#{@current_type.path_name}") %></a></li>
       <li><a href="#more" data-toggle="tab" class="tab_<%= @vehicle.id %>"><%= t("vehicles.show.interested") %></a></li>
  	 <% if @user.is_dealer %>
- 	  <li><a href="#dealer_more" data-toggle="tab" class="tab_<%= @vehicle.id %>">More cars from this dealer</a></li>
+ 	  <li><a href="#dealer_more" data-toggle="tab" class="tab_<%= @vehicle.id %>"><%= t("vehicles.show.more") %></a></li>
  	  <% end%>
       <!--<li><a href="#viewed" data-toggle="tab" class="tab_<%= @vehicle.id %>"><%= t("vehicles.show.recently_viewed") %> </a></li>-->
     </ul>

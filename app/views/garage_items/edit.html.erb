@@ -7,7 +7,7 @@
   </div>
   <div class="span9">
     <div class="page-header">
-      <h2>Edit your Car</h2>
+      <h2><%= t("garage_items.index.edit") %></h2>
     </div>
     
 <%= vehicle_form_for @vehicle,:url => { :action => "update" },:html=>{ :class=>"form-vertical"},:authenticity_token => true,:remote=>false do |f| %>
@@ -24,8 +24,8 @@
         <div class="row-fluid" >
             <div class="span12" style="padding-top:20px; margin-top:20px; border-top: 1px solid #eeeeee;">
 			 
-        <%= f.submit "Save",:class=>"btn btn-info" %>
-        <%= link_to "Cancel", :back,:class=>"btn"  %>
+        <%= f.submit t("garage_items.index.save"),:class=>"btn btn-info" %>
+        <%= link_to t("garage_items.index.cancel"), :back,:class=>"btn"  %>
         </div>
       </div>
       <% end %>
