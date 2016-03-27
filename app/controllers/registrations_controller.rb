@@ -1,6 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   def new
-   @title="User Registration - Webauto.ee"
+   @title=t("registrations.new.title")
+   session[:omniauth]= nil if params[:with_password]
    super
   end
    def edit

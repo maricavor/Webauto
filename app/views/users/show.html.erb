@@ -110,7 +110,7 @@
                   <% end %>
                   <% else %>
                      <tr><td><%= t("users.dashboard.saved_searches_info") %>
-					   <p style="margin-top:5px;"><%= link_to 'Search now', new_search_path(:search=>"all"),:method=>:post  %></p>
+					   <p style="margin-top:5px;"><%= link_to  t("users.dashboard.search_now"), new_search_path(:search=>"all"),:method=>:post  %></p>
 				   </td></tr>  
                   <% end %>
                 </tbody>

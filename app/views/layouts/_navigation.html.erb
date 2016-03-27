@@ -8,7 +8,8 @@
   <ul class="nav pull-right">
     <% if user_signed_in? %>
       <li  class="dropdown">
-        <%= link_to "#{current_user.name}  <i class='icon-user icon-white'></i><b class='caret'></b>".html_safe, "#",:role=>"button",:id=>"drop1",:class=>"dropdown-toggle js-activated", :'data-toggle'=>"dropdown" %>
+		  <% current_user.name.present? ? username=current_user.name : username=current_user.email %>
+        <%= link_to "#{username}  <i class='icon-user icon-white'></i><b class='caret'></b>".html_safe, "#",:role=>"button",:id=>"drop1",:class=>"dropdown-toggle js-activated", :'data-toggle'=>"dropdown" %>
         <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
           <li role="presentation"><%= link_to t("navigation.dashboard"), dashboard_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
           <li role="presentation"><%= link_to t("navigation.saved_searches"), searches_path,:role=>"menuitem",:tabindex=>"-1"  %></li>

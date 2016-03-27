@@ -1,23 +1,23 @@
 class HomeController < ApplicationController
 
   def terms
-   @title="Terms & Conditions - Webauto.ee"
+   @title=t("home.terms.title")
   end
   def privacy
-    @title="Privacy Policy - Webauto.ee"
+    @title=t("home.privacy.title")
   end
   def about
-    @title="About Us - Webauto.ee"
+    @title=t("home.about.title")
   end
  
   def popular
-    @title="webauto.ee"
+    @title="Webauto.ee"
     @popular_makes=Make.where("type_id = ? AND popularity <> ?",@current_type.id,0).order("popularity desc","name asc").limit(10)
     @popular_models=Model.where("type_id = ? AND popularity <> ?",@current_type.id,0).order("popularity desc","name asc").limit(10)
     @popular_bodytypes=Bodytype.where("type_id = ? AND popularity <> ?",@current_type.id,0).order("popularity desc","name asc").limit(10)
   end
   def site_map
-    @title="Sitemap - Webauto.ee"
+    @title=t("home.site_map.title")
   end
   def seller_safety
   end
@@ -29,7 +29,7 @@ class HomeController < ApplicationController
         respond_to do |format|
         format.html {
         redirect_to :back 
-        flash[:alert]="Advert already exists"
+        flash[:alert]=t("home.create_ad.exists")
       }
       end
     end

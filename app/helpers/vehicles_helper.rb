@@ -184,19 +184,19 @@ end
  def save_vehicle_button_mini(vehicle)
     if current_user
       if current_user.saved_items.exists?(:vehicle_id => vehicle.id)
-        link_to '<i class="icon-star"></i>'.html_safe, unsave_car_path(vehicle),:id=>"save_vehicle_button",:class=>"btn btn-mini btn-info",:remote=>true
+        link_to '<i class="icon-star"></i>'.html_safe, unsave_car_path(vehicle),:id=>"save_vehicle_button",:class=>"btn btn-mini btn-info",:remote=>true,:'data-toggle'=>"tooltip",:'data-placement'=>"top", :title=>t("vehicles.show.unsave")
       else
-        link_to '<i class="icon-star-empty"></i>'.html_safe, save_car_path(vehicle),:id=>"save_vehicle_button",:class=>"btn btn-mini",:remote=>true
+        link_to '<i class="icon-star-empty"></i>'.html_safe, save_car_path(vehicle),:id=>"save_vehicle_button",:class=>"btn btn-mini",:remote=>true,:'data-toggle'=>"tooltip",:'data-placement'=>"top", :title=>t("vehicles.show.save")
       end
     else
-      link_to '<i class="icon-star-empty"></i>'.html_safe, save_car_path(vehicle),:class=>"btn btn-mini",:id=>"save_vehicle_button"
+      link_to '<i class="icon-star-empty"></i>'.html_safe, save_car_path(vehicle),:class=>"btn btn-mini",:id=>"save_vehicle_button",:'data-toggle'=>"tooltip",:'data-placement'=>"top", :title=>t("vehicles.show.save")
     end
   end
   def compare_vehicle_button_mini(vehicle)
        if vehicle.compared_items.exists?(:session_hash=>request.session_options[:id])
-         link_to "<i class='icon-cars'></i>".html_safe, uncompare_car_path(vehicle),:remote=>true,:class=>"btn btn-mini btn-info"
+         link_to "<i class='icon-cars'></i>".html_safe, uncompare_car_path(vehicle),:remote=>true,:class=>"btn btn-mini btn-info",:'data-toggle'=>"tooltip",:'data-placement'=>"top", :title=>t("vehicles.show.uncompare")
        else
-         link_to "<i class='icon-cars'></i>".html_safe, compare_car_path(vehicle),:remote=>true,:class=>"btn btn-mini"
+         link_to "<i class='icon-cars'></i>".html_safe, compare_car_path(vehicle),:remote=>true,:class=>"btn btn-mini",:'data-toggle'=>"tooltip",:'data-placement'=>"top", :title=>t("vehicles.show.compare")
        end
     
    end

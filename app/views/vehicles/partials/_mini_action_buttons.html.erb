@@ -1,1 +1,4 @@
-   <small><%= save_vehicle_button_mini(vehicle) %> <%= compare_vehicle_button_mini(vehicle) %> </small>
+   <small class="tooltipped"><%= save_vehicle_button_mini(vehicle) %> <%= compare_vehicle_button_mini(vehicle) %> </small>
+   <script>
+   $('.tooltipped').tooltip({selector: "a[data-toggle=tooltip]"});
+   </script>

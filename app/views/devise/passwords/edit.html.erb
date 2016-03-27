@@ -11,7 +11,7 @@
 
       <%= f.hidden_field :reset_password_token %>
       <%= f.password_field :password, :label=> t("signin.new_password") %>
-      <%= f.password_field :password_confirmation, :label => t("users.new.password_confirm").html_safe %>
+      <%= f.password_field :password_confirmation, :label => t("users.profile.password_confirm").html_safe %>
     
      <div style="padding-top:20px;">
       <%= f.submit t("signin.change_password"),:class=>"btn btn-info" %>

@@ -4,6 +4,8 @@ et:
     sure: "Olete kindel, et soovite eemaldada selle?"
     add_more: "Lisage veel sisselogimise teenuseid:"
     add_service: "Kasutage sisselogimiseks:"
+    new:
+      title: "Loo konto - Webauto.ee"
   home:
     create_ad:
       header: "Müü oma auto Webauto.ee-s!"
@@ -19,6 +21,15 @@ et:
       already: "Oled juba kuulutanud?"
       manage: Muuda kuulutust
       title: "Lisa uus kuulutus - Webauto.ee"
+      exists: "Kuulutus on juba lisatud!"
+    terms:
+      title: "Kasutustingimused - Webauto.ee"
+    privacy:
+      title: "Privaatsuspoliitika - Webauto.ee"
+    about:
+      title: "Meist - Webauto.ee"
+    site_map:
+      title: "Sisukaart - Webauto.ee"
   navigation:
     cookies_message: "See veebileht kasutab küpsiseid. Veebilehe kasutamist jätkates nõustute küpsiste kasutamisega."
     learn_more: "Kuva üksikasjad"
@@ -56,7 +67,7 @@ et:
     saved_searches: Salvestatud otsingud
     saved_items: Salvestatud sõidukid
     my_ads: Minu kuulutused
-    profile: Minu profiil
+    profile: Profiil
     settings: Seaded
     signout: Logi välja
     favourites: LEMMIKUD
@@ -345,7 +356,7 @@ et:
       interested: "Teile võib meeldida ka"
       compare: Lisa võrdlusse
       save: Salvesta 
-      unsave: Ära salvesta
+      unsave: Salvestatud
       share: Soovita sõbrale
       report: Ebasobiv kuulutus
       comments: Kommentaarid
@@ -520,7 +531,7 @@ et:
       sump_shield: Karterikaitse
       side_steps: Astmelauad
       outside_temperature: Välistemperatuuri näidik
-      uncompare: Lisatud võrdlusse!
+      uncompare: Lisatud võrdlusse
     search:
       viewed_by_you: Ma olen vaadanud
       advert: kuulutus
@@ -573,12 +584,14 @@ et:
       dealers: autodiilerit
   users:
     new:
-      title: Loo uus kasutaja
+      title: Loo konto
       accept: "Nõustun <a href='%{terms_link}' target='_blank'>kasutustingimustega</a> ja <a href='%{privacy_link}' target='_blank'>privaatsuspoliitikaga</a>"
       dealer_company: "Olen autodiiler/ettevõte"
       spam: ""
       spam_text: ""
       tos_agreement: "Palun nõustuge meie kasutustingimustega"
+      signup: Registreeru
+      register_with_password: Registreeru parooliga
     dashboard:
       title: Töölaud - Webauto.ee
       dashboard: Töölaud
@@ -593,9 +606,10 @@ et:
       saved_adverts_info: ""
       saved_searches_info: ""
       no_last_searches: ""
+      search_now: Otsi kuulutusi
     profile:
-      title: "Minu profiil - Webauto.ee"
-      profile: Muuda andmeid
+      title: "Profiil - Webauto.ee"
+      profile: Muuda profiili
       details: ""
       for_security: ""
       security: "Selleks, et muuta oma e-posti aadressi palume %{contact_link}."
@@ -739,16 +753,19 @@ et:
         password: Parool
         email: E-mail
         company_name: Ettevõtte nimi
+        reset_password_token: Token
       search:
         name: Pealkiri
       vehicle:
         bodytype_id: Keretüüp
         make_id: Mark
         model_id: Mudel
+        model_spec: Mudel
         engine_power: Mootori võimsus
         odometer: Läbisõit
         engine_size: Mootori maht
         fueltype_id: Kütus
+        registered_at: Esmane registreerimine
         colour_id: Värv
         country_id: Asukoht
         drivetype_id: Vedav sild

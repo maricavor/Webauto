@@ -217,7 +217,8 @@ jQuery ->
     return
 
   $('#blueimp-gallery').data('fullScreen', false)
-  $('.tooltipped').tooltip()
+  $('.tooltipped').tooltip
+    selector: "a[data-toggle=tooltip]"
   $('.spinner').spinedit()
   #$('#myTab a[href="#popular"]').tab('show')
   $(".decimal_spinner").spinedit

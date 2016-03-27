@@ -1,5 +1,3 @@
-
-
 <% content_for :title,@title %>
 <div class="row-fluid">
   <div class="span3">
@@ -8,33 +6,17 @@
   <div class="span9">
     <div class="page-header">
       <h2><%= t("garage_items.index.edit") %></h2>
-    </div>
-    
+    </div>   
 <%= vehicle_form_for @vehicle,:url => { :action => "update" },:html=>{ :class=>"form-vertical"},:authenticity_token => true,:remote=>false do |f| %>
-         
-
-   
-<%= render 'garage_items/partials/form',:f=>f %>
-    
-		
-   
-     
- 
-
+        <%= render 'garage_items/partials/form',:f=>f %>
         <div class="row-fluid" >
             <div class="span12" style="padding-top:20px; margin-top:20px; border-top: 1px solid #eeeeee;">
-			 
-        <%= f.submit t("garage_items.index.save"),:class=>"btn btn-info" %>
+			 <%= f.submit t("garage_items.index.save"),:class=>"btn btn-info" %>
         <%= link_to t("garage_items.index.cancel"), :back,:class=>"btn"  %>
         </div>
       </div>
       <% end %>
-   
-
-
-
-
-     </div>
+   </div>
    </div>
 
 

@@ -4,6 +4,8 @@ en:
     sure: "Are you sure you want to remove this authentication option?"
     add_more: "Add more services to sign in with:"
     add_service: "Add service to sign in with:"
+    new:
+      title: "User Registration - Webauto.ee"
   home:
     create_ad:
       header: Sell Your Car with Webauto.ee!
@@ -19,6 +21,15 @@ en:
       already: "Already have an ad?"
       manage: Manage Your Ad
       title: "Sell My Car - Webauto.ee"
+      exists: "Advert already exists!"
+    terms:
+      title: "Terms & Conditions - Webauto.ee"
+    privacy:
+      title: "Privacy Policy - Webauto.ee"
+    about:
+      title: "About Us - Webauto.ee"
+    site_map:
+      title: "Sitemap - Webauto.ee"
   navigation:
     cookies_message: "This website uses cookies to ensure you get the best experience on our website."
     learn_more: "More info"
@@ -578,6 +589,8 @@ en:
       spam: Spam Protection
       spam_text: "To protect you from unsolicited email (spam), your email address will not be displayed on your advert. If you allow contact by email, buyers will be able to send you messages through our system. The buyer will not see your email address unless you choose to reply to them."
       tos_agreement: Please accept our Terms of service
+      signup: Sign up
+      register_with_password: Register with password
     dashboard:
       title: Dashboard - Webauto.ee
       dashboard: Dashboard
@@ -592,6 +605,7 @@ en:
       saved_adverts_info: "When you save adverts on Webauto.ee, they'll appear here."
       saved_searches_info: "When you save your favourite Webauto.ee searches, they'll appear here."
       no_last_searches: "No last searches"
+      search_now: Search now
     profile:
       title: "Profile - Webauto.ee"
       profile: Profile
@@ -738,16 +752,19 @@ en:
         password: Password
         email: Email
         company_name: Company name
+        reset_password_token: Reset password token
       search:
         name: Name
       vehicle:
         bodytype_id: Bodytype
         make_id: Make
         model_id: Model
+        model_spec: Model
         engine_power: Engine power
         odometer: Odometer
         engine_size: Engine size
         fueltype_id: Fueltype
+        registered_at: Initial registration
         colour_id: Colour
         country_id: Country
         drivetype_id: Drivetype

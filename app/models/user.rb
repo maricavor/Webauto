@@ -114,7 +114,7 @@ end
    self.adverts.where(:activated=>true,:type_id=>type_id)
   end
   def validate_tos
-    if self.tos_agreement
+    if self.tos_agreement=='0'
       errors.add(:_,I18n.t("users.new.tos_agreement"))
     end
   end

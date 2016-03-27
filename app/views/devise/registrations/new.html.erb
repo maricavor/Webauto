@@ -9,9 +9,11 @@
 <div class="row-fluid">
   <div class="span5 well">
     <%= vehicle_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html=>{:class=>"form-vertical",:remote=>false}) do |f| %>  
-       
+          <% if resource.authentications.empty? %>
           <%= f.text_field :email, :label => t("users.profile.email") %>
-         
+         <% else %>
+		   <%= f.text_field :email, :label => t("users.profile.email"),:disabled=>true %>
+		   <% end %>
           <% if resource.password_required? %>
           <%= f.password_field :password, :label => t("users.profile.password") %>
           <%= f.password_field :password_confirmation, :label => t("users.profile.password_confirm").html_safe %>
@@ -34,16 +36,20 @@
           </fieldset>
        
           <%= f.check_box :feature_alerts,label: t("users.settings.future_updates_check"),:checked=>true  %>
-          <%= f.check_box :tos_agreement,label: t("users.new.accept",terms_link: terms_path, privacy_link: privacy_path).html_safe,:checked=>true%>
+          <%= f.check_box :tos_agreement,label: t("users.new.accept",terms_link: terms_path, privacy_link: privacy_path).html_safe%>
 
     
     <div style="padding-top:20px;">
-      <%= f.submit "Sign up",:class=>"btn btn-info" %>
+      <%= f.submit t("users.new.signup"),:class=>"btn btn-info" %>
       </div>
-    
+
      
     <% end %>
+	<% unless resource.authentications.empty? %>
+	<p><%= link_to t("users.new.register_with_password"), new_user_registration_url(:with_password=>true) %></p>
+	<% else %>
      <%= render "devise/shared/links" %>
+	 <% end %>
   </div>
      <div class="span7 text-center">
   <br /><br />

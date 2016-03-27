@@ -1,3 +1,4 @@
+- registration with ominauth -> remove email edit
 - service translates title
 - https://www.privaatnumber.ee/#/
 - add show price history checkbox in price
@@ -5,6 +6,7 @@
 - add link to sõiduki taustakontroll
 - show also ad status for garage item
 - owner reviews like on carsales.com.au
+- add comment to saved advert, see auto24.ee
 - send email when ad is created , check cargurus email
 - garage item share on facebook button see cargurus.com
 - garage items make public page for user see cargurus.com
