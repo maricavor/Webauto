@@ -19,6 +19,7 @@ en:
     comm_deleted: "Comment deleted"
   compared_items:
     deleted: "Successfully deleted item from compare list."
+    quantity: "You cannot compare more than %{max} vehicles."
   contact_forms:
     failure: "Sorry, this message appears to be spam and was not delivered."
   dealer_pictures:
@@ -40,6 +41,7 @@ en:
   saved_items:
     destroyed: "Successfully deleted item."
     remove_all: "You have removed all items!"
+    total_saves: "You cannot save any more adverts!"
   searches:
     remove_all: "You have removed all searches!"
     saved: "Your search has been saved!"

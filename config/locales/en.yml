@@ -330,6 +330,7 @@ en:
       nb: "NB! This is a preview of your advert #%{id}"
   vehicles:
     show:
+      print: Print
       vehicle_details: Vehicle details
       model: Model
       price: Price
@@ -730,6 +731,9 @@ en:
     your_cart: Your cart
     order_total: "Order total:"
     total: "Kokku"
+  sessions:
+    new:
+      title: "Sign In - Webauto.ee"
   views:
     pagination:
       first: "&laquo;"
@@ -774,6 +778,10 @@ en:
         price: Price
       comment:
         text: Comment
+      saved_item:
+        vehicle_id: Vehicle
+      compared_item:
+        vehicle_id: Vehicle
     errors:
       models:
         compared_item:

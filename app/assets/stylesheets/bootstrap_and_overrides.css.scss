@@ -161,6 +161,7 @@ margin-left:-40%; /* width/2) */
   #general_info{
   font-size:12px;
 }
+
 .footer {
   padding-left:10px;
   }
@@ -171,4 +172,12 @@ margin-left:-40%; /* width/2) */
 
 
  }
-
+@media print {    
+      .no-print, .no-print *{
+          display: none !important;
+      }
+	  a[href]:after {
+	      content: none !important;
+	      // use important only if you are not able to override it by normal styling 
+	    }
+  }

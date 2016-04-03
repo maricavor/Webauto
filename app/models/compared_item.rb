@@ -15,7 +15,7 @@ class ComparedItem < ActiveRecord::Base
   def quantity_of_items
    	compared_items=ComparedItem.where(:session_hash=>session_hash)
       if compared_items.size >= ComparedItem::MAX_ITEMS
-         errors[:base] << "You cannot compare more than #{MAX_ITEMS} vehicles."
+         errors[:base] << I18n.t("compared_items.quantity",:max=>MAX_ITEMS)
       end
   end
 end

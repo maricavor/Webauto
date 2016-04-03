@@ -19,7 +19,7 @@ class SavedItem < ActiveRecord::Base
   private
   def total_saves
     if self.user.saved_items.count>9
-      errors[:base] << 'You cannot save any more adverts!'
+      errors[:base] << I18n.t("saved_items.total_saves")
       return
     end
 

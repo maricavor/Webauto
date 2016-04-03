@@ -401,9 +401,9 @@ end
     else
       respond_to do |format|
         format.html {  
-          redirect_to send("#{@vehicle.type.name.singularize.underscore}_path", @vehicle) ,alert: @saved_item.errors.full_messages.to_sentence}
+          redirect_to send("#{@vehicle.type.name.singularize.underscore}_path", @vehicle) ,alert: @saved_item.errors.full_messages.first}
         format.js {
-          flash.now[:alert] =  @saved_item.errors.full_messages.to_sentence
+          flash.now[:alert] =  @saved_item.errors.full_messages.first
           render 'fail_save'
         }
       end

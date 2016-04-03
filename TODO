@@ -1,4 +1,16 @@
-- registration with ominauth -> remove email edit
+- translate vehicle view page action button modals and validations
+- translate messages to users
+- compare like on elux.ee
+- add rating and comment for saved cars (carsales)
+- car user reviews (carsales.com.au, autotrader.co.uk)
+- add print button and make special print page (You could also make a special print page with only the desired information and have window.print in the onload event like this:
+
+<body onload="window.print();">
+)
+- secret phone number by sms (carsales.com.au)
+- add feature I bought this car for saved car after car has been sold
+- add breadcrumps for static pages and share links (http://www.electrolux.ee/Global-pages/Page-Footer-Menu/Top/Contact-Us/)
+- activate newrelic also for solr, see java agent
 - service translates title
 - https://www.privaatnumber.ee/#/
 - add show price history checkbox in price

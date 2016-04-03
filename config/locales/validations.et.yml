@@ -19,6 +19,7 @@ et:
     comm_deleted: "Kommentaar on kustutatud."
   compared_items:
     deleted: "Sõiduk on kustutatud võrdlusnimekirjast."
+    quantity: "Võrdlusnimekirja ei saa lisada rohkem kui %{max} sõidukit!"
   contact_forms:
     failure: "Kirja saatmine ebaõnnestus."
   dealer_pictures:
@@ -29,7 +30,7 @@ et:
     created: "Täname, Teie kiri on saadetud!"
   omniauth:
     signed_in: "Olete edukalt sisse loginud!"
-    success: "Authentication successfull."
+    success: "Sisselogimise teenus on lisatud."
   pictures:
     added: "Fotod on lisatud."
     failure: "Fotode lisamine ebaõnnestus: "
@@ -40,6 +41,7 @@ et:
   saved_items:
     destroyed: "Salvestatud sõiduk on kustutatud."
     remove_all: "Kõik salvestatud sõidukid on kustutatud!"
+    total_saves: "Te ei saa rohkem kuulutusi salvestada!"
   searches:
     remove_all: "Kõik otsingud on kustutatud!"
     saved: "Teie otsing on salvestatud!"

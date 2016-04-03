@@ -1,6 +1,6 @@
 class SessionsController < Devise::SessionsController
   def new
-  	@title="Sign In - Webauto.ee"
+  	@title=t("sessions.new.title")
   	super
   end
 

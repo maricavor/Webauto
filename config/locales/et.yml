@@ -329,7 +329,8 @@ et:
       title: "Kuulutuse eelvade - Webauto.ee"
       nb: "NB! See on kuulutuse #%{id} eelvaade"
   vehicles:
-    show:
+    show: 
+      print: Prindi
       vehicle_details: Sõiduki andmed
       model: Mudel
       price: Hind
@@ -585,8 +586,8 @@ et:
   users:
     new:
       title: Loo konto
-      accept: "Nõustun <a href='%{terms_link}' target='_blank'>kasutustingimustega</a> ja <a href='%{privacy_link}' target='_blank'>privaatsuspoliitikaga</a>"
-      dealer_company: "Olen autodiiler/ettevõte"
+      accept: "Olen lugenud ja nõustun <a href='%{terms_link}' target='_blank'>kasutustingimustega</a> ja <a href='%{privacy_link}' target='_blank'>privaatsuspoliitikaga</a>"
+      dealer_company: "Kui Te olete autodiiler, märkige linnuke kastikesse"
       spam: ""
       spam_text: ""
       tos_agreement: "Palun nõustuge meie kasutustingimustega"
@@ -724,13 +725,16 @@ et:
     new:
       title: "Lisa auto - Webauto.ee"
   contact_forms:
-    thankyou: "Täname Teid kirja eest!"
-    thankyou_text: "Me võtame Teiega ühendust niipea kui võimalik."
+    thankyou: "Täname, et võtsite meiega ühendust!"
+    thankyou_text: "Võtame Teiega peatselt ühendust."
     title: "Kontakt - Webauto.ee"
   orders:
     your_cart: ""
     order_total: "Kokku tasuda:" 
     total: Kokku
+  sessions:
+    new:
+      title: "Logi sisse - Webauto.ee"
   views:
     pagination:
       first: "&laquo;"
@@ -775,6 +779,10 @@ et:
         price: Hind
       comment:
         text: Kommentaar
+      saved_item:
+        vehicle_id: Sõuduk
+      compared_item:
+        vehicle_id: Sõiduk
     errors:
       models:   
         compared_item:

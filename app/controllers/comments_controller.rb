@@ -12,7 +12,6 @@ class CommentsController < ApplicationController
   def create
     @comment=@vehicle.comments.build(params[:comment].merge(:user_id => current_user.id))
     @user=@vehicle.user
-    
     if @comment.save
       if @comment.parent_id.nil?
         respond_to do |format|
@@ -33,7 +32,6 @@ class CommentsController < ApplicationController
    
     else
      respond_to do |format|
-        
         format.js {
           flash.now[:error] = @comment.errors.full_messages.to_sentence
           render 'fail_create'
