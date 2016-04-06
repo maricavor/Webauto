@@ -401,7 +401,7 @@ def find_advert
     if params["vehicle_attributes"]["state_id"]
       params["vehicle_attributes"]["city_id"]=nil if params["vehicle_attributes"]["state_id"]==""
     end
-      params["type_id"]=params["vehicle_attributes"]["type_id"]
+      #params["type_id"]=params["vehicle_attributes"]["type_id"]
     end
     params
  end

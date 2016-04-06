@@ -10,7 +10,7 @@
 </div>
 <div class="row-fluid">
 <%= vehicle_form_for @advert, :html=>{:class=>"form-vertical"},:authenticity_token => true,:remote=>false do |f| %>
-  <%= f.error_messages %>
+  
   <%= f.fields_for :vehicle do |vehicle_fields| %>
 
 
