@@ -211,10 +211,10 @@ def update
 
  
   def activate
-    #@vehicle=@advert.vehicle
+    @vehicle=@advert.vehicle
     respond_to do |format|
     if @advert.update_attributes(:activated=>true)
-       #@vehicle.save!
+       @vehicle.save!
       format.html {
        redirect_to  adverts_url 
        flash[:notice]=t("adverts.ad_activated")
@@ -228,10 +228,10 @@ def update
     end
   end
   def deactivate
-     #@vehicle=@advert.vehicle
+     @vehicle=@advert.vehicle
        respond_to do |format|
     if @advert.update_attributes(:activated=>false)
-      #@vehicle.save!
+      @vehicle.save!
       format.html { 
         redirect_to  adverts_url 
       flash[:notice]=t("adverts.ad_deactivated")
