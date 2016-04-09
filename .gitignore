@@ -16,3 +16,4 @@
 /public/uploads/picture/**
 /solr
 /config/application.yml
+/config/database.yml
