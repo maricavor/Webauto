@@ -1,6 +1,7 @@
 Webauto::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
   #Sunspot.config.solr.url = 'http://solr-webauto.rhcloud.com/#/collection1/'
+  Sunspot.config.solr.url = 'http://maricavor:phoenix32@solr-webauto.rhcloud.com/solr'
   # Code is not reloaded between requests
   config.cache_classes = true
 

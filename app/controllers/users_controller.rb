@@ -81,9 +81,9 @@ def contact
 
       else
         respond_to do |format|
-          format.html { redirect_to :back, :alert => @inquiry.errors.full_messages.to_sentence }
+          format.html { redirect_to :back, :alert => @inquiry.errors.full_messages.first }
           format.js {
-            flash.now[:alert] = @inquiry.errors.full_messages.to_sentence
+            flash.now[:alert] = @inquiry.errors.full_messages.first
             render 'fail_contact'
           }
         end

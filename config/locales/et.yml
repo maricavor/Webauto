@@ -135,7 +135,7 @@ et:
     password: Parool
     new_password: Uus parool
     forgot_password: Parooli muutmine
-    forgot_password_note: Saadame teile parooli muutmise juhised e-posti aadressile.
+    forgot_password_note: Saadame teile parooli muutmise juhised e-maili aadressile.
     send: Saada
     sign_in: Logi sisse
     change_password: Muuda parooli
@@ -149,7 +149,7 @@ et:
     confirmation: "Ei saanud parooli muutmise juhiseid?"
     sign_in_with_facebook: "Sign in with Facebook"
     unlock: "Didn't receive unlock instructions?"
-    forgot_note: "Kui Teil on meelest läinud parool, siis sisestage oma registreerimisel sisestatud e-posti aadress."
+    forgot_note: "Kui Teil on meelest läinud parool, siis sisestage oma registreerimisel sisestatud e-maili aadress."
   big: " fail on liiga suur!"
   translation_na: "%{locale} translation not available"
   car_stereo_cd: "CD Mängija"
@@ -556,8 +556,8 @@ et:
     write_message: "Teie küsimus..."
     send: Saada 
     name: Saatja nimi
-    email: Saatja e-post
-    friends_email: Sõbra e-post
+    email: Saatja e-mail
+    friends_email: Sõbra e-mail
     sold: Müüdud
     suspicious: Kahtlustav
     incorrect: Puuduvad või valed andmed
@@ -613,7 +613,7 @@ et:
       profile: Muuda profiili
       details: ""
       for_security: ""
-      security: "Selleks, et muuta oma e-posti aadressi palume %{contact_link}."
+      security: "Selleks, et muuta oma e-maili aadressi palume %{contact_link}."
       contact_link_text: võtta meiega ühendust
       name: Nimi
       country: Riik
@@ -652,7 +652,7 @@ et:
       interest_alert: "Suureneb huvi sõiduki vastu"
       future_updates: "Uudiskirjad"
       future_updates_text: "Webauto.ee liikmena, me informeerime teid kõikidest uutest põnevatest funktsioonidest, eksklusiivsetest diilidest meilt ja meie partneritelt ja kõikidest olulistest asjadest, mis on seotud sõiduki omandiga. Teie tevitusi ja kontaktandmeid ei jagata ühegi kolmanda poolega väljaspool Webauto.ee võrku."
-      future_updates_check: "Soovin saada Webauto.ee uudiseid, pakkumiseid ja muud informatsiooni e-postiga"
+      future_updates_check: "Soovin saada Webauto.ee uudiseid, pakkumiseid ja muud informatsiooni e-mailiga"
       language: Keel
       save: Salvesta
   searches:
@@ -751,6 +751,13 @@ et:
           other: "<small>Näitan <span class='badge badge-info'>%{count}</span> %{entry_name}</small>"
       more_pages:
         display_entries: "<small>Kokku <span class='badge badge-info'>%{total}</span>. Näitan <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span></small>"
+  activemodel:
+    attributes:
+      inquiry: 
+        name: Nimi
+        friend_email: "Sõbra e-mail"
+        email: Saatja e-mail
+        message: Sõnum
   activerecord:
     attributes:
       user:

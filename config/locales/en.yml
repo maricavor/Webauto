@@ -750,6 +750,13 @@ en:
           other: "<small>Displaying all <span class='badge badge-info'>%{count}</span> %{entry_name}</small>"
       more_pages:
         display_entries: "<small>Displaying %{entry_name} <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span> of <span class='badge badge-info'>%{total}</span> in total</small>"
+  activemodel:
+    attributes:
+      inquiry: 
+        name: Name
+        friend_email: "Friend's email"
+        email: Email
+        message: Message
   activerecord:
     attributes:
       user:

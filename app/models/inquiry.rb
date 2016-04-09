@@ -5,8 +5,8 @@ class Inquiry
   extend ActiveModel::Naming
 
   attr_accessor :name,:email,:phone,:message,:content, :vehicle_id,:friend_email,:mode,:report_as
+  validates :friend_email,:presence => true,:if => :send_to_friend?,:format => { :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/ }
   validates :name,:presence => true
-  validates :friend_email,:presence => true,:if => :send_to_friend?
   validates :email,:format => { :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/ }
 
   validates :message,:length => { :minimum => 10, :maximum => 1000 },:unless => :send_to_friend?

@@ -214,7 +214,7 @@ def update
     @vehicle=@advert.vehicle
     respond_to do |format|
     if @advert.update_attributes(:activated=>true)
-       @vehicle.save!
+       @vehicle.save!#for reindexing solr
       format.html {
        redirect_to  adverts_url 
        flash[:notice]=t("adverts.ad_activated")
@@ -231,7 +231,7 @@ def update
      @vehicle=@advert.vehicle
        respond_to do |format|
     if @advert.update_attributes(:activated=>false)
-      @vehicle.save!
+      @vehicle.save!#for reindexing solr
       format.html { 
         redirect_to  adverts_url 
       flash[:notice]=t("adverts.ad_deactivated")

@@ -8,9 +8,9 @@ class InquiriesController < ApplicationController
 
       if @inquiry.deliver(@vehicle)
         respond_to do |format|
-          format.html { redirect_to @vehicle, :notice => t("inquiries.create") }
+          format.html { redirect_to @vehicle, :notice => t("inquiries.created") }
           format.js {
-            flash.now[:notice] = t("inquiries.create")
+            flash.now[:notice] = t("inquiries.created")
             render @inquiry.mode+'_create'
           }
         end
