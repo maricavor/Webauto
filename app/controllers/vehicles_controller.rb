@@ -48,7 +48,7 @@ class VehiclesController < ApplicationController
         #@search.update_attributes(:adverts=>@vehicles.map {|v| v.advert_id }.join(',')) if total<=20
       else
         @vehicles=[]
-        @title=t("vehicles.nothing")
+        #@title=t("vehicles.nothing")
       end
       gon.selected=@search.to_gon_object
     else

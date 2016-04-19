@@ -53,9 +53,9 @@ et:
     not_authorized: "Te ei ole volitatud administreerima seda."
     deleted: "Kasutaja on kustutatud."
     not_deleted: "Te ei saa oma kontot ära kustutada."
-    nothing: "Sõidukeid ei leitud."
+    nothing: "Kuulutusi ei leitud."
   vehicles:
-    nothing: "Sõidukeid ei leitud."
+    nothing: "Kuulutusi ei leitud."
     unsaved: "Salvestatud sõiduk on kustutatud."
     compared: "Sõiduk on lisatud võrdlusnimekirja."
     uncompared: "Sõiduk on kustutatud võrdlusnimekirjast."

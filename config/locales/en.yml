@@ -10,6 +10,7 @@ en:
     create_ad:
       header: Sell Your Car with Webauto.ee!
       free: FREE
+      starter: Starter
       until_sold: Until Sold
       unlimited: UNLIMITED FREE EDITS
       start_selling: Start selling

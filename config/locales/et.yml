@@ -10,6 +10,7 @@ et:
     create_ad:
       header: "Müü oma auto Webauto.ee-s!"
       free: TASUTA
+      starter: Starter
       until_sold: Kuni auto müümiseni
       unlimited: ""
       start_selling: Lisa müügikuulutus

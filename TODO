@@ -1,13 +1,14 @@
 - when delete select reason, delete permanentaly
 - translate vehicle view page action button modals and validations
 - translate messages to users
+- for printing make separate page with different layout for printing http://stackoverflow.com/questions/5090084/rails-3-how-add-a-view-that-does-not-use-same-layout-as-rest-of-app
+<body onload="window.print();">
+
+- http://seopartner.ee/urlide-optimeerimine/
 - compare like on elux.ee
 - add rating and comment for saved cars (carsales)
 - car user reviews (carsales.com.au, autotrader.co.uk)
-- add print button and make special print page (You could also make a special print page with only the desired information and have window.print in the onload event like this:
-
-<body onload="window.print();">
-)
+- http://foorum.clubmb.ee/index.php, ideas from drive2.ru to create forums, discussions
 - secret phone number by sms (carsales.com.au)
 - add feature I bought this car for saved car after car has been sold
 - add breadcrumps for static pages and share links (http://www.electrolux.ee/Global-pages/Page-Footer-Menu/Top/Contact-Us/)
