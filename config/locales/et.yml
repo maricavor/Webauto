@@ -615,7 +615,7 @@ et:
       details: ""
       for_security: ""
       security: "Selleks, et muuta oma e-maili aadressi palume %{contact_link}."
-      contact_link_text: võtta meiega ühendust
+      contact_link_text: contact us
       name: Nimi
       country: Riik
       city: Linn
