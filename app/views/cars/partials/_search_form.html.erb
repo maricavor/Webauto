@@ -10,7 +10,7 @@
     <div class="expandable hidden-phone">
 <small><%= link_to t("search.reset_search"),"#",class: "reset_search" %></small>
 <% if controller.action_name=="search" or controller_name=="dealers" %>
-<% if  @solr_search.total<=20 && @solr_search.total>0 %>
+<% if  @solr_search.total<=20%>
 <% if current_user %>
 
   <!-- Button to trigger modal -->
