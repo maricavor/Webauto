@@ -78,9 +78,11 @@ class AdvertsController < ApplicationController
   end
 def update
     @advert.current_step = session[:advert_step]
+    vehicle=@advert.vehicle
     respond_to do |format|
     if @advert.update_attributes(modify(params[:advert]))
       if @advert.last_step? || params[:save_show]
+        vehicle.save!#for reindexing solr
         session[:advert_step] =  nil
         @redirect_path=car_path(@advert.vehicle)
         message=params[:save_activate] ? t("adverts.ad_saved_and_activated") : t("adverts.ad_saved")
@@ -202,6 +204,7 @@ def update
     @vehicle=@advert.vehicle
     if @advert.activated
     @advert.update_attributes(:activated=>false) 
+    @vehicle.save!#for reindexing solr
     flash[:notice]=t("adverts.ad_deactivated")
   end
     @bodytypes=Bodytype.where(:type_id=>@vehicle.type_id)
