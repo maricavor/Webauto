@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+ 
    <script src='http://www.google.com/jsapi'></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,9 @@
         <script src="../assets/js/html5shiv.js"></script>
       <![endif]-->
       <link href="/car.ico" rel="shortcut icon" type="image/x-icon" />
-      <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "WebAuto" %>">
+      <meta name="description" content="<%= content_for?(:description) ? yield(:description) : 'Webauto.ee' %>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <meta name="author" content="Sergei Tsoganov">
+          <meta name="author" content="Sergei Tsõganov">
 
             <%= csrf_meta_tags %>
             <%= include_gon %>
@@ -22,7 +23,7 @@
               window.I18n = <%= current_translations.to_json.html_safe %>
             <% end %>
             <%= yield(:head) %>
-           
+		
           </head>
           <body class="<%= controller_name %> <%= action_name %>">
           <% type=@current_type.path_name %>
@@ -117,7 +118,8 @@
                         <li>
 					
 							
-							<div class="fb-like" data-href="https://www.webauto.ee" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
+							
+							<div class="fb-like" data-href="https://www.webauto.ee" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
 						</li>
 						
 						<li style="margin-top:5px;">

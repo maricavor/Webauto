@@ -1,5 +1,7 @@
 
 <% content_for :title,@title %>
+
+
 <div class="row-fluid no-print">
 <div class="span3">
 <% unless request.referrer.nil? %>
@@ -39,6 +41,7 @@
 <div class="row-fluid">
   <div class="span6">
     <span class="label"><%= "AD# #{@vehicle.advert.uid}" %></span><span class="label label-info" style="margin-left:5px;"><%= t('vehicles.show.visits', :count => @vehicle.advert.popularity) %></span>
+
   </div>
   <div class="span6 text-left visible-phone">
   <span class="label"><%= @user.is_dealer ? t("vehicles.show.dealer") : t("vehicles.show.private")  %></span>
@@ -70,6 +73,9 @@
     <blockquote>
       <p style="font-size:14px;"><%= @vehicle.description %></p>
     </blockquote>
+	
+	
+	
     <ul class="nav nav-tabs" id="vehicleTab">
       <li class="active"><a href="#specs" data-toggle="tab"><%= t("vehicles.show.specification")  %></a></li>
       <li><a href="#features" data-toggle="tab"><%= t("vehicles.show.features")  %></a></li>
