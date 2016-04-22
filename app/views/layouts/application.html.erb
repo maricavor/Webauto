@@ -30,8 +30,13 @@
 			<script>(function(d, s, id) {
 			  var js, fjs = d.getElementsByTagName(s)[0];
 			  if (d.getElementById(id)) return;
+			  if (window.locale=='et') {
+				  var l="et_EE";
+			  }else{
+				  var l="en_US";
+			  }
 			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/"+window.locale+"_"+window.locale.toUpperCase()+"/sdk.js#xfbml=1&version=v2.6";
+			  js.src = "//connect.facebook.net/"+l+"/sdk.js#xfbml=1&version=v2.6";
 			  fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));</script>
             <div class="navbar navbar-inverse navbar-fixed-top">
