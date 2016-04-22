@@ -1,3 +1,6 @@
+- when adverrtt deleted translate actions for advert and when deleted wrong message translation in estonian
+- links dont work in new search result  mail
+- create advert generator, generate test adverts and users for checking performance
 - check all modal forms functionalitites
 - message not shown when search updated alert
 - when delete select reason, delete permanentaly
