@@ -42,8 +42,10 @@ class VehiclesController < ApplicationController
      end
      @search.fields.build if @search.fields.size==0
      @solr_search=@search.run("normal",@current_sort[1].split(' '),params[:page],@per_page)
-     total=@solr_search.total 
-      if total>0
+ 
+     @total=@solr_search.total 
+     
+      if @total>0
         @vehicles = @solr_search.results
         #@search.update_attributes(:adverts=>@vehicles.map {|v| v.advert_id }.join(',')) if total<=20
       else

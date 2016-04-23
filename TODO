@@ -1,4 +1,11 @@
+- save any search, but alert only for search result <100 for example, so when saving name for search do full search again with per_page=100 then save results to database
 - when adverrtt deleted translate actions for advert and when deleted wrong message translation in estonian
+- refine your search function in saved searches
+- for fake data use http://www.rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md
+- Teavituse saamiseks täpsustage otsingut (tulemusi kuni 1000). auto24
+- use redis for key value store, check http://www.sitepoint.com/build-online-store-rails/
+- tables not responsive -> use https://github.com/filamentgroup/tablesaw
+- add proper facebook share button for vehicle, see carsales or autotrader
 - links dont work in new search result  mail
 - create advert generator, generate test adverts and users for checking performance
 - check all modal forms functionalitites

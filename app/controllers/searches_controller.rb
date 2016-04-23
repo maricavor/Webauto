@@ -120,7 +120,8 @@ class SearchesController < ApplicationController
 
 
   def update
-
+    #@solr_search=@search.run("normal",["created_at","desc"],1,100)
+    #@vehicles.map {|v| v.advert_id }.join(',')
     if @search.update_attributes(modify(params[:search]))
       respond_to do |format|
         format.html {
@@ -155,7 +156,7 @@ class SearchesController < ApplicationController
   def destroy
     @search.name=nil
     @search.save(:validate => false)
-    @search.search_alerts.destroy_all
+    #@search.search_alerts.destroy_all
     @searches=current_user.saved_searches.order("created_at desc")
     @count=@searches.count
     respond_to do |format|

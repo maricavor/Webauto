@@ -10,9 +10,17 @@
 <%= link_to ("<i class='icon-bullhorn'></i> "+t("vehicles.show.report")).html_safe, "#reportAdModal",:class=> "btn btn-block",:role=>"button",:'data-toggle'=>"modal" %>
 <%= link_to ("<i class='icon-comment'></i> "+t("vehicles.show.comments")+" [#{@vehicle.comments.count}]").html_safe, "#commentsModal",:class=> "btn btn-block",:role=>"button",:'data-toggle'=>"modal" %>
 <%= link_to ("<i class='icon-envelope'></i> "+t("vehicles.show.contact_private_seller")).html_safe, "#contactModal",:role=>"button",:'data-toggle'=>"modal",:class=> "btn btn-block" %>
+<%= link_to_function ("<i class='fa fa-facebook-square' aria-hidden='true'></i> "+t("vehicles.show.share_on_facebook")).html_safe, "launchFacebook()",:class=> "btn btn-block" %>
+<script type="text/javascript">
+    function launchFacebook() {
+        var url = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(location.href);
+        window.open(url, 'newwindow', 'width=750,height=600,scrollbars=yes,resizable=yes'); void (0);
+    }
+</script>
+
 </div>
 </div>
 
-<div class="fb-share-button" data-href="<%= request.original_url %>" data-layout="button_count" data-mobile-iframe="true"></div>
+
 
 	

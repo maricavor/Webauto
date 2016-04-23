@@ -10,7 +10,18 @@
 </ul>
 </td>
 <td>
+<% if s.adverts %>	
+<% if s.adverts.split(',').size<=20%>
 <%= tag("input", type: 'checkbox', checked: (s.alert_freq=="No Alert" ? nil : "checked"),class: ["toggle_alert"], id: "toggle_alert_#{s.id}", data: {toggle: 'toggle', size: 'normal', on: "#{t('searches.index.alerts_on')}", off: "#{t('searches.index.alerts_off')}"}) %>
+ <% else %>
+ <small>No alert available.<br>
+	 <%= link_to "Refine your search.", send("search_#{s.type.name.underscore.pluralize}_path",s,:sort=>s.sort) %>
+
+</small>
+  <% end %>
+   <% else %>
+   <%= tag("input", type: 'checkbox', checked: (s.alert_freq=="No Alert" ? nil : "checked"),class: ["toggle_alert"], id: "toggle_alert_#{s.id}", data: {toggle: 'toggle', size: 'normal', on: "#{t('searches.index.alerts_on')}", off: "#{t('searches.index.alerts_off')}"}) %>
+    <% end %>
 </td>
 <td class="muted">
   <small><strong class="text-success"><%= t("searches.index.saved_on") %></strong>

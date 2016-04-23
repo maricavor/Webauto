@@ -10,7 +10,7 @@
     <div class="expandable hidden-phone">
 <small><%= link_to t("search.reset_search"),"#",class: "reset_search" %></small>
 <% if controller.action_name=="search" or controller_name=="dealers" %>
-<% if  @solr_search.total<=20%>
+
 <% if current_user %>
 
   <!-- Button to trigger modal -->
@@ -22,7 +22,6 @@
   <small><%= link_to t("search.save_search"),new_user_session_path, :style=>"border-left: 1px dotted #d7d0d0;padding-left:5px;" %>
   </small>
 
-<% end %>
 <% end %>
 <% end %>
 

@@ -331,6 +331,7 @@ et:
       nb: "NB! See on kuulutuse #%{id} eelvaade"
   vehicles:
     show: 
+      share_on_facebook: "Jaga Facebook'is"
       print: Prindi
       vehicle_details: Sõiduki andmed
       model: Mudel

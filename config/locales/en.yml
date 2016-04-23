@@ -331,6 +331,7 @@ en:
       nb: "NB! This is a preview of your advert #%{id}"
   vehicles:
     show:
+      share_on_facebook: Share on Facebook
       print: Print
       vehicle_details: Vehicle details
       model: Model
