@@ -1,4 +1,6 @@
-- save any search, but alert only for search result <100 for example, so when saving name for search do full search again with per_page=100 then save results to database
+- save any search, but alert only for search result <1000 for example, so when saving name for search do full search again with per_page=1000 then save results to database
+http://stackoverflow.com/questions/13932750/tinytext-text-mediumtext-and-longtext-maximum-storage-sizes
+- when saving search -> Would you like to receive alerts for this search? autotrader
 - when adverrtt deleted translate actions for advert and when deleted wrong message translation in estonian
 - refine your search function in saved searches
 - for fake data use http://www.rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md
