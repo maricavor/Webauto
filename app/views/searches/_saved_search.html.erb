@@ -10,22 +10,28 @@
 </ul>
 </td>
 <td>
-<% if s.adverts %>	
-<% if s.adverts.split(',').size<=20%>
+	
+<% if s.allow_alerts %>
 <%= tag("input", type: 'checkbox', checked: (s.alert_freq=="No Alert" ? nil : "checked"),class: ["toggle_alert"], id: "toggle_alert_#{s.id}", data: {toggle: 'toggle', size: 'normal', on: "#{t('searches.index.alerts_on')}", off: "#{t('searches.index.alerts_off')}"}) %>
  <% else %>
- <small>No alert available.<br>
-	 <%= link_to "Refine your search.", send("search_#{s.type.name.underscore.pluralize}_path",s,:sort=>s.sort) %>
+ <small><%= t("searches.index.no_alert_available") %><br>
+	 <%= link_to t("searches.index.refine"), send("search_#{s.type.name.underscore.pluralize}_path",s,:sort=>s.sort) %>
 
 </small>
   <% end %>
-   <% else %>
-   <%= tag("input", type: 'checkbox', checked: (s.alert_freq=="No Alert" ? nil : "checked"),class: ["toggle_alert"], id: "toggle_alert_#{s.id}", data: {toggle: 'toggle', size: 'normal', on: "#{t('searches.index.alerts_on')}", off: "#{t('searches.index.alerts_off')}"}) %>
-    <% end %>
+  
 </td>
 <td class="muted">
-  <small><strong class="text-success"><%= t("searches.index.saved_on") %></strong>
-    <strong><%= s.updated_at.strftime("%d.%m.%y @ %I:%M") %></strong></small></td>
+	<ul class="unstyled">
+			<% if s.saved_at %>
+  <li><small><strong class="text-success"><%= t("searches.index.saved_on") %></strong>
+    <strong><%= s.saved_at.strftime("%d.%m.%y @ %I:%M") %></strong></small></li>
+	 <% end %>
+	<% if s.search_alerts.present? %>
+  <li><small><strong class="text-success"><%= t("searches.index.last_alert") %></strong>
+    <strong><%= s.search_alerts.last.created_at.strftime("%d.%m.%y @ %I:%M") %></strong></small></td></li>
+	 <% end %>
+	</ul>
 <td >
  <div class="btn-group">
   <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#">

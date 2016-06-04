@@ -1,14 +1,15 @@
 class Search < ActiveRecord::Base
   extend FriendlyId
-  attr_accessor :updating_name,:dealer_name
-  attr_accessible :updating_name,:dealer_name,:adverts,:bt, :cl, :dt, :fpgt, :fplt, :ft, :keywords, :kmgt, :kmlt, :pwgt, :pwlt, :tm, :tp, :fields_attributes,:location,:region,:engine_size,:doors,:stgt,:stlt,:slug,:keywords,:user_id,:user_ip,:name,:updated_at,:yeargt,:yearlt,:is_dealer,:is_private,:wrecked,:exchange,:features,:dealers,:sort,:exception,:alert_freq,:new_adverts
+  attr_accessor :updating_name,:dealer_name,:create_alert
+  attr_accessible :updating_name,:dealer_name,:results,:bt, :cl, :dt, :fpgt, :fplt, :ft, :keywords, :kmgt, :kmlt, :pwgt, :pwlt, :tm, :tp, :fields_attributes,:location,:region,:engine_size,:doors,:stgt,:stlt,:slug,:keywords,:user_id,:user_ip,:name,:updated_at,:yeargt,:yearlt,:is_dealer,:is_private,:wrecked,:exchange,:features,:dealers,:sort,:exception,:alert_freq,:total,:allow_alerts,:create_alert,:saved_at
   has_many :fields, class_name: "MakeModelField",:dependent=>:destroy
-
+  has_many :search_alerts,:dependent=>:destroy
   accepts_nested_attributes_for :fields, allow_destroy: true,reject_if: lambda {|attributes| attributes['make_name'].blank?}
   belongs_to :user
   belongs_to :type,:foreign_key=>"tp"
   validates :name, :presence => true,:on=>:update
   validates :name, :uniqueness => { :scope => :user_id,:case_sensitive => false },:on=>:update
+  validates :name,:length => { :maximum => 30 }
   validate :search_unique,:on=>:update,:if=>:should_validate?
   validate :total_searches,:on=>:update,:if=>:should_validate?
   friendly_id :create_permalink, :use => :slugged
@@ -61,7 +62,7 @@ class Search < ActiveRecord::Base
   def to_comparison_hash
     h = {}
     self.attributes.each_pair do |key, value|
-      unless ["id", "updated_at", "created_at","user_ip","user_id","slug","name","adverts"].include?(key)
+      unless ["id", "updated_at", "created_at","user_ip","user_id","slug","name","results","saved_at","allow_alerts","total","alert_freq"].include?(key)
         h[key] = value
       end
     end

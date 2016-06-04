@@ -1,8 +1,8 @@
 # Use the README file as a reference to customize settings.
 
-SavedItem:
+SearchAlert:
   fields:
-    default: vehicle_id, user_id
-    form: vehicle_id, user_id
+    default: search_id, user_id, results
+    form: search_id, user_id, results
   relationships: 
   application: Application

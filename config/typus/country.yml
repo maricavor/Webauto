@@ -4,5 +4,5 @@ Country:
   fields:
     default: name
     form: name
-  relationships: regions, states, cities, vehicles, users
+  relationships: translations, states, cities, vehicles, users
   application: Application

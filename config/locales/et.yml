@@ -201,6 +201,7 @@ et:
       advert: kuulutus
       status: STAATUS
       created: Lisatud
+      closed: Tühistatud
       updated: Muudetud
       cancelled: Tühistatud
       unfinished: Lõpetamata
@@ -220,6 +221,7 @@ et:
       remove_sure: "Kas olete kindel?"
       removing: ""
       why_removing: "Palun teatage, miks Te soovite selle kuulutuse eemaldamist:"
+      close: Tühista
     edit:
       heading: "Mis tüüpi sõidukit te tahate müüa?"
       bodytype: Liik ja keretüüp
@@ -616,7 +618,7 @@ et:
       details: ""
       for_security: ""
       security: "Selleks, et muuta oma e-maili aadressi palume %{contact_link}."
-      contact_link_text: contact us
+      contact_link_text: võtta meiega ühendust
       name: Nimi
       country: Riik
       city: Linn
@@ -663,7 +665,7 @@ et:
       saved_searches_and_alerts: "Salvestatud otsingud"
       title_details: ""
       available_searches: "otsingut"
-      a_of_b: "%{a}(%{b})"
+      a_of_b: "%{a} (%{b})"
       rename_search: "Muuda otsingu pealkirja"
       save_search: "Salvesta otsing"
       save: Salvesta
@@ -684,12 +686,15 @@ et:
       delete_sure: "Olete kindel, et soovite kustutada?"
       saved_on: Salvestatud
       run: Käivita otsing
+      last_alert: Viimane teavitamine
+      no_alert_available: Teavitused on deaktiveeritud
+      refine: "Täpsustage otsingut (tulemusi kuni 100)"
   saved_items:
     index:
       title: "Salvestatud sõidukid - Webauto.ee"
       details: ""
       saved_items: Salvestatud sõidukid
-      a_of_b: " %{a}(%{b})"
+      a_of_b: " %{a} (%{b})"
       available_items: sõidukit
       description: KIRJELDUS
       price: HIND

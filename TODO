@@ -1,20 +1,18 @@
-- save any search, but alert only for search result <1000 for example, so when saving name for search do full search again with per_page=1000 then save results to database
-http://stackoverflow.com/questions/13932750/tinytext-text-mediumtext-and-longtext-maximum-storage-sizes
-- remove author from facebook share dialog
-- when saving search -> Would you like to receive alerts for this search? autotrader
-- when advert deleted translate actions for advert and when deleted wrong message translation in estonian
-- refine your search function in saved searches
+- save any search, but alert only for search result <100 for example, so when saving name for search do full search again with per_page=100 then save results to database
+http://stackoverflow.com/questions/13932750/tinytext-text-mediumtext-and-longtext-maximum-storage-sizes   
+- some models in typus not working
+- customize service temporaryly unavailable https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+
 - for fake data use http://www.rubydoc.info/gems/factory_girl/file/GETTING_STARTED.md
-- Teavituse saamiseks täpsustage otsingut (tulemusi kuni 1000). auto24
+
 - use redis for key value store, check http://www.sitepoint.com/build-online-store-rails/
 - tables not responsive -> use https://github.com/filamentgroup/tablesaw
 - add proper facebook share button for vehicle, see carsales or autotrader
-- links dont work in new search result  mail
+
 - create advert generator, generate test adverts and users for checking performance
 - check all modal forms functionalitites
-- message not shown when search updated alert
-- when delete select reason, delete permanentaly
-- translate vehicle view page action button modals and validations
+- when print preview how to print equipment tab_
+- how is it in estonia: oman ja omandasin???
 - translate messages to users
 - for printing make separate page with different layout for printing http://stackoverflow.com/questions/5090084/rails-3-how-add-a-view-that-does-not-use-same-layout-as-rest-of-app
 <body onload="window.print();">

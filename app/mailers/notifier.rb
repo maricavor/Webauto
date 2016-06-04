@@ -1,6 +1,7 @@
 
 class Notifier < ActionMailer::Base
   default from: "info@webauto.ee"
+  #layout 'notifier'
 
   add_template_helper(ApplicationHelper)
   def comment_updated(comment, user)
@@ -18,10 +19,12 @@ class Notifier < ActionMailer::Base
     @user= user
     mail(to: user.email, subject: "[webauto] #{advert.vehicle.make_model}")
   end
-  def adverts_created(search)
-    @search=search
-    @user=search.user
-    mail(to: @user.email,subject: "Latest cars that match your search criteria")
+  def adverts_created(search_alert)
+    @search_alert=search_alert
+    @search=search_alert.search
+    @results=search_alert.results.split(',')
+    @user=search_alert.user
+    mail(to: @user.email,subject: "Latest cars that match your saved search")
   end
 def contact_user_submitted(inquiry,user)
     @user=user

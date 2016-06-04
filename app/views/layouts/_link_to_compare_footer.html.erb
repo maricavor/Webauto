@@ -1,0 +1,5 @@
+						<% if @compared_items.size > 0 %>
+						<%= link_to t("navigation.compare_#{@current_type.path_name}"), compare_path %>
+						<% else %>
+						<%= link_to t("navigation.compare_#{@current_type.path_name}"),"#" %>
+						<% end %>

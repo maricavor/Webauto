@@ -1,6 +1,9 @@
 require 'resque/server'
 Webauto::Application.routes.draw do
 
+
+
+
   # TODO: KLUDGE: MANUALLY BRING THE TYPUS ROUTES IN
   #       Typus used to provide :
   #           Typus::Routes.draw(map)
@@ -51,11 +54,11 @@ Webauto::Application.routes.draw do
     end
     match "/users/dashboard" => "users#show", :as => :dashboard
     as :user do
-      get '/users/settings' => 'users#edit',:as=>:settings
+      get '/users/settings' => 'usefrs#edit',:as=>:settings
       get '/users/profile' => 'devise/registrations#edit', :as => :profile
       
     end
-    match '/alerts'=>'orders#alerts',:as=>:alerts
+    
     #match '/cars'=>'cars#index',:as=>:cars
     #resource :dashboard, :controller => :users, :only => :show
     match '/contact'=>'contact_forms#new',:as=>:contact
@@ -118,6 +121,7 @@ Webauto::Application.routes.draw do
         get :remove_all,:popular,:expensive
       end
     end
+    
     #get '/saved_searches', to: 'searches#index', as: 'searches'
     resources :vehicles do
       resources :inquiries, :only => [:create]
@@ -125,7 +129,7 @@ Webauto::Application.routes.draw do
       match 'search(/:id)(/:sort)(/:page)' => 'vehicles#search',:via => [:post,:get], :as => :search,:on => :collection
       member do
          post :sort_photos
-         get :show_interesting,:show_similar,:show_more_dealer,:show_viewed,:show_reg_nr,:show_vin
+         get :show_interesting,:print,:show_similar,:show_more_dealer,:show_viewed,:show_reg_nr,:show_vin
        end
 
     end
@@ -149,5 +153,6 @@ Webauto::Application.routes.draw do
     end
     get '/saved_adverts', to: 'saved_items#index', as: 'saved_items'
     resources :contact_forms
+    resources :search_alerts,:only=>[:index,:show]
   end
 end

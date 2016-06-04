@@ -161,6 +161,7 @@
     <div style="clear: both;"></div>
     <%= f.hidden_field :user_ip,:value=>request.remote_ip %>
     <%= f.hidden_field :user_id,:value=>current_user.id if current_user %>
+	 <%= f.hidden_field :total,:value=>0 %>
     <p style="margin-top:5px;"><button class="btn btn-info btn-block" type="submit" ><%= t("search.search") %></button></p>
 
 

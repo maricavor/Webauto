@@ -5,6 +5,7 @@
 <%= save_vehicle_button %>
 <%= link_to ("<i class='icon-envelope'></i> "+t("vehicles.show.share")).html_safe, "#sendToFriendModal",:class=> "btn btn-block",:role=>"button",:'data-toggle'=>"modal" %>
 <%= link_to ("<i class='icon-print'></i> "+t("vehicles.show.print")).html_safe, "#",:class=> "btn btn-block",:onclick=>"window.print();return false;" %>
+<%= link_to ("<i class='icon-print'></i> "+t("vehicles.show.print")).html_safe, print_vehicle_path(@vehicle),:class=> "btn btn-block" %>
 </div>
  <div class="span6">
 <%= link_to ("<i class='icon-bullhorn'></i> "+t("vehicles.show.report")).html_safe, "#reportAdModal",:class=> "btn btn-block",:role=>"button",:'data-toggle'=>"modal" %>

@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :vehicle_watchers, :dependent=>:destroy
   has_many :saved_items,:dependent=>:destroy
   has_many :garage_items,:dependent=>:destroy
+  has_many :search_alerts,:dependent=>:destroy
   #has_many :jobs, :foreign_key => 'user_id', :class_name => "Task"
   has_many :vehicles
   has_many :adverts

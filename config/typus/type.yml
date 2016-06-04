@@ -4,5 +4,5 @@ Type:
   fields:
     default: name, path_name
     form: name, path_name
-  relationships: vehicles, bodytypes, makes
+  relationships: vehicles, adverts, bodytypes, makes
   application: Application

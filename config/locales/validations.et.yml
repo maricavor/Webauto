@@ -7,7 +7,7 @@ et:
     ad_activated: "Kuulutus on aktiveeritud."
     ad_deactivated: "Kuulutus on deaktiveeritud."
     ad_destroyed: "Kuulutus on kustutatud."
-    ad_cancelled: "Kuulutus on peidetud."
+    ad_cancelled: "Kuulutus on tühistatud."
     add_basic_details: "Sõiduki põhiandmed puuduvad!"
     not_authorized: "Selle lehekülje vaatamine ei ole lubatud!"
   authentications:

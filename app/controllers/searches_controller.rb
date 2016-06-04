@@ -36,6 +36,7 @@ class SearchesController < ApplicationController
       @search.bt=params[:value]
     end
     @search.location=8
+    @search.total=0
     @search.save!
 
     redirect_to send("search_#{@current_type.path_name}_path", @search,:sort=>"most_recent")
@@ -180,6 +181,13 @@ class SearchesController < ApplicationController
   def modify(params)
     %w(bt ft tm dt cl doors region features dealers).each do |p|
       params[p]=params[p].reject(&:empty?).join(',') if params[p].present?
+    end
+  
+    if params["create_alert"]=="1"
+      params["alert_freq"]="Alert"
+      solr_search=@search.run("normal",["created_at","desc"],1,100) 
+      params["results"]=solr_search.results.map {|v| v.id }.join(',')
+      params["total"]=solr_search.total
     end
     if params["fields_attributes"]
       new_fields_attributes={}

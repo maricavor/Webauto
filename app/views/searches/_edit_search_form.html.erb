@@ -1,13 +1,19 @@
+  
   <div class="save-search-modal-message"></div>
 <div id="modal-edit-search">
-  <%= form_for @search,:html=>{:id=>"save_search_form"},:authenticity_token => true, :remote=>true do |f| %>
+  <%= vehicle_form_for @search,:html=>{:id=>"save_search_form"},:authenticity_token => true, :remote=>true do |f| %>
     <%= f.text_field :name,:placeholder=>t("searches.index.name"),:class=> "span12"%>
     <%= f.hidden_field :user_id,:value=>current_user.id %>
-	 
     <% if mode=="new" %>
     <%= f.hidden_field :updating_name,:value=>false %>
     <%= f.hidden_field :sort,:value=>params[:sort] %>
-	 <%= f.hidden_field :adverts,:value=>@vehicles.map {|v| v.advert_id }.join(',') %>
+	 <%= f.hidden_field :total,:value=>@total %>
+	 <%= f.hidden_field :saved_at,:value=>Time.now %>
+	 <% if @total<=100 %>
+		 <%= f.check_box :create_alert,label:"Would you like to receive alerts for this search?" %>
+		 <%= f.hidden_field :allow_alerts,:value=>true %>
+	 <% end %>
+	 <!-- create checkbox for alerts HERE -->
     <% else %>
     <%= f.hidden_field :updating_name,:value=>true %>
     <% end %>

@@ -7,7 +7,7 @@ en:
     ad_activated: "Successfully activated advert"
     ad_deactivated: "Successfully deactivated advert"
     ad_destroyed: "Successfully destroyed advert"
-    ad_cancelled: "Your advert has been cancelled"
+    ad_cancelled: "Your advert has been closed"
     add_basic_details: "Please add basic details first"
     not_authorized: "You are not authorized to view this!"
   authentications:

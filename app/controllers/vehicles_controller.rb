@@ -7,9 +7,9 @@ class VehiclesController < ApplicationController
   before_filter :set_current_type,:only=>[:index,:search]
   before_filter :authenticate_user!, :only=>[:save,:watch,:unsave,:destroy]
   before_filter :set_params,:only=>[:index,:search]
-  before_filter :find_vehicle, :only => [:show,:save,:compare,:uncompare,:destroy,:watch,:sort_photos,:show_similar,:show_interesting,:show_more_dealer,:unsave,:show_viewed,:show_reg_nr,:show_vin]
+  before_filter :find_vehicle, :only => [:show,:save,:compare,:uncompare,:destroy,:watch,:sort_photos,:show_similar,:show_interesting,:show_more_dealer,:unsave,:show_viewed,:show_reg_nr,:show_vin,:print]
   before_filter :check_status, :only=>[:show]
-
+  layout :false, :only=>:print
   def set_params
     @row_size=4
     @per_page=20
@@ -41,15 +41,19 @@ class VehiclesController < ApplicationController
       redirect_to send("search_dealer_path", dealer.dealer_name,:search_id=>@search,:sort=>"most_recent")
      end
      @search.fields.build if @search.fields.size==0
-     @solr_search=@search.run("normal",@current_sort[1].split(' '),params[:page],@per_page)
+     #params[:page] ? per=@per_page : per=100 #use this to search 100 and save it to saved search  check paginated collection how to limit 
+     @solr_search=@search.run("normal",@current_sort[1].split(' '),params[:page] ,@per_page)
  
      @total=@solr_search.total 
      
       if @total>0
+        
         @vehicles = @solr_search.results
-        #@search.update_attributes(:adverts=>@vehicles.map {|v| v.advert_id }.join(',')) if total<=20
+      
+     
       else
         @vehicles=[]
+      
         #@title=t("vehicles.nothing")
       end
       gon.selected=@search.to_gon_object
@@ -199,7 +203,24 @@ class VehiclesController < ApplicationController
     end
   
   end
+  def print
+    @user=@vehicle.user
+    @title="#{@vehicle.name} #{@vehicle.transmission}"
+    @pictures=@vehicle.pictures
+    @inquiry=Inquiry.new
+    @comment=@vehicle.comments.build
+    @make=@vehicle.make
+    @make_name=@vehicle.make_name
+    @model_name=@vehicle.model_name
 
+
+
+    respond_to do |format|
+      format.html { render action: "show" }
+      format.json { render json: @vehicle }
+    end
+  
+  end
 
     def show_reg_nr
     @reg_nr=@vehicle.reg_nr

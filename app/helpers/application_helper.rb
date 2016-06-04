@@ -60,7 +60,6 @@ module ApplicationHelper
   def page_entries_info(collection, options = {})
     entry_name = options[:entry_name] || collection.entry_name
     entry_name = entry_name.pluralize unless collection.total_count == 1
-
     if collection.total_pages < 2
       t('helpers.page_entries_info.one_page.display_entries', :entry_name => entry_name, :count => collection.total_count)
     else

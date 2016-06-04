@@ -1,0 +1,8 @@
+# Use the README file as a reference to customize settings.
+
+GarageItem:
+  fields:
+    default: vehicle_id, advert_id, user_id, ownership_id
+    form: vehicle_id, advert_id, user_id, ownership_id
+  relationships: 
+  application: Application

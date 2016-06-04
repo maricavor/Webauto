@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150919122309) do
+ActiveRecord::Schema.define(:version => 20160513180325) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20150919122309) do
 
   create_table "adverts", :force => true do |t|
     t.integer  "user_id"
+    t.integer  "type_id"
     t.integer  "uid"
     t.string   "make_model"
     t.decimal  "price",            :precision => 8, :scale => 2
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20150919122309) do
     t.datetime "created_at",                                                        :null => false
     t.datetime "updated_at",                                                        :null => false
     t.datetime "deleted_at"
+    t.integer  "delete_reason_id"
   end
 
   add_index "adverts", ["deleted_at"], :name => "index_adverts_on_deleted_at"
@@ -63,11 +65,9 @@ ActiveRecord::Schema.define(:version => 20150919122309) do
   end
 
   create_table "bodytype_translations", :force => true do |t|
-    t.integer  "bodytype_id"
-    t.string   "locale",      :null => false
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "name"
+    t.integer "bodytype_id"
+    t.string  "locale",      :null => false
+    t.string  "name"
   end
 
   add_index "bodytype_translations", ["bodytype_id"], :name => "index_bodytype_translations_on_bodytype_id"
@@ -132,6 +132,17 @@ ActiveRecord::Schema.define(:version => 20150919122309) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "garage_items", :force => true do |t|
+    t.integer  "vehicle_id",   :null => false
+    t.integer  "advert_id"
+    t.integer  "user_id"
+    t.integer  "ownership_id", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "garage_items", ["vehicle_id", "user_id"], :name => "index_saved_items_on_vehicle_id_and_user_id"
+
   create_table "impressions", :force => true do |t|
     t.integer  "vehicle_id"
     t.integer  "user_id"
@@ -152,9 +163,9 @@ ActiveRecord::Schema.define(:version => 20150919122309) do
 
   create_table "line_items", :force => true do |t|
     t.integer  "service_id"
+    t.integer  "order_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "order_id"
   end
 
   create_table "make_model_fields", :force => true do |t|
@@ -212,20 +223,22 @@ ActiveRecord::Schema.define(:version => 20150919122309) do
   create_table "saved_items", :force => true do |t|
     t.integer  "vehicle_id"
     t.integer  "user_id"
-    t.datetime "created_at",                               :null => false
-    t.datetime "updated_at",                               :null => false
-    t.string   "name"
-    t.decimal  "price",      :precision => 8, :scale => 2
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "type_id"
   end
 
   add_index "saved_items", ["vehicle_id", "user_id"], :name => "index_saved_items_on_vehicle_id_and_user_id"
 
   create_table "search_alerts", :force => true do |t|
     t.integer  "search_id"
-    t.integer  "advert_id"
+    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "search_alerts", ["search_id"], :name => "index_search_alerts_on_search_id"
+  add_index "search_alerts", ["user_id"], :name => "index_search_alerts_on_user_id"
 
   create_table "searches", :force => true do |t|
     t.string   "keywords"
@@ -244,8 +257,9 @@ ActiveRecord::Schema.define(:version => 20150919122309) do
     t.string   "dt"
     t.string   "cl"
     t.string   "slug"
-    t.datetime "created_at",                                                        :null => false
-    t.datetime "updated_at",                                                        :null => false
+    t.datetime "created_at",                                                                               :null => false
+    t.datetime "updated_at",                                                                               :null => false
+    t.datetime "saved_at"
     t.string   "user_ip"
     t.integer  "user_id"
     t.string   "name"
@@ -254,17 +268,21 @@ ActiveRecord::Schema.define(:version => 20150919122309) do
     t.string   "doors"
     t.integer  "stgt"
     t.integer  "stlt"
-    t.decimal  "engine_size", :precision => 2, :scale => 1
-    t.boolean  "is_dealer",                                 :default => true
-    t.boolean  "is_private",                                :default => true
-    t.boolean  "wrecked",                                   :default => false
-    t.boolean  "exchange",                                  :default => false
+    t.decimal  "engine_size",                        :precision => 2, :scale => 1
+    t.boolean  "is_dealer",                                                        :default => true
+    t.boolean  "is_private",                                                       :default => true
+    t.boolean  "wrecked",                                                          :default => false
+    t.boolean  "exchange",                                                         :default => false
     t.string   "features"
     t.string   "dealers"
     t.string   "sort"
     t.integer  "exception"
-    t.text     "adverts"
-    t.string   "alert_freq",                                :default => "No Alert"
+    t.boolean  "allow_alerts",                                                     :default => false
+    t.text     "adverts",      :limit => 2147483647
+    t.integer  "total",                                                            :default => 0,          :null => false
+    t.text     "new_adverts",  :limit => 2147483647
+    t.string   "alert_freq",                                                       :default => "No Alert"
+    t.datetime "alerted_at"
   end
 
   add_index "searches", ["slug"], :name => "index_searches_on_slug", :unique => true
@@ -336,10 +354,6 @@ ActiveRecord::Schema.define(:version => 20150919122309) do
     t.string   "webpage"
     t.text     "information"
     t.boolean  "is_dealer",              :default => false
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "oauth_token"
-    t.datetime "oauth_expires_at"
     t.boolean  "price_alert",            :default => false
     t.boolean  "sold_alert",             :default => false
     t.boolean  "interest_alert",         :default => false
@@ -357,6 +371,7 @@ ActiveRecord::Schema.define(:version => 20150919122309) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.text     "description"
+    t.datetime "deleted_at"
   end
 
   add_index "vehicle_translations", ["locale"], :name => "index_vehicle_translations_on_locale", :length => {"locale"=>191}
@@ -375,6 +390,7 @@ ActiveRecord::Schema.define(:version => 20150919122309) do
     t.string   "model_spec"
     t.string   "make_model"
     t.string   "badge"
+    t.string   "series"
     t.string   "vin"
     t.integer  "year"
     t.decimal  "price",                                                 :precision => 8, :scale => 2
@@ -426,10 +442,10 @@ ActiveRecord::Schema.define(:version => 20150919122309) do
     t.string   "transmission_details"
     t.integer  "gears",                                                                               :default => 0,     :null => false
     t.integer  "cylinders",                                                                           :default => 0,     :null => false
-    t.decimal  "fuel_cons_city",                                        :precision => 2, :scale => 1
-    t.decimal  "fuel_cons_freeway",                                     :precision => 2, :scale => 1
-    t.decimal  "fuel_cons_combined",                                    :precision => 2, :scale => 1
-    t.decimal  "acceleration",                                          :precision => 2, :scale => 1
+    t.decimal  "fuel_cons_city",                                        :precision => 3, :scale => 1
+    t.decimal  "fuel_cons_freeway",                                     :precision => 3, :scale => 1
+    t.decimal  "fuel_cons_combined",                                    :precision => 3, :scale => 1
+    t.decimal  "acceleration",                                          :precision => 3, :scale => 1
     t.integer  "max_speed"
     t.boolean  "power_steering",                                                                      :default => false
     t.string   "power_steering_details"
@@ -546,7 +562,6 @@ ActiveRecord::Schema.define(:version => 20150919122309) do
     t.boolean  "isolation_net",                                                                       :default => false
     t.boolean  "tow_hitch",                                                                           :default => false
     t.text     "other_equipment"
-    t.integer  "auto24_id"
     t.datetime "created_at",                                                                                             :null => false
     t.datetime "updated_at",                                                                                             :null => false
     t.boolean  "parking_aid_front",                                                                   :default => false
@@ -561,15 +576,8 @@ ActiveRecord::Schema.define(:version => 20150919122309) do
     t.integer  "city_id"
     t.integer  "user_id"
     t.text     "description"
-    t.integer  "popularity",                                                                          :default => 0,     :null => false
     t.string   "reg_nr"
     t.text     "keywords",                        :limit => 2147483647
-    t.boolean  "garage_item",                                                                         :default => false
-    t.boolean  "basics_saved",                                                                        :default => false, :null => false
-    t.boolean  "details_saved",                                                                       :default => false, :null => false
-    t.boolean  "features_saved",                                                                      :default => false, :null => false
-    t.boolean  "photos_saved",                                                                        :default => false, :null => false
-    t.boolean  "contact_saved",                                                                       :default => false, :null => false
     t.datetime "deleted_at"
   end
 

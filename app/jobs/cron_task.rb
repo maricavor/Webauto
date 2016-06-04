@@ -69,13 +69,22 @@ class CronTask
     _searches.each do |s|
       #Rails.logger.info "Checking saved search "+s.name+" for user "+s.user.email
       #Rails.logger.info "Adverts: "+s.adverts
-      _current_adverts=s.run("background").results.map {|v| v.advert_id }.join(',') 
+      #_current_adverts=s.run("background").results.map {|v| v.advert_id }.join(',') 
+      solr_search=s.run("normal",["created_at","desc"],1,110)
+      _current_results=solr_search.results.map {|v| v.id }.join(',')
       #Rails.logger.info "Found adverts: "+_current_adverts
-       new_adverts=_current_adverts.split(',')-s.adverts.split(',')
+       new_results=_current_results.split(',')-s.results.split(',')
+       total=solr_search.total
       #Rails.logger.info "New adverts: "+new_adverts.join(',')
-      if new_adverts.size>0
-        s.update_attributes(:adverts=>_current_adverts,:new_adverts=>new_adverts.join(','))
-        Notifier.adverts_created(s).deliver
+      if new_results.size>0
+        if total>100
+          s.update_attributes(:results=>_current_results,:total=> total,:allow_alerts=>false,:alert_freq=>"No Alert")
+        else
+          s.update_attributes(:results=>_current_results,:total=> total)       
+        end
+        sa=s.search_alerts.create(user_id: s.user_id, results: new_results.join(',')) 
+        
+        
       end
  end
 end

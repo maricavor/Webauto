@@ -1,4 +1,4 @@
 # Use the README file as a reference to customize settings.
 
 admin:
-  Region: create, read, update, delete
+  AdminUser: create, read, update, delete

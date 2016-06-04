@@ -58,7 +58,13 @@ table[id=wrapper] table.results td.right {width:120px !important}
 			<table align="center" border="0" cellpadding="0" cellspacing="0" width="630" id="maintable">
 			<tbody>
 				<tr>
-				<td id="hosted" bgcolor="#ffffff" height="30" valign="middle" align="right" style="font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#666666;"><a class="not-displaying" href="" target="_blank" style="color:#666666;"><span style="text-decoration:none !important; color:#666666;">Message not displaying?</span> Click here</a></td>
+				<td id="hosted" bgcolor="#ffffff" height="30" valign="middle" align="right" style="font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#666666;">
+					
+					<%= link_to "<span style='text-decoration:none !important; color:#666666;'>Message not displaying?</span> Click here".html_safe, url_for(controller: 'search_alerts', action: 'show',locale: I18n.locale,id: search_alert,only_path: false),:class=>"not-displaying", :target=>"_blank",:style=>"color:#666666;" %>
+					
+					<!--<a class="not-displaying" href="http://localhost:3000/" target="_blank" style="color:#666666;"><span style="text-decoration:none !important; color:#666666;">Message not displaying?</span> Click here</a>
+				-->
+				</td>
 		  </tr>
 			<tr>
 				<td height="1" style="line-height:1px; height:1px; font-size:1px; background:#f1f1f1; mso-line-height-rule:exactly;" bgcolor="#f1f1f1">&nbsp;</td>
@@ -91,7 +97,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
   			  					        <td height="20">&nbsp;</td>
   			  					        </tr>
 					                  <tr>
-					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">Dear <%= @user.name %>,</td>
+					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">Dear <%= user.name %>,</td>
 					                    </tr>
 			  					      <tr>
 			  					        <td height="20">&nbsp;</td>
@@ -113,7 +119,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					        <td height="30">&nbsp;</td>
 					        </tr>
 						
-						 <% if @search.new_adverts.present? %>
+						 <% if results.size>0 %>
 					      <tr>
 					        <td height="30">
 							<!-- results -->
@@ -134,12 +140,12 @@ table[id=wrapper] table.results td.right {width:120px !important}
 							 
                                  <tr>
 
-					                <td class="left" width="48%" bgcolor="#ebebeb" style="font-family:Helvetica, Arial, sans-serif; font-size:12px; color:#111111;"><%= @search.name %></td>
-					                <td class="middle" width="24%" bgcolor="#ebebeb" style="font-family:Helvetica, Arial, sans-serif; font-size:12px; color:#111111;"><%= @search.new_adverts.split(',').size %></td>
+					                <td class="left" width="48%" bgcolor="#ebebeb" style="font-family:Helvetica, Arial, sans-serif; font-size:12px; color:#111111;"><%= search.name %></td>
+					                <td class="middle" width="24%" bgcolor="#ebebeb" style="font-family:Helvetica, Arial, sans-serif; font-size:12px; color:#111111;"><%= results.size %></td>
 					                <td class="right" width="28%" bgcolor="#ebebeb">
 <div>
 					              
-					            <%= link_to "Run search",url_for(controller: "#{@search.type.name.underscore.pluralize}", action: 'search',locale: I18n.locale,id: @search,only_path: false,:sort=>@search.sort),:style=>"background-color:#f2f2f2;border:1px solid #dedede;border-radius:5px;color:#0087cf;display:inline-block;font-family:sans-serif;font-size:12px;font-weight:bold;line-height:25px;text-align:center;text-decoration:none;width:95px;-webkit-text-size-adjust:none;mso-hide:all;" %>
+					            <%= link_to "Run search",url_for(controller: "#{search.type.name.underscore.pluralize}", action: 'search',locale: I18n.locale,id: search,only_path: false,:sort=>search.sort),:style=>"background-color:#f2f2f2;border:1px solid #dedede;border-radius:5px;color:#0087cf;display:inline-block;font-family:sans-serif;font-size:12px;font-weight:bold;line-height:25px;text-align:center;text-decoration:none;width:95px;-webkit-text-size-adjust:none;mso-hide:all;" %>
 								      </div></td>
 					                </tr> 
 								
@@ -154,9 +160,8 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					        <td height="30">&nbsp;</td>
 					        </tr>
 							
-							<% @search.new_adverts.split(',').each do |ad_id| %>
-							<% ad=Advert.find(ad_id) %>
-							<% v=ad.vehicle %>
+							<% results.each do |v_id| %>
+							<% v=Vehicle.find(v_id) %>
 							<% picture=v.pictures.first%>
 					      <tr>
 					        <td class="center" style="font-family:Helvetica, Arial, sans-serif; font-size:16px; color:#111111; line-height:22px">
@@ -189,7 +194,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					                <tbody>
 					                  <tr>
 					                   
-					                          <td height="30" style="font-family:Helvetica, Arial, sans-serif; font-size:18px; color:#438944; font-weight:bold;">	<%= currency(ad.price) %></td>
+					                          <td height="30" style="font-family:Helvetica, Arial, sans-serif; font-size:18px; color:#438944; font-weight:bold;">	<%= currency(v.price) %></td>
 					                         
 					                    </tr>
 					                  <tr>
@@ -297,7 +302,7 @@ If you no longer want to receive these emails, please switch off your alerts <a 
 					  <!-- table 2 -->
 					  <table class="center" width="100%" border="0" cellspacing="0" cellpadding="0">
 			        <tr>
-			          <td align="right" valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">We sent this email to <%= @user.email %></td>
+			          <td align="right" valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">We sent this email to <%= user.email %></td>
 			          </tr>
 			        <tr>
 			          <td align="right" valign="top">&nbsp;</td>

@@ -201,6 +201,7 @@ en:
       advert: advert
       status: STATUS
       created: Created
+      closed: Closed
       updated: Last update
       cancelled: Closed
       unfinished: Incomplete
@@ -220,6 +221,7 @@ en:
       remove_sure: "Are you sure?" 
       removing: "You are removing the ad for your"
       why_removing: "Please tell us why you're removing this advert (optional):"
+      close: Close ad
     edit:
       heading: "What type of vehicle are you selling?"
       bodytype: Body type
@@ -683,6 +685,9 @@ en:
       delete_sure: "Are you sure you want to delete this item?"
       saved_on: Saved on
       run: Run search
+      last_alert: Last alert
+      no_alert_available: No alert available
+      refine: "Refine your search (max 100 results)"
   saved_items:
     index:
       title: "Saved adverts - Webauto.ee"
