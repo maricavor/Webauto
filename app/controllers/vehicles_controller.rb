@@ -9,7 +9,7 @@ class VehiclesController < ApplicationController
   before_filter :set_params,:only=>[:index,:search]
   before_filter :find_vehicle, :only => [:show,:save,:compare,:uncompare,:destroy,:watch,:sort_photos,:show_similar,:show_interesting,:show_more_dealer,:unsave,:show_viewed,:show_reg_nr,:show_vin,:print]
   before_filter :check_status, :only=>[:show]
-  layout :false, :only=>:print
+ 
   def set_params
     @row_size=4
     @per_page=20
@@ -203,24 +203,7 @@ class VehiclesController < ApplicationController
     end
   
   end
-  def print
-    @user=@vehicle.user
-    @title="#{@vehicle.name} #{@vehicle.transmission}"
-    @pictures=@vehicle.pictures
-    @inquiry=Inquiry.new
-    @comment=@vehicle.comments.build
-    @make=@vehicle.make
-    @make_name=@vehicle.make_name
-    @model_name=@vehicle.model_name
 
-
-
-    respond_to do |format|
-      format.html { render action: "show" }
-      format.json { render json: @vehicle }
-    end
-  
-  end
 
     def show_reg_nr
     @reg_nr=@vehicle.reg_nr

@@ -22,6 +22,7 @@
                    <strong><%= @user.name %></strong><br>
                    <span id="phone_numbers"><%= secret_phone(@user) %></span>
                   </address>
+				  <div class="no-print">
 				   <% if @user.is_dealer %>
 				   	<%= link_to ("<i class='icon-search'></i>  "+t("dealers.index.show_inventory")).html_safe,dealer_path(@user.dealer_name) %><br>
      				 <% if @user.webpage.present? %>
@@ -31,7 +32,7 @@
   			
 				  
 				  <% end %>
-                 
+         </div>         
   </div>
   </div>
 

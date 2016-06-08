@@ -180,4 +180,9 @@ margin-left:-40%; /* width/2) */
 	      content: none !important;
 	      // use important only if you are not able to override it by normal styling 
 	    }
+		.tab-content > .tab-pane {
+		    display: block !important;
+		    opacity: 1 !important;
+		    visibility: visible !important;
+		}
   }

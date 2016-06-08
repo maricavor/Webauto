@@ -1,5 +1,7 @@
 - save any search, but alert only for search result <100 for example, so when saving name for search do full search again with per_page=100 then save results to database
 http://stackoverflow.com/questions/13932750/tinytext-text-mediumtext-and-longtext-maximum-storage-sizes   
+
+- similar cars check fotolia.com, show all similar cars
 - some models in typus not working
 - customize service temporaryly unavailable https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
 
@@ -14,8 +16,7 @@ http://stackoverflow.com/questions/13932750/tinytext-text-mediumtext-and-longtex
 - when print preview how to print equipment tab_
 - how is it in estonia: oman ja omandasin???
 - translate messages to users
-- for printing make separate page with different layout for printing http://stackoverflow.com/questions/5090084/rails-3-how-add-a-view-that-does-not-use-same-layout-as-rest-of-app
-<body onload="window.print();">
+
 
 - http://seopartner.ee/urlide-optimeerimine/
 - compare like on elux.ee

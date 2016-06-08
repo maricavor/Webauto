@@ -75,16 +75,8 @@
     </blockquote>
 	
 	
-	
-    <ul class="nav nav-tabs" id="vehicleTab">
-      <li class="active"><a href="#specs" data-toggle="tab"><%= t("vehicles.show.specification")  %></a></li>
-      <li><a href="#features" data-toggle="tab"><%= t("vehicles.show.features")  %></a></li>
-    </ul>
-    <div id="myVehicleTabContent" class="tab-content">
-      <div class="tab-pane fade in active" id="specs"><%= render "vehicles/partials/specs" %></div>
-      <div class="tab-pane fade" id="features"><%= render "vehicles/partials/features" %></div>
-    </div>
-  </div>
+	 <%= render "vehicles/partials/tabs" %>
+    
   <p class="text-right muted"><small><%= t("vehicles.show.ad_updated") %> <%= time_ago_in_words(@vehicle.updated_at) %> <%= t("datetime.ago") %></small></p>
 </div>
 
