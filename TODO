@@ -1,6 +1,7 @@
 - save any search, but alert only for search result <100 for example, so when saving name for search do full search again with per_page=100 then save results to database
 http://stackoverflow.com/questions/13932750/tinytext-text-mediumtext-and-longtext-maximum-storage-sizes   
 -
+-
 - translate automails to users
 - similar cars check fotolia.com, show all similar cars
 - some models in typus not working
