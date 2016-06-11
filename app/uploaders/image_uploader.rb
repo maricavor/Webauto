@@ -77,7 +77,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   def watermark
     manipulate! do |img|
       logo = Magick::Image.read("#{Rails.root}/public/watermark.png").first
-      img = img.composite(logo, Magick::SouthEastGravity, 10, 15, Magick::OverCompositeOp)
+      img = img.composite(logo, Magick::SouthEastGravity, 25, 25, Magick::OverCompositeOp)
     end
 
 
