@@ -54,7 +54,7 @@ Webauto::Application.routes.draw do
     end
     match "/users/dashboard" => "users#show", :as => :dashboard
     as :user do
-      get '/users/settings' => 'usefrs#edit',:as=>:settings
+      get '/users/settings' => 'users#edit',:as=>:settings
       get '/users/profile' => 'devise/registrations#edit', :as => :profile
       
     end

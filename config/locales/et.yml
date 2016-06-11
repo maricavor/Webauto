@@ -157,13 +157,13 @@ et:
   colours: [{name: "Beež", id: 1}, {name: "Must", id: 2}, {name: "Sinine", id: 3}, {name: "Pruun", id: 4}, {name: "Tumebeež", id: 5}, {name: "Tumesinine", id: 6}, {name: "Tumepruun", id: 7}, {name: "Tumehall", id: 8}, {name: "Tumeroheline", id: 9}, {name: "Tumeoranž", id: 10}, {name: "Tumelilla", id: 11}, {name: "Tumepunane", id: 12}, {name: "Tumekollane", id: 13}, {name: "Kuldne", id: 14}, {name: "Hall", id: 15}, {name: "Roheline", id: 16}, {name: "Helebeež", id: 17}, {name: "Helesinine", id: 18}, {name: "Helepruun", id: 19}, {name: "Helehall", id: 20}, {name: "Heleroheline", id: 21}, {name: "Heleoranž", id: 22}, {name: "Hellelilla", id: 23}, {name: "Helepunane", id: 24}, {name: "Helekollane", id: 25}, {name: "Oranž", id: 26}, {name: "Roosa", id: 27}, {name: "Lilla", id: 28}, {name: "Punane", id: 29}, {name: "Hõbedane", id: 30}, {name: "Valge", id: 31}, {name: "Kollane", id: 32}]
   fueltypes: [{name: "Bensiin", id: 1}, {name: "Diisel", id: 2}, {name: "Bensiin + Gaas (LPG)", id: 3},{name: "Bensiin + Gas (CNG)", id: 4},{name: "Gaas (LPG)", id: 5},{name: "Gaas (CNG)", id: 6},{name: "Hübriid", id: 7},{name: "Elekter", id: 8},{name: "Etanool", id: 9}]
   transmissions: [{name: "Automaat", id: 1},{name: "Manuaal", id: 2},{name: "Poolautomaat", id: 3}]
-  ownership: [{name: "Oman", id: 1},{name: "Omandasin", id: 2},{name: "Tahan sõita", id: 3},{name: "Olen sõitnud", id: 4}]
+  ownership: [{name: "Olen omanik", id: 1},{name: "Olin omanik", id: 2},{name: "Soovin", id: 3},{name: "Juhtisin", id: 4}]
   drivetypes: [{name: "Nelikvedu", id: 1},{name: "Esivedu", id: 2},{name: "Tagavedu", id: 3}]
   climate_controls: [{name: "Kliimaautomaatik", id: 1}, {name: "Konditsioneer", id: 2}]
   search_alerts: [{name: "Ära teavita", id: "No Alert" },{name: "Teavita mind", id: "Alert" }]
   service_histories: [{name: "Täielik hooldusajalugu", id: 1},{name: "Mittetäielik hooldusajalugu", id: 2},{name: "Hooldusajalugu puudub", id: 3}]
   features: [{name: "Nahkpolster", id: "leather_upholstery"},{name: "Istmesoojendus", id: "seat_heating_count"},{name: "Nav. seade", id: "navigation"},{name: "Kesklukustus", id: "central_locking"},{name: "Veokonks", id: "tow_hitch"},{name: "Püsikiiruse hoidja", id: "cruise_control"},{name: "Valuveljed", id: "light_alloy_wheels"},{name: "Täielik hooldusajalugu", id: "service_history_id"},{name: "Roolivõimendi", id: "power_steering"},{name: "El. aknad", id: "power_windows"},{name: "Kliimaseade",id: "climate_control_id"}]
-  ad_delete_reasons: [{name: "Ma müüsin auto Webauto.ee-s.", id: 1},{name: "Ma müüsin auto läbi teise kanali.", id: 2},{name: "I traded the vehicle in for a purchase.", id: 3},{name: "I don't want to sell the vehicle anymore.", id: 4},{name: "Other reasons.", id: 5}]
+  ad_delete_reasons: [{name: "Ma müüsin sõiduki Webauto.ee keskkonnas", id: 1},{name: "Ma müüsin sõiduki muu kanali kaudu", id: 2},{name: "Ma vahetasin sõiduki ümber ostu eesmärgil", id: 3},{name: "Ma ei soovi sõidukit enam müüa", id: 4},{name: "Muud põhjused", id: 5}]
   index:
     create_ad: "LISA KUULUTUS"
     most_popular: Populaarsed
@@ -195,7 +195,7 @@ et:
     index:
       title: "Minu kuulutused - Webauto.ee"
       ad_management: Minu kuulutused
-      details: ""
+      details: "Teie poolt müüdavad sõidukid"
       create_ad: Lisa kuulutus
       nothing: Kuulutusi ei leitud
       advert: kuulutus
@@ -216,11 +216,11 @@ et:
       activate_sure: "Kas olete kindel?"
       restore: Taasta kuulutus
       restore_sure: "Olete kindel, et soovite taastada oma kuulutust?"
-      remove_ad: Kustuta kuulutus
-      remove: Kustuta
+      remove_ad: Tühista kuulutus
+      remove: Tühista
       remove_sure: "Kas olete kindel?"
-      removing: ""
-      why_removing: "Palun teatage, miks Te soovite selle kuulutuse eemaldamist:"
+      removing: "Te eemaldate oma sõiduki kuulutust:"
+      why_removing: "Palun teatage selle kuulutuse eemaldamise põhjus (valikuline):"
       close: Tühista
     edit:
       heading: "Mis tüüpi sõidukit te tahate müüa?"
@@ -600,7 +600,7 @@ et:
     dashboard:
       title: Töölaud - Webauto.ee
       dashboard: Töölaud
-      lead: ""
+      lead: "Suhtlemine portaaliga Webauto.ee on muutunud tunduvalt lihtsamaks. Nüüd olete liige, mis tähendab Teile kuulutuste ja otsingute haldamist ühes kohas - ostmine ja müümine on käkitegu."
       saved_vehicles: Salvestatud sõidukid
       view_all: Näita kõiki
       sold: MÜÜDUD
@@ -608,8 +608,8 @@ et:
       saved_searches: Salvestatud otsingud
       last_searches: Viimased otsingud
       searched_on: Otsitud
-      saved_adverts_info: ""
-      saved_searches_info: ""
+      saved_adverts_info: "Kui salvestate Webauto.ee kuulutused, kuvatakse need siin."
+      saved_searches_info: "Kui salvestate oma Webauto.ee lemmikotsingud, kuvatakse need siin."
       no_last_searches: ""
       search_now: Otsi kuulutusi
     profile:
@@ -649,21 +649,21 @@ et:
       title: "Seaded - Webauto.ee"
       settings: Seaded
       details: ""
-      notifications: Salvestatud sõiduki teavitused
-      notify: "Teavita mind, kui:"
-      price_alert: "Hind muutub"
+      notifications: Salvestatud sõidukite teatised
+      notify: "Kõigi minu salvestatud sõidukite puhul teatage mulle, kui:"
+      price_alert: "Hinnamuudatused või eripakkumine on saadaval"
       sold_alert: "Sõiduk on müüdud"
-      interest_alert: "Suureneb huvi sõiduki vastu"
-      future_updates: "Uudiskirjad"
-      future_updates_text: "Webauto.ee liikmena, me informeerime teid kõikidest uutest põnevatest funktsioonidest, eksklusiivsetest diilidest meilt ja meie partneritelt ja kõikidest olulistest asjadest, mis on seotud sõiduki omandiga. Teie tevitusi ja kontaktandmeid ei jagata ühegi kolmanda poolega väljaspool Webauto.ee võrku."
-      future_updates_check: "Soovin saada Webauto.ee uudiseid, pakkumiseid ja muud informatsiooni e-mailiga"
+      interest_alert: "Huvi sõiduki vastu on kasvav"
+      future_updates: "Funktsioonide ajakohastused ja liikmelisuse eelised"
+      future_updates_text: "Hoiame Teid kui Webauto.ee liiget kursis kõigi uute põnevate funktsioonidega, enda ja oma partnerite ainuõiguslike tehingutega ning olulise teabega sõidukite omandiõiguse kohta. Teie liikmelisust puudutavat teavet ja kontaktandmeid ei jagata kolmandatele osapooltele väljaspool Webauto.ee võrgustikku."
+      future_updates_check: "Sooviksin saada eripakkumisi, reklaammaterjale ja ajakohast teavet portaalilt Webauto.ee"
       language: Keel
       save: Salvesta
   searches:
     index:
       title: "Salvestatud otsingud - Webauto.ee"
       saved_searches_and_alerts: "Salvestatud otsingud"
-      title_details: ""
+      title_details: "Taaskäivitamiseks salvestatud otsingud"
       available_searches: "otsingut"
       a_of_b: "%{a} (%{b})"
       rename_search: "Muuda otsingu pealkirja"
@@ -692,7 +692,7 @@ et:
   saved_items:
     index:
       title: "Salvestatud sõidukid - Webauto.ee"
-      details: ""
+      details: "Teie salvestatud kuulutused"
       saved_items: Salvestatud sõidukid
       a_of_b: " %{a} (%{b})"
       available_items: sõidukit

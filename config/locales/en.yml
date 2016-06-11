@@ -74,7 +74,7 @@ en:
     favourites: FAVOURITES
     sell: SELL
     create_ad: Create ad
-    garage_items: My Garage
+    garage_items: My garage
     comment_login:  "<a href='%{login}'>Login</a> or <a href='%{register}'>Register</a> now to post a comment!"
   search:
     open_search: Open search
