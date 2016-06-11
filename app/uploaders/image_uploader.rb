@@ -55,13 +55,17 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :original do
     #process :copyright=>'Webauto '
     process :resize_to_limit => [300, 300], :if=> :dealer_picture?
-    process :resize_to_limit => [1000, 1000], :if=> :picture?
+    process :resize_to_limit => [1500, 1500], :if=> :picture?
     process :watermark, :if=> :picture?
     
   end
 
   version :thumb,:if=> :picture? do
     process :resize_to_fill => [450, 300]
+    process :watermark
+  end
+  version :medium,:if=> :picture? do
+    process :resize_to_limit => [750, 750]
     process :watermark
   end
   ###
