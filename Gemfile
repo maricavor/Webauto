@@ -11,7 +11,7 @@ group :assets do
   #gem 'spinjs-rails'
 end
 gem 'autoprefixer-rails'
-gem 'jquery-rails','~> 3.1.2'
+gem 'jquery-rails', '~> 3.1', '>= 3.1.4'
 gem 'jquery-ui-rails'
 #gem 'client_side_validations'
 gem "devise", ">= 2.2.3"

@@ -311,7 +311,7 @@ et:
       comments: Kommentaar
       comments_lead: "Siin on võimalus jäädvustada reaalse ostja mõne huvi Teie sõiduki vastu. Kirjeldamine varustusest ja eristamine midagi oma sõiduki kohta teeb suurt erinevust Teie müüki edu."
       upload_photos: Fotode lisamine
-      photos_lead: "Paku täiendavat kindlustunnet ostjale, lisades oma sõiduki pilte. Fotod peavad olema gif, jpg, jpeg või png laiendusega ja maksimaalselt 5 MB suurusega. Klõpsa ja lohista, et muuta fotode järjekorda."
+      photos_lead: "Pakkuge täiendavat kindlustunnet ostjale, lisades oma sõiduki pilte. Fotod peavad olema gif, jpg, jpeg või png laiendusega ja maksimaalselt 5 MB suurusega. Klõpsage ja lohistage, et muuta fotode järjekorda."
       add_pics: Lisa fotod
       a_of_b: "%{a} foto(t) üles laaditud %{b} lubatust"
       available: ""
