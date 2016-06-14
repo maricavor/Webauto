@@ -11,5 +11,6 @@ CarrierWave.configure do |config|
           :region                 => 'eu-central-1' # Change this for different AWS region. Default is 'us-east-1'
       }
       config.fog_directory  = "webauto"
+      config.cache_dir = "#{Rails.root}/tmp/uploads"
   end    
 end
