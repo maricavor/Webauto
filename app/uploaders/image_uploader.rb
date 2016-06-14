@@ -28,7 +28,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-    #for production--> "#{Rails.root}/public/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.vehicle.id}/#{model.id}"
+    #for production--> "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.vehicle.id}/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -56,13 +56,13 @@ class ImageUploader < CarrierWave::Uploader::Base
     #process :copyright=>'Webauto '
     process :resize_to_limit => [300, 300], :if=> :dealer_picture?
     process :resize_to_limit => [1500, 1500], :if=> :picture?
-    #process :watermark, :if=> :picture?
+    process :watermark, :if=> :picture?
     
   end
-  #version :medium, :if=> :picture? do
-  #  process resize_to_limit: [600, 600]
-  #  process :watermark
-  #end
+  version :medium, :if=> :picture? do
+    process resize_to_limit: [600, 600]
+    process :watermark
+  end
   version :thumb, :if=> :picture? do
     process resize_to_fill: [450, 300]
     #process :watermark
