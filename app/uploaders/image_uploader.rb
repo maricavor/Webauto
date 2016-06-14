@@ -63,10 +63,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   #  process resize_to_limit: [600, 600]
   #  process :watermark
   #end
-  #version :thumb, :if=> :picture? do
-  #  process resize_to_fill: [450, 300]
+  version :thumb, :if=> :picture? do
+    process resize_to_fill: [450, 300]
     #process :watermark
-    #end
+  end
 
 
   ###
