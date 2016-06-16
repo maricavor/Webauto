@@ -30,6 +30,7 @@ gem "gon", "~> 4.1.1"
 gem "dynamic_form"
 gem "rmagick", "~> 2.15.4"
 gem "carrierwave"
+#gem 'mini_magick'
 gem "fog"
 #gem 'ransack'
 gem 'progress_bar'

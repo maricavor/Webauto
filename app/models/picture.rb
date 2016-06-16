@@ -1,5 +1,6 @@
 #require 'RMagick'
 include Magick
+
 class Picture < ActiveRecord::Base
   #acts_as_paranoid
   attr_accessible :file, :name, :remote_file_url, :vehicle_id,:position,:created_at,:deleted_at,:file_cache
