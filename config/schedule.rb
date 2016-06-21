@@ -7,15 +7,18 @@
 #
 # set :output, "/path/to/my/cron_log.log"
 #
+#set :environment, "development"
+set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log"}
+
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
 #   runner "MyModel.some_method"
 #   rake "some:great:rake:task"
 # end
-every 1.minute do
+every 2.hours do
 #command "/usr/bin/some_great_command"
 runner "Vehicle.lalala"
-rake "railsapp:minutely_report"
+#rake "railsapp:minutely_report"
 end
 #
 # every 4.days do

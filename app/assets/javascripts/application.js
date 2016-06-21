@@ -24,7 +24,6 @@
 //= require jquery-fileupload/basic
 //= require jquery-fileupload/vendor/tmpl
 //= require jquery.capty.min
-//= require jquery.remotipart
 //= require_tree .
 $(window).on('load', function(e) {
     if (window.location.hash == '#_=_') {

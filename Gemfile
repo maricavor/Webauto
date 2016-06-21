@@ -11,7 +11,7 @@ group :assets do
   #gem 'spinjs-rails'
 end
 gem 'jquery-fileupload-rails'
-gem 'remotipart', '~> 1.2'
+#gem 'remotipart', '~> 1.2'
 gem 'autoprefixer-rails'
 gem 'jquery-rails', '~> 3.1', '>= 3.1.4'
 gem 'jquery-ui-rails'
@@ -57,6 +57,7 @@ gem 'thin'
 gem "google_visualr", ">= 2.1"
 gem 'bootstrap-datepicker-rails'
 gem 'mail_form'
+gem 'whenever', :require => false
 #gem 'faker'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 
