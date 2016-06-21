@@ -11,8 +11,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   #include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  #storage :file
-  storage :fog
+  storage :file
+  #storage :fog
  
   def delete_original_file(new_file)
     # File.delete path if version_name.blank?
