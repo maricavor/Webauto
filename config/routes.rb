@@ -2,8 +2,6 @@ require 'resque/server'
 Webauto::Application.routes.draw do
 
 
-
-
   # TODO: KLUDGE: MANUALLY BRING THE TYPUS ROUTES IN
   #       Typus used to provide :
   #           Typus::Routes.draw(map)
@@ -146,6 +144,7 @@ Webauto::Application.routes.draw do
          get :fail_upload
        end
     end
+    resources :photos, only: [:new, :create, :index, :destroy]
     resources :saved_items do
       collection do
         get 'remove_all'

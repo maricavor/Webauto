@@ -32,6 +32,7 @@ gem "gon", "~> 4.1.1"
 gem "dynamic_form"
 gem "rmagick", "~> 2.15.4"
 gem "carrierwave"
+gem "paperclip"
 #gem 'mini_magick'
 gem "fog"
 #gem 'ransack'
@@ -57,7 +58,7 @@ gem 'thin'
 gem "google_visualr", ">= 2.1"
 gem 'bootstrap-datepicker-rails'
 gem 'mail_form'
-gem 'whenever', :require => false
+
 #gem 'faker'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 

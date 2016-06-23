@@ -1,6 +1,7 @@
 - save any search, but alert only for search result <100 for example, so when saving name for search do full search again with per_page=100 then save results to database
 http://stackoverflow.com/questions/13932750/tinytext-text-mediumtext-and-longtext-maximum-storage-sizes   
-- instead of resque use cron job for scaling https://www.sitepoint.com/uploading-files-with-paperclip/
+- use elasticsearch instead of solr
+- instead of resque use cron job for scaling or sidekiq https://www.sitepoint.com/uploading-files-with-paperclip/
 - try carrierwave without jquery file upload first, then try paperclip
 - create new gear small high cpu EU 
 - use amazon s3 for storing files

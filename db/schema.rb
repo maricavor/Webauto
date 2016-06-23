@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160513180325) do
+ActiveRecord::Schema.define(:version => 20160623122839) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -197,6 +197,15 @@ ActiveRecord::Schema.define(:version => 20160513180325) do
 
   add_index "orders", ["advert_id"], :name => "index_orders_on_advert_id"
 
+  create_table "photos", :force => true do |t|
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
   create_table "pictures", :force => true do |t|
     t.integer  "vehicle_id"
     t.string   "name"
@@ -233,8 +242,9 @@ ActiveRecord::Schema.define(:version => 20160513180325) do
   create_table "search_alerts", :force => true do |t|
     t.integer  "search_id"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.text     "results",    :limit => 2147483647
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   add_index "search_alerts", ["search_id"], :name => "index_search_alerts_on_search_id"
@@ -278,11 +288,9 @@ ActiveRecord::Schema.define(:version => 20160513180325) do
     t.string   "sort"
     t.integer  "exception"
     t.boolean  "allow_alerts",                                                     :default => false
-    t.text     "adverts",      :limit => 2147483647
+    t.text     "results",      :limit => 2147483647
     t.integer  "total",                                                            :default => 0,          :null => false
-    t.text     "new_adverts",  :limit => 2147483647
     t.string   "alert_freq",                                                       :default => "No Alert"
-    t.datetime "alerted_at"
   end
 
   add_index "searches", ["slug"], :name => "index_searches_on_slug", :unique => true

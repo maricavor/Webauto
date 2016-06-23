@@ -15,7 +15,7 @@ set :output, {:error => "log/cron_error_log.log", :standard => "log/cron_log.log
 #   runner "MyModel.some_method"
 #   rake "some:great:rake:task"
 # end
-every 2.hours do
+every 1.minute do
 #command "/usr/bin/some_great_command"
 runner "Vehicle.lalala"
 #rake "railsapp:minutely_report"
