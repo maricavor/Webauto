@@ -1,14 +1,18 @@
 <div class="page-header"><h1>Upload Photo</h1></div>
 
-<%= form_for @photo,:html => { :multipart => true } do |f| %>
+<%= form_for @photo,:html => { :multipart => true,:id => "fileupload1"  } do |f| %>
   <%= render 'photos/errors', object: @photo %>
 
+<span class="btn btn-success fileinput-button">
+    <i class="icon-plus icon-white"></i>
+    <span><%=t("adverts.photos.add_pics") %></span>
+    <%= f.file_field :image, multiple: true, name: "photo[image]" %>
+  </span>
+
  
-
-  <div class="form-group">
-    <%= f.label :image %>
-    <%= f.file_field :image, class: 'form-control'%>
-  </div>
-
-  <%= f.submit 'Upload', class: 'btn btn-primary' %>
 <% end %>
+    <div id="global_progress">
+      <%= render 'adverts/partials/global_progress' %>
+     
+    </div>
+<div id="photos"><%= render @photos %></div>

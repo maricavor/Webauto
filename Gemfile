@@ -7,10 +7,10 @@ group :assets do
   gem "bootstrap-sass", "2.3.2.0"
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
-  #gem 'jquery-fileupload-rails'
+  gem 'jquery-fileupload-rails'
   #gem 'spinjs-rails'
 end
-gem 'jquery-fileupload-rails'
+
 #gem 'remotipart', '~> 1.2'
 gem 'autoprefixer-rails'
 gem 'jquery-rails', '~> 3.1', '>= 3.1.4'
@@ -33,6 +33,7 @@ gem "dynamic_form"
 gem "rmagick", "~> 2.15.4"
 gem "carrierwave"
 gem "paperclip"
+
 #gem 'mini_magick'
 gem "fog"
 #gem 'ransack'

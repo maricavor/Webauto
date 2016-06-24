@@ -13,3 +13,6 @@ ADMIN_NAME: Sergei Tsoganov
 ADMIN_EMAIL: sergeit6@gmail.com
 ADMIN_PASSWORD: serg32
 
+S3_BUCKET_NAME: "whatever-your-bucket-name-is"
+AWS_ACCESS_KEY_ID: "access-key-id"
+AWS_SECRET_ACCESS_KEY: "secret-access-key"
