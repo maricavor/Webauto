@@ -321,8 +321,8 @@ def update
     @action="photos"
     @advert.current_step=session[:advert_step]=@action
     @vehicle=@advert.vehicle
-    @pictures=@vehicle.pictures.order(:position)
-    @count=@pictures.count
+    @photos=@vehicle.photos.order(:position)
+    @count=@photos.count
     @max_pictures=7
   end
   def contact
@@ -348,7 +348,7 @@ def preview
     @title=t("adverts.preview.title")
     @vehicle=@advert.vehicle
     @user=@vehicle.user
-    @pictures=@vehicle.pictures
+    @photos=@vehicle.photos
     @make=@vehicle.make
     @make_name=@make.name if @make
     @model_name=@vehicle.model_name

@@ -67,6 +67,8 @@ GEM
     coffee-script-source (1.9.1)
     daemons (1.1.8)
     debug_inspector (0.0.2)
+    delayed_paperclip (2.10.0)
+      paperclip (>= 3.3)
     devise (3.4.1)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -424,6 +426,7 @@ DEPENDENCIES
   cancan (>= 1.6.9)
   carrierwave
   coffee-rails (~> 3.2.1)
+  delayed_paperclip
   devise (>= 2.2.3)
   dynamic_form
   figaro (>= 0.6.3)

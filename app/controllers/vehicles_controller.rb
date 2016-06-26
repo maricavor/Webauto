@@ -184,7 +184,7 @@ class VehiclesController < ApplicationController
   def show
     @user=@vehicle.user
     @title="#{@vehicle.name} #{@vehicle.transmission}"
-    @pictures=@vehicle.pictures
+    @photos=@vehicle.photos
     @comment=@vehicle.comments.build
     #@recently_viewed=get_recently_viewed_vehicles - [@vehicle]
     @inquiry=Inquiry.new
@@ -418,8 +418,8 @@ end
   end
 
    def sort_photos
-    @pictures = @vehicle.pictures
-    @pictures.each do |pic|
+    @photos = @vehicle.photos
+    @photos.each do |pic|
       pic.position = params["pic"].index(pic.id.to_s)+1
       pic.save!
     end

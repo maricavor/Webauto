@@ -139,12 +139,17 @@ Webauto::Application.routes.draw do
          get :fail_upload
        end
     end
+    resources :photos do
+       collection do
+         get :fail_upload
+       end
+    end
        resources :dealer_pictures do
        collection do
          get :fail_upload
        end
     end
-    resources :photos, only: [:new, :create, :index, :destroy]
+    
     resources :saved_items do
       collection do
         get 'remove_all'

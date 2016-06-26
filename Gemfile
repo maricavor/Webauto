@@ -33,7 +33,7 @@ gem "dynamic_form"
 gem "rmagick", "~> 2.15.4"
 gem "carrierwave"
 gem "paperclip"
-
+gem 'delayed_paperclip'
 #gem 'mini_magick'
 gem "fog"
 #gem 'ransack'

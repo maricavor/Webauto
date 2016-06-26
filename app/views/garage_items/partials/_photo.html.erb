@@ -1,12 +1,12 @@
       <div class="thumbnail">          
       <div class="garage_item_image image">
-        <% if picture.new_record? %>
+        <% if photo.new_record? %>
    <%= image_tag "/thumbnail.png",size: "300x200" %>
      
      
     <% else %>
 	
-    <%= image_tag(picture.file_url(:thumb))%>
+    <%= image_tag(photo.image.url(:thumb))%>
     
     <% end %>
   	<% if vehicle.advert %>

@@ -92,9 +92,9 @@ class GarageItemsController < ApplicationController
     @vehicle=@garage_item.vehicle
     @garage_item.destroy
     unless @vehicle.advert
-    if @vehicle.pictures.size>0
-    @picture=@vehicle.pictures.first
-    @picture.destroy
+    if @vehicle.photos.size>0
+    @photo=@vehicle.photos.first
+    @photo.destroy
     end
     @vehicle.really_destroy!
   end
@@ -121,8 +121,8 @@ class GarageItemsController < ApplicationController
     @max_items=GarageItem::MAX_ITEMS
   end
   def modify(params)
-     if params["pictures_attributes"]
-       params["pictures_attributes"]={} if params["pictures_attributes"]["0"]["file"].nil?
+     if params["photos_attributes"]
+       params["photos_attributes"]={} if params["photos_attributes"]["0"]["image"].nil?
      end
      params
   end
