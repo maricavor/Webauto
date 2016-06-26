@@ -185,7 +185,7 @@ rhc tail -a <yourappname>
 - upgrade ad type possibility
 - delete also vehicle_translations after really destroy
 - what is config.action_mailer.asset_host???
-- http://stackoverflow.com/questions/1300838/how-to-convert-an-address-into-a-google-maps-link-not-map
+-jjj http://stackoverflow.com/questions/1300838/how-to-convert-an-address-into-a-google-maps-link-not-map
 - https://github.com/openshift/wordpress-example/blob/master/.openshift/action_hooks/deploy
 - git rm --cached -r <dir>
 - about carrierwave here -> http://stackoverflow.com/questions/17727788/deploying-ruby-on-rails-is-there-a-good-alternative-for-heroku
