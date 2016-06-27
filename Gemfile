@@ -34,9 +34,7 @@ gem "rmagick", "~> 2.15.4"
 gem "carrierwave"
 gem "paperclip"
 gem 'delayed_paperclip'
-#gem 'mini_magick'
 gem "fog"
-#gem 'ransack'
 gem 'progress_bar'
 gem 'kaminari'
 gem "friendly_id", "~> 4.0.10"

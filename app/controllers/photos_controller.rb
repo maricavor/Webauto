@@ -29,9 +29,11 @@ class PhotosController < ApplicationController
        flash.now[:alert] = t("pictures.cannot_have",:max=>@max_pictures)
      end
    end
+   
    def fail_upload
-     flash.now[:alert] = t("pictures.failed_to_upload",:file=>params[:image],:error=>params[:error])
+     flash.now[:alert] = t("pictures.failed_to_upload",:file=>params[:file],:error=>params[:error])
    end
+   
    def update
      @photo = Photo.find(params[:id])
      @vehicle=@photo.vehicle

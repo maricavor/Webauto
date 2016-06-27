@@ -151,7 +151,8 @@ en:
     unlock: "Didn't receive unlock instructions?"
     sign_in_with_facebook: "Sign in with Facebook"
     forgot_note: "Kui Teil on meelest läinud parool, siis sisestage oma registreerimisel sisestatud e-posti aadress."
-  big: " the file is too big!"
+  big: " the file is too big (max 3MB)"
+  file_is_not_image: " the file is not a gif, jpeg, or png image"
   translation_na: "%{locale} translation not available"
   car_stereo_cd: "CD Player"
   colours: [{name: "Beige", id: 1}, {name: "Black", id: 2}, {name: "Blue", id: 3}, {name: "Brown", id: 4}, {name: "Dark beige", id: 5}, {name: "Dark blue", id: 6}, {name: "Dark brown", id: 7}, {name: "Dark gray", id: 8}, {name: "Dark green", id: 9}, {name: "Dark orange", id: 10}, {name: "Dark purple", id: 11}, {name: "Dark red", id: 12}, {name: "Dark yellow", id: 13}, {name: "Golden", id: 14}, {name: "Gray", id: 15}, {name: "Green", id: 16}, {name: "Light beige", id: 17}, {name: "Light blue", id: 18}, {name: "Light brown", id: 19}, {name: "Light gray", id: 20}, {name: "Light green", id: 21}, {name: "Light orange", id: 22}, {name: "Light purple", id: 23}, {name: "Light red", id: 24}, {name: "Light yellow", id: 25}, {name: "Orange", id: 26}, {name: "Pink", id: 27}, {name: "Purple", id: 28}, {name: "Red", id: 29}, {name: "Silver", id: 30}, {name: "White", id: 31}, {name: "Yellow", id: 32}]
@@ -311,7 +312,7 @@ en:
       comments: Comments
       comments_lead: "Here's your chance to capture some real buyer interest in your car. Taking the time to describe features and anything distinguishing about your car can make a big difference to the success of your sale."
       upload_photos: Upload photos
-      photos_lead: "Provide extra confidence to buyers by including photos of your car's Compliance Plate. Photos must be gif, jpg, jpeg or png and under 5MB in size. To re-order photos, simply click and drag."
+      photos_lead: "Provide extra confidence to buyers by including photos of your car's Compliance Plate. Photos must be gif, jpg, jpeg or png and under 3MB in size. To re-order photos, simply click and drag."
       add_pics: Add pics
       a_of_b: "%{a} of %{b}"
       available: available photos

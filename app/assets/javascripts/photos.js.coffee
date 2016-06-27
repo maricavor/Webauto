@@ -9,7 +9,7 @@ jQuery ->
     dataType: "script"
     
     add: (e, data) ->
-      maxFileSize=5000000
+      maxFileSize=3000000
       types = /(\.|\/)(gif|jpe?g|png)$/i
       file = data.files[0]
       #data.context = $(tmpl("template-upload", file).trim()) 
@@ -21,13 +21,13 @@ jQuery ->
         else
           $.ajax
             url: "/photos/fail_upload"
-            data: {file: file.name,error: "the file is not a gif, jpeg, or png image!"}
+            data: {file: file.name,error: t("file_is_not_image")}
             dataType: "script"
           #alert("#{file.name} is not a gif, jpeg, or png image file")
       else
         $.ajax
           url: "/photos/fail_upload"
-          data: {file: file.name,error: "the file is too big!"}
+          data: {file: file.name,error: t("big")}
           dataType: "script"
           #alert("#{file.name} is too big")
 

@@ -22,7 +22,6 @@
 //= require spin
 //= require loadingoverlay.min
 //= require jquery-fileupload/basic
-//= require jquery-fileupload/vendor/tmpl
 //= require jquery.capty.min
 //= require_tree .
 $(window).on('load', function(e) {
