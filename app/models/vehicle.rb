@@ -22,7 +22,7 @@ class Vehicle < ActiveRecord::Base
   scope :is_dealer, joins(:user).where('users.is_dealer' => true)
   scope :is_private, joins(:user).where('users.is_dealer' => false)
   scope :activated,joins(:advert).where('adverts.activated' => true)
-  has_many :photos, :order => :position
+  has_many :pictures, :order => :position
   has_many :users, :through => :saved_items
   has_many :impressions, :dependent => :destroy
   validates :bodytype_id, :presence => true#,:on => :update

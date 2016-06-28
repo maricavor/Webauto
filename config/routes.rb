@@ -135,7 +135,7 @@ Webauto::Application.routes.draw do
   match "/compare" => "compared_items#index",:as=>:compare
     #match 'vehicle_steps/:id', :controller=>'vehicle_steps', :action => 'index',:as=>:vehicle_steps
    
-    resources :photos do
+    resources :pictures do
        collection do
          get :fail_upload
        end

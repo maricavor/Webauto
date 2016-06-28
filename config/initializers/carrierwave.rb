@@ -1,6 +1,5 @@
 CarrierWave.configure do |config|
-  if Rails.env.production?
-    #config.storage = :file
+    config.storage = :fog
     #config.enable_processing = true
     #config.root = ENV['OPENSHIFT_DATA_DIR']
     #config.cache_dir = config.root + 'uploads'
@@ -11,6 +10,5 @@ CarrierWave.configure do |config|
           :region                 => 'eu-central-1' # Change this for different AWS region. Default is 'us-east-1'
       }
       config.fog_directory  = "webauto"
-      config.cache_dir = "#{Rails.root}/tmp/uploads"
-  end    
+      config.cache_dir = "#{Rails.root}/tmp/uploads"   
 end

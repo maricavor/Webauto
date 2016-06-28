@@ -121,8 +121,8 @@ class GarageItemsController < ApplicationController
     @max_items=GarageItem::MAX_ITEMS
   end
   def modify(params)
-     if params["photos_attributes"]
-       params["photos_attributes"]={} if params["photos_attributes"]["0"]["image"].nil?
+     if params["pictures_attributes"]
+       params["pictures_attributes"]={} if params["pictures_attributes"]["0"]["file"].nil?
      end
      params
   end

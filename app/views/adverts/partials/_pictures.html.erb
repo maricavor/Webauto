@@ -1,5 +1,5 @@
-  <% if @photos %>
-  <%= render @photos %>
+  <% if @pictures %>
+  <%= render @pictures %>
        <% (@max_pictures-@count).times do %>
 <li class="ui-state-default ui-state-disabled"> 
   <%= link_to image_tag("/thumbnail.png"), "#",:class=>"thumbnail" %>

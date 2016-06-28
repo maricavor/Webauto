@@ -32,9 +32,9 @@ gem "gon", "~> 4.1.1"
 gem "dynamic_form"
 gem "rmagick", "~> 2.15.4"
 gem "carrierwave"
-gem "paperclip"
-gem 'delayed_paperclip'
+
 gem "fog"
+
 gem 'progress_bar'
 gem 'kaminari'
 gem "friendly_id", "~> 4.0.10"

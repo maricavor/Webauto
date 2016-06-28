@@ -13,12 +13,12 @@
         <% @garage_items.each do |g| %>
         <% vehicle=g.vehicle %>
 	
-         <% if vehicle.photos.size>0 %>
- 		 <% photo = vehicle.photos.first %>
+         <% if vehicle.pictures.size>0 %>
+ 		 <% picture = vehicle.pictures.first %>
      
      
      <% else %>
- 		 <% photo = Photo.new %>
+ 		 <% picture = Picture.new %>
       
     
      <% end %>
@@ -26,7 +26,7 @@
         
           <tr id="garage_item_<%= vehicle.id %>">
             <td width="150" id="garage_item_<%= vehicle.id %>_picture">
-				<%= render 'garage_items/partials/photo',:vehicle=>vehicle,:photo=>photo %>
+				<%= render 'garage_items/partials/picture',:vehicle=>vehicle,:picture=>picture %>
        
 </td>
 
@@ -89,15 +89,15 @@
 	 <li><%= link_to t("searches.index.delete"), g, method: :delete, data: { confirm: t("searches.index.delete_sure") },:remote=>true %></li>
 </ul>
 </div>
-<%= form_for photo,:html => { :multipart => true, :id => "fileupload1",:class=>"hidden" }  do  %>
+<%= form_for picture,:html => { :multipart => true, :id => "fileupload",:class=>"hidden" }  do  %>
  
-  <%= hidden_field :photo,:vehicle_id,:value=>vehicle.id %>
-  <%= hidden_field :photo,:position,:value=>1 %>
+  <%= hidden_field :picture,:vehicle_id,:value=>vehicle.id %>
+  <%= hidden_field :picture,:position,:value=>1 %>
 
  
    
  
-    <%= file_field_tag :photo, :multiple => false, :name => "photo[image]",:id=>"garage_item_#{vehicle.id}_upload_file_field" %>
+    <%= file_field_tag :picture, :multiple => false, :name => "picture[file]",:id=>"garage_item_#{vehicle.id}_upload_file_field" %>
  
 
 

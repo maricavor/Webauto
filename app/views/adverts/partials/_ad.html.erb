@@ -1,10 +1,10 @@
 <% v=ad.vehicle %>
 <% !ad.activated || ad.destroyed? ? path=preview_advert_path(ad) : path=send("#{v.type.name.singularize.underscore}_path", v) %>
-  <% photo=v.photos.first%>
+  <% picture=v.pictures.first%>
 <td width="150">
    <div class="thumbnail">   
-<% if photo %>
-          <%= link_to image_tag(photo.image.url(:thumb)), path %>
+<% if picture %>
+          <%= link_to image_tag(picture.file_url(:thumb)), path %>
              <% else %>
       <%= image_tag "/thumbnail.png",size: "300x200"  %>
     <% end %>

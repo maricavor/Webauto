@@ -1,8 +1,8 @@
-<% first=@photos.first %>
+<% first=@pictures.first %>
 <div class="row-fluid" >
   <div class="span12">
     <% if first %>
-      <%= link_to image_tag(first.image.url(:small)), first.image.url, :data => {:gallery => 'gallery'}, :title => t("vehicles.show.images")+t("vehicles.show.a_of_b",:a=>"1",:b=>@photos.size.to_s), :class=>"thumbnail" %>
+      <%= link_to image_tag(first.file_url(:medium)), first.file_url(:original), :data => {:gallery => 'gallery'}, :title => t("vehicles.show.images")+t("vehicles.show.a_of_b",:a=>"1",:b=>@pictures.size.to_s), :class=>"thumbnail" %>
     <% else %>
       <%= image_tag "/thumbnail_big.png", :class=>"thumbnail" %>
     <% end %>
@@ -11,10 +11,10 @@
 
 <div class="hidden-phone">
 
-<% if @photos.size>1 %>
+<% if @pictures.size>1 %>
  
           <% index=-1 %>
-          <% @photos.each_with_index do |picture,pos| %>
+          <% @pictures.each_with_index do |picture,pos| %>
             <% if picture!=first %>
               <% index +=1%>
               <%  if index==3 %>
@@ -24,9 +24,9 @@
       <div class="row-fluid" style="margin-top:5px;">
                 <% end %>
               <div class="span4">
-                  <%= link_to image_tag(picture.image.url(:thumb)), picture.image.url, :data => {:gallery => 'gallery'}, :title =>  t("vehicles.show.images")+t("vehicles.show.a_of_b",:a=>(pos+1).to_s,:b=>@photos.size.to_s), :class=>"thumbnail" %>
+                  <%= link_to image_tag(picture.file_url(:thumb)), picture.file_url(:original), :data => {:gallery => 'gallery'}, :title =>  t("vehicles.show.images")+t("vehicles.show.a_of_b",:a=>(pos+1).to_s,:b=>@pictures.size.to_s), :class=>"thumbnail" %>
                 </div>
-                <% if index==2 || picture==@photos.last%>
+                <% if index==2 || picture==@pictures.last%>
                   </div>
                   <% end %>
                 <% end %>

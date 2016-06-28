@@ -1,0 +1,13 @@
+<%= form_for Photo.new,:html => { :multipart => true, :id => "fileupload1",:class=>"#{@count>=@max_pictures ? 'hidden' : '' }" }  do  %>
+ 
+  <%= hidden_field :photo,:vehicle_id,:value=>@vehicle.id %>
+  <%= hidden_field :photo,:position,:value=>100 %>
+
+  <span class="btn btn-success fileinput-button">
+    <i class="icon-plus icon-white"></i>
+    <span><%=t("adverts.photos.add_pics") %></span>
+    <%= file_field_tag :photo, :multiple => true, :name => "photo[image]" %>
+  </span>
+
+
+<% end %>
