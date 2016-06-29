@@ -8,7 +8,7 @@ http://stackoverflow.com/questions/13932750/tinytext-text-mediumtext-and-longtex
 - use amazon s3 for storing files
 - translate dealer picture destroy message
 - translate file upload errors: Foto lisamine ebaõnnestus _DSC5804.jpg: the file is too big!.'
----
+------d
 - nive uploader https://www.filestack.com/plans or dropzone.js http://josephndungu.com/tutorials/ajax-file-upload-with-dropezonejs-and-paperclip-rails
 - you can use the rhc tail command to tail out your log files:
 rhc tail -a <yourappname>
