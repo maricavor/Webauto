@@ -33,7 +33,7 @@ gem "dynamic_form"
 gem "rmagick", "~> 2.15.4"
 gem "carrierwave"
 gem "fog"
-gem "carrierwave_direct"
+#gem "carrierwave_direct"
 #gem 'progress_bar'
 gem 'kaminari'
 gem "friendly_id", "~> 4.0.10"
