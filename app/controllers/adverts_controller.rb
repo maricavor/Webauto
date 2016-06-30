@@ -358,7 +358,7 @@ def preview
     end
  
 end
-###
+#####
     def init_gon(t_id)
     @makes=Make.where(:type_id=>t_id).order(:name)
     Rails.cache.fetch 'cached_gon' do
