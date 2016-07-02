@@ -4,7 +4,7 @@ jQuery ->
     dataType: "script"
     
     add: (e, data) ->
-      maxFileSize=5000000
+      maxFileSize=3000000
       types = /(\.|\/)(gif|jpe?g|png)$/i
       file = data.files[0]
       #data.context = $(tmpl("template-upload", file).trim()) 

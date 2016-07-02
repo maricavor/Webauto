@@ -418,8 +418,8 @@ end
   end
 
    def sort_photos
-    @photos = @vehicle.photos
-    @photos.each do |pic|
+    @pictures = @vehicle.pictures
+    @pictures.each do |pic|
       pic.position = params["pic"].index(pic.id.to_s)+1
       pic.save!
     end
