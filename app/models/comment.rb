@@ -5,7 +5,7 @@ class Comment < ActiveRecord::Base
   validates :text, :presence=> true
   belongs_to :user
   belongs_to :vehicle
-  #after_create :inform_watchers
+  after_create :inform_watchers
   
   private
   def inform_watchers

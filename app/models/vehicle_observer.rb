@@ -1,7 +1,6 @@
 class VehicleObserver < ActiveRecord::Observer
   def after_update(vehicle)
-    update_price_and_inform(vehicle) if vehicle.price_changed?
-   
+    update_last_price(vehicle) if vehicle.price_changed?
   end
   def after_create(vehicle)
     
@@ -19,14 +18,14 @@ class VehicleObserver < ActiveRecord::Observer
 
   private
 
-  def update_price_and_inform(v)
+  def update_last_price(v)
    last_price_change=v.price_changes.last
     if last_price_change.nil?
       v.save_price
     else
       if last_price_change.value!=v.price 
        v.save_price
-       Resque.enqueue(PriceUpdateMailer, v.id)
+       #Resque.enqueue(PriceUpdateMailer, v.id)
       end
     end
   end

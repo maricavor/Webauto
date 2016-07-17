@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160623122839) do
+ActiveRecord::Schema.define(:version => 20160717012423) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -198,12 +198,16 @@ ActiveRecord::Schema.define(:version => 20160623122839) do
   add_index "orders", ["advert_id"], :name => "index_orders_on_advert_id"
 
   create_table "photos", :force => true do |t|
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.integer  "vehicle_id"
+    t.string   "name"
+    t.integer  "position"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.boolean  "image_processing",   :default => false, :null => false
   end
 
   create_table "pictures", :force => true do |t|
@@ -217,6 +221,16 @@ ActiveRecord::Schema.define(:version => 20160623122839) do
   end
 
   add_index "pictures", ["deleted_at"], :name => "index_pictures_on_deleted_at"
+
+  create_table "price_alerts", :force => true do |t|
+    t.integer  "vehicle_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "price_alerts", ["user_id"], :name => "index_price_alerts_on_user_id"
+  add_index "price_alerts", ["vehicle_id"], :name => "index_price_alerts_on_vehicle_id"
 
   create_table "price_changes", :force => true do |t|
     t.integer  "vehicle_id"

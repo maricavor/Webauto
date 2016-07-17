@@ -25,6 +25,7 @@ class Vehicle < ActiveRecord::Base
   has_many :pictures, :order => :position
   has_many :users, :through => :saved_items
   has_many :impressions, :dependent => :destroy
+  has_one :price_alert,:dependent=>:destroy
   validates :bodytype_id, :presence => true#,:on => :update
   validates :make_id, :presence => true#, :on => :update
   validates :type_id, :presence => true#, :on => :update
@@ -289,6 +290,7 @@ self.next_service_km.present? ? "#{self.next_service_km} km" : ""
 
     self.price_changes.create!(:value=>self.price)
     self.advert.update_attributes(:price=>self.price)
+    self.create_price_alert if self.price_alert.nil?
 
   end
   
@@ -310,6 +312,7 @@ self.next_service_km.present? ? "#{self.next_service_km} km" : ""
   def name
     "#{self.registered_at_year} #{self.make_name} #{self.model_name} #{self.badge}"
   end
+ 
   def short_name
     "#{self.registered_at_year} #{self.make_name} #{self.model_name}"
   end

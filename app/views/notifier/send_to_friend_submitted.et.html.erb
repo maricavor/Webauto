@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+  
+   
+      <p>Vaata seda autot: <strong> <%= link_to "#{@vehicle.name} #{@vehicle.engine_name}",  url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: @vehicle,only_path: false) %></strong>
+      </p>
+      <p><%= @inquiry.message %></p>
+     
+      <p>
+		  <%= @inquiry.name %>
+        </p>
+      <p>
+		  <%= @inquiry.email %>
+        </p>
+      <hr>
+        <p><strong>Tahate auto kiiresti maha müüa?
+          </strong></p>
+        <p>Kuuluta tasuta Webauto.ee portaalis!</p>
+          <p>Külastage allolevat linki, et leida rohkem informatsiooni:</p>
+          <p><%= link_to "http://www.webauto.ee/sell-your-car/", "http://www.webauto.ee/sell-your-car/" %></p>
+	    
+		</body>
+      </html>

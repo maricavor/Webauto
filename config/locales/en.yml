@@ -1,4 +1,5 @@
 en:
+  check_this_car: "Webauto.ee - Check this car"
   registrations:
     can_sign_in: "You can sign in to your account using:"
     sure: "Are you sure you want to remove this authentication option?"
@@ -46,7 +47,7 @@ en:
     sell_your_cars: Sell your car
     sell_your_cars_upcase: SELL YOUR CAR
     create_ad: Create an ad
-    manage_ad: Manage my ad
+    manage_ad: Manage my ads
     seller_help: Seller help
     safety_tips: Safety tips
     research: Research
@@ -214,7 +215,7 @@ en:
       deactivate: Deactivate
       deactivate_sure: "Are you sure you want to deactivate your advert?"
       activate: Activate
-      activate_sure: "Are you sure?"
+      sure: "Are you sure?"
       restore: Restore
       restore_sure: "Are you sure you want to restore your advert?"
       remove_ad: Remove ad

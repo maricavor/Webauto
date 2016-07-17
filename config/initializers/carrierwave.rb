@@ -1,5 +1,17 @@
 CarrierWave.configure do |config|
-    config.storage = :fog
+    # Use local storage if in development or test
+     if Rails.env.development? || Rails.env.test?
+       CarrierWave.configure do |config|
+         config.storage = :file
+       end
+     end
+
+     # Use AWS storage if in production
+     if Rails.env.production?
+       CarrierWave.configure do |config|
+         config.storage = :fog
+       end
+     end
     #config.enable_processing = true
     #config.root = ENV['OPENSHIFT_DATA_DIR']
     #config.cache_dir = config.root + 'uploads'

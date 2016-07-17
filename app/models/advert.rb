@@ -13,6 +13,7 @@ class Advert < ActiveRecord::Base
   before_update :set_status
   after_destroy :check_status_and_inform,:deactivate
   after_create :create_line_items
+ 
   #before_destroy :deactivate
   validates :ad_type, inclusion: AD_TYPES,:on => :create
  def vehicle
@@ -81,6 +82,11 @@ end
   def delete_reason
     I18n.t('ad_delete_reasons').find { |d| d["id"]==self.delete_reason_id }["name"] if self.delete_reason_id.present?
   end
+  def alert_price_update
+  if self.activated?
+    Resque.enqueue(PriceUpdateMailer, self.id)
+  end
+  end
   private
   def vehicle_price_valid
      errors.add(:base,"Price wrong")  unless vehicle.price =~ /\A\d+(?:\.\d{0,2})?\z/
@@ -142,4 +148,5 @@ end
  
   
   end
+ 
 end

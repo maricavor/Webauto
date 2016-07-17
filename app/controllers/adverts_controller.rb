@@ -82,6 +82,7 @@ def update
     respond_to do |format|
     if @advert.update_attributes(modify(params[:advert]))
       if @advert.last_step? || params[:save_show]
+        @advert.alert_price_update
         vehicle.save!#for reindexing solr
         session[:advert_step] =  nil
         @redirect_path=car_path(@advert.vehicle)
@@ -218,6 +219,7 @@ def update
     respond_to do |format|
     if @advert.update_attributes(:activated=>true)
        @vehicle.save!#for reindexing solr
+       
       format.html {
        redirect_to  adverts_url 
        flash[:notice]=t("adverts.ad_activated")
@@ -321,6 +323,8 @@ def update
     @action="photos"
     @advert.current_step=session[:advert_step]=@action
     @vehicle=@advert.vehicle
+    @uploader = Picture.new.file
+    @uploader.success_action_redirect = photos_advert_path(@advert)
     @pictures=@vehicle.pictures.order(:position)
     @count=@pictures.count
     @max_pictures=7

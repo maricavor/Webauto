@@ -7,24 +7,24 @@ class Notifier < ActionMailer::Base
   def comment_updated(comment, user)
     @comment = comment
     @user= user
-    mail(to: user.email, subject: "[webauto] #{comment.vehicle.make_model}")
+    mail(to: user.email, subject: "Webauto.ee - #{comment.vehicle.name}")
   end
   def vehicle_price_updated(vehicle,user)
     @vehicle = vehicle
     @user= user
-    mail(to: user.email, subject: "[webauto] #{vehicle.make_model}")
+    mail(to: user.email, subject: "Webauto.ee - #{vehicle.name}")
   end
   def vehicle_status_sold(advert,user)
     @advert = advert
     @user= user
-    mail(to: user.email, subject: "[webauto] #{advert.vehicle.make_model}")
+    mail(to: user.email, subject: "Webauto.ee - #{advert.vehicle.name}")
   end
   def adverts_created(search_alert)
     @search_alert=search_alert
     @search=search_alert.search
     @results=search_alert.results.split(',')
     @user=search_alert.user
-    mail(to: @user.email,subject: "Latest cars that match your saved search")
+    mail(to: @user.email,subject: "Webauto.ee - Latest cars that match your saved search")
   end
 def contact_user_submitted(inquiry,user)
     @user=user
@@ -40,7 +40,7 @@ def contact_user_submitted(inquiry,user)
 def send_to_friend_submitted(inquiry,vehicle)
                                            @vehicle=vehicle
                                            @inquiry=inquiry
-                                           mail(to: inquiry.friend_email, reply_to: %("#{inquiry.name}" <#{inquiry.email}>), subject: inquiry.name+" thought you might be interested in this vehicle")
+                                                 mail(to: inquiry.friend_email, reply_to: %("#{inquiry.name}" <#{inquiry.email}>), subject: "#{t("check_this_car")} #{@vehicle.name} #{@vehicle.engine_name}")
                                                                                       end
   def report_submitted(inquiry,vehicle)
                                                                                         @vehicle=vehicle

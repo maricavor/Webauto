@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+<style type="text/css">
+<!--
+.ReadMsgBody { width: 100%;}
+.ExternalClass { width: 100%;}
+.ExternalClass * { line-height:110%}
+table td {border-collapse:collapse;}
+#maintable {width:630px;}
+a {color:#008fd2}
+@media screen and (max-width: 480px){
+table[id=wrapper] { width:100%!important; padding:0px 10px !important;}
+table[id=wrapper] #hosted { padding:10px; font-size:12px !important; text-align:center !important; line-height:18px}
+table[id=wrapper] #maintable {width:100%; max-width:480px !important;}
+table[id=wrapper] .logo img {margin:auto !important}
+
+table[id=wrapper] .mobile {width:95% !important; margin:auto !important; text-align: center !important}
+table[id=wrapper] .mobile td {text-align: center !important}
+table[id=wrapper] #socialHeader {padding-bottom:20px !important}
+table[id=wrapper] #footerSocial {padding:20px 0 !important}
+table[id=wrapper] #footerSocial img {margin:auto !important}
+table[id=wrapper] .socialTop {height:0px !important; font-size:1px; line-height:1px}
+table[id=wrapper] #footerSocialDivide {height:0px !important; font-size:1px; line-height:1px}
+table[id=wrapper] a.not-displaying {display:inline-block; margin-top:5px;padding:2px 4px; background:#DBDBDB; text-decoration:none !important;}
+table[id=wrapper] span.hostedDiv {display:none}
+
+table[id=wrapper] .hide {display:none !important}
+table[id=wrapper] .block {display:block; width:100%; text-align:center}
+table[id=wrapper] .block table {margin:auto}
+table[id=wrapper] .center {text-align:center !important}
+table[id=wrapper] .center td {text-align:center !important}
+table[id=wrapper] td.left {text-align:left !important}
+table[id=wrapper] .car-data {width:100% !important}
+table[id=wrapper] .car-data td {margin:0 0 10px 0}
+table[id=wrapper] .bulletproof {text-align:center !important}
+table[id=wrapper] .footer-privacy {padding:10px 0 20px 0}
+table[id=wrapper] .bottom-table td {font-size:14px !important; text-align:left !important}
+table[id=wrapper] table.results {width:320px !important; margin:auto !important}
+table[id=wrapper] table.results td.left {width:100px !important}
+table[id=wrapper] table.results td.middle {width:100px !important}
+table[id=wrapper] table.results td.right {width:120px !important}
+}
+
+-->
+</style>
+</head>
+<body bgcolor="#FFFFFF" style="-webkit-text-size-adjust:none; -ms-text-size-adjust:none; -ms-interpolation-mode: bicubic; margin:0; padding:0">
+<!-- wrapper -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0" id="wrapper">
+	<tbody>
+    
+    <tr>
+		<td>
+			<!-- maintable -->
+			<table align="center" border="0" cellpadding="0" cellspacing="0" width="630" id="maintable">
+			<tbody>
+				<tr>
+				<td id="hosted" bgcolor="#ffffff" height="30" valign="middle" align="right" style="font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#666666;">
+					
+				
+					<%= link_to "<span style='text-decoration:none !important; color:#666666;'>Ei näita teadet?</span> Kliki siia ".html_safe,"http://www.webauto.ee/#{I18n.locale}/search_alerts/#{search_alert.to_param}",:class=>"not-displaying", :target=>"_blank",:style=>"color:#666666;" %>
+					<!--<a class="not-displaying" href="http://localhost:3000/" target="_blank" style="color:#666666;"><span style="text-decoration:none !important; color:#666666;">Message not displaying?</span> Click here</a>
+				-->
+				</td>
+		  </tr>
+			<tr>
+				<td height="1" style="line-height:1px; height:1px; font-size:1px; background:#f1f1f1; mso-line-height-rule:exactly;" bgcolor="#f1f1f1">&nbsp;</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<!-- table 4 -->
+					<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tbody><tr>
+                    <td valign="top">
+						<!-- table 5 -->
+						<table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+					<tbody>
+					<tr>
+					  <td align="left" height="15">
+						  <!-- table 6 -->
+						  <table width="94%" border="0" align="center" cellpadding="0" cellspacing="0">
+					    <tbody>
+					      <tr>
+					        <td>
+								<!-- table 7 -->
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					          <tbody>
+					            <tr>
+					              <td width="46%" class="block">
+									  <!-- table 8 -->
+									  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+					                <tbody>
+  			  					      <tr>
+  			  					        <td height="20">&nbsp;</td>
+  			  					        </tr>
+					                  <tr>
+					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">Tere <%= user.name %>,</td>
+					                    </tr>
+			  					      <tr>
+			  					        <td height="20">&nbsp;</td>
+			  					        </tr>
+					                  <tr>
+					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">Me leidsime uued kuulutused, mis vastavad Teie salvestatud otsingule. Head autod ostetakse kiiresti ära, niisiis tasub need kohe üle vaadata. Selleks, et näha otsingutulemusi, klikkige nuppu "käivita otsing". Oma salvestatud otsinguid võite muuta või tühistada, minnes lehele <a style="font-family:Helvetica, Arial, sans-serif; color:#1f68bc" color="#1f68bc" href="http://www.webauto.ee/en/searches"><span style="color:#1f68bc">"salvestatud otsingud"</span></a>.</td>
+					                    </tr>
+					                  </tbody>
+					                </table>
+								<!-- table 8 -->
+							</td>
+					              </tr>
+					            </tbody>
+					          </table>
+						  <!-- table 7 -->
+					  </td>
+					        </tr>
+					      <tr>
+					        <td height="30">&nbsp;</td>
+					        </tr>
+						
+						 <% if results.size>0 %>
+					      <tr>
+					        <td height="30">
+							<!-- results -->
+								<table class="results" width="100%" border="0" cellspacing="2" cellpadding="5">
+					          <tbody>
+					            <tr>
+					              <td class="left" width="48%" bgcolor="#1a1a1a" style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#979797; font-weight:bold">Salvestatud otsingud</td>
+					              <td class="middle" width="24%" bgcolor="#1a1a1a" style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#979797; font-weight:bold">Uued kuulutused</td>
+					              <td class="right" width="28%" bgcolor="#1a1a1a" style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#979797; font-weight:bold">Otsi kohe</td>
+					              </tr>
+					            </tbody>
+					          </table>
+							  <!-- results -->
+							  <!-- results -->
+					          <table class="results" width="100%" border="0" cellspacing="2" cellpadding="5">
+					            <tbody>
+							
+							 
+                                 <tr>
+
+					                <td class="left" width="48%" bgcolor="#ebebeb" style="font-family:Helvetica, Arial, sans-serif; font-size:12px; color:#111111;"><%= search.name %></td>
+					                <td class="middle" width="24%" bgcolor="#ebebeb" style="font-family:Helvetica, Arial, sans-serif; font-size:12px; color:#111111;"><%= results.size %></td>
+					                <td class="right" width="28%" bgcolor="#ebebeb">
+<div>
+					              
+					            <%= link_to "Käivita otsing",url_for(controller: "#{search.type.name.underscore.pluralize}", action: 'search',locale: I18n.locale,id: search,only_path: false,:sort=>search.sort),:style=>"background-color:#f2f2f2;border:1px solid #dedede;border-radius:5px;color:#0087cf;display:inline-block;font-family:sans-serif;font-size:12px;font-weight:bold;line-height:25px;text-align:center;text-decoration:none;width:95px;-webkit-text-size-adjust:none;mso-hide:all;" %>
+								      </div></td>
+					                </tr> 
+								
+
+					              </tbody>
+					            </table>
+							<!-- results -->
+						</td>
+					        </tr>
+
+					      <tr>
+					        <td height="30">&nbsp;</td>
+					        </tr>
+							
+							<% results.each do |v_id| %>
+							<% v=Vehicle.find(v_id) %>
+							<% picture=v.pictures.first%>
+					      <tr>
+					        <td class="center" style="font-family:Helvetica, Arial, sans-serif; font-size:16px; color:#111111; line-height:22px">
+								<!-- table 10 -->
+								<table width="100%" border="0" cellspacing="0" cellpadding="0">
+					          <tbody>
+					            <tr>
+					              <td width="54%" class="block">
+									  <!-- table 11 -->
+									  <table class="star" border="0" cellpadding="0" cellspacing="0" width="320">
+					                <tbody>
+										
+					                  <tr>
+					                    <td valign="top">
+											<% if picture %>
+<%= link_to image_tag("http://www.webauto.ee"+picture.file_url(:thumb),:border=>"0", :style=>"display:block; border:1px solid #3eaaca",size: "300x200"), url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: v,only_path: false) %>
+											<% else %>
+<%= image_tag "/thumbnail.png",size: "300x200"  %>
+											<% end %>
+										</td>
+					                    </tr>
+					                  </tbody>
+					                </table>
+									<!-- table 11 -->
+								</td>
+					              <td width="4%" class="block">&nbsp;</td>
+					              <td width="42%" valign="top" class="block">
+									  <!-- table 12 -->
+									  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+					                <tbody>
+					                  <tr>
+					                   
+					                          <td height="30" style="font-family:Helvetica, Arial, sans-serif; font-size:18px; color:#438944; font-weight:bold;">	<%= currency(v.price) %></td>
+					                         
+					                    </tr>
+					                  <tr>
+					                    <td height="5" style="height:5px; line-height:1px; min-height:5px; font-size:5px; mso-line-height-rule:exactly;">&nbsp;</td>
+					                    </tr>
+					                  <tr>
+					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:16px; font-weight:bold; color:#0087cf;">	<%= v.short_name %></td>
+					                    </tr>
+  					                  <tr>
+  					                    <td height="5" style="height:5px; line-height:1px; min-height:5px; font-size:5px; mso-line-height-rule:exactly;">&nbsp;</td>
+  					                    </tr>
+  					                  <tr>
+  					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size: 14px; color: #111111; line-height:20px"><%= v.odometer_str %></td>
+  					                    </tr>
+					                  <tr>
+					                    <td height="5" style="height:5px; line-height:1px; min-height:5px; font-size:5px; mso-line-height-rule:exactly;">&nbsp;</td>
+					                    </tr>
+					                  <tr>
+					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size: 14px; color: #111111; line-height:20px"><%= v.engine_name %></td>
+					                    </tr>
+					                  <tr>
+					                    <td height="5" style="height:5px; line-height:1px; min-height:5px; font-size:5px; mso-line-height-rule:exactly;">&nbsp;</td>
+					                    </tr>
+					                 
+					                  <tr>
+					                    <td>&nbsp;</td>
+					                    </tr>
+					                  <tr>
+					                    <td class="bulletproof"><div>
+		<%= link_to "Vaata kuulutust", url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: v,only_path: false),:style=>"background-color:#3eaaca;border:1px solid #3eaaca;border-radius:5px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;font-weight:bold;line-height:30px;text-align:center;text-decoration:none;width:190px;-webkit-text-size-adjust:none;mso-hide:all;" %>
+					                     </div></td>
+					                    </tr>
+					                  </tbody>
+					                </table>
+								<!-- table 12 -->
+							</td>
+					              </tr>
+					            </tbody>
+					          </table>
+						  <!-- table 10 -->
+					  </td>
+					        </tr>
+							
+					      <tr>
+					        <td height="30">&nbsp;</td>
+					        </tr>
+							
+					      <% end %>
+					       <% end %>
+						    
+					    
+					    
+					       
+					      </tbody>
+					    </table>
+					<!-- table 6 -->
+				</td>
+					  </tr>
+					</tbody></table>
+					<!-- table 5 -->
+                    </td>
+
+                  </tr>
+                </tbody></table>		
+			<!-- table 4 -->
+				</td>
+			</tr>
+									
+			<tr>
+			  <td height="1" style="line-height:1px; height:1px; font-size:1px; background:#f1f1f1; mso-line-height-rule:exactly;" bgcolor="#f1f1f1">&nbsp;</td>
+			  </tr>
+			<tr>
+			  <td>&nbsp;</td>
+			  </tr>
+		
+			<tr>
+			  <td height="30" class="hide"></td>
+			  </tr>
+			<tr>
+			  <td>
+				<!-- table 1 -->
+				  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+			    <tr>
+			      <td width="50%" valign="top" class="block">
+					    <!-- table 3 -->
+						<table class="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+			        <tr>
+			          <td valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">&copy; 2016 Webauto.ee.</td>
+			          </tr>
+			        <tr>
+			          <td valign="top">&nbsp;</td>
+			          </tr>
+			        <tr>
+			          <td valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">Teile saadeti see e-kiri, kuna olete registreeritud kasutaja ja  olete aktiveerinud teavituse Webauto.ee keskkonnas.
+Kui te ei taha enam selliseid e-kirju saada, lülitage palun oma teavitused välja  <a href="http://www.webauto.ee/en/searches">siin</a>. </td>
+			          </tr>
+			        <tr>
+			          <td valign="top">&nbsp;</td>
+			          </tr>
+			      
+			        </table>
+					<!-- table 3 -->
+				</td>
+			      <td width="50%" valign="top" class="block">
+					  <!-- table 2 -->
+					  <table class="center" width="100%" border="0" cellspacing="0" cellpadding="0">
+			        <tr>
+			          <td align="right" valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">See e-kiri saadeti aadressile <%= user.email %></td>
+			          </tr>
+			        <tr>
+			          <td align="right" valign="top">&nbsp;</td>
+			          </tr>
+			        <tr>
+			          <td align="right" valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px"></td>
+			          </tr>
+			        <tr>
+			          <td align="right" valign="top">&nbsp;</td>
+			          </tr>
+
+			        </table>
+				<!-- table 2 -->
+			</td>
+			      </tr>
+			    </table>
+				  <!-- table 1 -->
+			</td>
+			  </tr>
+			<tr>
+			  <td>&nbsp;</td>
+			  </tr>
+		  </tbody>
+	  </table>
+	  <!-- maintable -->
+  </td>
+	</tr>
+</tbody></table>
+<!-- wrapper -->
+</body>
+</html>

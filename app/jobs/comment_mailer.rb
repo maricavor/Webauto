@@ -3,10 +3,13 @@ class CommentMailer
   def self.perform(comment_id)
     comment=Comment.find(comment_id)
     user=comment.user
-    #if user.interest_alert
-   (comment.vehicle.watchers - [user]).each do |u|
+    vehicle=comment.vehicle
+   (vehicle.watchers - [user,vehicle.user]).each do |u|
+ 
+     if u.interest_alert 
       Notifier.comment_updated(comment,u).deliver
-      #end
+  
+  end
     end
   end
 end

@@ -1,5 +1,10 @@
+
 require 'resque/server'
+
 Webauto::Application.routes.draw do
+
+
+  resources :price_alerts
 
 
   # TODO: KLUDGE: MANUALLY BRING THE TYPUS ROUTES IN
@@ -154,5 +159,9 @@ Webauto::Application.routes.draw do
     get '/saved_adverts', to: 'saved_items#index', as: 'saved_items'
     resources :contact_forms
     resources :search_alerts,:only=>[:index,:show]
+    
+    get "notifier_tester/comment_updated"
+    get "notifier_tester/vehicle_price_updated"
+    get "notifier_tester/index"
   end
 end

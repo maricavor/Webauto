@@ -16,13 +16,13 @@ jQuery ->
         else
           $.ajax
             url: "/pictures/fail_upload"
-            data: {file: file.name,error: "the file is not a gif, jpeg, or png image!"}
+            data: {file: file.name,error: t("file_is_not_image")}
             dataType: "script"
           #alert("#{file.name} is not a gif, jpeg, or png image file")
       else
         $.ajax
           url: "/pictures/fail_upload"
-          data: {file: file.name,error: "the file is too big!"}
+          data: {file: file.name,error: t("big")}
           dataType: "script"
           #alert("#{file.name} is too big")
 

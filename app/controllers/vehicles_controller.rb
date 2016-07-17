@@ -184,7 +184,7 @@ class VehiclesController < ApplicationController
   def show
     @user=@vehicle.user
     @title="#{@vehicle.name} #{@vehicle.transmission}"
-    @photos=@vehicle.photos
+    @pictures=@vehicle.pictures
     @comment=@vehicle.comments.build
     #@recently_viewed=get_recently_viewed_vehicles - [@vehicle]
     @inquiry=Inquiry.new

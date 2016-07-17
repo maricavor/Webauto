@@ -34,7 +34,7 @@ gem "rmagick", "~> 2.15.4"
 gem "carrierwave"
 gem "fog"
 #gem "carrierwave_direct"
-#gem 'progress_bar'
+gem 'progress_bar'
 gem 'kaminari'
 gem "friendly_id", "~> 4.0.10"
 #gem 'impressionist'

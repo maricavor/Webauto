@@ -60,8 +60,8 @@ table[id=wrapper] table.results td.right {width:120px !important}
 				<tr>
 				<td id="hosted" bgcolor="#ffffff" height="30" valign="middle" align="right" style="font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#666666;">
 					
-					<%= link_to "<span style='text-decoration:none !important; color:#666666;'>Message not displaying?</span> Click here".html_safe, url_for(controller: 'search_alerts', action: 'show',locale: I18n.locale,id: search_alert,only_path: false),:class=>"not-displaying", :target=>"_blank",:style=>"color:#666666;" %>
-					
+				
+					<%= link_to "<span style='text-decoration:none !important; color:#666666;'>Message not displaying?</span> Click here".html_safe,"http://www.webauto.ee/#{I18n.locale}/search_alerts/#{search_alert.to_param}",:class=>"not-displaying", :target=>"_blank",:style=>"color:#666666;" %>
 					<!--<a class="not-displaying" href="http://localhost:3000/" target="_blank" style="color:#666666;"><span style="text-decoration:none !important; color:#666666;">Message not displaying?</span> Click here</a>
 				-->
 				</td>
@@ -177,7 +177,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					                  <tr>
 					                    <td valign="top">
 											<% if picture %>
-<%= link_to image_tag("http://www.webauto.ee"+picture.file_url(:thumb),:border=>"0", :style=>"display:block; border:1px solid #3eaaca"), url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: v,only_path: false) %>
+<%= link_to image_tag("http://www.webauto.ee"+picture.file_url(:thumb),:border=>"0", :style=>"display:block; border:1px solid #3eaaca",size: "300x200"), url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: v,only_path: false) %>
 											<% else %>
 <%= image_tag "/thumbnail.png",size: "300x200"  %>
 											<% end %>

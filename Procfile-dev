@@ -1,0 +1,5 @@
+redis: redis-server
+rails: rails s
+solr: bundle exec rake sunspot:solr:run
+resque: bundle exec rake environment resque:work QUEUE='high,normal,low' 
+resque_scheduler: bundle exec rake environment resque:scheduler 

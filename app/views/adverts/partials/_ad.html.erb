@@ -72,7 +72,7 @@
           <%= link_to t("adverts.index.deactivate"), deactivate_advert_path(ad),  data: { confirm: t("adverts.index.deactivate_sure") },:remote=>true,:class=>"_link" %>
           <% else %>
 
-          <%= link_to t("adverts.index.activate"), activate_advert_path(ad), data: { confirm: t("adverts.index.activate_sure") },:remote=>true,:class=>"_link" %>
+          <%= link_to t("adverts.index.activate"), activate_advert_path(ad), data: { confirm: t("adverts.index.sure") },:remote=>true,:class=>"_link" %>
           <% end %>
         </li>
         <%  end %>
@@ -83,7 +83,7 @@
            </li>
 
             <li>
-          <%= link_to t("adverts.index.remove"),really_destroy_advert_path(ad),data: { confirm: 'Are you sure?' },:remote=>true,:class=>"delete_link" %>
+          <%= link_to t("adverts.index.remove"),really_destroy_advert_path(ad),data: { confirm: t("adverts.index.sure") },:remote=>true,:class=>"delete_link" %>
            </li>
          
           <% else %>

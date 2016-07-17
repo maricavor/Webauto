@@ -1,4 +1,5 @@
 et:
+  check_this_car: "Webauto.ee - Vaata autot"
   registrations:
     can_sign_in: "Võite sisse logida oma kontole kasutades:"
     sure: "Olete kindel, et soovite eemaldada selle?"
@@ -214,11 +215,11 @@ et:
       deactivate: Peida kuulutus
       deactivate_sure: "Olete kindel, et soovite ajutiselt peita kuulutust?"
       activate: Aktiveeri
-      activate_sure: "Kas olete kindel?"
+      sure: "Kas olete kindel?"
       restore: Taasta kuulutus
       restore_sure: "Olete kindel, et soovite taastada oma kuulutust?"
       remove_ad: Tühista kuulutus
-      remove: Tühista
+      remove: Eemalda
       remove_sure: "Kas olete kindel?"
       removing: "Te eemaldate oma sõiduki kuulutust:"
       why_removing: "Palun teatage selle kuulutuse eemaldamise põhjus (valikuline):"
@@ -344,10 +345,7 @@ et:
       no_details: "-"
       back: Tagasi
       back_to_results: Tagasi tulemuste juurde
-      visits:
-        zero: 0 vaatamist
-        one: 1 vaatamine
-        other: "%{count} vaatamist"
+      visits: "Kuulutust vaadatud %{count} korda"
       private: Eraisik
       dealer: Autodiiler
       images: Pilt
