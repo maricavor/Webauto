@@ -699,6 +699,7 @@ et:
       price: HIND
       recent: VIIMASED TOIMINGUD
       sold: MÜÜDUD
+      closed: TÜHISTATUD
       search_similar: Otsi sarnaseid
       last_listed: Viimane hind 
       other_people: "Teised inimesed on salvestatud selle sõiduki"

@@ -124,7 +124,9 @@ class Vehicle < ActiveRecord::Base
       advert.popularity if advert
     end
   end
-
+  def advert
+    Advert.unscoped { super }
+  end
   def to_param
     if registered_at.present?
       "#{id} #{make_model} #{registered_at_year}".parameterize

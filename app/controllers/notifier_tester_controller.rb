@@ -5,8 +5,13 @@ class NotifierTesterController < ApplicationController
     @user= current_user
   end
   def vehicle_price_updated
-    @vehicle = Vehicle.find(770)
+    @vehicle = Vehicle.with_deleted.find(867)
     @user= current_user
+  end
+  def vehicle_status_sold
+    @vehicle = Vehicle.with_deleted.find(867)
+    @user= current_user
+    @delete_reason_id=3
   end
   def index
     @actions=NotifierTesterController.action_methods

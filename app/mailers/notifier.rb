@@ -14,10 +14,11 @@ class Notifier < ActionMailer::Base
     @user= user
     mail(to: user.email, subject: "Webauto.ee - #{vehicle.name}")
   end
-  def vehicle_status_sold(advert,user)
-    @advert = advert
+  def vehicle_status_sold(vehicle,user,delete_id)
+    @vehicle = vehicle
     @user= user
-    mail(to: user.email, subject: "Webauto.ee - #{advert.vehicle.name}")
+    @delete_reason_id=delete_id
+    mail(to: user.email, subject: "Webauto.ee - #{vehicle.name}")
   end
   def adverts_created(search_alert)
     @search_alert=search_alert

@@ -162,6 +162,7 @@ Webauto::Application.routes.draw do
     
     get "notifier_tester/comment_updated"
     get "notifier_tester/vehicle_price_updated"
+    get "notifier_tester/vehicle_status_sold"
     get "notifier_tester/index"
   end
 end

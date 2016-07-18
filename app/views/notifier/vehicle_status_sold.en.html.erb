@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,15 +91,13 @@ table[id=wrapper] table.results td.right {width:120px !important}
   			  					        <td height="20">&nbsp;</td>
   			  					        </tr>
 					                  <tr>
-					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">Tere <%= @user.name %>,</td>
+					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">Dear <%= @user.name %>,</td>
 					                    </tr>
 			  					      <tr>
 			  					        <td height="20">&nbsp;</td>
 			  					        </tr>
 					                  <tr>
-					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">Teie salvestatud sõiduki hind on muudetud.  
-
-
+					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">We thought you'd like to know that one of your saved cars has just been <% if [1,2,3].include?(@delete_reason_id) %>sold<%else%>removed from the site<%end%>.
 </td>
 					                    </tr>
 					                  </tbody>
@@ -140,7 +140,9 @@ table[id=wrapper] table.results td.right {width:120px !important}
 											<% end %>
 										</td>
 					                    </tr>
-			  					      
+  			  					
+  					                 
+										
 					                  </tbody>
 					                </table>
 									<!-- table 11 -->
@@ -152,11 +154,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					                <tbody>
 					                  <tr>
 					                   
-					                          <td height="30" style="font-family:Helvetica, Arial, sans-serif; font-size:18px;">	
-							    <small><s style="color:#999999"><%= "#{currency(@vehicle.previous_price)}" %></s></small> <span style="color:#438944; font-weight:bold;"><%= "#{currency(@vehicle.price)}" %></span>
-  
-							   			  
-											  </td>
+					                          <td height="30" style="font-family:Helvetica, Arial, sans-serif; font-size:18px; color:#438944; font-weight:bold;">	<%= currency(@vehicle.price) %> <span style="color:#fff;background-color: red;font-size:12px;padding:2px"><% if [1,2,3].include?(@delete_reason_id) %>SOLD<%else%>CLOSED<%end%></span></td>
 					                         
 					                    </tr>
 					                  <tr>
@@ -186,24 +184,26 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					                    </tr>
 					                  <tr>
 					                    <td class="bulletproof"><div>
-		<%= link_to "Vaata kuulutust", url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: @vehicle,only_path: false),:style=>"background-color:#3eaaca;border:1px solid #3eaaca;border-radius:5px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;font-weight:bold;line-height:30px;text-align:center;text-decoration:none;width:190px;-webkit-text-size-adjust:none;mso-hide:all;" %>
+		<%= link_to "View advert", url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: @vehicle,only_path: false),:style=>"background-color:#3eaaca;border:1px solid #3eaaca;border-radius:5px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;font-weight:bold;line-height:30px;text-align:center;text-decoration:none;width:190px;-webkit-text-size-adjust:none;mso-hide:all;" %>
 					                     </div></td>
 					                    </tr>
-  			  					      <tr>
-  			  					        <td height="10">&nbsp;</td>
-  			  					        </tr>
-    					                  <tr>
-    					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:12px; color:#222222; line-height:24px">
-  												<% if @vehicle.price_alert %>
-    											<%= "Hind muudetud: #{l(@vehicle.price_alert.created_at, format: '%d %B')} #{@vehicle.price_alert.created_at.strftime("%H:%M")}" %>
-  											<% end %>
-    										</td>
-    					                    </tr>
 					                  </tbody>
 					                </table>
 								<!-- table 12 -->
 							</td>
 					              </tr>
+							      <tr>
+							        <td height="10">&nbsp;</td>
+							        </tr>
+	  			                  <tr>
+	  			                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">
+								
+	  									You can remove this car from your saved list <a href="http://localhost:3000/<%= I18n.locale %>/saved_adverts">here</a>.
+	  							<p><strong>Still looking?</strong></p>
+	  							<p>If you're still looking for a <%= @vehicle.make_model %>, you can search for <%= link_to "similar cars", url_for(controller: 'searches', action: 'show_more',locale: I18n.locale,id: @vehicle,only_path: false) %>.	
+								</p>
+	  								</td>
+	  			                    </tr>
 					            </tbody>
 					          </table>
 						  <!-- table 10 -->
@@ -213,7 +213,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					      <tr>
 					        <td height="30">&nbsp;</td>
 					        </tr>
-							
+			                
 					
 					     
 						    
@@ -260,7 +260,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 			          <td valign="top">&nbsp;</td>
 			          </tr>
 			        <tr>
-			          <td valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">Teile saadeti see e-kiri, kuna olete registreeritud kasutaja. Et neist kirjadest loobuda või et teavituseelistusi muuta, kliki <a href="http://localhost:3000/<%= I18n.locale %>/users/settings">siia</a>. </td>
+			          <td valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">You received this email because you are a registered user. You can unsubscribe from this email <a href="http://localhost:3000/<%= I18n.locale %>/users/settings">here</a>. </td>
 			          </tr>
 			        <tr>
 			          <td valign="top">&nbsp;</td>
@@ -273,7 +273,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					  <!-- table 2 -->
 					  <table class="center" width="100%" border="0" cellspacing="0" cellpadding="0">
 			        <tr>
-			          <td align="right" valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">See e-kiri saadeti aadressile <%= @user.email %></td>
+			          <td align="right" valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">We sent this email to <%= @user.email %></td>
 			          </tr>
 			        <tr>
 			          <td align="right" valign="top">&nbsp;</td>
@@ -305,4 +305,3 @@ table[id=wrapper] table.results td.right {width:120px !important}
 <!-- wrapper -->
 </body>
 </html>
-

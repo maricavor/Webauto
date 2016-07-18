@@ -701,6 +701,7 @@ en:
       price: PRICE
       recent: RECENT ACTIVITY
       sold: Sold
+      closed: Closed
       search_similar: Search similar
       last_listed: Last price
       other_people: "Other people have saved this vehicle"

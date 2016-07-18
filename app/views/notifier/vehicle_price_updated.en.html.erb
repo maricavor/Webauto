@@ -140,6 +140,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 											<% end %>
 										</td>
 					                    </tr>
+			  					      
 					                  </tbody>
 					                </table>
 									<!-- table 11 -->
@@ -188,6 +189,16 @@ table[id=wrapper] table.results td.right {width:120px !important}
 		<%= link_to "View advert", url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: @vehicle,only_path: false),:style=>"background-color:#3eaaca;border:1px solid #3eaaca;border-radius:5px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;font-weight:bold;line-height:30px;text-align:center;text-decoration:none;width:190px;-webkit-text-size-adjust:none;mso-hide:all;" %>
 					                     </div></td>
 					                    </tr>
+  			  					      <tr>
+  			  					        <td height="10">&nbsp;</td>
+  			  					        </tr>
+  					                  <tr>
+  					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:12px; color:#222222; line-height:24px">
+  											<% if @vehicle.price_alert %>
+  											<%= "Updated at #{@vehicle.price_alert.created_at.strftime("%I:%M%p")} on #{@vehicle.price_alert.created_at.strftime("%d %B")}"%>
+  											<% end %>
+  										</td>
+  					                    </tr>
 					                  </tbody>
 					                </table>
 								<!-- table 12 -->
@@ -249,7 +260,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 			          <td valign="top">&nbsp;</td>
 			          </tr>
 			        <tr>
-			          <td valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">You received this email because you are a registered user. You can unsubscribe from this email <a href="http://localhost:3000/et/users/settings">here</a>. </td>
+			          <td valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">You received this email because you are a registered user. You can unsubscribe from this email <a href="http://localhost:3000/<%= I18n.locale %>/users/settings">here</a>. </td>
 			          </tr>
 			        <tr>
 			          <td valign="top">&nbsp;</td>
