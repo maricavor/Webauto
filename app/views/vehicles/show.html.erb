@@ -63,10 +63,9 @@
     <%= render "vehicles/partials/commentsModal" %>
     <%= render "vehicles/partials/sendToFriendModal" %>
     <%= render "vehicles/partials/reportAdModal" %>
-
- 
-   
-   
+       <% if @user.email.present?  %>
+    <%= render "vehicles/partials/contactModal",:user=>@user %>
+       <% end %>
   </div>
   <div class="span7">
     <%= render "vehicles/partials/general_info" %>

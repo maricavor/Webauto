@@ -605,8 +605,9 @@ jQuery ->
     $('#new_comment')[0].reset()
    
   $("#contactModal").on "hidden", ->
-    $('.contact-modal-message').html('')
-    $('#user_contact')[0].reset()
+    $('.modal-message').html('')
+    $('#new_contact_dealer')[0].reset()
+    $('#new_contact_seller')[0].reset()
   
   $("#sendToFriendModal").on "hidden", ->
     $('.modal-message').html('')
@@ -628,9 +629,12 @@ jQuery ->
   $(document).on 'click',".send_enquiry_btn", (event) ->
     $('form#new_inquiry').trigger('submit.rails')
     true 
-  $(document).on 'click',".user_contact_btn", (event) ->
-    $('form#user_contact').trigger('submit.rails')
+  $(document).on 'click',".contact_seller_btn", (event) ->
+    $('form#new_contact_seller').trigger('submit.rails')
     true 
+  $(document).on 'click',".contact_dealer_btn", (event) ->
+    $('form#new_contact_dealer').trigger('submit.rails')
+    true
   $(document).on 'click',".ad_delete_btn", (event) ->
     $('form#ad_delete').trigger('submit.rails')
     true

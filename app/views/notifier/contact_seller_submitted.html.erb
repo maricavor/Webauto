@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+   <p><%= "#{t('contact_user_subject')}:" %> <strong> <%= link_to "#{@vehicle.name} #{@vehicle.engine_name}",  url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: @vehicle,only_path: false) %></strong>
+   </p>
+   <p><%= @inquiry.message %></p>
+   <p>
+	  <b><%= @inquiry.name %></b>
+     </p>
+   <p>
+	  <%= @inquiry.email %>
+     </p>
+  
+   
+		</body>
+      </html>

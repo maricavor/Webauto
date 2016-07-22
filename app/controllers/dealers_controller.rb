@@ -35,8 +35,8 @@ class DealersController < ApplicationController
      end
      gon.grouped_models=Rails.cache.read 'cached_gon'
      @solr_search=@search.run("normal",@current_sort[1].split(' '),params[:page],@per_page)
-     total=@solr_search.total 
-      if total>0
+     @total=@solr_search.total 
+      if @total>0
         @vehicles = @solr_search.results
       else
         @vehicles=[]

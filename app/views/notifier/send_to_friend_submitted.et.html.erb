@@ -11,7 +11,7 @@
       <p><%= @inquiry.message %></p>
      
       <p>
-		  <%= @inquiry.name %>
+		  <b><%= @inquiry.name %></b>
         </p>
       <p>
 		  <%= @inquiry.email %>
@@ -19,9 +19,9 @@
       <hr>
         <p><strong>Tahate auto kiiresti maha müüa?
           </strong></p>
-        <p>Kuuluta tasuta Webauto.ee portaalis!</p>
-          <p>Külastage allolevat linki, et leida rohkem informatsiooni:</p>
-          <p><%= link_to "http://www.webauto.ee/<%= I18n.locale %>/sell-your-car/", "http://www.webauto.ee/<%= I18n.locale %>/sell-your-car/" %></p>
+        <p>Kuuluta tasuta <a href="http://www.webauto.ee/">Webauto.ee</a> portaalis!</p>
+          <p>Klikige <a href="http://www.webauto.ee/<%= I18n.locale %>/sell-your-car/">siia</a>, et saada rohkem informatsiooni.</p>
+		        
 	    
 		</body>
       </html>

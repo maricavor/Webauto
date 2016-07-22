@@ -50,9 +50,9 @@ Webauto::Application.routes.draw do
     root :to => "cars#index"
     devise_for :users, :controllers => {:registrations => "registrations",:sessions=> "sessions",:passwords=>"passwords"}, skip: [:omniauth_callbacks]
     resources :users,:except => [:show] do
+      resources :inquiries, :only => [:create]
       member do
         get :show_phone
-        post :contact
       end
     end
     match "/users/dashboard" => "users#show", :as => :dashboard
@@ -163,6 +163,7 @@ Webauto::Application.routes.draw do
     get "notifier_tester/comment_updated"
     get "notifier_tester/vehicle_price_updated"
     get "notifier_tester/vehicle_status_sold"
+    get "notifier_tester/send_to_friend_submitted"
     get "notifier_tester/index"
   end
 end

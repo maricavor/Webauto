@@ -1,5 +1,19 @@
+
+  
+
 <div class="modal-message"></div>
-<%= form_for [@vehicle,@inquiry],:html=>{:id=>"new_#{mode}"},:remote=>true  do |f| %>
+<% if mode=="contact_seller"%>
+
+ <p class="lead">
+<%= t("inquiries.info") %>
+	   </p>
+<% end %>
+<% if mode=="contact_dealer"%>
+<% object=[@dealer,@inquiry] %>
+<% else %>
+<% object=[@vehicle,@inquiry] %>
+<% end %>
+<%= form_for object,:html=>{:id=>"new_#{mode}"},:remote=>true  do |f| %>
   <% if mode=="report" %>
     <%= f.select :report_as,[[t("inquiries.sold"),"Sold"],[t("inquiries.suspicious"),"Suspicious"],[t("inquiries.incorrect"),"Incorrect"]],:class=>"span6" %><br>
     <% end %>
@@ -23,16 +37,5 @@
             </div>
         
             <p class="text-info" style="margin-top:10px;"><small><%= t("inquiries.acknowledge",:privacy_link=>privacy_path,:terms_link=>terms_path).html_safe %></small></p>
-            <% if mode=="inquiry" %>
-            <div class="row-fluid">
-              <div class="span4">
-               
-              <%= f.submit t("inquiries.send"), :class=> "btn btn-info" %>
-             
-            </div>
-             <div class="span8">
-              <div class="inquiry_preloader"></div>
-            </div>
-          </div>
-              <% end %>
+       
           <% end %>

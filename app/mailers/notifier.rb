@@ -25,13 +25,18 @@ class Notifier < ActionMailer::Base
     @search=search_alert.search
     @results=search_alert.results.split(',')
     @user=search_alert.user
-    mail(to: @user.email,subject: "Webauto.ee - Latest cars that match your saved search")
+    mail(to: @user.email,subject: t("latest_adverts"))
   end
-def contact_user_submitted(inquiry,user)
-    @user=user
+def contact_seller_submitted(inquiry,vehicle)
+    @vehicle=vehicle
     @inquiry=inquiry
-    #mail(to: @user.email,from: %("#{inquiry.name}" <#{inquiry.email}>), reply_to: inquiry.email, subject: "User inquiry")
+    mail(to: vehicle.user.email,from: %("#{inquiry.name}" <#{inquiry.email}>), subject: "#{t('contact_user_subject')} - #{vehicle.name}")
   end
+  def contact_dealer_submitted(inquiry,dealer)
+      @dealer=dealer
+      @inquiry=inquiry
+      mail(to: dealer.email,from: %("#{inquiry.name}" <#{inquiry.email}>), subject: "#{t('contact_dealer_subject')}")
+    end
   def inquiry_submitted(inquiry,vehicle)
     @vehicle=vehicle
     @inquiry=inquiry
@@ -46,7 +51,7 @@ def send_to_friend_submitted(inquiry,vehicle)
   def report_submitted(inquiry,vehicle)
                                                                                         @vehicle=vehicle
                                                                                         @inquiry=inquiry
-                                                                                        #mail(to: inquiry.email, subject: "Report Ad")
+                                                                                        mail(to: "info@webauto.ee", reply_to: %("#{inquiry.name}" <#{inquiry.email}>), subject: "Report Ad")
                                                                                       end
 
   end

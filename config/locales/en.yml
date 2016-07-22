@@ -1,5 +1,8 @@
 en:
   check_this_car: "Webauto.ee - Check this car"
+  latest_adverts: "Webauto.ee - Latest cars that match your saved search"
+  contact_user_subject: "Vehicle inquiry"
+  contact_dealer_subject: "Vehicle inquiry"
   registrations:
     can_sign_in: "You can sign in to your account using:"
     sure: "Are you sure you want to remove this authentication option?"
@@ -408,7 +411,8 @@ en:
       winter_tires: Winter tires
       winter_tire_size: Winter tire size
       light_alloy_wheels: Light alloy wheels
-      no: No
+      noooo: No
+      yesss: Yes
       all_season: all season
       with_spikes: with spikes
       dimensions_weights: "Dimensions & Weights"
@@ -554,6 +558,7 @@ en:
     write_reply: "Write a reply..."
     delete: Delete
   inquiries:
+    info: "Your details will only be sent to the seller of this car and no one else."
     feedback: General feedback
     problem: Problem
     feature: Feature request

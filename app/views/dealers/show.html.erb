@@ -11,7 +11,8 @@
         <%= render 'dealers/partials/dealer_info',:dealer=>@dealer %>
      </div>
      </div>
-      <%= render "users/contactModal",:user=>@dealer %>
+  
+	   <%= render "dealers/partials/contactModal",:user=>@dealer %>
     <% if @vehicles.count>0 %>
     <div class="row-fluid">
      <div class="span12">

@@ -1,5 +1,7 @@
 et:
-  check_this_car: "Webauto.ee - Vaata autot"
+  check_this_car: "Vaata autot"
+  latest_adverts: "Webauto.ee - Uued kuulutused"
+  contact_user_subject: "Soovin lisainfot"
   registrations:
     can_sign_in: "Võite sisse logida oma kontole kasutades:"
     sure: "Olete kindel, et soovite eemaldada selle?"
@@ -406,6 +408,7 @@ et:
       winter_tire_size: Talverehvi suurus
       light_alloy_wheels: Valuveljed  
       noooo: Ei
+      yesss: Jah
       all_season: lamellrehvid
       with_spikes: naastrehvid
       dimensions_weights: "Mõõdud ja massid"
@@ -551,12 +554,13 @@ et:
     write_reply: "Lisa vastus..."
     delete: Kustuta
   inquiries:
+    info: "Teie andmed saadetakse ainult sõiduki müüjale.​​"
     feedback: Üldine tagasiside
     problem: Probleem
     feature: Funktsiooninõue
     question: Küsimus
     cancel: Tühista
-    write_message: "Teie küsimus..."
+    write_message: "Küsimus..."
     send: Saada 
     name: Saatja nimi
     email: Saatja e-mail

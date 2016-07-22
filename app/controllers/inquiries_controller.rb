@@ -1,26 +1,27 @@
 class InquiriesController < ApplicationController
-  before_filter :find_vehicle,:only=>[:create]
   skip_before_filter :get_current_type,:get_compared_items
   def create
     @inquiry = Inquiry.new(params[:inquiry])
+    if @inquiry.mode=="contact_dealer"
+      obj=User.find(params[:user_id])
+    else
+      obj=Vehicle.find(params[:vehicle_id])
+    end
     unless params[:content].present? # honeypot check
-
-
-      if @inquiry.deliver(@vehicle)
+      if @inquiry.deliver(obj)
         respond_to do |format|
-          format.html { redirect_to @vehicle, :notice => t("inquiries.created") }
+       
           format.js {
             flash.now[:notice] = t("inquiries.created")
             render @inquiry.mode+'_create'
           }
         end
-
       else
         respond_to do |format|
-          format.html { redirect_to @vehicle, :alert => @inquiry.errors.full_messages.first }
+        
           format.js {
             flash.now[:alert] = @inquiry.errors.full_messages.first
-            render @inquiry.mode+'_fail_create'
+            render 'fail_create'
           }
         end
 
@@ -29,9 +30,5 @@ class InquiriesController < ApplicationController
   end
   
   
-  private
-
-  def find_vehicle
-    @vehicle=Vehicle.find(params[:vehicle_id])
-  end
+ 
 end

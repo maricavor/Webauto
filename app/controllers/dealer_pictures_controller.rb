@@ -21,8 +21,8 @@ class DealerPicturesController < ApplicationController
     @picture.destroy
     
      respond_to do |format|
-      format.html { redirect_to :back, :notice => t("dealer_pictures.destroy") }
-      format.js {flash.now[:notice] = t("dealer_pictures.destroy")  }
+      format.html { redirect_to :back, :notice => t("dealer_pictures.destroyed") }
+      format.js {flash.now[:notice] = t("dealer_pictures.destroyed")  }
       format.json { head :no_content }
     end
   end

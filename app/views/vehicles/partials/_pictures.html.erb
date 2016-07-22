@@ -2,9 +2,11 @@
 <div class="row-fluid" >
   <div class="span12">
     <% if first %>
-	
+	<% if first.file.medium.file.exists? %><!-- remove this in production -->
 	  <%= link_to image_tag(first.file_url(:medium)), first.file_url(:original), :data => {:gallery => 'gallery'}, :title => t("vehicles.show.images")+t("vehicles.show.a_of_b",:a=>"1",:b=>@pictures.size.to_s), :class=>"thumbnail" %>
-	  
+	   <% else %>
+	   	  <%= link_to image_tag(first.file_url(:thumb)), first.file_url(:original), :data => {:gallery => 'gallery'}, :title => t("vehicles.show.images")+t("vehicles.show.a_of_b",:a=>"1",:b=>@pictures.size.to_s), :class=>"thumbnail" %>
+	     <% end %>
     <% else %>
       <%= image_tag "/thumbnail_big.png", :class=>"thumbnail" %>
     <% end %>

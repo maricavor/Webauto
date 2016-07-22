@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!,:except=>[:contact,:show_phone]
+  before_filter :authenticate_user!,:except=>[:show_phone]
   before_filter :correct_user, only: [:update]
-  skip_before_filter :get_current_type,:get_compared_items, :only=>[:show_phone,:contact]
+  skip_before_filter :get_current_type,:get_compared_items, :only=>[:show_phone]
 
   def show
     @title=t("users.dashboard.title")
@@ -67,30 +67,7 @@ class UsersController < ApplicationController
     @secondary_phone=user.secondary_phone
     render 'users/show_phone', :formats => [:js]
   end
-def contact
-   @user = User.find(params[:id])
-   @inquiry = Inquiry.new(params[:inquiry])
-    unless params[:content].present? # honeypot check
-      if @inquiry.deliver(@user)
-        respond_to do |format|
-          format.html { redirect_to :back, :notice => t("inquiries.created") }
-          format.js {
-            flash.now[:notice] = t("inquiries.created")
-          }
-        end
 
-      else
-        respond_to do |format|
-          format.html { redirect_to :back, :alert => @inquiry.errors.full_messages.first }
-          format.js {
-            flash.now[:alert] = @inquiry.errors.full_messages.first
-            render 'fail_contact'
-          }
-        end
-
-      end
-    end
-  end
   private
 
 

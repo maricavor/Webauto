@@ -1,5 +1,8 @@
-- foreman start -f Procfile-dev
 
+- show survey form when user visiting the site, check autotrader.co.uk
+- car user reviews, like on carsales.com.au
+- also dealer reviews like autotrader.co.uk
+- We thought you’d like to know that interest in one of your saved cars is increasing.
 - save any search, but alert only for search result <100 for example, so when saving name for search do full search again with per_page=100 then save results to database
 http://stackoverflow.com/questions/13932750/tinytext-text-mediumtext-and-longtext-maximum-storage-sizes  
 - what if to make pay-per-view system for webauto??? 
@@ -8,14 +11,13 @@ http://stackoverflow.com/questions/13932750/tinytext-text-mediumtext-and-longtex
 - instead of resque use cron job for scaling or sidekiq embedded cartridge 
 
 - create new gear small high cpu EU 
+- nice messaging service on carsales: https://member.carsalesnetwork.com.au/membercentre/Carsales/messages
 
-- translate dealer picture destroy message
 
 
 - nice uploader https://www.filestack.com/plans or dropzone.js http://josephndungu.com/tutorials/ajax-file-upload-with-dropezonejs-and-paperclip-rails
-- you can use the rhc tail command to tail out your log files:
-rhc tail -a <yourappname>
-- translate automails to users
+
+
 - similar cars check fotolia.com, show all similar cars
 - some models in typus not working
 - customize service temporaryly unavailable https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
@@ -27,7 +29,7 @@ rhc tail -a <yourappname>
 - add proper facebook share button for vehicle, see carsales or autotrader
 
 - create advert generator, generate test adverts and users for checking performance
-- check all modal forms functionalitites
+
 
 
 
@@ -47,21 +49,21 @@ rhc tail -a <yourappname>
 - add show price history checkbox in price
 - delete carrierwave temp folders after upload https://github.com/carrierwaveuploader/carrierwave/wiki/How-to:-Delete-cache-garbage-directories
 - add link to sõiduki taustakontroll
-- show also ad status for garage item
+
 - owner reviews like on carsales.com.au
 - add comment to saved advert, see auto24.ee
 - send email when ad is created , check cargurus email
 - garage item share on facebook button see cargurus.com
 - garage items make public page for user see cargurus.com
-- add Other Makes ike on drive2.ru
+- add Other Makes like on drive2.ru
 - owner review like on autotrader.co.uk
 - add garage and owner review/rating system
 - save all the emails to database
 - https://www.phpjabbers.com/auto-classifieds-script/
 - what if after saved search, amount of results increases more, make not possible to save
-- create new copyright image
+
 - check scenario when counting new adverts for alert is less than saved adverts
-- mail texts
+
 - https://silktide.com/tools/cookie-consent/
 - https://www.niklausgerber.com/blog/preloadme-a-lightweight-jquery-website-preloader
 - check for alert functionality again
@@ -191,15 +193,15 @@ rhc tail -a <yourappname>
 - what is config.action_mailer.asset_host???
 -jjj http://stackoverflow.com/questions/1300838/how-to-convert-an-address-into-a-google-maps-link-not-map
 - https://github.com/openshift/wordpress-example/blob/master/.openshift/action_hooks/deploy
-- git rm --cached -r <dir>
+
 - about carrierwave here -> http://stackoverflow.com/questions/17727788/deploying-ruby-on-rails-is-there-a-good-alternative-for-heroku
 - http://yuan3y.com/2014/10/setting-up-an-upload-folder-in-openshift/
 - https://forums.openshift.com/best-place-to-store-images
 - car reviews on http://www.autotrader.co.uk/
 - dealer pages like http://www.carzone.ie/car-dealers/ireland/galway/4x4-exporter-galway-dpp-8a6aa153446d45a5014478772b594400/cars?
 - no city support Jälgimäe tee 1, Tänassilma, 76406, Harjumaa, Eesti
-- *********** port forwarding  rhc port-forward -a applicationName
-- for pushing to github use git push master master
+
+
 
 - recapthcha for forms https://www.google.com/recaptcha/intro/index.html
 - https://www.truecar.com/used-cars-for-sale/

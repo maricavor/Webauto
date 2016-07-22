@@ -134,7 +134,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					                  <tr>
 					                    <td valign="top">
 											<% if picture %>
-<%= link_to image_tag("http://localhost:3000"+picture.file_url(:thumb),:border=>"0", :style=>"display:block; border:1px solid #3eaaca",size: "300x200"), url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: @vehicle,only_path: false) %>
+<%= link_to image_tag("http://www.webauto.ee"+picture.file_url(:thumb),:border=>"0", :style=>"display:block; border:1px solid #3eaaca",size: "300x200"), url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: @vehicle,only_path: false) %>
 											<% else %>
 <%= image_tag "/thumbnail.png",size: "300x200"  %>
 											<% end %>
@@ -260,7 +260,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 			          <td valign="top">&nbsp;</td>
 			          </tr>
 			        <tr>
-			          <td valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">You received this email because you are a registered user. You can unsubscribe from this email <a href="http://localhost:3000/<%= I18n.locale %>/users/settings">here</a>. </td>
+			          <td valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">You received this email because you are a registered user. You can unsubscribe from this email <a href="http://www.webauto.ee/<%= I18n.locale %>/users/settings">here</a>. </td>
 			          </tr>
 			        <tr>
 			          <td valign="top">&nbsp;</td>

@@ -9,7 +9,7 @@
    <p><%= @inquiry.message %></p>
   
    <p>
-	  <%= @inquiry.name %>
+	  <b><%= @inquiry.name %></b>
      </p>
 	 
    <p>
@@ -19,8 +19,7 @@
      <p><strong>Want to SELL YOUR CAR fast?
        </strong></p>
      <p>Advertise on Webauto.ee for free!</p>
-       <p>Click the link below for more information:</p>
-       <p><%= link_to "http://www.webauto.ee/<%= I18n.locale %>/sell-your-car/", "http://www.webauto.ee/<%= I18n.locale %>/sell-your-car/" %></p>
+       <p>Click <a href="http://www.webauto.ee/<%= I18n.locale %>/sell-your-car/">here</a> for more information.</p>
    
 		</body>
       </html>
