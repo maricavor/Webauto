@@ -21,6 +21,12 @@ et:
         subject: Kinnitamise juhised
       reset_password_instructions:
         subject: Salasõna taastamise juhised
+        action: Muuda parooli
+        greeting: Tere %{recipient}!
+        instruction: Keegi on soovinud muuta Teie parooli, saate seda teha alloleva lingi kaudu.
+        instruction_2: Kui Te ei ole seda soovinud, palun ignoreerige seda kirja.
+        instruction_3: Teie parool ei muutu enne kui Te olete külastanud eelolevat linki ja uue parooli sisestanud.
+        respect: "Lugupidamisega,"
       unlock_instructions:
         subject: Lukust vabastamise juhised
     omniauth_callbacks:
