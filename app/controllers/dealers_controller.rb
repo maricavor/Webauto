@@ -18,7 +18,7 @@ class DealersController < ApplicationController
   def show
      set_current_sort
      @dealer = User.find(params[:id])
-     @title=@dealer.name+ " - Webauto.ee"
+     @title=@dealer.company_name+ " - Webauto.ee"
      if params[:search_id]
      @search = Search.find(params[:search_id])
      else
