@@ -26,12 +26,12 @@
         <% end %>
       <%= f.text_field :name,:label => t("users.profile.name"),:autofocus => true %>
    
-   <%= f.text_field :primary_phone,:label=>t("users.profile.primary_phone"), :size => 20 %>
-      <%= f.text_field :secondary_phone,:label=>t("users.profile.secondary_phone"), :size => 20 %>
+   <%= f.text_field :phone1,:label=>t("users.profile.primary_phone"), :size => 20 %>
+      <%= f.text_field :phone2,:label=>t("users.profile.secondary_phone"), :size => 20 %>
        <% if resource.is_dealer? %>
        
         <%= f.text_field :address1,:label=>t("users.profile.address1") %>
-        <%= f.text_field :address2,:label=>t("users.profile.address2") %>
+       
        <% end %>
       </div>
         <div class="span6">
@@ -39,9 +39,9 @@
       
        
         <%= f.select :country_id,Country.order(:name).collect {|p| [ p.name, p.id ] },{include_blank: true},{:label=>t("users.profile.country"),:id=>"vehicle_country_id" }%>
-             <%= f.select :state_id,State.order(:name).collect {|p| [ p.name, p.id ] },{},{:label=>t("users.profile.state"),:id=>"vehicle_state_id"} %>
-               <%= f.select :city_id,City.order(:name).collect {|p| [ p.name, p.id ] },{},{:label=>t("users.profile.city"),:id=>"vehicle_city_id"} %>
-       
+             <%= f.select :state_id,State.order(:name).collect {|p| [ p.name, p.id ] },{include_blank: true},{:label=>t("users.profile.state"),:id=>"vehicle_state_id"} %>
+               <%= f.select :city_id,City.order(:name).collect {|p| [ p.name, p.id ] },{include_blank: true},{:label=>t("users.profile.city"),:id=>"vehicle_city_id"} %>
+               <%= f.text_field :city_str,:label=>t("users.profile.city"),:id=>"user_city_str" %>
         <%= f.text_field :postal_code,:label=>t("users.profile.postal_code") %>
         <%= f.text_field :company_reg,:label=>t("users.profile.registration_code") %>
         <%= f.text_field :company_kmkr,:label=>t("users.profile.vat_number") %>

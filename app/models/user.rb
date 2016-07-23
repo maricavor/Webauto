@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessor :tos_agreement
-  attr_accessible :name,:email, :primary_phone,:secondary_phone, :password, :password_confirmation, :remember_me,:tos_agreement,:company_name,:company_reg,:address1,:address2,:country_id,:city_id,:state_id,:postal_code,:phone1,:phone2,:company_kmkr,:webpage,:is_dealer,:price_alert,:sold_alert,:interest_alert,:auto_alerts,:feature_alerts,:locale,:provider,:uid,:encrypted_password
+  attr_accessible :name,:email, :primary_phone,:secondary_phone, :password, :password_confirmation, :remember_me,:tos_agreement,:company_name,:company_reg,:address1,:address2,:country_id,:city_id,:state_id,:postal_code,:phone1,:phone2,:company_kmkr,:webpage,:is_dealer,:price_alert,:sold_alert,:interest_alert,:auto_alerts,:feature_alerts,:locale,:provider,:uid,:encrypted_password, :city_str
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -24,12 +24,20 @@ class User < ActiveRecord::Base
   belongs_to :country
   belongs_to :state
   #scope :dealers, where("is_dealer = ?", true)
- 
+  
   validates :company_name, presence: true, :if => "is_dealer == true"
+  validates :address1, presence: true, :if => "is_dealer == true"
+  validates :city_name, presence: true, :if => "is_dealer == true"
+  validates :postal_code, presence: true, :if => "is_dealer == true"
+  validates :phone1, presence: true, :if => "is_dealer == true"
+  validates :country_id, presence: true, :if => "is_dealer == true"
+  validates :state_id, presence: true, :if => "is_dealer == true && country_id==8"
+  validates :city_id, presence: true, :if => "is_dealer == true && country_id==8"
+  validates :city_str, presence: true, :if => "is_dealer == true && country_id!=8"
   #validates :tos_agreement, acceptance: {message: I18n.t("users.new.tos_agreement")},:on => :create
   validate :validate_tos,:on=>:create
 
-  
+  before_update :update_city
  
   def self.search(search_params)
     
@@ -37,11 +45,13 @@ class User < ActiveRecord::Base
     dealers=User.where("is_dealer = ?", true)
     dealers=dealers.where('company_name LIKE ?', "%#{search_params[:name]}%") if search_params[:name].present?
     if search_params[:location].present?
-      location=search_params[:location]
+    location=search_params[:location]
     dealers=dealers.where(:country_id=>location)
+  else
+    dealers=dealers.where(:country_id=>"8")
   end
     if search_params[:region].present?
-      regions=search_params[:region].split(',')
+    regions=search_params[:region].split(',')
     dealers=dealers.joins(:state,:city).where("states.name IN (:states) OR cities.name IN (:cities)",:states=>regions,:cities=>regions) 
   end
   else
@@ -98,7 +108,7 @@ end
     address
   end
   def city_name
-    self.city ? self.city.name : ""
+    self.city ? self.city.name : self.city_str
   end
     def country_name
     self.country ? self.country.name : ""
@@ -117,6 +127,16 @@ end
   def validate_tos
     if self.tos_agreement=='0'
       errors.add(:_,I18n.t("users.new.tos_agreement"))
+    end
+  end
+  private
+  
+  def update_city
+    if self.country_id!=8
+      self.city_id=nil
+      self.state_id=nil
+    else
+      self.city_str=nil
     end
   end
 end

@@ -1,12 +1,15 @@
 $('#vehicle_state_id').html("<%= escape_javascript(options_for_select(@states)) %>");
 $('#vehicle_city_id').html("<%= escape_javascript(options_for_select(@cities)) %>");
-if ($('#vehicle_state_id').has('option').length > 0) {
+
+if ($('#vehicle_country_id').val()=="8") {
     $('#vehicle_state_id').show();
     $('#vehicle_state_id_field').show();
+	 $('#user_city_str_field').hide(); 
     
 } else {
     $('#vehicle_state_id').hide();
-    $('#vehicle_state_id_field').hide();  
+    $('#vehicle_state_id_field').hide(); 
+	 $('#user_city_str_field').show();  
 }
 if ($('#vehicle_city_id').has('option').length > 0) {
     $('#vehicle_city_id').show();

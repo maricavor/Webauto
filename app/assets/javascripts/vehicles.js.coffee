@@ -213,6 +213,14 @@ jQuery ->
     $('#moreTabInSearch a[href="#viewed_by_you"]').tab('show')
     $('#commentTab a:first').tab('show')
     Models.update_form()
+    if $('#vehicle_country_id').val()!="8"
+      $('#user_city_str_field').show() 
+      $('#vehicle_state_id_field').hide()    
+      $('#vehicle_city_id_field').hide() 
+    else
+      $('#vehicle_city_id_field').show()  
+      $('#vehicle_state_id_field').show()
+  	   $('#user_city_str_field').hide()
     Models.show_model_spec(false,$('#vehicle_model_id option').filter(':selected').val())
     return
 
@@ -243,15 +251,8 @@ jQuery ->
     items: "li:not(.ui-state-disabled)"
 
   $( ".sortable_pictures" ).disableSelection()
-
-  if $('#vehicle_country_id').val()!="8"
-    $('#vehicle_state_id').hide()  
-    $('#vehicle_state_id_field').hide()  
-    $('#vehicle_city_id').hide()  
-    $('#vehicle_city_id_field').hide()  
-  else
-    $('#vehicle_city_id_field').show()  
-    $('#vehicle_state_id_field').show()  
+  
+      
   #Models.toggleLogo()
   Models.init(grouped_models,$('#vehicle_make_id option').filter(':selected')) 
 

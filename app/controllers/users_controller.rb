@@ -63,8 +63,8 @@ class UsersController < ApplicationController
   end
    def show_phone
     user=User.find(params[:id])
-    @primary_phone=user.primary_phone
-    @secondary_phone=user.secondary_phone
+    @primary_phone=user.phone1
+    @secondary_phone=user.phone2
     render 'users/show_phone', :formats => [:js]
   end
 

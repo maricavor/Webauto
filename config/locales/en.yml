@@ -637,8 +637,8 @@ en:
       password_confirm: Confirm password
       current_password: Current password
       company_name: Company name
-      address1: Address 1
-      address2: Address 2
+      address1: Address
+      address2: Address
       postal_code: Postal code
       registration_code: Registration code
       vat_number: VAT payer number
@@ -779,6 +779,14 @@ en:
         email: Email
         company_name: Company name
         reset_password_token: Reset password token
+        address1: Address
+        phone1: Phone
+        country_id: Country
+        postal_code: Postal code
+        city_id: City
+        state_id: State
+        city_name: City
+        city_str: City
       search:
         name: Name
       vehicle:

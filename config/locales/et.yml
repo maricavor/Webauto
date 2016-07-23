@@ -581,7 +581,7 @@ et:
       nothing: "Autodiilereid ei leitud"
       heading: Autodiilerid
       company_name: Ettevõtte nimi
-      total_stock: Sõidukite arv
+      total_stock: Kuulutuste arv
       view_stock: Näita kuulutusi
       show_inventory: Näita teisi kuulutusi
       map_directions: Vaata kaardilt
@@ -634,8 +634,8 @@ et:
       password_confirm: "<strong>Parooli kinnitus</strong>"
       current_password: Praegune parool
       company_name: Ettevõtte nimi
-      address1: Aadress 1
-      address2: Aadress 2
+      address1: Aadress
+      address2: Aadress
       postal_code: Postiindeks
       registration_code: Registrikood
       vat_number: KMK number
@@ -770,12 +770,20 @@ et:
         email: Saatja e-mail
         message: Sõnum
   activerecord:
-    attributes:
+    attributes:  
       user:
         password: Parool
         email: E-mail
         company_name: Ettevõtte nimi
         reset_password_token: Token
+        address1: Aadress
+        phone1: Telefon
+        country_id: Riik
+        postal_code: Postiindeks
+        city_id: Linn
+        state_id: Maakond
+        city_name: Linn
+        city_str: Linn
       search:
         name: Pealkiri
       vehicle:

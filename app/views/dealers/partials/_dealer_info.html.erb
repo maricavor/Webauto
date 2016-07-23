@@ -4,7 +4,7 @@
             <% if picture %>
                    
       
-      <%= image_tag(picture.file_url(:original),:style=>"margin-bottom:10px;") %>
+      <%= image_tag(picture.file_url(:original)) %>
    
     
      <% end %>
@@ -15,7 +15,7 @@
      <address>
   <h4>  <%= dealer.company_name %></h4>
    <%= "#{dealer.address1}, #{dealer.city_name}, #{dealer.postal_code}" %><br>
-    <%= "#{dealer.country_name}, #{dealer.state_name}" %><br>
+    <%= "#{dealer.country_name}" %><%= ", #{dealer.state_name}" if dealer.state_name.present? %><br>
       <span id="phone_numbers"><%= secret_phone(dealer) %></span>
                   
               
