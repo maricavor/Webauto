@@ -43,6 +43,7 @@ class DealersController < ApplicationController
         @title=t("dealers.index.nothing")
       end
      gon.selected=@search.to_gon_object
+     gon.selected["dealers"]=nil
   end
   
    private

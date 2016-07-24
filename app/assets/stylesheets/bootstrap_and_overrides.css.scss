@@ -112,6 +112,7 @@ background-image:url("/garage16_white.png") !important;
 margin-left:-40%; /* width/2) */ 
 }
 
+
  }
  
 /* Portrait tablet to landscape and desktop */
@@ -152,8 +153,13 @@ margin-left:-40%; /* width/2) */
 .footer {
   padding-left:10px;
   }
-  
-
+  .dealer_address{
+  	text-align: center;
+  }
+  .dealer_picture{
+    text-align: center;
+    margin-bottom:10px;
+  }
  }
  
 /* Landscape phones and down */
@@ -170,7 +176,13 @@ margin-left:-40%; /* width/2) */
    font-size:12px;
 }
 
-
+.dealer_address{
+	text-align: center;
+}
+.dealer_picture{
+  text-align: center;
+  margin-bottom:10px;
+}
  }
 @media print {    
       .no-print, .no-print *{

@@ -170,6 +170,19 @@ Models =
     $('.hidden_fields').show()
     $('.less_options').show()
     $('.more_options').hide()
+	
+  toggle_less_options: ->
+    $('.hidden_field').selectpicker('hide')
+    $('.hidden_fields').hide()
+    $('.less_options').hide()
+    $('.more_options').show()
+    $('.hidden_field').val('')
+    $('.hidden_field').selectpicker('render')
+    $('#search_is_dealer').prop('checked',true)
+    $('#search_is_private').prop('checked',true)
+    $('#search_wrecked').prop('checked',false)
+    $('#search_exchange').prop('checked',false)
+    $('#seller_type_select').show()
   
   today: ->
     today = new Date()
@@ -205,10 +218,8 @@ jQuery ->
     #$('#search_region').selectpicker('hide')
     $('#advert_vehicle_attributes_registered_at').val(Models.today()) if $('#advert_vehicle_attributes_registered_at').val()==""
     $('#vehicle_registered_at').val(Models.today()) if $('#vehicle_registered_at').val()==""
-    $('.hidden_field').selectpicker('hide')
-    $('.hidden_fields').hide()
-    $('.less_options').hide()
     $('.collapse_search').hide()
+    Models.toggle_less_options()
     $('#moreTab a[href="#similar"]').tab('show')
     $('#moreTabInSearch a[href="#viewed_by_you"]').tab('show')
     $('#commentTab a:first').tab('show')
@@ -389,15 +400,7 @@ jQuery ->
     Models.toggle_more_options()
     event.preventDefault()
   $(document).on 'click', 'form .less_options', (event) ->
-    $('.hidden_field').selectpicker('hide')
-    $('.hidden_fields').hide()
-    $(this).hide()
-    $('.more_options').show()
-    $('.hidden_field').val('')
-    $('.hidden_field').selectpicker('render')
-    $('#search_is_dealer').prop('checked',true)
-    $('#search_is_private').prop('checked',true)
-    $('#seller_type_select').show()
+    Models.toggle_less_options()
     event.preventDefault()
   $(document).on 'click', '.reset_search', (event) ->
     $('.selectpicker').val('')

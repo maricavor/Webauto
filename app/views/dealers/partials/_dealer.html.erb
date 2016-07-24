@@ -1,11 +1,22 @@
 
 
   
-  <table width="100%" class="dealer">
-    <tr>
-      <td width="40%">
+  <div class="row-fluid">
+	        <div class="span3 dealer_picture">
+	         <% picture=dealer.dealer_picture  %>
+	              <% if picture %>
+                   
+      
+	        <%= image_tag(picture.file_url(:original)) %>
+   
+    
+	       <% end %>
+	  </div>
+       <div class="span7 dealer_address">
+		   
         <address>
-  <strong>  <%= link_to dealer.company_name, dealer_path(dealer.dealer_name) %></strong><br>
+			<h4> <%= link_to dealer.company_name, dealer_path(dealer.dealer_name) %></h4>
+ 
   <%= dealer.address1 %><br>
    <%= "#{dealer.city_name}, #{dealer.postal_code}" %><br>
     <%= "#{dealer.country_name}" %><%= ", #{dealer.state_name}" if dealer.state_name.present? %><br>
@@ -14,32 +25,23 @@
   
 </address>
 
+</div>
 
 
 
-      </td>
-       <td width="20%">
-       <% picture=dealer.dealer_picture  %>
-            <% if picture %>
-                   
       
-      <%= image_tag(picture.file_url(:original)) %>
-   
-    
-     <% end %>
-</td>
-<td width="20%" align="center"  class="lead muted" >
-
+  <div class="span2 lead muted text-center">
+              <% stock=dealer.total_stock(@current_type.id).count %>
               <%=t("dealers.index.total_stock")%><br>
-              <%= dealer.total_stock(@current_type.id).count %>
-            
-            </td>  
-      <td align="right" >
-     
-        <%= link_to t("dealers.index.view_stock"),  dealer_path(dealer.dealer_name),:class=>"btn btn-info"  %>
-      </td>
-    </tr>
+			   <h4>
+			  <% if stock > 0 %>
+			    <%= link_to stock,  dealer_path(dealer.dealer_name) %>
+            <% else %>
+              <%= stock %>
+            <% end %> 
+       </h4>
+    </div>
   
-  </table>
+ 
  
 

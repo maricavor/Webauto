@@ -22,12 +22,12 @@
           <fieldset class="dealer_data">
             <%= f.text_field :company_name,:label=>t("users.profile.company_name") %>
             <%= f.text_field :address1,:label=>t("users.profile.address1") %>
-            <%= f.text_field :address2,:label=>t("users.profile.address2") %>
+            
             
              <%= f.select :country_id,Country.order(:name).collect {|p| [ p.name, p.id ] },{include_blank: true},{:label=>t("users.profile.country"),:id=>"vehicle_country_id" }%>
              <%= f.select :state_id,State.order(:name).collect {|p| [ p.name, p.id ] },{},{:label=>t("users.profile.state"),:id=>"vehicle_state_id"} %>
                <%= f.select :city_id,City.order(:name).collect {|p| [ p.name, p.id ] },{},{:label=>t("users.profile.city"),:id=>"vehicle_city_id"} %>
-           
+            <%= f.text_field :city_str,:label=>t("users.profile.city"),:id=>"user_city_str" %>
             <%= f.text_field :postal_code,:label=>t("users.profile.postal_code") %>
             <%= f.text_field :company_reg,:label=>t("users.profile.registration_code") %>
             <%= f.text_field :company_kmkr,:label=>t("users.profile.vat_number") %>
