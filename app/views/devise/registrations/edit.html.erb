@@ -58,22 +58,22 @@
    
    </div>
    </div>
-
+   <% unless resource.is_dealer %>
    <% if resource.authentications %>
    <div class="authentications" id="authentications">
    <%= render 'devise/registrations/authentications',:authentications=>resource.authentications %>
     </div>
-
-   
   <% end %>
  <div id="more_services">
 <%= render 'devise/registrations/more_services',:authentications=>resource.authentications %>
 </div>
+<% end %>
  <div style="padding-top:20px; margin-top:20px; border-top: 1px solid #eeeeee;">
     
       <%= f.submit t("users.profile.update"),:class=>"btn btn-info" %>
       </div>
     <% end %>
+	
     <!--<h3>Cancel my account</h3>
     <p>Unhappy?
       <%= link_to t("users.profile.cancel"), registration_path(resource_name), :data => { :confirm => t("users.profile.cancel_sure") }, :method => :delete %>.</p>-->

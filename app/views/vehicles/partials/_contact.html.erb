@@ -16,8 +16,10 @@
             <% if @user.address2.present? %>
               <%= @user.address2 %><br>
               <% end %>
-              <%= "#{@user.state.name}, #{@user.postal_code}" %><br>
-                <%= "#{@user.country.name}, #{@user.city.name}" %><br><br>
+              <%= "#{@user.city_name}, #{@user.postal_code}" %><br>
+                 <%= "#{@user.country_name}" %><%= ", #{@user.state_name}" if @user.state_name.present? %><br><br>
+			   
+			 
                   <% end %>
                    <strong><%= @user.name %></strong><br>
                    <span id="phone_numbers"><%= secret_phone(@user) %></span>
