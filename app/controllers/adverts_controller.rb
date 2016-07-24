@@ -323,8 +323,8 @@ def update
     @action="photos"
     @advert.current_step=session[:advert_step]=@action
     @vehicle=@advert.vehicle
-    @uploader = Picture.new.file
-    @uploader.success_action_redirect = photos_advert_path(@advert)
+    #@uploader = Picture.new.file
+    #@uploader.success_action_redirect = photos_advert_path(@advert)
     @pictures=@vehicle.pictures.order(:position)
     @count=@pictures.count
     @max_pictures=7
