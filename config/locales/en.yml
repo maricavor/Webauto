@@ -745,7 +745,8 @@ en:
   orders:
     your_cart: Your cart
     order_total: "Order total:"
-    total: "Kokku"
+    total: "Total" 
+    free: FREE
   sessions:
     new:
       title: "Sign In - Webauto.ee"

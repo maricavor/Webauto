@@ -10,12 +10,12 @@
 <% @order.line_items.each do |item| %>
 <tr class="info">
 <td><%= item.service.title %></td>
-<td style="text-align: right;"><%= currency(item.price) %></td>
+<td style="text-align: right;"><%= t("orders.free") %></td>
 </tr>
 <% end %>
 <tr>
 <td style="text-align: right;"><strong><%= t("orders.order_total")%></strong></td>
-<td style="text-align: right;"><%= currency(@order.total_price) %></td>
+<td style="text-align: right;"><%= t("orders.free") %></td>
 </tr>
   </tbody>
 </table>

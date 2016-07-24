@@ -16,8 +16,9 @@
   <h4>  <%= dealer.company_name %></h4>
    <%= "#{dealer.address1}, #{dealer.city_name}, #{dealer.postal_code}" %><br>
     <%= "#{dealer.country_name}" %><%= ", #{dealer.state_name}" if dealer.state_name.present? %><br>
+	<% if dealer.phone1.present? %>
       <span id="phone_numbers"><%= secret_phone(dealer) %></span>
-                  
+       <% end %>             
               
 
     </address>

@@ -329,8 +329,8 @@ et:
       price_vat: "Hind sisaldab KM 20%"
       negotiable: Kaubeldav
       contact_title: Kontaktandmed
-      primary_number: "Telefon 1:"
-      secondary_number: "Telefon 2:"
+      primary_number: "Telefon:"
+      secondary_number: "Telefon:"
       email: "E-mail:"
     preview:
       title: "Kuulutuse eelvade - Webauto.ee"
@@ -743,6 +743,7 @@ et:
     your_cart: ""
     order_total: "Kokku tasuda:" 
     total: Kokku
+    free: TASUTA
   sessions:
     new:
       title: "Logi sisse - Webauto.ee"
