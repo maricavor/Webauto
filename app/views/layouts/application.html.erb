@@ -14,7 +14,11 @@
       <meta name="description" content="<%= content_for?(:description) ? yield(:description) : 'Webauto.ee' %>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <meta name="author" content="" />
-
+<meta property="og:url"                content="http://www.webauto.ee" />
+<meta property="og:type"               content="website" />
+<meta property="og:title"              content="Kasutatud sõidukid" />
+<meta property="og:description"        content="Kuuluta tasuta!" />
+<meta property="og:image"              content="http://www.webauto.ee/fotolia.jpg" />
             <%= csrf_meta_tags %>
             <%= include_gon %>
             <%= stylesheet_link_tag "application", :media => "all" %>
@@ -27,20 +31,21 @@
 		
           </head>
           <body class="<%= controller_name %> <%= action_name %>">
+			  <div id="fb-root"></div>
+			  <script>(function(d, s, id) {
+			    var js, fjs = d.getElementsByTagName(s)[0];
+			    if (d.getElementById(id)) return;
+  			  if (window.locale=='et') {
+  				  var l="et_EE";
+  			  }else{
+  				  var l="en_US";
+  			  }
+			    js = d.createElement(s); js.id = id;
+			    js.src = "//connect.facebook.net/"+l+"/sdk.js#xfbml=1&version=v2.7&appId=310281229120060";
+			    fjs.parentNode.insertBefore(js, fjs);
+			  }(document, 'script', 'facebook-jssdk'));</script>
           <% type=@current_type.path_name %>
-			<div id="fb-root"></div>
-			<script>(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  if (window.locale=='et') {
-				  var l="et_EE";
-			  }else{
-				  var l="en_US";
-			  }
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/"+l+"/sdk.js#xfbml=1&version=v2.6";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));</script>
+		
             <div class="navbar navbar-inverse navbar-fixed-top">
               <div class="navbar-inner">
                 <div class="container-fluid">
@@ -120,9 +125,7 @@
 						     
                         <li>
 					
-							
-							
-							<div class="fb-like" data-href="https://www.webauto.ee" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+						<div class="fb-like" data-href="https://www.webauto.ee" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 						</li>
 						
 						<li style="margin-top:5px;">
