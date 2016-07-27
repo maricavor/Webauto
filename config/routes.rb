@@ -132,7 +132,7 @@ Webauto::Application.routes.draw do
       match 'search(/:id)(/:sort)(/:page)' => 'vehicles#search',:via => [:post,:get], :as => :search,:on => :collection
       member do
          post :sort_photos
-         get :show_interesting,:show_similar,:show_more_dealer,:show_viewed,:show_reg_nr,:show_vin
+         get :show_interesting,:show_similar,:show_more_dealer,:show_viewed,:show_reg_nr,:show_vin, :show_phone
        end
 
     end

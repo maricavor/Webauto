@@ -93,6 +93,12 @@ module VehiclesHelper
     HTML
     html.html_safe
   end
+  def secret_phone_advert(vehicle)
+    html= <<-HTML
+    <small>#{link_to t('vehicles.show.show'),show_phone_vehicle_path(vehicle),remote: true}</small>
+    HTML
+    html.html_safe
+  end
 
   def secret_nr(vehicle)
     nr=vehicle.reg_nr

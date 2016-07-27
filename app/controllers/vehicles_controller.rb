@@ -179,7 +179,12 @@ class VehiclesController < ApplicationController
       
     end
   end
- 
+  def show_phone
+   vehicle=Vehicle.find(params[:id])
+   @primary_phone=vehicle.advert.contact_number
+   @secondary_phone=vehicle.advert.secondary_number
+   render 'users/show_phone', :formats => [:js]
+ end
   
   def show
     @user=@vehicle.user

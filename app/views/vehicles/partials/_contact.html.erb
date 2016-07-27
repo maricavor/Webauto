@@ -22,8 +22,8 @@
 			 
                   <% end %>
                    <strong><%= @user.name %></strong><br>
-				   <% if @user.phone1.present? %>
-                   <span id="phone_numbers"><%= secret_phone(@user) %></span>
+				   <% if @vehicle.advert.contact_number.present? %>
+                   <span id="phone_numbers"><%= secret_phone_advert(@vehicle) %></span>
 				   <% end %>
                   </address>
 				  <div class="no-print">
