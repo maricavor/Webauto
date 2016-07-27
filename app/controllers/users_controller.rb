@@ -61,6 +61,7 @@ class UsersController < ApplicationController
       @title=t("users.nothing")
     end
   end
+  #####
    def show_phone
     user=User.find(params[:id])
     @primary_phone=user.phone1
