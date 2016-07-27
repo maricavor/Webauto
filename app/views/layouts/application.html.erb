@@ -14,11 +14,7 @@
       <meta name="description" content="<%= content_for?(:description) ? yield(:description) : 'Webauto.ee' %>">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <meta name="author" content="" />
-<meta property="og:url"                content="http://www.webauto.ee" />
-<meta property="og:type"               content="website" />
-<meta property="og:title"              content="Kasutatud sõidukid" />
-<meta property="og:description"        content="Kuuluta tasuta!" />
-<meta property="og:image"              content="http://www.webauto.ee/fotolia.jpg" />
+
             <%= csrf_meta_tags %>
             <%= include_gon %>
             <%= stylesheet_link_tag "application", :media => "all" %>
@@ -125,7 +121,7 @@
 						     
                         <li>
 					
-						<div class="fb-like" data-href="https://www.webauto.ee" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+						<div class="fb-like" data-href="https://www.webauto.ee" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
 						</li>
 						
 						<li style="margin-top:5px;">
