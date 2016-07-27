@@ -1,9 +1,9 @@
 - foreman start -f Procfile-dev
-
+-
 - use the rhc tail command to tail out your log files:
 rhc tail -a <yourappname>
-
+-
 - git rm --cached -r <dir>
-
+-
 - port forwarding  rhc port-forward -a applicationName
 
