@@ -179,6 +179,7 @@ class SearchesController < ApplicationController
   end
 
   def modify(params)
+
     %w(bt ft tm dt cl doors region features dealers).each do |p|
       params[p]=params[p].reject(&:empty?).join(',') if params[p].present?
     end
@@ -194,7 +195,7 @@ class SearchesController < ApplicationController
       temp={}
       params["fields_attributes"].each_pair do |key,value|
         make_name=value["make_name"]
-        unless make_name.nil? or !make_name or make_name.empty?
+        if make_name.present?
           temp["#{make_name}"]=[] if temp["#{make_name}"].nil?
           temp["#{make_name}"]=temp["#{make_name}"]|value["model_name"].reject(&:empty?)
         end
@@ -203,6 +204,7 @@ class SearchesController < ApplicationController
         new_fields_attributes["#{index}"]={"make_name"=>"#{key}","model_name"=>"#{value.join(',')}"}
       end
       params["fields_attributes"]=new_fields_attributes
+ 
     end
   #if params["name"].present?# and @search.adverts.blank?
   #  params["adverts"]=@search.run("background").results.map {|v| v.advert_id }.join(',')

@@ -34,7 +34,7 @@
   <div class="span3">
     <h2 class="text-right hidden-phone text-success" style="line-height: 0.7;"><small><s><%= "#{currency(@vehicle.previous_price)}" %></s></small> <%= "#{currency(@vehicle.price)}" %><br><small><%= @vehicle.price_vat ? t("vehicles.show.incl_vat") : t("vehicles.show.exl_vat") %></small></h2>
   
-    <h2 class="text-left visible-phone text-success" style="line-height: 0.7;"><%= "#{currency(@vehicle.price)} " %><small><s><%= "#{currency(@vehicle.previous_price)}" %></s></small><br><small><%= @vehicle.price_vat ? "inc 20% VAT" : "exl 20% VAT" %></small></h2>
+    <h2 class="text-left visible-phone text-success" style="line-height: 0.7;"><%= "#{currency(@vehicle.price)} " %><small><s><%= "#{currency(@vehicle.previous_price)}" %></s></small><br><small><%= @vehicle.price_vat ? t("vehicles.show.incl_vat") : t("vehicles.show.exl_vat") %></small></h2>
   
   </div>
 </div>
@@ -56,7 +56,9 @@
       <%= render 'vehicles/partials/pictures' %>
       <%= render 'vehicles/partials/blueimp-gallery' %>
     </div>
+	
     <%= render "vehicles/partials/contact",:mode=>"show" %>
+	
     <div class="action_buttons" style="margin-bottom:10px;">
       <%= render "vehicles/partials/action_buttons" %>
     </div>

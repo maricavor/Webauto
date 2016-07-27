@@ -25,7 +25,7 @@ class Vehicle < ActiveRecord::Base
   has_many :pictures, :order => :position
   has_many :users, :through => :saved_items
   has_many :impressions, :dependent => :destroy
-  has_one :price_alert,:dependent=>:destroy
+  has_one :price_alert
   validates :bodytype_id, :presence => true#,:on => :update
   validates :make_id, :presence => true#, :on => :update
   validates :type_id, :presence => true#, :on => :update
@@ -281,7 +281,7 @@ self.next_service_km.present? ? "#{self.next_service_km} km" : ""
       self.model_spec
     end
   end
-    def make_name
+  def make_name
     if self.make
       self.make.name
     else

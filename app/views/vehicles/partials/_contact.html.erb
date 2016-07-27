@@ -22,7 +22,9 @@
 			 
                   <% end %>
                    <strong><%= @user.name %></strong><br>
+				   <% if @user.phone1.present? %>
                    <span id="phone_numbers"><%= secret_phone(@user) %></span>
+				   <% end %>
                   </address>
 				  <div class="no-print">
 				   <% if @user.is_dealer %>

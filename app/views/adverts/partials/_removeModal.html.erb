@@ -4,6 +4,7 @@
     <h3 id="removeModalLabel"><%= t("adverts.index.remove_ad")%></h3>
   </div>
   <div class="modal-body">
+	  
 <small><strong><%= t("adverts.index.removing")%></strong></small>
 <h4><%= "#{@vehicle.name} - #{currency(@vehicle.price)}" %></h4>
 <p><%= t("adverts.index.why_removing")%></p> 
@@ -19,6 +20,7 @@
 <% end %>
   </div>
   <div class="modal-footer">
-    <button class="ad_delete_btn btn btn-danger"><%= t("adverts.index.remove")%></button>
+	   <div class="preloader"></div>
+    <button class="ad_delete_btn btn btn-danger"><%= t("adverts.index.close")%></button>
     <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t("adverts.statistics.close") %></button>
   </div>

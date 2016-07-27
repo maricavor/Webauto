@@ -261,6 +261,7 @@ def update
       #vehicle.price_changes.destroy
       #vehicle.impressions.destroy
      garage_item.update_column(:advert_id,nil) if garage_item
+     vehicle.price_alert.destroy! if vehicle.price_alert
      vehicle.really_destroy!
      VehicleWatcher.where(vehicle_id: history_vehicle.id).delete_all
      history_vehicle.save!
