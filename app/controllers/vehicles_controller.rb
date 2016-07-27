@@ -179,6 +179,7 @@ class VehiclesController < ApplicationController
       
     end
   end
+  ######
   def show_phone
    vehicle=Vehicle.find(params[:id])
    @primary_phone=vehicle.advert.contact_number
