@@ -297,7 +297,7 @@ et:
       brought_from: "Toodud riigist:"
       doors: "Ustearv:"
       seats: "Istekohti:"
-      owners: "Omanikute arv:"
+      owners: "Omanikud:"
       climate: "Kliimaseade:"
       wrecked: "Avariiline"
       exchange: "Vahetuse võimalus"
@@ -435,7 +435,7 @@ et:
       doors: Uste arv
       seats: Istekohti
       origin: Toodud riigist
-      owners: Omanikute arv
+      owners: Omanikud
       ad_updated: "Viimati muudetud"
       audio_visual: "Audio, video ja kommunikatsioon"
       speaker_stereo: "%{n}x spiikritega stereo"
@@ -544,7 +544,7 @@ et:
       advert: kuulutus
       adverts: kuulutust
     index:
-      title: "Kasutatud sõidukid - Webauto.ee"
+      title: "Autokuulutused - Webauto.ee"
   comments:
     write_comment: "Sinu kommentaar..."
     comments: Kommentaarid

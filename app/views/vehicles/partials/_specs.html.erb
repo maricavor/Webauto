@@ -204,8 +204,8 @@
         </tr>
         <% if @vehicle.wrecked %>
         <tr>
-          <td><%= t("vehicles.show.wrecked") %></td>
-          <td class="right"><%= spec(@vehicle.wrecked ? t("vehicles.show.yes") : t("vehicles.show.noooo")) %></td>
+          <td><%= t("adverts.details.wrecked") %></td>
+          <td class="right"><%= spec(@vehicle.wrecked ? t("vehicles.show.yesss") : t("vehicles.show.noooo")) %></td>
         </tr>
         <% end %>
       </tbody>
@@ -231,7 +231,7 @@
          <% if @vehicle.exchange %>
         <tr>
           <td><%= t("adverts.details.exchange") %></td>
-          <td class="right"><%= spec(@vehicle.exchange ? t("vehicles.show.yesss") : t("vehicles.show.noooo")) %></td>
+          <td class="right"><%= spec(@vehicle.exchange ? t("vehicles.show.yesss") : t("vehicles.show.noooo")) %> <%= "(#{@vehicle.exchange_details})" if @vehicle.exchange_details.present? %></td>
         </tr>
         <% end %>
       </tbody>

@@ -192,6 +192,7 @@ class VehiclesController < ApplicationController
     @title="#{@vehicle.name} #{@vehicle.transmission}"
     @pictures=@vehicle.pictures
     @comment=@vehicle.comments.build
+    @advert=@vehicle.advert
     #@recently_viewed=get_recently_viewed_vehicles - [@vehicle]
     @inquiry=Inquiry.new
     @remote=false
@@ -525,11 +526,28 @@ end
 
  
   def get_index_vehicles(t_id)
-    _adverts=Advert.where(:type_id =>t_id,:activated=>true)
-    @popular_adverts = _adverts.order("popularity desc","created_at desc").limit(12)
-    @recent_adverts = _adverts.order("created_at desc").limit(12)
+    @recent_adverts = Advert.where(:type_id =>t_id,:activated=>true).order("created_at desc").limit(12)
     @viewed_vehicles=get_viewed_vehicles(t_id)
+    @popular_vehicles=get_popular_vehicles(t_id)
   end
+  
+  def get_popular_vehicles(t_id)
+     solr_search = Vehicle.search do  
+       with(:type_id, t_id)  
+       without(:advert_id,nil)
+       with(:activated,true)
+       order_by(:popularity, :desc)
+       order_by(:created_at, :desc)
+       paginate(:page => 1, :per_page => 12)
+     end
+     if solr_search.total>0
+       vehicles = solr_search.results
+     else
+       vehicles=nil
+     end
+     vehicles
+end
+
   def get_recently_viewed_vehicles
 
     rvv=[]
@@ -561,15 +579,21 @@ end
   def update_impressions
     impressionist_hash = Digest::SHA2.hexdigest(Time.now.to_f.to_s+rand(10000).to_s)
     if session_hash!=nil
-    unless @vehicle.impressions.where(:session_hash=>session_hash).exists? #or ip_address.exists?
+    #unless @vehicle.impressions.where("session_hash = ? OR ip_address = ?",session_hash,@vehicle.user.last_sign_in_ip).exists?
+    unless @vehicle.impressions.where(:session_hash=>session_hash).exists?
     if current_user
-      @impression = @vehicle.impressions.create(:controller_name => controller_name,:action_name => action_name,:user_id => user_id,:request_hash => impressionist_hash,:session_hash => session_hash,:ip_address => request.remote_ip,:referrer => request.referer) unless @user==current_user
+      unless @user==current_user
+      @impression = @vehicle.impressions.create(:controller_name => controller_name,:action_name => action_name,:user_id => user_id,:request_hash => impressionist_hash,:session_hash => session_hash,:ip_address => request.remote_ip,:referrer => request.referer) 
+      @vehicle.popularity+=1
+      @vehicle.save(:validate => false)
+      end
     else
       @impression = @vehicle.impressions.create(:controller_name => controller_name,:action_name => action_name,:user_id => nil,:request_hash => impressionist_hash,:session_hash => session_hash,:ip_address => request.remote_ip,:referrer => request.referer)
+      @vehicle.popularity+=1
+      @vehicle.save(:validate => false)
     end
     end
-    end
-    @vehicle.advert.update_attributes(:popularity=>@vehicle.impressionist_count(:filter=>:session_hash))
+    end  
   end
 
   def get_viewed_vehicles(t_id)

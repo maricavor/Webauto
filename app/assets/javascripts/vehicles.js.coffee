@@ -675,6 +675,7 @@ jQuery ->
       $.get("/vehicles/get_recently_viewed_vehicles")
     return
 
+
   
 
 

@@ -20,9 +20,9 @@
     <%= render 'vehicles/partials/vehicles',vehicles: @viewed_vehicles,:version=>"small" %>
   </div>
   <div class="tab-pane fade" id="popular">
-    <%= render 'vehicles/partials/adverts',adverts: @popular_adverts,:version=>"small" %>
-   <% if @popular_adverts.size>=12 %> 
+    <%= render 'vehicles/partials/vehicles',vehicles: @popular_vehicles,:version=>"small" %>
+
    <div class="text-right"><small><%= link_to t("index.view_all"),popular_searches_path %></small></div>
-   <% end %> 
+  
   </div>
 </div>
