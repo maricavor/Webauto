@@ -10,7 +10,7 @@
 <%= link_to ("<i class='icon-bullhorn'></i> "+t("vehicles.show.report")).html_safe, "#reportAdModal",:class=> "btn btn-block",:role=>"button",:'data-toggle'=>"modal" %>
 <%= link_to ("<i class='icon-comment'></i> "+t("vehicles.show.comments")+" [#{@vehicle.comments.count}]").html_safe, "#commentsModal",:class=> "btn btn-block",:role=>"button",:'data-toggle'=>"modal" %>
 <%= link_to ("<i class='icon-envelope'></i> "+t("vehicles.show.contact_private_seller")).html_safe, "#contactModal",:role=>"button",:'data-toggle'=>"modal",:class=> "btn btn-block" %>
-<%= link_to ("<i class='fa fa-facebook-square' aria-hidden='true'></i> "+t("vehicles.show.share_on_facebook")).html_safe, "http://www.facebook.com/sharer.php?u="+url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: @vehicle,only_path: false),:class=> "btn btn-block",:target => :blank %>
+<%= link_to ("<i class='fa fa-facebook-square' aria-hidden='true'></i> "+t("vehicles.show.share_on_facebook")).html_safe, "http://www.facebook.com/sharer.php?u="+url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: @vehicle,only_path: false)+"/",:class=> "btn btn-block",:target => :blank %>
 
 
 </div>

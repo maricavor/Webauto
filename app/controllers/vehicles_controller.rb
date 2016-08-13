@@ -2,6 +2,7 @@ require "uri"
 require "net/http"
 require 'nokogiri'
 require 'digest/sha2'
+
 class VehiclesController < ApplicationController
   skip_before_filter :get_current_type,:get_compared_items, :only=>[:show_reg_nr,:show_vin,:show_similar,:show_more_dealer,:show_viewed,:show_interesting,:show_states,:show_cities,:sort_photos]
   before_filter :set_current_type,:only=>[:index,:search]
@@ -547,6 +548,8 @@ end
      end
      vehicles
 end
+
+  
 
   def get_recently_viewed_vehicles
 

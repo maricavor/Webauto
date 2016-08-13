@@ -10,7 +10,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
   #include CarrierWave::MiniMagick
 
-  process :set_content_type
+  #process :set_content_type
 
  
   def delete_original_file(new_file)

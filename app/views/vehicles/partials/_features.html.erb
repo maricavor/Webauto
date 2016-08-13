@@ -194,7 +194,7 @@
                   <% if @vehicle.sunroof %>
                     <li>
                       <%= t("vehicles.show.sunroof") %> 
-                      <%= "(#{@vehicle.sunroof_details.downcase})" if @vehicle.sunroof_details %>
+                      <%= "(#{@vehicle.sunroof_details.downcase})" if @vehicle.sunroof_details!="" %>
                     </li>
                   <% end %>
                   <% if @vehicle.cruise_control %>
