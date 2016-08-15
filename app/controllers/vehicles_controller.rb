@@ -587,13 +587,14 @@ end
     if current_user
       unless @user==current_user
       @impression = @vehicle.impressions.create(:controller_name => controller_name,:action_name => action_name,:user_id => user_id,:request_hash => impressionist_hash,:session_hash => session_hash,:ip_address => request.remote_ip,:referrer => request.referer) 
-      @vehicle.popularity+=1
-      @vehicle.save(:validate => false)
+      pop=@vehicle.popularity+1
+      #@vehicle.save(:validate => false)
+      @vehicle.update_column(:popularity,pop)
       end
     else
       @impression = @vehicle.impressions.create(:controller_name => controller_name,:action_name => action_name,:user_id => nil,:request_hash => impressionist_hash,:session_hash => session_hash,:ip_address => request.remote_ip,:referrer => request.referer)
-      @vehicle.popularity+=1
-      @vehicle.save(:validate => false)
+      pop=@vehicle.popularity+1
+      @vehicle.update_column(:popularity,pop)
     end
     end
     end  
