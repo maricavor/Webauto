@@ -31,15 +31,17 @@
 			  <script>(function(d, s, id) {
 			    var js, fjs = d.getElementsByTagName(s)[0];
 			    if (d.getElementById(id)) return;
-  			  if (window.locale=='et') {
-  				  var l="et_EE";
-  			  }else{
-  				  var l="en_US";
-  			  }
+    			  if (window.locale=='et') {
+    				  var l="et_EE";
+    			  }else{
+    				  var l="en_US";
+    			  }
 			    js = d.createElement(s); js.id = id;
 			    js.src = "//connect.facebook.net/"+l+"/sdk.js#xfbml=1&version=v2.7&appId=310281229120060";
 			    fjs.parentNode.insertBefore(js, fjs);
 			  }(document, 'script', 'facebook-jssdk'));</script>
+			  
+			 
           <% type=@current_type.path_name %>
 		
             <div class="navbar navbar-inverse navbar-fixed-top">
@@ -120,31 +122,11 @@
                        
 						     
                         <li>
-					
-						<div class="fb-like" data-href="https://www.webauto.ee" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="false"></div>
+					<div class="fb-like" data-href="https://www.facebook.com/webauto.ee/" data-width="100" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+				
 						</li>
 						
-						<li style="margin-top:5px;">
-
-						   
-							<!-- Place this tag where you want the +1 button to render. -->
-							<div class="g-plusone" data-size="medium" data-href="http://www.webauto.ee"></div>
-
-							<!-- Place this tag after the last +1 button tag. -->
-							<script type="text/javascript">
-							  window.___gcfg = {lang: window.locale};
-
-							  (function() {
-							    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-							    po.src = 'https://apis.google.com/js/platform.js';
-							    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-							  })();
-							</script>
-						</li>
-                       <li>
-						  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.webauto.ee">Tweet</a>
-						  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-					   </li>
+					
                       </small>
                     </ul>
                   </div>
