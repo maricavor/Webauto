@@ -2,7 +2,7 @@
 
 Advert:
   fields:
-    default: user_id, uid, make_model, price, contact_number, secondary_number, email, popularity, basics_saved, details_saved, features_saved, photos_saved, contact_saved, activated, sold, status, delete_reason_id
+    default: user_id, uid, make_model, price, contact_number, secondary_number, email, basics_saved, details_saved, features_saved, photos_saved, contact_saved, activated, sold, status, delete_reason_id
     form: user_id, uid, make_model, price, contact_number, secondary_number, email, popularity, basics_saved, details_saved, features_saved, photos_saved, contact_saved, activated, sold, status, delete_reason_id
   relationships: vehicle, order
   application: Application
