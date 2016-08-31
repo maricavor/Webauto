@@ -17,7 +17,6 @@ class VehiclesController < ApplicationController
   end
   
   def index
-
     @title=t("vehicles.index.title")
     @search= Search.new
     @search.location=8
@@ -44,7 +43,6 @@ class VehiclesController < ApplicationController
      @search.fields.build if @search.fields.size==0
      #params[:page] ? per=@per_page : per=100 #use this to search 100 and save it to saved search  check paginated collection how to limit 
      @solr_search=@search.run("normal",@current_sort[1].split(' '),params[:page] ,@per_page)
- 
      @total=@solr_search.total 
      
       if @total>0
