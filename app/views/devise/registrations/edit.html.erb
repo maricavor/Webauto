@@ -15,8 +15,6 @@
     <%= render 'devise/registrations/fileupload' %>
 </div>
 <% end %>
-   
-    
        <%= vehicle_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html=>{:method => :put,:class=>"form-vertical",:multipart => true,:remote=>false}) do |f| %>
        <div class="row-fluid">
   <div class="span6">

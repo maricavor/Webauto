@@ -9,11 +9,9 @@
 <div class="row-fluid">
   <div class="span5 well">
     <%= vehicle_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html=>{:class=>"form-vertical",:remote=>false}) do |f| %>  
-          <% if resource.authentications.empty? %>
+   
           <%= f.text_field :email, :label => t("users.profile.email") %>
-         <% else %>
-		   <%= f.text_field :email, :label => t("users.profile.email"),:disabled=>true %>
-		   <% end %>
+     
           <% if resource.password_required? %>
           <%= f.password_field :password, :label => t("users.profile.password") %>
           <%= f.password_field :password_confirmation, :label => t("users.profile.password_confirm").html_safe %>

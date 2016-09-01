@@ -1,4 +1,6 @@
 - newrelic
+- multiple emails https://subvisual.co/blog/posts/66-sending-multiple-emails-with-actionmailer
+- when facebook user do not have email, not possible to register, try olegtsoganov
 - unlink from facebook or google buttons like on carsales
 - show alerts also on webauto page when logged in like on carsales
 - reminders for garage items, check carsales
