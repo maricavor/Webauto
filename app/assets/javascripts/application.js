@@ -13,6 +13,7 @@
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require t-func
+//= require bootstrap
 //= require bootstrap-datepicker
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.et.js
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.en-GB.js
