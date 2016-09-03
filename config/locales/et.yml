@@ -692,6 +692,7 @@ et:
       last_alert: Viimane teavitamine
       no_alert_available: Teavitused on deaktiveeritud
       refine: "Täpsustage otsingut (tulemusi kuni 100)"
+      create_alert: "Would you like to receive alerts for this search?"
   saved_items:
     index:
       title: "Salvestatud sõidukid - Webauto.ee"

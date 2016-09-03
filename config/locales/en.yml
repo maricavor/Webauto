@@ -695,6 +695,7 @@ en:
       last_alert: Last alert
       no_alert_available: No alert available
       refine: "Refine your search (max 100 results)"
+      create_alert: "Would you like to receive alerts for this search?"
   saved_items:
     index:
       title: "Saved adverts - Webauto.ee"

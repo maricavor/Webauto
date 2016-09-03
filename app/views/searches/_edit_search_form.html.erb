@@ -10,7 +10,7 @@
 	 <%= f.hidden_field :total,:value=>@total %>
 	 <%= f.hidden_field :saved_at,:value=>Time.now %>
 	 <% if @total<=100 %>
-		 <%= f.check_box :create_alert,label:"Would you like to receive alerts for this search?" %>
+		 <%= f.check_box :create_alert,label: t("searches.index.create_alert") %>
 		 <%= f.hidden_field :allow_alerts,:value=>true %>
 	 <% end %>
 	 <!-- create checkbox for alerts HERE -->
