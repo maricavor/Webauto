@@ -21,7 +21,11 @@
       <div class="image">
 		
       <% if vehicle.destroyed? %>
+	   <% if vehicle.advert %>
       <%= render 'saved_items/sold_picture',:picture=>picture,:reason_id=>vehicle.advert.delete_reason_id %>
+	   <% else %>
+	    <%= render 'saved_items/sold_picture',:picture=>picture,:reason_id=>4 %>
+	    <% end %>
     <% elsif vehicle.advert.activated==false %>
 	  <%= render 'saved_items/deactivated_picture',:picture=>picture %>
       <% else %>
