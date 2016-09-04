@@ -616,30 +616,7 @@ end
 
 
 
-  def grouped_models_hash(makes,models,series)
-    grouped_models=Hash.new
-    for make in makes
-      _make=make.name
-      grouped_models[_make]=Hash.new
-      _models=models.select {|m| m.make_id==make.id}
-      i=1
-      for model in _models
-        _model=[model.name,model.id]
-        if model.serie_id.nil?
-          grouped_models[_make]['undefined'+i.to_s]=_model
-          i+=1
-        else
-          serie_index=series.index { |s| s.id == model.serie_id }
-          _serie=series[serie_index].name
-          grouped_models[_make][_serie] =[] if grouped_models[_make][_serie].nil?
-          grouped_models[_make][_serie].push(_model)
-        end
-
-      end
-    end
-    grouped_models
-
-  end
+ 
 
 
 

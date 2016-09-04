@@ -44,7 +44,12 @@
       <div class="image">
 		
          <% if vehicle.destroyed? %>
-    <%= render 'saved_items/sold_picture',:picture=>picture,:reason_id=>vehicle.advert.delete_reason_id %>
+   	   <% if vehicle.advert %>
+         <%= render 'saved_items/sold_picture',:picture=>picture,:reason_id=>vehicle.advert.delete_reason_id %>
+   	   <% else %>
+   	    <%= render 'saved_items/sold_picture',:picture=>picture,:reason_id=>4 %>
+   	    <% end %>
+   
       <% else %>
         <% if picture %>
       <%= link_to image_tag(picture.file_url(:thumb)), send("#{vehicle.type.name.downcase}_path", vehicle) %>
