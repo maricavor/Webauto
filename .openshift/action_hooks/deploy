@@ -65,4 +65,7 @@ echo ".................creating symlinks completed........................"
 
 #echo "exec rake db:migrate RAILS_ENV=${RAILS_ENV:-production}"
 #ruby_with_nodejs_context "bundle exec rake db:migrate RAILS_ENV=${RAILS_ENV:-production}"
+# assets precompile
+cd $OPENSHIFT_REPO_DIR
+RAILS_ENV=production bundle exec rake assets:precompile
 popd > /dev/null
