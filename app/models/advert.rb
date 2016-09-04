@@ -9,6 +9,7 @@ class Advert < ActiveRecord::Base
   belongs_to :user
   accepts_nested_attributes_for :vehicle#, reject_if: :price_invalid
   #validate :vehicle_price_valid, :if=>:contact?
+  ##
   before_create :generate_uid,:set_status
   before_update :set_status
   after_destroy :check_status_and_inform,:deactivate
