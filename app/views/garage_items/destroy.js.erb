@@ -1,7 +1,7 @@
 $("#garage_item_<%= @vehicle.id %>").hide('slow', function() {
     $target.remove();
 });
-$('#garage_items_progress').html("<%= j(render partial:'progress') %>");
+//$('#garage_items_progress').html("<%= j(render partial:'progress') %>");
 if ("<%= @garage_items.size %>" == "0") {
     $('#garage_items').html("");
 }

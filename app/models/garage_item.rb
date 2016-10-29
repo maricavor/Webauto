@@ -5,9 +5,8 @@ class GarageItem < ActiveRecord::Base
   belongs_to :vehicle
   belongs_to :advert
   validates :vehicle_id, :uniqueness => true
-  validate :quantity_of_items,:on=>:create
+  #validate :quantity_of_items,:on=>:create
   validates :ownership_id, :presence => true
-  
   def vehicle
    Vehicle.unscoped { super }
  end

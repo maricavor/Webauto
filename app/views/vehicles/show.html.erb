@@ -1,7 +1,24 @@
 
 <% content_for :title,@title %>
-
-
+<% content_for :head do %>
+<meta name="Keywords" content="<%= @vehicle.to_keywords %>" />
+<meta property="og:url" content="<%= url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: @vehicle,only_path: false) %>" />
+<meta property="og:type" content="product" />
+<meta property="og:title" content="<%= @vehicle.name %> <%= @vehicle.engine_name %>" />
+<meta property="og:description" content="<%= @vehicle.registered_at_year %>, <%= @vehicle.fueltype %>, <%= @vehicle.odometer_str %>, <%= currency(@vehicle.price) %> - <%= @vehicle.location %>" />
+<meta property="og:image" content="<%= 'http://localhost:3000'+@vehicle.pictures.first.file_url(:medium) %>" />
+<meta property="og:site_name" content="Webauto.ee" />
+<meta name="twitter:card" content="product" />
+<meta name="twitter:site" content="@webautoee" />
+<meta name="twitter:title" content="<%= @vehicle.name %> <%= @vehicle.engine_name %>" />
+<meta name="twitter:description" content="<%= @vehicle.registered_at_year %>, <%= @vehicle.fueltype %>, <%= @vehicle.odometer_str %>, <%= currency(@vehicle.price) %> - <%= @vehicle.location %>" />
+<meta name="twitter:image" content="<%= 'http://localhost:3000'+@vehicle.pictures.first.file_url(:medium) %>" />
+<meta name="twitter:label1" content="PRICE" />
+<meta name="twitter:data1" content="<%= currency(@vehicle.price) %>" />
+<meta name="twitter:label2" content="LOCATION" />
+<meta name="twitter:data2" content="<%= @vehicle.location %>" />
+<% end %>
+<% content_for :description,"#{@vehicle.name} #{@vehicle.engine_name} #{@vehicle.bodytype_str} #{@vehicle.odometer_str} - Webauto.ee. Eesti parim autokuulutuste portaal." %>
 <div class="row-fluid no-print">
 <div class="span3">
 <% unless request.referrer.nil? %>
@@ -59,9 +76,21 @@
 	
     <%= render "vehicles/partials/contact",:mode=>"show" %>
 	
-    <div class="action_buttons" style="margin-bottom:10px;">
+    <div class="action_buttons">
       <%= render "vehicles/partials/action_buttons" %>
     </div>
+	<!--
+	<div class="well">
+	 <div class="row-fluid">
+	  <div class="span12">
+
+	 <h4><%= t('vehicles.show.own_driven') %></h4>
+	 <p> <%= t('vehicles.show.share_experience') %></p>
+	 <%= link_to t('reviews.details.write_review'), new_review_path,:class=>"btn btn-info btn-large"  %>
+   </div>
+    </div>
+</div>
+		-->
     <%= render "vehicles/partials/commentsModal" %>
     <%= render "vehicles/partials/sendToFriendModal" %>
     <%= render "vehicles/partials/reportAdModal" %>
@@ -72,7 +101,7 @@
   <div class="span7">
     <%= render "vehicles/partials/general_info" %>
     <blockquote>
-      <p style="font-size:14px;"><%= @vehicle.description %></p>
+      <p class="vehicle_description"><%= @vehicle.description %></p>
     </blockquote>
 	
 	

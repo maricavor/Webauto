@@ -8,5 +8,5 @@
     remote:        data-remote
 -%>
 <span class="page btn btn-small <%= 'disabled' if page.current? %> hidden-phone">
-  <%= link_to_unless page.current?, page, url, {:class=>"page_link",:method=>:post,:remote => remote, :rel => page.next? ? 'next' : page.prev? ? 'prev' : nil} %>
+  <%= link_to_unless page.current?, page, url, {:class=>"page_link",:method=>:get,:remote => remote, :rel => page.next? ? 'next' : page.prev? ? 'prev' : nil} %>
 </span>

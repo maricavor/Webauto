@@ -6,8 +6,11 @@ class DealersController < ApplicationController
   end
   def index
      @title=t("dealers.index.title")
-     @dealers = User.search(modify(params)).order("company_name").page(params[:page]).per(@per_page)
-      @countries=Country.order(:name).collect {|p| [ p.name, p.id ]}
+     @per=10
+     total_dealers=User.search(modify(params)).order("company_name")
+     @dealers_count=total_dealers.count
+     @dealers = total_dealers.page(params[:page]).per(@per)
+     @countries=Country.order(:name).collect {|p| [ p.name, p.id ]}
       if params[:location]
         gon.selected={:vehicles=>[[nil,nil]],:location=>params[:location],:region=>params[:region]}
    else
@@ -40,7 +43,7 @@ class DealersController < ApplicationController
         @vehicles = @solr_search.results
       else
         @vehicles=[]
-        @title=t("dealers.index.nothing")
+        #@title=t("dealers.index.nothing")
       end
      gon.selected=@search.to_gon_object
      gon.selected["dealers"]=nil

@@ -1,0 +1,5 @@
+$('#review_ads_content').html("<%= j(render 'vehicles/partials/similar_vehicles',vehicles: @vehicles,version: 'small') %>");
+
+<% if @total>6 %>
+$('#review_ads').append("<%= j(render 'reviews/partials/view_all_link', make_name: @review.make_name, model_name: @review.model_name) %>");
+ <% end %>

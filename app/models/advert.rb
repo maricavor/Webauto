@@ -1,7 +1,7 @@
 class Advert < ActiveRecord::Base
   AD_TYPES = [ "free", "standard"]
   acts_as_paranoid
-  attr_accessible :contact_number,:make_model,:status,:email, :activated,:sold, :price, :secondary_number, :type, :uid,:vehicle_attributes,:deleted_at,:basics_saved,:details_saved,:features_saved,:photos_saved,:contact_saved,:ad_type,:user_id,:type_id,:delete_reason_id
+  attr_accessible :contact_number,:make_model,:status,:email, :activated,:sold, :price, :secondary_number, :type, :uid,:vehicle_attributes,:deleted_at,:basics_saved,:details_saved,:features_saved,:photos_saved,:contact_saved,:ad_type,:user_id,:type_id,:delete_reason_id,:activated_at
   attr_writer :current_step
   has_one :vehicle#,:dependent => :destroy
   has_one :order
@@ -87,6 +87,13 @@ end
   if self.activated?
     Resque.enqueue(PriceUpdateMailer, self.id)
   end
+  end
+  def get_activated_at
+    if self.activated_at.nil? 
+     DateTime.now 
+     else
+    self.activated_at
+     end
   end
   private
   def vehicle_price_valid

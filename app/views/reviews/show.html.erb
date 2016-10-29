@@ -1,0 +1,196 @@
+<% content_for :title,@title %>
+<% content_for :head do %>
+<meta property="og:url" content="<%= 'http://www.webauto.ee'+details_review_path(@review) %>" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="<%= t('reviews.details.title',:vehicle_name=>@review.vehicle_name) %>" />
+<meta property="og:description" content="<%= t('reviews.details.description',:vehicle_name=>@review.vehicle_name,:overall=>@review.overall.to_s) %>" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@webautoee" />
+<meta name="twitter:title" content="<%= t('reviews.details.title',:vehicle_name=>@review.vehicle_name) %>" />
+<meta name="twitter:description" content="<%= t('reviews.details.description',:vehicle_name=>@review.vehicle_name,:overall=>@review.overall.to_s) %>" />
+<meta name="twitter:image" content="http://www.webauto.ee/fotolia.jpg" />
+<% end %>
+<div class="row-fluid">
+<div class="span3">
+<%= link_to t("vehicles.show.back"), :back,:class=> "btn",:style=>"margin-bottom:10px;" %>
+</div>
+<div class="span9">
+  <div class="text-right hidden-phone">
+  <%= render 'reviews/partials/custom_breadcrumb' %>
+</div>
+  <div class="text-left visible-phone">
+   <%= render 'reviews/partials/custom_breadcrumb' %>
+</div>
+</div>
+</div>
+<div class="row-fluid page-header">
+  <div class="span9">
+   
+      <h2> 
+        <%= "#{@review.vehicle_name}" %>
+      
+        <small>
+        <%= "#{@review.engine_name}" %>
+        </small>
+        </h2>
+     
+  
+   </div>
+   <div class="span3">
+
+<h2 class="text-right hidden-phone text-success"><%= @review.overall %><small>/5</small></h2>
+  <h2 class="text-left visible-phone text-success"><%= @review.overall %><small>/5</small></h2> 
+  
+     
+  
+   </div>
+    </div>
+	<div class="row-fluid">
+		<div class="span12">
+	     	  <ul class="inline">
+	     		  <li>
+	     		  	<div class="fb-like" data-href="<%= 'http://www.webauto.ee'+details_review_path(@review) %>" data-layout="button_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+	     		  </li>
+	     		 <!--
+					 <li><a class="twitter-share-button" href="https://twitter.com/intent/tweet">Tweet</a></li>
+				
+	     		  <li><div class="g-plus" data-action="share" data-annotation="bubble" data-href="<%= 'http://localhost:3000'+details_review_path(@review) %>"></div></li>
+						  -->
+	     	  </ul>
+			
+			</div>
+		</div>
+<div class="row-fluid">
+  <div class="span8">
+    
+   	  
+	  <div class="row-fluid">
+	    <div class="span12" style="margin-left:10px;">
+   <small class="muted"><%= t('reviews.details.author',:first_name=>@review.first_name,:created_at=>@review.created_at.strftime('%d %b %Y')) %></small>
+   </div>
+  
+    </div>
+       <table class="table table-striped borderless">
+         <tbody>
+	
+  <tr >
+    <td><strong><%= t('reviews.details.how_well') %>:</strong> <%= @review.how_well_value %></td>
+   
+  </tr>
+ 
+           <tr >
+             <td><strong><%= t('reviews.details.driven') %>:</strong> <%= @review.how_long_value %></td>
+            
+           </tr>
+           <tr >
+             <td><strong><%= t('reviews.details.odometer') %>:</strong> <%= @review.odometer_value %></td>
+            
+           </tr>
+           <tr >
+             <td><strong><%= t('reviews.details.what_for') %>:</strong> <%= @review.what_for_value %></td>
+              
+           </tr>
+           
+     
+          
+        
+         </tbody>
+       </table>
+    <blockquote>
+      <p class="vehicle_description"><%= @review.experience %></p>
+    </blockquote>
+   </div>
+	 
+     <div class="span4">
+
+	<table id="review_ratings" class="table table-condensed borderless">
+	<tbody>
+  		<tr><td><p class="lead"><%= t('reviews.details.how_it_drives') %></p></td>
+	<td><div id="performance_<%= @review.id %>" class="overall_rating" data-score="<%= @review.performance %>"></div></td>
+	<td class="lead"><%= "#{@review.performance}/5" %></td>
+      </tr>
+  	<tr>
+	
+    		<td><p class="lead"><%= t('reviews.details.practicality') %></p></td>
+  	<td><div id="practicality_<%= @review.id %>" class="overall_rating" data-score="<%= @review.practicality %>"></div></td>
+  	<td class="lead"><%= "#{@review.practicality}/5" %></td>
+        </tr>
+	  	<tr>
+	
+	    		<td><p class="lead"><%= t('reviews.details.reliability') %></p></td>
+	  	<td><div id="reliability_<%= @review.id %>" class="overall_rating" data-score="<%= @review.reliability %>"></div></td>
+	  	<td class="lead"><%= "#{@review.reliability}/5" %></td>
+	        </tr>
+		  	<tr>
+	
+		    		<td><p class="lead"><%= t('reviews.details.running_costs') %></p></td>
+		  	<td><div id="running_costs_<%= @review.id %>" class="overall_rating" data-score="<%= @review.running_costs %>"></div></td>
+		  	<td class="lead"><%= "#{@review.running_costs}/5" %></td>
+		        </tr>
+			</tbody>
+	    </table>
+		
+		<table id="review_likes" class="table table-condensed borderless">
+			<thead >
+				<tr>
+					<th><%= t('reviews.details.likes') %>:</th>
+					<th><%= t('reviews.details.dislikes') %>:</th>
+				</tr>
+			</thead>
+		<tbody>
+		
+	  		<tr>
+			<td>
+	      		<ul>
+					<% %w{1 2 3}.each do |n| %>
+					<% if @review["like"+n] %>
+	      		<li> <%= @review.like_dislike_value(@review["like"+n]) %></li>
+	      	   <% end %>
+			      <% end %>
+	            </ul>
+	  		</td>
+		<td>
+      		<ul>
+				<% %w{1 2 3}.each do |n| %>
+				<% if @review["dislike"+n] %>
+      		<li> <%= @review.like_dislike_value(@review["dislike"+n]) %></li>
+      	   <% end %>
+		      <% end %>
+            </ul>
+		</td>
+	      </tr>
+				</tbody>
+		    </table>
+   	 </div>
+	 </div> 
+<!--
+<div class="row-fluid" >
+  <div class="span12 text-center" >
+	  <ul class="inline" style="margin-top:50px; margin-bottom:50px;">
+		  <li>
+  <p class="lead"><%= t('reviews.details.would_you') %></p> 
+</li> 
+<li>
+	<%= link_to t('reviews.details.write_review'), add_reviews_path,:class=>"btn btn-info btn-large"  %>
+</li>
+</ul>
+	 </div>
+	  </div>
+	 -->
+<div class="row-fluid">
+<div class="span12">
+ <ul class="nav nav-tabs" id="reviewAdsTab">
+      <li><a href="#review_ads" data-toggle="tab" class="tab_<%= @review.to_param %>"><%= "#{@review.make_name} #{@review.model_name}" %> <%= t('reviews.details.for_sale') %></a></li>    
+    </ul>
+    <div id="reviewAdsTabContent" class="tab-content">
+      <div class="tab-pane fade" id="review_ads">
+      <div id="review_ads_content" class="text-center"><%= image_tag "/ajax-loader.gif" %></div>
+      </div>
+      
+    </div>
+  </div>
+   </div>
+  
+
+
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160717012423) do
+ActiveRecord::Schema.define(:version => 20161011015735) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(:version => 20160717012423) do
     t.string   "contact_number"
     t.string   "secondary_number"
     t.string   "email"
-    t.integer  "popularity",                                     :default => 0
     t.boolean  "basics_saved",                                   :default => false, :null => false
     t.boolean  "details_saved",                                  :default => false, :null => false
     t.boolean  "features_saved",                                 :default => false, :null => false
@@ -52,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20160717012423) do
     t.datetime "updated_at",                                                        :null => false
     t.datetime "deleted_at"
     t.integer  "delete_reason_id"
+    t.datetime "activated_at"
   end
 
   add_index "adverts", ["deleted_at"], :name => "index_adverts_on_deleted_at"
@@ -224,12 +224,10 @@ ActiveRecord::Schema.define(:version => 20160717012423) do
 
   create_table "price_alerts", :force => true do |t|
     t.integer  "vehicle_id"
-    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "price_alerts", ["user_id"], :name => "index_price_alerts_on_user_id"
   add_index "price_alerts", ["vehicle_id"], :name => "index_price_alerts_on_vehicle_id"
 
   create_table "price_changes", :force => true do |t|
@@ -242,6 +240,64 @@ ActiveRecord::Schema.define(:version => 20160717012423) do
 
   add_index "price_changes", ["deleted_at"], :name => "index_price_changes_on_deleted_at"
   add_index "price_changes", ["vehicle_id"], :name => "index_price_changes_on_vehicle_id"
+
+  create_table "review_translations", :force => true do |t|
+    t.integer  "review_id"
+    t.string   "locale",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "experience"
+  end
+
+  add_index "review_translations", ["locale"], :name => "index_review_translations_on_locale"
+  add_index "review_translations", ["review_id"], :name => "index_review_translations_on_review_id"
+
+  create_table "reviews", :force => true do |t|
+    t.integer  "vehicle_id"
+    t.integer  "bodytype_id"
+    t.integer  "make_id"
+    t.integer  "model_id"
+    t.string   "model_spec"
+    t.integer  "transmission_id"
+    t.integer  "year"
+    t.string   "badge"
+    t.string   "series"
+    t.integer  "odometer"
+    t.integer  "how_well"
+    t.boolean  "first_owner"
+    t.integer  "how_long",                                                         :null => false
+    t.integer  "performance",                                                      :null => false
+    t.integer  "practicality",                                                     :null => false
+    t.integer  "reliability",                                                      :null => false
+    t.integer  "running_costs",                                                    :null => false
+    t.decimal  "overall",         :precision => 2, :scale => 1
+    t.text     "title"
+    t.text     "experience"
+    t.boolean  "a_to_b",                                        :default => false
+    t.boolean  "outdoors",                                      :default => false
+    t.boolean  "offroading",                                    :default => false
+    t.boolean  "extra_car",                                     :default => false
+    t.boolean  "family_car",                                    :default => false
+    t.boolean  "towing",                                        :default => false
+    t.boolean  "first_car",                                     :default => false
+    t.boolean  "weekend",                                       :default => false
+    t.boolean  "holiday",                                       :default => false
+    t.boolean  "job",                                           :default => false
+    t.boolean  "racing",                                        :default => false
+    t.boolean  "showing",                                       :default => false
+    t.integer  "like1"
+    t.integer  "like2"
+    t.integer  "like3"
+    t.integer  "dislike1"
+    t.integer  "dislike2"
+    t.integer  "dislike3"
+    t.boolean  "recommend",                                     :default => false
+    t.string   "first_name"
+    t.integer  "user_id",                                                          :null => false
+    t.datetime "created_at",                                                       :null => false
+    t.datetime "updated_at",                                                       :null => false
+    t.string   "how_well_other"
+  end
 
   create_table "saved_items", :force => true do |t|
     t.integer  "vehicle_id"
@@ -353,6 +409,7 @@ ActiveRecord::Schema.define(:version => 20160717012423) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "city_str"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -360,8 +417,6 @@ ActiveRecord::Schema.define(:version => 20160717012423) do
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
     t.string   "name"
-    t.string   "primary_phone"
-    t.string   "secondary_phone"
     t.string   "company_name"
     t.string   "company_reg"
     t.string   "company_kmkr"
@@ -584,8 +639,6 @@ ActiveRecord::Schema.define(:version => 20160717012423) do
     t.boolean  "isolation_net",                                                                       :default => false
     t.boolean  "tow_hitch",                                                                           :default => false
     t.text     "other_equipment"
-    t.datetime "created_at",                                                                                             :null => false
-    t.datetime "updated_at",                                                                                             :null => false
     t.boolean  "parking_aid_front",                                                                   :default => false
     t.boolean  "parking_aid_rear",                                                                    :default => false
     t.boolean  "electrical_seats_with_memory",                                                        :default => false
@@ -599,8 +652,12 @@ ActiveRecord::Schema.define(:version => 20160717012423) do
     t.integer  "user_id"
     t.text     "description"
     t.string   "reg_nr"
+    t.integer  "popularity",                                                                          :default => 0
     t.text     "keywords",                        :limit => 2147483647
+    t.datetime "updated_at",                                                                                             :null => false
+    t.datetime "created_at",                                                                                             :null => false
     t.datetime "deleted_at"
+    t.datetime "ad_activated_at"
   end
 
   add_index "vehicles", ["deleted_at"], :name => "index_vehicles_on_deleted_at"

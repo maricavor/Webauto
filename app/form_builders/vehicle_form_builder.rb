@@ -7,10 +7,11 @@ class VehicleFormBuilder < ActionView::Helpers::FormBuilder
       if options[:type]=="datepicker"
       field=datepicker(name,*args,super(name,*args,:class=>"span9"))
       else
+      options[:type].nil? ? tp="span12" : tp=options[:type]
         if options[:value].present?
-          field=super(name,*args,:id=>options[:id],:class=>"#{options[:type]} span12",:value=>options[:value])
+          field=super(name,*args,:id=>options[:id],:class=>tp,:value=>options[:value])
         else
-      field=super(name,*args,:id=>options[:id],:class=>"#{options[:type]} span12",:placeholder=>options[:placeholder],:disabled=>options[:disabled],:autocomplete=>options[:autocomplete],:autofocus=>options[:autofocus],:hint=>options[:hint])
+      field=super(name,*args,:id=>options[:id],:class=>tp,:placeholder=>options[:placeholder],:disabled=>options[:disabled],:autocomplete=>options[:autocomplete],:autofocus=>options[:autofocus],:hint=>options[:hint])
     end
       end
       content_tag :div, class: "field",id:(options[:id] ? options[:id]+"_field" : "") do
@@ -25,7 +26,8 @@ class VehicleFormBuilder < ActionView::Helpers::FormBuilder
 
    def text_area(name,*args)
       options=args.extract_options!
-      field=super(name,*args,:id=>options[:id],:class=>"span12",:placeholder=>options[:placeholder],rows: (options[:rows] if options[:rows]))
+      options[:class] ? cl=options[:class] : cl='' 
+      field=super(name,*args,:id=>options[:id],:class=>"span12"+cl,:placeholder=>options[:placeholder],rows: (options[:rows] if options[:rows]),maxlength: (options[:maxlength] if options[:maxlength]))
       content_tag :div, class: "field",id:(options[:id] ? options[:id]+"_field" : "") do
         if options[:label]
           field_label(name,options)+field

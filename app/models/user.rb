@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   has_many :search_alerts,:dependent=>:destroy
   #has_many :jobs, :foreign_key => 'user_id', :class_name => "Task"
   has_many :vehicles
+  has_many :reviews
   has_many :adverts
   has_many :impressions
   has_many :authentications
@@ -38,11 +39,11 @@ class User < ActiveRecord::Base
   validate :validate_tos,:on=>:create
 
   before_update :update_city
- 
+
   def self.search(search_params)
-    
-  if search_params
     dealers=User.where("is_dealer = ?", true)
+  if search_params
+    
     dealers=dealers.where('company_name LIKE ?', "%#{search_params[:name]}%") if search_params[:name].present?
     if search_params[:location].present?
     location=search_params[:location]

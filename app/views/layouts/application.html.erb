@@ -3,7 +3,7 @@
   <head>
  
    <script src='http://www.google.com/jsapi'></script>
-
+   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title><%= content_for?(:title) ? yield(:title) : "Webauto" %></title>
       <!--[if lt IE 9]>
@@ -16,6 +16,9 @@
        <meta name="author" content="" />
 
             <%= csrf_meta_tags %>
+			   <% if content_for?(:head) %>
+            <%= yield(:head) %>
+		      <% end %>
             <%= include_gon %>
             <%= stylesheet_link_tag "application", :media => "all" %>
             <%= javascript_include_tag "application" %>
@@ -23,8 +26,7 @@
               window.locale = "<%= I18n.locale %>"
               window.I18n = <%= current_translations.to_json.html_safe %>
             <% end %>
-            <%= yield(:head) %>
-		
+			  
           </head>
           <body class="<%= controller_name %> <%= action_name %>">
 			  <div id="fb-root"></div>
@@ -96,7 +98,7 @@
                         <li id="link_to_compare_footer"> 
 					 <%= render 'layouts/link_to_compare_footer'%>
 						</li>
-                       
+                          <li><%= link_to t('navigation.reviews'), reviews_path %></li>
                         <!--
                         <li><%= link_to 'Cars', search_cars_path,:method=>:post  %></li>
                         <li><%= link_to 'Bikes', search_bikes_path,:method=>:post  %></li>
@@ -163,7 +165,7 @@
                 </div>
                 <div class="row-fluid" >
                   <div class="span12" style="margin-top:10px;">
-                 <small class="muted" > Copyright © 2016 Webauto, All Rights Reserved.</small>
+                 <small class="muted" > <%= t('navigation.copyright') %></small>
                   </div>
                   </div>
 
@@ -186,6 +188,19 @@
 
 			<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/1.0.9/cookieconsent.min.js"></script>
 			<!-- End Cookie Consent plugin --><!--/ Datepicker for parental benefit calculator /-->
-			
+			<script>
+		  if (window.locale=='et') {
+			  var l="et";
+		  }else if (window.locale=='ru'){
+			  var l="ru";
+		  }else{ 
+			  var l="en_US";
+		  }
+			window.___gcfg = {
+				lang: l,
+				parsetags: 'onload'
+			};
+			</script>
+		    <script src='https://apis.google.com/js/platform.js' async defer></script>
           </body>
         </html>

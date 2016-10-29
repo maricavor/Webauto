@@ -1,0 +1,10 @@
+<ul class="breadcrumb custom-breadcrumb">
+  
+  <li><%= link_to t("navigation.home"),reviews_path %> <span class="divider">/</span></li>
+
+  <li ><%= @review.make_name %><span class="divider">/</span></li>
+    <li ><%= @review.model_name %><span class="divider">/</span></li>
+	   <li><%= @review.registered_at_year %><span class="divider">/</span></li>
+   <li class="active"><strong><%= @review.vehicle_name  %></strong></li>
+
+</ul>

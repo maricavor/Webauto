@@ -62,7 +62,8 @@
         <!--<li role="presentation"><%= link_to @current_type.name+' valuation', "#",:role=>"menuitem",:tabindex=>"-1"  %></li>-->
         <!--<li role="presentation"><%= link_to @current_type.name+' research', "#",:role=>"menuitem",:tabindex=>"-1"  %></li>-->
         <li role="presentation" id="link_to_compare">   <%= render 'layouts/link_to_compare'%></li>
-
+        <li role="presentation"><%= link_to t("navigation.reviews"), reviews_path,:role=>"menuitem",:tabindex=>"-1"  %></li>
+		
         <!--<li role="presentation"><%= link_to 'Finance', "#",:role=>"menuitem",:tabindex=>"-1"  %></li>-->
         <!--<li role="presentation"><%= link_to 'Insurance', "#",:role=>"menuitem",:tabindex=>"-1"  %></li>-->
       </ul>

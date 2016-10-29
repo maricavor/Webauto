@@ -7,5 +7,5 @@
     remote:        data-remote
 -%>
 <span class="btn btn-small first">
-  <%= link_to_unless current_page.first?, raw(t 'views.pagination.first'), url,:method=>:post, :remote => remote,:class=>"page_link" %>
+  <%= link_to_unless current_page.first?, raw(t 'views.pagination.first'), url,:method=>:get, :remote => remote,:class=>"page_link" %>
 </span>

@@ -1,0 +1,28 @@
+ <div class="refine_search well well-small" >
+  <div class="visible-phone">
+    
+      <%= link_to_expand_search %><%= link_to_collapse_search %>
+  </div>
+    <div class="hidden-phone">
+     <h4><%=t("search.search_vehicles") %></h4>
+     
+  </div>
+    <div class="expandable hidden-phone">
+<small><%= link_to t("search.reset_search"),"#",class: "reset_search" %></small>
+
+
+<div class="sidebar-nav" style="padding-bottom:0;">
+<%= form_tag reviews_path, :method => :get, :id => "reviews_search",:class=>"vehicles_custom_search",:authenticity_token => true, :remote=>false do %>
+     <%= select_tag :bt, options_for_select([[t("search.bodytype_title"),""]]+@bodytypes.collect {|p| [ p.name, p.id ] }),:id=>"search_bt",:class=>"selectpicker show-tick show-menu-arrow", :title=>t("search.bodytype_title"),:'data-width'=>"100%",:'data-size'=>"10" %>
+   <%= select_tag :make, options_for_select([[t("search.make"),""]]+@makes.collect {|p| [ p.name, p.name ] }),:id=>"search_fields_attributes_0_make_name",:class=>"make_select selectpicker show-tick show-menu-arrow",:title=>'Make (any)',:'data-live-search'=>"false",:'data-width'=>"100%" %>
+   <%= select_tag :model, [],:id=>"search_fields_attributes_0_model_name",:class=>"model_select selectpicker show-tick show-menu-arrow",:title=>t("search.model"),:'data-live-search'=>"false",:'data-width'=>"100%" %>
+ <% min_years=get_min_years %>
+ <% max_years=get_max_years %>  
+   <%= select_tag :yeargt, options_for_select([[t("search.min_year"),""]]+min_years),:id=>"search_yeargt",:class=>"selectpicker show-tick show-menu-arrow", :'data-subtext'=>t("search.min_year"), :'data-width'=>"100%",:'data-size'=>"10" %>
+      <%= select_tag :yearlt, options_for_select([[t("search.max_year"),""]]+max_years),:id=>"search_yearlt",:class=>"selectpicker show-tick show-menu-arrow",  :'data-subtext'=>t("search.max_year"),:'data-width'=>"100%",:'data-size'=>"10" %>
+    <%= select_tag :tm,options_for_select([[t('search.transmission'),""]]+t('transmissions').collect {|p| [p["name"], p["id"] ]}),:id=>"search_tm",:class=>"selectpicker show-tick show-menu-arrow", :title=>t("search.transmission"),:'data-width'=>"100%"%>
+    <p style="margin-top:5px;"><button class="btn btn-info btn-block" type="submit" ><%= t("search.search") %></button></p>
+<% end %>
+</div><!--/.well -->
+ </div>
+  </div>

@@ -1,0 +1,88 @@
+<% content_for :title,@title %>
+<div class="row-fluid">
+  <div class="span12">
+    <div class="page-header">
+      <h2><%= t("reviews.index.heading")%></h2>
+     
+    </div>
+   </div>
+    </div>
+<div class="row-fluid">
+  <div id="search_form" class="span3">
+         <%= render 'reviews/partials/search_form' %>
+  </div><!--/span-->
+  <div id="search_results" class="span9">
+	  
+    <% if @reviews_count>0 %>
+	<div class="search_preloader"></div>
+	 <% if @reviews_count>@per %>
+    <div class="row-fluid">
+     <div class="span12">
+       
+      <div class="paginator">
+        <%= render 'reviews/partials/paginator' %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+      <div class="row-fluid">
+        <div class="span8">
+          <div class="page_entries_info">
+            <%= render 'reviews/partials/page_entries_info' %>
+          </div>
+        </div>
+      
+        <div class="span4">
+          <% if @reviews_count>1 %>
+            <div  class="sort_dropdown text-right hidden-phone">
+              <%= render 'reviews/partials/dropdown' %>
+            </div>
+            <div  class="sort_dropdown text-left visible-phone">
+              <%= render 'reviews/partials/dropdown' %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+     
+     <div id="reviews">
+       <%= render 'reviews/partials/reviews',reviews: @reviews %>
+     </div>
+  
+      <% if @reviews_count>4 %>
+       <div class="row-fluid">
+      <div class="span12">
+        <div class="page_entries_info">
+          <%= render 'reviews/partials/page_entries_info' %>
+        </div>
+      </div>
+    </div>
+	<% if @reviews_count>@per %>
+     <div class="row-fluid">
+      <div class="span12">
+        <div class="paginator">
+          <%= render 'reviews/partials/paginator' %>
+        </div>
+      </div>
+    </div>
+	 <% end %>
+      <% end %>
+    <% else %>
+      <div class='alert text-center'><%= t("reviews.index.nothing") %></div>
+    <% end %>
+  
+  </div><!--/span-->
+</div><!--/row-->
+ 
+  <div class="row-fluid" >
+    <div class="span12 text-center" >
+  	  <ul class="inline" style="margin-top:50px; margin-bottom:50px;">
+  		  <li>
+    <p class="lead"><%= t('reviews.details.would_you') %></p> 
+  </li> 
+  <li>
+  	<%= link_to t('reviews.details.write_review'), add_reviews_path,:class=>"btn btn-info btn-large"  %>
+  </li>
+  </ul>
+  	 </div>
+  	  </div>
+  

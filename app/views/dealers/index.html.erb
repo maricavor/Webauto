@@ -13,17 +13,18 @@
   </div><!--/span-->
   <div id="search_results" class="span9">
 
-    <% if @dealers.count>0 %>
-
+    <% if @dealers_count>0 %>
+	 <div class="search_preloader"></div>
+    <% if @dealers_count>@per %>
     <div class="row-fluid">
      <div class="span12">
-       <div class="search_preloader"></div>
+      
       <div class="paginator">
       <%= render 'dealers/partials/paginator' %>
       </div>
     </div>
   </div>
-
+<% end %>
       <div class="row-fluid">
         <div class="span8">
           <div class="page_entries_info">
@@ -40,7 +41,7 @@
         <%= render 'dealers/partials/dealers',dealers: @dealers %>
       </div>
   
-      <% if @dealers.count>4 %>
+      <% if @dealers_count>4 %>
        <div class="row-fluid">
       <div class="span12">
         <div class="page_entries_info">
@@ -48,6 +49,7 @@
         </div>
       </div>
     </div>
+	  <% if @dealers_count>@per %>
      <div class="row-fluid">
       <div class="span12">
         <div class="paginator">
@@ -55,6 +57,7 @@
         </div>
       </div>
     </div>
+	 <% end %>
       <% end %>
     <% else %>
 

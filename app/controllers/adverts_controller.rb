@@ -41,7 +41,7 @@ class AdvertsController < ApplicationController
   end
 
   def create
-    @advert = Advert.new(modify(params[:advert]))
+    @advert = Advert.new(modify(params[:advert],params[:save_activate]))
     @ad_type=params[:advert][:ad_type]
     @action="edit"
     @bodytypes=Bodytype.where(:type_id=>@current_type.id)
@@ -50,7 +50,6 @@ class AdvertsController < ApplicationController
     gon.selected={"vehicles"=>[nil,nil,@advert.vehicle.model_id]} 
       respond_to do |format|
      if @advert.save
-       
         if params[:save_preview]
          session[:advert_step] =  nil
          format.html {
@@ -80,13 +79,18 @@ def update
     @advert.current_step = session[:advert_step]
     vehicle=@advert.vehicle
     respond_to do |format|
-    if @advert.update_attributes(modify(params[:advert]))
+    if @advert.update_attributes(modify(params[:advert],params[:save_activate]))
       if @advert.last_step? || params[:save_show]
-        @advert.alert_price_update
-        vehicle.save!#for reindexing solr
         session[:advert_step] =  nil
         @redirect_path=car_path(@advert.vehicle)
-        message=params[:save_activate] ? t("adverts.ad_saved_and_activated") : t("adverts.ad_saved")
+       if params[:save_activate] 
+        message = t("adverts.ad_saved_and_activated")
+        vehicle.ad_activated_at=@advert.activated_at 
+        @advert.alert_price_update
+      else
+        message= t("adverts.ad_saved")
+      end
+        vehicle.save!#for reindexing solr
         format.html {
         #redirect_to action: 'preview'
         redirect_to @redirect_path
@@ -212,26 +216,25 @@ def update
     gon.selected={"vehicles"=>[@vehicle.make_name,@vehicle.model_name,@vehicle.model_id]} if @vehicle.make
     
   end
-
- 
+  
   def activate
     @vehicle=@advert.vehicle
     respond_to do |format|
-    if @advert.update_attributes(:activated=>true)
+    if @advert.update_attributes(:activated=>true,:activated_at=>@advert.get_activated_at)
+       @vehicle.ad_activated_at=@advert.activated_at
        @vehicle.save!#for reindexing solr
-       
+       @advert.alert_price_update
       format.html {
        redirect_to  adverts_url 
        flash[:notice]=t("adverts.ad_activated")
-   }
+      }
       format.js { 
-        
         flash.now[:notice]=t("adverts.ad_activated")
-    
       }
     end
     end
   end
+  
   def deactivate
      @vehicle=@advert.vehicle
        respond_to do |format|
@@ -400,17 +403,20 @@ def find_advert
 
     end
     end
- def modify(params)
-
-    if params["vehicle_attributes"]
-      if params["vehicle_attributes"]["model_id"]
-      params["vehicle_attributes"]["model_spec"]='' if params["vehicle_attributes"]["model_id"]!="0"
+ def modify(params,save_activate)
+   advert_params=params
+    if save_activate
+      advert_params["activated_at"]=@advert.get_activated_at
     end
-    if params["vehicle_attributes"]["state_id"]
-      params["vehicle_attributes"]["city_id"]=nil if params["vehicle_attributes"]["state_id"]==""
+    if advert_params["vehicle_attributes"]
+      if advert_params["vehicle_attributes"]["model_id"]
+      advert_params["vehicle_attributes"]["model_spec"]='' if advert_params["vehicle_attributes"]["model_id"]!="0"
     end
-      #params["type_id"]=params["vehicle_attributes"]["type_id"]
+    if advert_params["vehicle_attributes"]["state_id"]
+      advert_params["vehicle_attributes"]["city_id"]=nil if advert_params["vehicle_attributes"]["state_id"]==""
     end
-    params
+      #params["type_id"]=params["advert"]["vehicle_attributes"]["type_id"]
+    end
+    advert_params
  end
 end

@@ -5,15 +5,18 @@
   </div><!--/span-->
   <div id="search_results" class="span9">
  
-    <% if @vehicles.count>0 %>
+    <% if @total>0 %>
+	  <div class="search_preloader"></div>
+	 <% if @total>@per_page %>
     <div class="row-fluid">
      <div class="span12">
-       <div class="search_preloader"></div>
+     
       <div class="paginator">
         <%= render 'vehicles/partials/paginator' %>
       </div>
     </div>
   </div>
+  <% end %>
       <div class="row-fluid">
         <div class="span8">
           <div class="page_entries_info">
@@ -22,7 +25,7 @@
         </div>
       
         <div class="span4">
-          <% if @vehicles.count>1 %>
+          <% if @total>1 %>
             <div  class="sort_dropdown text-right hidden-phone">
               <%= render 'vehicles/partials/dropdown' %>
             </div>
@@ -37,7 +40,7 @@
         <%= render 'vehicles/partials/vehicles',vehicles: @vehicles,version: "big" %>
       </div>
   
-      <% if @vehicles.count>4 %>
+      <% if @total>4 %>
        <div class="row-fluid">
       <div class="span12">
         <div class="page_entries_info">
@@ -45,6 +48,7 @@
         </div>
       </div>
     </div>
+	 <% if @total>@per_page %>
      <div class="row-fluid">
       <div class="span12">
         <div class="paginator">
@@ -52,6 +56,7 @@
         </div>
       </div>
     </div>
+	<% end %>
       <% end %>
     <% else %>
       <div class='alert text-center'><%= t("adverts.index.nothing") %></div>

@@ -201,7 +201,7 @@ ul.sortable_pictures { list-style-type: none; margin: 0; padding: 0;}
     margin-left:20px;
     }
     .action_buttons a{
-    margin-top:5px;
+    margin-bottom:5px;
     }
 #vehicle_registered_at_1i{
   width:100px;
@@ -255,6 +255,9 @@ textarea{
 }
 .image {
   position:relative;
+}
+.vehicle_description{
+	font-size:14px;
 }
 .image figcaption {
   position: absolute;

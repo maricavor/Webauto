@@ -122,7 +122,7 @@ margin-left:-40%; /* width/2) */
 margin-left:-40%; /* width/2) */ 
 }
 
-#general_info{
+#general_info,#popular_ads{
   font-size:12px;
 }
 .vehicle_name,.vehicle_price,.vehicle_ownership{
@@ -145,7 +145,9 @@ margin-left:-40%; /* width/2) */
   #general_info{
   font-size:12px;
 }
-
+#popular_ads{
+  font-size:14px;
+}
 .specs,.popular_searches{
    font-size:12px;
 }
@@ -160,6 +162,9 @@ margin-left:-40%; /* width/2) */
     text-align: center;
     margin-bottom:10px;
   }
+  .review_info{
+  	text-align: center;
+  }
  }
  
 /* Landscape phones and down */
@@ -167,7 +172,9 @@ margin-left:-40%; /* width/2) */
   #general_info{
   font-size:12px;
 }
-
+#popular_ads{
+  font-size:14px;
+}
 .footer {
   padding-left:10px;
   }
@@ -182,6 +189,10 @@ margin-left:-40%; /* width/2) */
 .dealer_picture{
   text-align: center;
   margin-bottom:10px;
+
+}
+.review_info{
+	text-align: center;
 }
  }
 @media print {    

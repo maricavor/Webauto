@@ -8,7 +8,7 @@ class GarageItemsController < ApplicationController
     @title= t("garage_items.index.title")
     @garage_items=current_user.garage_items.order("created_at desc")
     @count=@garage_items.count
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @vehicles }
@@ -48,12 +48,14 @@ class GarageItemsController < ApplicationController
    
  
     gon.selected={"vehicles"=>[nil,nil,@vehicle.model_id]} 
-    respond_to do |format|
+    
       if @vehicle.save
-        
+        respond_to do |format|
         format.html { redirect_to garage_items_path, notice: 'Car was successfully added.' }
         format.json { render json: @vehicle, status: :created, location: @vehicle }
+        end
       else
+        respond_to do |format|
         format.html { 
           flash[:alert]=@vehicle.errors.full_messages.first
           render action: "new" 
@@ -84,6 +86,8 @@ class GarageItemsController < ApplicationController
       end
     end
   end
+  
+  
 
   # DELETE /garage_items/1
   # DELETE /garage_items/1.json
@@ -92,8 +96,8 @@ class GarageItemsController < ApplicationController
     @vehicle=@garage_item.vehicle
     @garage_item.destroy
     unless @vehicle.advert
-    if @vehicle.photos.size>0
-    @photo=@vehicle.photos.first
+    if @vehicle.pictures.size>0
+    @photo=@vehicle.pictures.first
     @photo.destroy
     end
     @vehicle.really_destroy!

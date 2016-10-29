@@ -1,0 +1,15 @@
+$('html, body').scrollTop(0);
+$('#reviews').html("<%= j(render 'reviews/partials/reviews',reviews: @reviews) %>");
+$('.paginator').html("<%= j(render partial: 'reviews/partials/paginator') %>");
+$('.page_entries_info').html("<%= j(render partial: 'reviews/partials/page_entries_info') %>");
+
+$('.sort_dropdown').html("<%= j(render partial: 'reviews/partials/dropdown') %>");
+$('.overall_rating').raty({
+  score: function() {
+    return $(this).attr('data-score');
+  },
+  readOnly: true,
+  half: true,
+  precision: true
+});
+

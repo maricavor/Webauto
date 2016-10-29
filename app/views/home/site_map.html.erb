@@ -36,7 +36,8 @@
   	<dl>
   	  <dt><%=t("navigation.research")%></dt>
   	  <dd><%= link_to t("navigation.compare_#{@current_type.path_name}"),compare_path,:class=>"btn btn-link"  %></dd>
-   
+   <dd><%= link_to t("navigation.reviews"), add_reviews_path,:class=>"btn btn-link"  %></dd>
+	  
   	</dl>
 	  
   </div>

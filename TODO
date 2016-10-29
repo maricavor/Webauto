@@ -1,5 +1,42 @@
+- cooperation with www.euroncap.com
+- https://www.remondivalik.ee/
+- change features in starter package
+- use sendgrid https://sendgrid.com/blog/sendgrid-featured-on-openshifts-application-platform/
+- translate garage_item and review validations
+- add new review not only via garage item
+- add reviews to show page
+- do not activate review before approval and send email when review is submitted
+- think about no plans, advertisers pay only for what they consume
+- review language select for search form
+- partnership with carmanuals2.com???
+- review translations and ideas from www.autopass.ee/et/review and whatcar.ee
+- maybe add to review Praegu sõidab...
+- add the same share buttons for ad like for review
+- add meta tags for show vehicle
+- add owner reviews to show vehicle'
+- moderation rules for owner reviews (autotrader.co.uk)
+- change position of dealer logo in show
+- next deployment do rake reindex and add fields to database
+- proper validations and translations for reviews
+- add most useful for reviews (autotrader.co.uk)
+- integrate rollbar gem
+- default language to estonian
+- community http://discuss.carandbike.com/
+- http://www.kbb.com/sell-your-car/screen-potential-buyers/
+- car condition form http://m.carandbike.com/used/car-valuation-price-calculator
+- recently sold cars http://m.carandbike.com/used/sell-cars
+- wanted ads http://www.carandbike.com/used/want-cars/post
+- nice design https://www.brandbucket.com/names/search=bank
+- Lisatud 29/08/2016 for my ads is wrong
+- my garage and my ads tables change to small resposnive for mobile screen
+- car rankings against another car like on cargurus.com
+- reminders
+- twilio integration
+- for graphs - dygraphs.com or d3
+
 - newrelic
 - very good design idea from google+ https://plus.google.com/u/0/collections/
+- very good design idea https://www.sitepoint.com/premium/topics/all?q=&limit=24&offset=0&page=1&content_types[]=Book&slugs[]=all&states[]=available&order=
 - add Soov.ee rules to terms and conditions about copyright http://soov-ee.postimees.ee/kasutajatugi/kuulutamise-reeglid
 - multiple emails https://subvisual.co/blog/posts/66-sending-multiple-emails-with-actionmailer
 - when facebook user do not have email, not possible to register, try olegtsoganov

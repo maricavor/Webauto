@@ -4,6 +4,11 @@ require 'resque/server'
 Webauto::Application.routes.draw do
 
 
+  
+
+
+  
+
   resources :price_alerts
 
 
@@ -83,7 +88,7 @@ Webauto::Application.routes.draw do
     get "vehicles/show_cities",:as=> 'show_cities'
     get "vehicles/show_regions_in_search",:as=> 'show_regions_in_search'
     get "vehicles/update_states",:as=> 'update_states'
-    match "vehicles/get_recently_viewed_vehicles",:controller=>'vehicles',:action=>'get_recently_viewed_vehicles'
+    get "vehicles/get_recently_viewed_vehicles",:as=> 'get_recently_viewed_vehicles'
     match 'help/buying-a-car'=>'help#buying-a-car',:as=>:buying_a_car
     match 'help/selling-a-car'=>'help#selling-a-car',:as=>:selling_a_car
     match 'dealers/page(/:page)',:to=> 'dealers#index',:as => :dealers
@@ -103,7 +108,7 @@ Webauto::Application.routes.draw do
     resources :services
     resources :line_items
     resources :carts
-    resources :garage_items 
+    resources :garage_items  
     resources :adverts do
       match 'page(/:page)' => 'adverts#index',:via => [:post,:get],:on => :collection
       member do
@@ -159,7 +164,15 @@ Webauto::Application.routes.draw do
     get '/saved_adverts', to: 'saved_items#index', as: 'saved_items'
     resources :contact_forms
     resources :search_alerts,:only=>[:index,:show]
-    
+    resources :reviews,:only=>[:index,:show, :new, :create, :destroy] do
+      collection do
+        get :confirmation,:add
+      end
+      member do
+        get :details, :ads
+      end
+    end
+    match 'reviews/new(/:id)'=>'reviews#new',:as=>:new_review
     get "notifier_tester/comment_updated"
     get "notifier_tester/vehicle_price_updated"
     get "notifier_tester/vehicle_status_sold"

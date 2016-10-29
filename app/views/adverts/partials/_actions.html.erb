@@ -1,8 +1,16 @@
  <div style="padding-top:20px; margin-top:20px; border-top: 1px solid #eeeeee;">
   <% if controller.action_name=="details" %>
    <%= link_to t("adverts.actions.back"), edit_advert_path(@advert),:class=>"btn"  %>
+   <% elsif controller.action_name=="features"%>
+    <%= link_to t("adverts.actions.back"), details_advert_path(@advert),:class=>"btn"  %>
+    <% elsif controller.action_name=="photos"%>
+     <%= link_to t("adverts.actions.back"), features_advert_path(@advert),:class=>"btn"  %>
+     <% elsif controller.action_name=="contact"%>
+      <%= link_to t("adverts.actions.back"), photos_advert_path(@advert),:class=>"btn"  %>
+      <% elsif controller.action_name=="checkout"%>
+       <%= link_to t("adverts.actions.back"), contact_advert_path(@advert),:class=>"btn"  %>
    <% else %>
-  <%= link_to t("adverts.actions.back"), :back,:class=>"btn"  %>
+
   <% end %>
  <% if @action=="checkout" %>
     <% if @advert.activated %>

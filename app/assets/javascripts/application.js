@@ -23,6 +23,7 @@
 //= require loadingoverlay.min
 //= require jquery-fileupload/basic
 //= require jquery.capty.min
+//= require jquery.raty.js
 //= require_tree .
 $(window).on('load', function(e) {
     if (window.location.hash == '#_=_') {

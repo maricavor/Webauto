@@ -198,7 +198,7 @@ ul.sortable_pictures { list-style-type: none; margin: 0; padding: 0;}
     margin-left:20px;
     }
     .action_buttons a{
-    margin-top:5px;
+    margin-bottom:5px;
     }
 #vehicle_registered_at_1i{
   width:100px;
@@ -252,6 +252,9 @@ textarea{
 }
 .image {
   position:relative;
+}
+.vehicle_description{
+	font-size:14px;
 }
 .image figcaption {
   position: absolute;
@@ -9257,7 +9260,7 @@ a:hover {
   }
 
   /* line 125, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
-  #general_info {
+  #general_info, #popular_ads {
     font-size: 12px;
   }
 
@@ -9283,74 +9286,94 @@ a:hover {
     font-size: 12px;
   }
 
-  /* line 149, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 148, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  #popular_ads {
+    font-size: 14px;
+  }
+
+  /* line 151, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .specs, .popular_searches {
     font-size: 12px;
   }
 
-  /* line 153, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 155, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .footer {
     padding-left: 10px;
   }
 
-  /* line 156, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 158, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .dealer_address {
     text-align: center;
   }
 
-  /* line 159, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 161, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .dealer_picture {
     text-align: center;
     margin-bottom: 10px;
+  }
+
+  /* line 165, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  .review_info {
+    text-align: center;
   }
 }
 /* Landscape phones and down */
 @media (max-width: 480px) {
-  /* line 167, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 172, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   #general_info {
     font-size: 12px;
   }
 
-  /* line 171, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 175, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  #popular_ads {
+    font-size: 14px;
+  }
+
+  /* line 178, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .footer {
     padding-left: 10px;
   }
 
-  /* line 175, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 182, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .specs, .popular_searches {
     font-size: 12px;
   }
 
-  /* line 179, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 186, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .dealer_address {
     text-align: center;
   }
 
-  /* line 182, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 189, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .dealer_picture {
     text-align: center;
     margin-bottom: 10px;
   }
+
+  /* line 194, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  .review_info {
+    text-align: center;
+  }
 }
 @media print {
-  /* line 188, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 199, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .no-print, .no-print * {
     display: none !important;
   }
 
-  /* line 191, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 202, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   a[href]:after {
     content: none !important;
   }
 
-  /* line 195, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 206, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .tab-content > .tab-pane {
     display: block !important;
     opacity: 1 !important;
     visibility: visible !important;
   }
 
-  /* line 200, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
+  /* line 211, ../../app/assets/stylesheets/bootstrap_and_overrides.css.scss */
   .thumbnail {
     width: 400px;
   }

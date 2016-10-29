@@ -54,10 +54,20 @@
           
           
             <td class="muted">
+				<ul class="unstyled">
+					<li>
               <small><strong class="text-success"><%=t("garage_items.index.updated")%></strong>
-                <strong><%= "#{time_ago_in_words(g.updated_at)} "+t("garage_items.index.ago") %></strong>
+                <strong><%= "#{time_ago_in_words(vehicle.updated_at)} "+t("garage_items.index.ago") %></strong>
                 </small>
-				
+			</li>
+			<% if vehicle.review %>
+					<li>
+              <small><strong class="text-success"><%=t("garage_items.index.reviewed")%></strong>
+                <strong><%= "#{time_ago_in_words(vehicle.review.created_at)} "+t("garage_items.index.ago") %></strong>
+                </small>
+			</li>
+			<% end %>
+			</ul>
             </td>
             <td>
                 <div class="btn-group">
@@ -86,6 +96,9 @@
  		 <% end %>
 		 <% end %>
 	 </li>
+		<% unless vehicle.review %>
+	 <li><%= link_to t("reviews.details.write_review"), new_review_path(vehicle) %></li>
+	<% end %>
 	 <li><%= link_to t("searches.index.delete"), g, method: :delete, data: { confirm: t("searches.index.delete_sure") },:remote=>true %></li>
 </ul>
 </div>

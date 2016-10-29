@@ -230,10 +230,10 @@ class Search < ActiveRecord::Base
         with(:exchange,true) if exchange
       if mode=="normal"
         order_by(sort[0], sort[1])
-        order_by(:created_at, :desc) if sort[0]=="popularity"
+        order_by(:ad_activated_at, :desc) if sort[0]=="popularity"
         paginate(:page => page, :per_page => per_page)
       else
-        order_by(:created_at, :desc) 
+        order_by(:ad_activated_at, :desc) 
       end
       end
         solr_search

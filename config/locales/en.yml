@@ -80,6 +80,8 @@ en:
     create_ad: Create ad
     garage_items: My garage
     comment_login:  "<a href='%{login}'>Login</a> or <a href='%{register}'>Register</a> now to post a comment!"
+    reviews: Owner reviews
+    copyright: "Copyright © 2016 Webauto, All Rights Reserved."
   search:
     open_search: Open search
     close_search: Close search
@@ -135,6 +137,10 @@ en:
     kms_low_high: "Kms (Low to High)"
     year_high_low: "Year (High to Low)"
     year_low_high: "Year (Low to High)"
+    date_newest_first: "Date (Newest first)"
+    date_oldest_first: "Date (Oldest first)"
+    rating_highest_first: "Rating (Highest first)"
+    rating_lowest_first: "Rating (Lowest first)"
   signin:
     email: Email
     password: Password 
@@ -169,6 +175,10 @@ en:
   service_histories: [{name: "Full service history", id: 1},{name: "Part service history", id: 2},{name: "No service history", id: 3}]
   features: [{name: "Leather upholstery", id: "leather_upholstery"},{name: "Heated seats", id: "seat_heating_count"},{name: "Navigation", id: "navigation"},{name: "Central locking", id: "central_locking"},{name: "Tow hitch", id: "tow_hitch"},{name: "Cruise control", id: "cruise_control"},{name: "Light alloy wheels", id: "light_alloy_wheels"},{name: "Full service history", id: "service_history_id"},{name: "Power steering", id: "power_steering"},{name: "Power windows", id: "power_windows"},{name: "Climate control",id: "climate_control_id"}]
   ad_delete_reasons: [{name: "I sold the vehicle on Webauto.ee.", id: 1},{name: "I sold the vehicle through another channel.", id: 2},{name: "I traded the vehicle in for a purchase.", id: 3},{name: "I don't want to sell the vehicle anymore.", id: 4},{name: "Other reasons.", id: 5}]
+  how_well: [{name: "Borrowed from a friend", id: 1},{name: "Hired it", id: 2},{name: "Company car", id: 3},{name: "I test drove this car", id: 4},{name: "Other", id: 5}]
+  how_long: [{name: "Less than a week", id: 1},{name: "Less than a month", id: 2},{name: "3 months", id: 3},{name: "6 months", id: 4},{name: "12 months", id: 5},{name: "2 years", id: 6},{name: "3 years", id: 7},{name: "4 years", id: 8},{name: "5+ years", id: 9},{name: "10+ years", id: 10}]
+  what_for: [{name: "A to B driving", prop: "a_to_b"},{name: "Sport & Outdoors", prop: "outdoors"},{name: "Offroading", prop: "offroading"},{name: "Second or extra car", prop: "extra_car"},{name: "The Family Car", prop: "family_car"},{name: "Towing", prop: "towing"},{name: "Learning to Drive - My first car", prop: "first_car"},{name: "Weekend activity", prop: "weekend"},{name: "Road trips & Holiday", prop: "holiday"},{name: "My Job", prop: "job"},{name: "Racing", prop: "racing"},{name: "Collecting & Showing", prop: "showing"}]
+  likes_dislikes: [{name: "Acceleration", id: 1},{name: "Aesthetics/Styling", id: 2},{name: "Arm rest", id: 3},{name: "Boot space", id: 4},{name: "Carry capacity", id: 5},{name: "Comfort", id: 6},{name: "Cost to service", id: 7},{name: "Dependability", id: 8},{name: "Driver Vision", id: 9},{name: "Fuel economy", id: 10},{name: "Gear change", id: 11},{name: "Handling", id: 12},{name: "Lights", id: 13},{name: "Cooling", id: 14},{name: "Heating", id: 15},{name: "Responsiveness", id: 16},{name: "Sat nav", id: 17},{name: "Seat space", id: 18},{name: "Smoothness", id: 19},{name: "Sound system", id: 20},{name: "Technology", id: 21},{name: "Towing capacity", id: 22},{name: "Turning circle", id: 23},{name: "Wheels", id: 24},{name: "Wipers", id: 25}]
   index:
     create_ad: "CREATE A FREE LISTING"
     most_popular: Most Popular
@@ -356,8 +366,8 @@ en:
       dealer: Dealer
       images: Image
       a_of_b: " %{a} of %{b}"
-      contact_dealer: Contact dealer
-      contact_private_seller: Contact private seller
+      contact_dealer: Contact seller
+      contact_private_seller: Contact seller
       recently_viewed: People also viewed 
       sellers_details: "Seller's details"
       similar_cars: Similar cars
@@ -411,8 +421,8 @@ en:
       winter_tires: Winter tires
       winter_tire_size: Winter tire size
       light_alloy_wheels: Light alloy wheels
-      noooo: No
-      yesss: Yes
+      noooo: "No"
+      yesss: "Yes"
       all_season: all season
       with_spikes: with spikes
       dimensions_weights: "Dimensions & Weights"
@@ -543,6 +553,8 @@ en:
       side_steps: Side steps
       outside_temperature: Outside temperature indicator
       uncompare: Compared!
+      own_driven: "Own or driven this kind of car?"
+      share_experience: "Share your experience and help others make the right choice when buying their next car."
     search:
       viewed_by_you: Recently viewed by you
       advert: advert
@@ -579,6 +591,67 @@ en:
     note: "<strong>Note:</strong> Webauto.ee does not sell cars. If you have a question about a listing on our site, please contact the seller by filling out the form you see when viewing the listing details."
     acknowledge: "By clicking the send button you acknowledge that you have read and agree to abide by the Webauto.ee <a href='%{terms_link}' target='_blank'><strong>Terms and Conditions</strong></a> and <a href='%{privacy_link}' target='_blank'><strong>Privacy Policy</strong>.</a>"
     acknowledge_comments: "By posting comments you acknowledge that you have read and agree to abide by the Webauto.ee <a href='%{terms_link}' target='_blank'><strong>Terms and Conditions</strong></a> and <a href='%{privacy_link}' target='_blank'><strong>Privacy Policy</strong>.</a>"
+  reviews:
+    index: 
+      heading: Owner reviews
+      title: "Owner Reviews - Webauto.ee"
+      reviews: reviews
+      review: review
+      show: Show
+      nothing: "Nothing found"
+    confirmation: 
+      title: "Thank you for your review"
+      lead: "We check all reviews. Webauto.ee will send you an email when your review has been accepted for publication."
+      read_other: "Read other owner reviews"
+      write_another: "Write another owner review"
+    details:
+      title: "An owner review of the %{vehicle_name}"
+      description: "Check out this original owner review of the %{vehicle_name}. Rated as %{overall}/5 stars. Read the review to see why."
+      author: "Owner review by %{first_name} | %{created_at}"
+      how_well: "How well do you know this car"
+      driven: "Car driven"
+      odometer: "Car odometer"
+      what_for: "What did you use this car for"
+      recommend: "Would you recommend this car to a friend"
+      how_it_drives: "How it drives"
+      practicality: "Practicality"
+      reliability: "Reliability"
+      running_costs: "Running costs"
+      likes: Likes
+      dislikes: Dislikes
+      would_you: "Would you recommend your car?"
+      write_review: "Write a review"
+      for_sale: "For Sale"
+      own: Own
+      first_owner: "Were you the first owner"
+    new:
+      title: "Review your Car - Webauto.ee"
+      header: "Review your %{vehicle}"
+      lead: "Share your experience and help others make the right choice when buying their next car."
+      please_select: "Please select"
+      how_long: "How long did you drive this car?"
+      select_like: "Please select up to three things you like about this car"
+      dont_like: "don't like anything"
+      select_dislike: "Please select up to three things you dislike about this car"
+      dont_dislike: "don't dislike anything"
+      experience: "Tell us about your experiences with this car. What should potential owners know?"
+      characters: "characters left (Min. 100 characters)"
+      give_rate: "Give this car a star rating for each point"
+      smooth: "Is it smooth on the road, a pleasure to drive, fast on the road, difficult to handle?"
+      lifestyle: "How does it suit your lifestyle - is it spacious, child friendly, suitable for daily use?"
+      sustainable: "Is it sustainable for long periods and well-built or does it need constant care and repair?"
+      consumption: "Considering fuel consumption, servicing, parts and insurance, how worthwhile is it to run?"
+      overall: "Overall rating"
+      yess: "Yes"
+      noo: "No"
+      first_name: "First Name"
+      declaration: "I certify that this review is based on my genuine experience of this car. I have no personal or business affiliation with the car manufacturer, nor have been offered any payment or incentive by a manufacturer or dealer to write it."
+      validate_declaration: "Please accept declaration"
+      submit: "Submit review"
+      already_reviewed: "This vehicle was already reviewed"
+      no_selected: "No vehicle selected"
+      success: "Review was successfully submitted"
+      info: "NB! In order to write a review please add or choose a car from your list."
   dealers:
     index: 
       title: "Dealer Services - Webauto.ee"
@@ -719,10 +792,10 @@ en:
   garage_items:
     index:
       title: "My Garage - Webauto.ee"
-      update: Update
+      update: Edit
       activity: RECENT ACTIVITY
       actions: ACTIONS
-      add_car: Add a Car
+      add_car: Add a car
       add_photo: Add photo
       preview: Preview advert
       show: Show advert
@@ -734,7 +807,9 @@ en:
       association: Ownership
       save: Save
       cancel: Cancel
-      edit: Edit car
+      edit: Edit your car
+      review: Write review
+      reviewed: Reviewed
     edit:
       title: "Edit your Car - Webauto.ee"
     new:
@@ -766,7 +841,7 @@ en:
           one: "<small>Displaying <span class='badge badge-info'>1</span> %{entry_name}</small>"
           other: "<small>Displaying all <span class='badge badge-info'>%{count}</span> %{entry_name}</small>"
       more_pages:
-        display_entries: "<small>Displaying %{entry_name} <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span> of <span class='badge badge-info'>%{total}</span> in total</small>"
+        display_entries: "<small>Displaying %{entry_name} <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span> of <span class='badge badge-info'>%{total}</span> in total </small>"
   activemodel:
     attributes:
       inquiry: 
@@ -776,6 +851,9 @@ en:
         message: Message
   activerecord:
     attributes:
+      review:
+        experience: Your experience text
+        first_name: First name
       user:
         password: Password
         email: Email

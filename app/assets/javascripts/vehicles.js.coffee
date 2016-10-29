@@ -36,6 +36,12 @@ Models =
       if selected["tm"]
         $('#search_tm').selectpicker('val', selected["tm"].split(','))
         $('#search_tm').selectpicker('refresh')
+      if selected["yeargt"]
+        $('#search_yeargt').selectpicker('val', selected["yeargt"])
+        $('#search_yeargt').selectpicker('refresh')
+      if selected["yearlt"]
+        $('#search_yearlt').selectpicker('val', selected["yearlt"])
+        $('#search_yearlt').selectpicker('refresh')
       if selected["dt"]
         $('#search_dt').selectpicker('val', selected["dt"].split(','))
         $('#search_dt').selectpicker('refresh')
@@ -75,6 +81,9 @@ Models =
         $(this).selectpicker()
         Models.init_search(grouped_models,$('#search_fields_attributes_'+id+'_make_name option').filter(':selected'),$('#search_fields_attributes_'+id+'_model_name'))
         if selected
+          if selected["vehicles"][0][0]!=null
+            $('#search_fields_attributes_'+id+'_make_name').selectpicker('val', selected["vehicles"][0][0]) 
+            $('#search_fields_attributes_'+id+'_make_name').selectpicker('refresh')
           if selected["vehicles"][0][1]!=null
             $('#search_fields_attributes_'+id+'_model_name').selectpicker('val', selected["vehicles"][0][1].split(',')) 
             $('#search_fields_attributes_'+id+'_model_name').selectpicker('refresh')
@@ -95,8 +104,12 @@ Models =
             body += Models.option_tag(make,serie,serie,false,true)
             for m,i in models
               body += Models.option_tag(make,m[0],m[0],true)
-        t2.html(body) 
-        t2.selectpicker({title: t("search.any")+" #{make} "+t("search.models")})
+        if t2.prop('multiple')
+          t2.html(body)
+          t2.selectpicker({title: t("search.any")+" #{make} "+t("search.models")})
+        else
+          title="<option value=''>"+t("search.any")+" #{make} "+t("search.models")+"</option>"
+          t2.html(title+body)
     else
       t2.empty()
       t2.selectpicker({title: t("search.model")})
@@ -653,7 +666,7 @@ jQuery ->
     $("#"+id+"_file_field").trigger('click')
     event.preventDefault()
  
-  $("#moreTab a[data-toggle=\"tab\"]").on "shown", (e) ->
+  $(document).on "shown", "#moreTab a[data-toggle=\"tab\"]", (e) ->
     e.target # activated tab
     e.relatedTarget # previous tab
     hash=e.target.hash
@@ -667,7 +680,7 @@ jQuery ->
       $.get("/vehicles/"+e.target.className.substring(4)+"/show_viewed")
     return
 
-  $("#moreTabInSearch a[data-toggle=\"tab\"]").on "shown", (e) ->
+  $(document).on "shown", "#moreTabInSearch a[data-toggle=\"tab\"]", (e) ->
     e.target # activated tab
     e.relatedTarget # previous tab
     hash=e.target.hash
@@ -676,6 +689,7 @@ jQuery ->
     return
 
 
+  
   
 
 

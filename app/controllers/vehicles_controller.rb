@@ -55,6 +55,7 @@ class VehiclesController < ApplicationController
       
         #@title=t("vehicles.nothing")
       end
+     
       gon.selected=@search.to_gon_object
     else
       redirect_to new_search_path(:search=>"all")
@@ -159,7 +160,7 @@ class VehiclesController < ApplicationController
           with(:is_dealer,false) if is_private
         end
         order_by(sort[0], sort[1])
-        order_by(:created_at, :desc) if sort[0]=="popularity"
+        order_by(:ad_activated_at, :desc) if sort[0]=="popularity"
         paginate(:page => params[:page], :per_page => per_page)
       end
       if @solr_search.total>0
@@ -275,7 +276,7 @@ end
  
     id=@vehicle.id
      model_name=@vehicle.model_name
-     make_name= @vehicle.make.name if @vehicle.make
+     make_name= @vehicle.make_name
      type_id=@vehicle.type_id
      transmission_id=@vehicle.transmission_id
       @solr_search = Vehicle.search do
@@ -289,7 +290,7 @@ end
         without(:id,id)
         with(:activated,true)
         #order_by(:popularity,:desc)
-        order_by(:created_at, :desc)
+        order_by(:ad_activated_at, :desc)
         paginate(:page => 1, :per_page => 6)
       end
       if @solr_search.total>0
@@ -310,7 +311,7 @@ end
         without(:id,id)
         with(:user_id,user_id)
         with(:activated,true)
-        order_by(:created_at, :desc)
+        order_by(:ad_activated_at, :desc)
         paginate(:page => 1, :per_page => 6)
       end
       if @solr_search.total>0
@@ -343,7 +344,7 @@ end
         with(:odometer).greater_than_or_equal_to(odometer-20000) if odometer.present?
         with(:odometer).less_than_or_equal_to(odometer+20000) if odometer.present?
         #order_by(:popularity,:desc)
-        order_by(:created_at, :desc)
+        order_by(:ad_activated_at, :desc)
         paginate(:page => 1, :per_page => 6)
       end
       if @solr_search.total>0
@@ -525,7 +526,7 @@ end
 
  
   def get_index_vehicles(t_id)
-    @recent_adverts = Advert.where(:type_id =>t_id,:activated=>true).order("created_at desc").limit(12)
+    @recent_adverts = Advert.where(:type_id =>t_id,:activated=>true).order("activated_at desc").limit(12)
     @viewed_vehicles=get_viewed_vehicles(t_id)
     @popular_vehicles=get_popular_vehicles(t_id)
   end
@@ -536,7 +537,7 @@ end
        without(:advert_id,nil)
        with(:activated,true)
        order_by(:popularity, :desc)
-       order_by(:created_at, :desc)
+       order_by(:ad_activated_at, :desc)
        paginate(:page => 1, :per_page => 12)
      end
      if solr_search.total>0

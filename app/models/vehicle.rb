@@ -2,7 +2,7 @@ class Vehicle < ActiveRecord::Base
 
   acts_as_paranoid
   attr_accessor :current_step
-  attr_accessible :reg_nr, :advert_id, :make_id, :model_id, :model_spec, :make_model,:bodytype_id, :type_id, :year, :badge,:series, :vin, :registered_at, :bodytype_details, :odometer, :colour_id, :specific_colour, :metallic_colour, :price, :price_vat, :transmission_id, :fueltype_id, :drivetype_id, :climate_control_id, :user_id, :country_id, :origin_id, :registered, :is_active, :inspection_valid_to, :doors, :seats, :description, :power_steering, :power_steering_details, :central_locking, :with_remote, :abs, :airbags, :alarm, :alarm_details, :alarm_with_tow_away_protection, :alarm_with_motion_sensor, :alarm_with_two_way_comm, :immobilizer, :anti_skidding, :anti_skidding_details, :stability_control, :stability_control_details, :braking_force_reg, :braking_force_reg_details, :traction_control, :traction_control_details, :third_brake_light, :rain_sensor, :seatbelt_pretightener, :xenon, :xenon_low_beam, :xenon_high_beam, :headlight_washer, :special_light, :fog_lights, :fog_lights_front, :fog_lights_rear, :headlight_range, :extra_lights, :extra_lights_details, :auto_light, :summer_tires, :summer_tires_details, :summer_tires_size, :winter_tires, :winter_tires_details, :winter_tires_size, :all_season_tires, :spike_tires, :light_alloy_wheels, :dust_shields_details, :dust_shields, :light_alloy_wheels_details, :light_alloy_wheels_size, :steering_wheel_adjustment, :steering_wheel_height_and_depth, :steering_wheel_electrical, :steering_wheel_with_memory, :steering_wheel_multifunctional, :steering_wheel_leather, :car_stereo, :car_stereo_details, :car_stereo_cd, :car_stereo_mp3, :car_stereo_usb, :car_stereo_aux, :car_stereo_card, :car_stereo_original, :car_stereo_with_remote, :speakers_count, :subwoofer, :electric_antenna, :cd_changer, :navigation, :computer, :car_phone, :hands_free, :hands_free_details, :gsm, :mats, :textile_mats, :rubber_mats, :velour_mats, :leather_shift_lever, :leather_hand_break, :electrical_seats_with_memory, :electrical_seats_count, :seat_heating_count, :front_armrest, :rear_armrest, :down_folding_back_rest, :electric_mirrors, :heated_mirrors, :folding_mirrors, :mirrors_with_memory, :power_windows, :tinted_windows, :sunroof, :sunroof_details, :cruise_control, :distance_monitoring, :engine_preheating, :engine_preheating_details, :spot_lights, :parking_aid, :parking_aid_front, :parking_aid_rear, :inside_temperature_indicator, :roof_railings, :roof_rack, :outside_temperature_indicator, :front_window_heating, :rear_window_heating, :isolation_net, :luggage_cover, :tow_hitch, :tow_hitch_removable, :tow_hitch_electrical, :other_equipment, :sump_shield, :side_steps, :engine_power, :engine_size, :engine_type, :fueltank, :fuel_cons_city, :fuel_cons_freeway, :fuel_cons_combined, :acceleration, :max_speed, :transmission_details, :net_weight, :gross_weight, :load_capacity, :length, :width, :height, :warranty_valid_to, :service_book, :wrecked, :wrecked_details, :exchange, :exchange_details, :other_info, :gears, :cylinders, :emissions, :state_id, :city_id, :rear_wiper, :trim, :cloth_upholstery, :vinyl_upholstery, :faux_leather_upholstery, :wood_grain, :chrome, :leather_upholstery, :wheelbase, :warranty_km, :service_freq, :service_km, :price_negotiable, :deleted_at, :next_service, :next_service_km, :service_history_id, :owners,:show_reg_nr,:current_step,:garage_item_attributes, :popularity
+  attr_accessible :reg_nr, :advert_id, :make_id, :model_id, :model_spec, :make_model,:bodytype_id, :type_id, :year, :badge,:series, :vin, :registered_at, :bodytype_details, :odometer, :colour_id, :specific_colour, :metallic_colour, :price, :price_vat, :transmission_id, :fueltype_id, :drivetype_id, :climate_control_id, :user_id, :country_id, :origin_id, :registered, :is_active, :inspection_valid_to, :doors, :seats, :description, :power_steering, :power_steering_details, :central_locking, :with_remote, :abs, :airbags, :alarm, :alarm_details, :alarm_with_tow_away_protection, :alarm_with_motion_sensor, :alarm_with_two_way_comm, :immobilizer, :anti_skidding, :anti_skidding_details, :stability_control, :stability_control_details, :braking_force_reg, :braking_force_reg_details, :traction_control, :traction_control_details, :third_brake_light, :rain_sensor, :seatbelt_pretightener, :xenon, :xenon_low_beam, :xenon_high_beam, :headlight_washer, :special_light, :fog_lights, :fog_lights_front, :fog_lights_rear, :headlight_range, :extra_lights, :extra_lights_details, :auto_light, :summer_tires, :summer_tires_details, :summer_tires_size, :winter_tires, :winter_tires_details, :winter_tires_size, :all_season_tires, :spike_tires, :light_alloy_wheels, :dust_shields_details, :dust_shields, :light_alloy_wheels_details, :light_alloy_wheels_size, :steering_wheel_adjustment, :steering_wheel_height_and_depth, :steering_wheel_electrical, :steering_wheel_with_memory, :steering_wheel_multifunctional, :steering_wheel_leather, :car_stereo, :car_stereo_details, :car_stereo_cd, :car_stereo_mp3, :car_stereo_usb, :car_stereo_aux, :car_stereo_card, :car_stereo_original, :car_stereo_with_remote, :speakers_count, :subwoofer, :electric_antenna, :cd_changer, :navigation, :computer, :car_phone, :hands_free, :hands_free_details, :gsm, :mats, :textile_mats, :rubber_mats, :velour_mats, :leather_shift_lever, :leather_hand_break, :electrical_seats_with_memory, :electrical_seats_count, :seat_heating_count, :front_armrest, :rear_armrest, :down_folding_back_rest, :electric_mirrors, :heated_mirrors, :folding_mirrors, :mirrors_with_memory, :power_windows, :tinted_windows, :sunroof, :sunroof_details, :cruise_control, :distance_monitoring, :engine_preheating, :engine_preheating_details, :spot_lights, :parking_aid, :parking_aid_front, :parking_aid_rear, :inside_temperature_indicator, :roof_railings, :roof_rack, :outside_temperature_indicator, :front_window_heating, :rear_window_heating, :isolation_net, :luggage_cover, :tow_hitch, :tow_hitch_removable, :tow_hitch_electrical, :other_equipment, :sump_shield, :side_steps, :engine_power, :engine_size, :engine_type, :fueltank, :fuel_cons_city, :fuel_cons_freeway, :fuel_cons_combined, :acceleration, :max_speed, :transmission_details, :net_weight, :gross_weight, :load_capacity, :length, :width, :height, :warranty_valid_to, :service_book, :wrecked, :wrecked_details, :exchange, :exchange_details, :other_info, :gears, :cylinders, :emissions, :state_id, :city_id, :rear_wiper, :trim, :cloth_upholstery, :vinyl_upholstery, :faux_leather_upholstery, :wood_grain, :chrome, :leather_upholstery, :wheelbase, :warranty_km, :service_freq, :service_km, :price_negotiable, :deleted_at, :next_service, :next_service_km, :service_history_id, :owners,:show_reg_nr,:current_step,:garage_item_attributes, :popularity,:ad_activated_at
 
   belongs_to :type
   belongs_to :user
@@ -17,6 +17,7 @@ class Vehicle < ActiveRecord::Base
   has_many :price_changes, :dependent => :destroy, :order => [ :created_at ]
   has_many :saved_items
   has_one :garage_item
+  has_one :review
   accepts_nested_attributes_for :garage_item
   has_many :compared_items
   has_and_belongs_to_many :watchers, :join_table => "vehicle_watchers", :class_name => "User"
@@ -87,6 +88,7 @@ class Vehicle < ActiveRecord::Base
     string :make_model
     time :created_at
     time :registered_at_date
+    time :ad_activated_at
     string :serie_name do
       if model
         model.serie.name if model.serie
@@ -312,9 +314,16 @@ self.next_service_km.present? ? "#{self.next_service_km} km" : ""
   end
 
   def name
-    "#{self.registered_at_year} #{self.make_name} #{self.model_name} #{self.badge}"
+    n="#{self.registered_at_year} #{self.make_name} #{self.model_name}"
+    n+=" #{self.badge}" if self.badge.present?
+    n
   end
- 
+  def to_keywords
+    n = "#{self.registered_at_year}, #{self.make_name}, #{self.model_name}"
+    n += ", #{self.badge}" if self.badge.present?
+    n += ", #{self.engine_size} L, #{self.engine_power} kW, #{self.transmission}, #{self.location}"
+    n
+  end
   def short_name
     "#{self.registered_at_year} #{self.make_name} #{self.model_name}"
   end

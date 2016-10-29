@@ -79,6 +79,8 @@ et:
     create_ad: Lisa kuulutus
     garage_items: Minu sõidukid
     comment_login: "Kommentaari postitamiseks <a href='%{login}'>logige sisse</a> või <a href='%{register}'>registreeruge</a>!"
+    reviews: Autode hinnangud
+    copyright: "© 2016 Webauto.ee. Kõik õigused kaitstud."
   search:
     open_search: Ava otsing
     close_search: Sulge otsing
@@ -123,17 +125,21 @@ et:
     dealer: Autodiiler
     private: Eraisik
     search: Otsi
-    sorted_by: ""
+    sorted_by: "Sorteeritud:"
     most_recent: Viimati lisatud
     most_popular: Populaarsed
-    price_high_low: "Hind (High to Low)"
-    price_low_high: "Hind (Low to High)"
-    make_model_a_z: "Mark-mudel (A-Z)"
-    make_model_z_a: "Mark-mudel (Z-A)"
-    kms_high_low: "Kms (High to Low)"
-    kms_low_high: "Kms (Low to High)"
-    year_high_low: "Aasta (High to Low)"
-    year_low_high: "Aasta (Low to High)"
+    price_high_low: "Kallimad"
+    price_low_high: "Soodsamad"
+    make_model_a_z: "Mark ja mudel (A-Z)"
+    make_model_z_a: "Mark ja mudel (Z-A)"
+    kms_high_low: "Suurema läbisõiduga"
+    kms_low_high: "Väiksema läbisõiduga"
+    year_high_low: "Uuemad"
+    year_low_high: "Vanemad"
+    date_newest_first: "Värskemad"
+    date_oldest_first: "Vanemad"
+    rating_highest_first: "Kõrgelt hinnatud"
+    rating_lowest_first: "Madalamalt hinnatud"
   signin:
     email: E-mail
     password: Parool
@@ -168,6 +174,10 @@ et:
   service_histories: [{name: "Täielik hooldusajalugu", id: 1},{name: "Mittetäielik hooldusajalugu", id: 2},{name: "Hooldusajalugu puudub", id: 3}]
   features: [{name: "Nahkpolster", id: "leather_upholstery"},{name: "Istmesoojendus", id: "seat_heating_count"},{name: "Nav. seade", id: "navigation"},{name: "Kesklukustus", id: "central_locking"},{name: "Veokonks", id: "tow_hitch"},{name: "Püsikiiruse hoidja", id: "cruise_control"},{name: "Valuveljed", id: "light_alloy_wheels"},{name: "Täielik hooldusajalugu", id: "service_history_id"},{name: "Roolivõimendi", id: "power_steering"},{name: "El. aknad", id: "power_windows"},{name: "Kliimaseade",id: "climate_control_id"}]
   ad_delete_reasons: [{name: "Ma müüsin sõiduki Webauto.ee keskkonnas", id: 1},{name: "Ma müüsin sõiduki muu kanali kaudu", id: 2},{name: "Ma vahetasin sõiduki ümber ostu eesmärgil", id: 3},{name: "Ma ei soovi sõidukit enam müüa", id: 4},{name: "Muud põhjused", id: 5}]
+  how_well: [{name: "Laenasin sõbralt", id: 1},{name: "Rentisin", id: 2},{name: "Firma auto", id: 3},{name: "Tegin proovisõitu", id: 4},{name: "Muu", id: 5}]
+  how_long: [{name: "Vähem kui nädal", id: 1},{name: "Vähem kui kuu", id: 2},{name: "3 kuud", id: 3},{name: "6 kuud", id: 4},{name: "12 kuud", id: 5},{name: "2 aastat", id: 6},{name: "3 aastat", id: 7},{name: "4 aastat", id: 8},{name: "5+ aastat", id: 9},{name: "10+ aastat", id: 10}]
+  what_for: [{name: "Sõitmine punktist A punkti B", prop: "a_to_b"},{name: "Sport ja vabaõhuüritused", prop: "outdoors"},{name: "Maastikusõit", prop: "offroading"},{name: "Tagavaraauto", prop: "extra_car"},{name: "Pereauto", prop: "family_car"},{name: "Pukseerimine", prop: "towing"},{name: "Õppesõit - Minu esimene auto", prop: "first_car"},{name: "Nädalavahetuseüritused", prop: "weekend"},{name: "Maanteesõidud ja puhkus", prop: "holiday"},{name: "Tööauto", prop: "job"},{name: "Võidusõit", prop: "racing"},{name: "Kollektsiooni täiendamine ja näitused", prop: "showing"}]
+  likes_dislikes: [{name: "Kiirendus", id: 1},{name: "Välimus/stiil", id: 2},{name: "Käetoed", id: 3},{name: "Jalaruum", id: 4},{name: "Pagasiruumi mahtuvus", id: 5},{name: "Mugavus", id: 6},{name: "Hoolduskulud", id: 7},{name: "Sõltuvus", id: 8},{name: "Autojuhi visioon", id: 9},{name: "Ökonoomne kütusekulu", id: 10},{name: "Käiguvahetus", id: 11},{name: "Käsitsemine", id: 12},{name: "Tuled", id: 13},{name: "Jahutus", id: 14},{name: "Küte", id: 15},{name: "Tundlikkus", id: 16},{name: "Navigatsioonisüsteem", id: 17},{name: "Istumisruum", id: 18},{name: "Sujuvus", id: 19},{name: "Helitehnika", id: 20},{name: "Tehnoloogia", id: 21},{name: "Pukseerimisvõime", id: 22},{name: "Pöörderaadius", id: 23},{name: "Rattad", id: 24},{name: "Klaasipuhastid", id: 25}]
   index:
     create_ad: "LISA KUULUTUS"
     most_popular: Populaarsed
@@ -357,7 +367,7 @@ et:
       recently_viewed: Teised on samuti vaadanud
       sellers_details: "Võta müüjaga ühendust"
       similar_cars: Sarnased kuulutused
-      more: Selle automüüja teised kuulutused
+      more: Automüüja teised kuulutused
       nothing: Kuulutusi ei leitud
       interested: "Teile võib meeldida ka"
       compare: Lisa võrdlusse
@@ -539,6 +549,8 @@ et:
       side_steps: Astmelauad
       outside_temperature: Välistemperatuuri näidik
       uncompare: Lisatud võrdlusse
+      own_driven: "Kas omate sama autot või kasutasite seda?"
+      share_experience: "Jagage oma kogemusi ja aidake teistel teha õige valik oma järgmise auto ostmisel."
     search:
       viewed_by_you: Ma olen vaadanud
       advert: kuulutus
@@ -575,6 +587,67 @@ et:
     note: "<strong>Teade:</strong> Webauto.ee ei müü autosid. Kui Teil on küsimusi automüügi kuulutuse kohta, pöörduge müüja poole, täites kontaktvormi kuulutuse leheküljel."
     acknowledge: "Vajutades nupule \"Saada\" nõustute Webauto.ee <a href='%{terms_link}' target='_blank'><strong>kasutustingimuste</strong></a> ja <a href='%{privacy_link}' target='_blank'><strong>privaatsuspoliitikaga</strong></a>."
     acknowledge_comments: "Postitades kommentaari nõustute Webauto.ee <a href='%{terms_link}' target='_blank'><strong>kasutustingimuste</strong></a> ja <a href='%{privacy_link}' target='_blank'><strong>privaatsuspoliitikaga</strong>.</a>"
+  reviews:
+    index: 
+      heading: Autoomanike hinnangud
+      title: "Autode hinnangud - Webauto.ee"
+      reviews: hinnangut
+      review: hinnang
+      show: Vaata
+      nothing: "Hinnanguid ei leitud"
+    confirmation: 
+      title: "Täname hinnangu eest!"
+      lead: "Kõik hinnangud vaadatakse üle. Me ei avalikusta hinnanguid, mis sisaldavad solvanguid või muud kohatut sisu. Webauto.ee saadab Teile e-kirja, kui hinnang on vastu võetud."
+      read_other: "Loe teisi hinnanguid"
+      write_another: "Lisa veel üks hinnang"
+    details:
+      title: "Hinnang autole %{vehicle_name}"
+      description: "Vaata, millise hinnangu andis autoomanik autole %{vehicle_name}. Üldhinnag %{overall}/5."
+      author: "Autor: %{first_name} | %{created_at}"
+      how_well: "Kui hästi Te seda autot tegelikult tunnete"
+      driven: "Autojuhtimine"
+      odometer: "Auto läbisõit"
+      what_for: "Mis eesmärgil Te seda autot kasutasite"
+      recommend: "Kas soovitaksite seda autot oma sõbrale"
+      how_it_drives: "Sõiduomadused"
+      practicality: "Praktilisus"
+      reliability: "Töökindlus ja vastupidavus"
+      running_costs: "Ülalpidamiskulud"
+      likes: Eelised
+      dislikes: Puudused
+      would_you: "Kas soovitaksite oma autot teistele?"
+      write_review: "Lisa oma hinnang"
+      for_sale: "kuulutused"
+      own: "Olen omanik"
+      first_owner: "Kas Teie olite selle auto esimene omanik"
+    new:
+      title: "Lisa oma hinnang - Webauto.ee"
+      header: "Hinnang autole %{vehicle}"
+      lead: "Jagage oma kogemusi ja aidake teistel teha õige valik oma järgmise auto ostmisel."
+      please_select: "Palun valige"
+      how_long: "Kui kaua Te olete selle autoga sõitnud?"
+      select_like: "Palun valige kuni 3 asja, mis Teile selle auto puhul kõige rohkem meeldivad"
+      dont_like: "miski ei meeldi"
+      select_dislike: "Palun valige kuni 3 asja, mis Teile selle auto juures ei meeldi"
+      dont_dislike: "midagi häirivat pole"
+      experience: "Rääkige meile oma kogemustest selle autoga. Mida peaks võimalikud omanikud teadma?"
+      characters: "characters left (Min. 100 characters)"
+      give_rate: "Tähistage oma eelistused tärnide arvuga"
+      smooth: "Liigub maanteel sujuvalt, lausa rõõm juhtida, kiire maanteel, raske käsitseda?"
+      lifestyle: "Kuidas sobib see auto kokku Teie elustiiliga - kas ta on ruumikas, lapsesõbralik, sobiv igapäevaseks kasutuseks?"
+      sustainable: "Kas ta on pikaajaliselt vastupidav ja hea konstruktsiooniga või vajab hoolt ja parandamist?"
+      consumption: "Võttes arvesse kütusekulu, kindlustusmakseid, hooldekulusid, varuosasid - kas on seda mõtet pidada?"
+      overall: "Üldhinnang"
+      yess: "Jah"
+      noo: "Ei"
+      first_name: "Teie nimi"
+      declaration: "Ma kinnitan, et see ülevaade põhineb minu enda ehtsatel kogemustel selle autoga. Mul ei ole mingeid isiklikke ega ärialaseid sidemeid autotootjaga ja ma ei ole selle loo kirjutamiseks ühegi autotootja ega -müüja poolt kinni makstud."
+      validate_declaration: "Palun kinnitage, et see ülevaade põhineb Teie enda ehtsatel kogemustel selle autoga"
+      submit: "Salvesta"
+      already_reviewed: "See auto on juba hinnatud"
+      no_selected: "Auto pole valitud"
+      success: "Teie hinnang on salvestatud"
+      info: "NB! Hinnangu kirjutamiseks lisage või valige auto loendist."
   dealers:
     index: 
       title: "Autodiilerid - Webauto.ee"
@@ -732,6 +805,8 @@ et:
       save: Salvesta
       cancel: Tühista
       edit: Muuda andmeid
+      review: Lisa oma hinnang
+      reviewed: Hinnatud
     edit:
       title: "Muuda auto andmeid - Webauto.ee"
     new:
@@ -763,7 +838,7 @@ et:
           one: "<small>Näitan <span class='badge badge-info'>1</span> %{entry_name}</small>"
           other: "<small>Näitan <span class='badge badge-info'>%{count}</span> %{entry_name}</small>"
       more_pages:
-        display_entries: "<small>Kokku <span class='badge badge-info'>%{total}</span>. Näitan <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span></small>"
+        display_entries: "<small>Kokku <span class='badge badge-info'>%{total}</span>. Näitan <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span></small> "
   activemodel:
     attributes:
       inquiry: 
@@ -772,7 +847,10 @@ et:
         email: Saatja e-mail
         message: Sõnum
   activerecord:
-    attributes:  
+    attributes: 
+      review:
+        experience: Tekst 
+        first_name: Nimi
       user:
         password: Parool
         email: E-mail

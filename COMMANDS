@@ -7,3 +7,4 @@ rhc tail -a <yourappname>
 
 - port forwarding  rhc port-forward -a applicationName
 
+- before deploy --> RAILS_ENV=development bundle exec rake assets:precompile, for development remove public/assets folder
