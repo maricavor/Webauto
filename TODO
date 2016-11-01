@@ -1,3 +1,4 @@
+- print not showing all pages, try to make separate action print for vehicle or use PDFKit gem
 - cooperation with www.euroncap.com
 - https://www.remondivalik.ee/
 - change features in starter package

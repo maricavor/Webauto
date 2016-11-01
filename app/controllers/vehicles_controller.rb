@@ -8,7 +8,7 @@ class VehiclesController < ApplicationController
   before_filter :set_current_type,:only=>[:index,:search]
   before_filter :authenticate_user!, :only=>[:save,:watch,:unsave,:destroy]
   before_filter :set_params,:only=>[:index,:search]
-  before_filter :find_vehicle, :only => [:show,:save,:compare,:uncompare,:destroy,:watch,:sort_photos,:show_similar,:show_interesting,:show_more_dealer,:unsave,:show_viewed,:show_reg_nr,:show_vin,:print]
+  before_filter :find_vehicle, :only => [:show,:save,:compare,:uncompare,:destroy,:watch,:sort_photos,:show_similar,:show_interesting,:show_more_dealer,:unsave,:show_viewed,:show_reg_nr,:show_vin]
   before_filter :check_status, :only=>[:show]
  
   def set_params
@@ -522,9 +522,6 @@ end
 
   end
 
-
-
- 
   def get_index_vehicles(t_id)
     @recent_adverts = Advert.where(:type_id =>t_id,:activated=>true).order("activated_at desc").limit(12)
     @viewed_vehicles=get_viewed_vehicles(t_id)

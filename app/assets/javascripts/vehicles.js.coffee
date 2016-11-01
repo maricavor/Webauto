@@ -566,7 +566,6 @@ jQuery ->
     Models.toggle('#advert_vehicle_attributes_parking_aid','#parking_aid_front')
     Models.toggle('#advert_vehicle_attributes_parking_aid','#parking_aid_rear')
     true 
-
   $(document).on 'click', '.find_details', (event) ->
     regmark=$("#vehicle_reg_nr").val()
     vin=$("#vehicle_vin").val()

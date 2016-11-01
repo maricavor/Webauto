@@ -5,7 +5,7 @@
 <meta property="og:url" content="<%= url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: @vehicle,only_path: false) %>" />
 <meta property="og:type" content="product" />
 <meta property="og:title" content="<%= @vehicle.name %> <%= @vehicle.engine_name %>" />
-<meta property="og:description" content="<%= @vehicle.registered_at_year %>, <%= @vehicle.fueltype %>, <%= @vehicle.odometer_str %>, <%= currency(@vehicle.price) %> - <%= @vehicle.location %>" />
+<meta property="og:description" content="<%= @vehicle.fueltype %>, <%= @vehicle.odometer_str %>, <%= @vehicle.location %>, <%= currency(@vehicle.price) %>" />
 <meta property="og:image" content="<%= 'http://localhost:3000'+@vehicle.pictures.first.file_url(:medium) %>" />
 <meta property="og:site_name" content="Webauto.ee" />
 <meta name="twitter:card" content="product" />
@@ -106,7 +106,7 @@
 	
 	
 	 <%= render "vehicles/partials/tabs" %>
-    
+
   <p class="text-right muted"><small><%= t("vehicles.show.ad_updated") %> <%= time_ago_in_words(@vehicle.updated_at) %> <%= t("datetime.ago") %></small></p>
 </div>
 

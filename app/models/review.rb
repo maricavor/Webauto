@@ -95,6 +95,9 @@ end
 def odometer_value
   self.odometer.to_s + " km"
 end
+def fueltype
+  I18n.t('fueltypes').find { |c| c["id"]==self.fueltype_id }["name"] if self.fueltype_id.present?
+end
 def fueltype_value
  self.fueltype ? "#{self.fueltype}" : "&nbsp;".html_safe
 end
