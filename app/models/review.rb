@@ -8,7 +8,7 @@ class Review < ActiveRecord::Base
   belongs_to :model
   belongs_to :fueltype
   validate :validate_how_well, :if=> :owned_or_drove?
-  #validates :how_well_other, :presence => true, :if=> :other?
+  #validates :how_well_other, :presence => true, :if=> :other?###
   validate :validate_how_long
   validate :validate_what_for
   #validate :validate_likes
@@ -112,6 +112,7 @@ else
     hw=I18n.t('reviews.details.own')
 end
 end
+
 def how_long_value
   I18n.t('how_long').find { |c| c["id"]==self.how_long }["name"] 
 end
