@@ -2,7 +2,7 @@
 
 Search:
   fields:
-    default: keywords, tp, bt, fpgt, fplt, pwgt, pwlt, kmgt, kmlt, yeargt, yearlt, ft, tm, dt, cl, slug, user_ip, user_id, name, location, region, doors, stgt, stlt, engine_size, is_dealer, is_private, wrecked, exchange, features, dealers, sort, exception, adverts, new_adverts, alert_freq
-    form: keywords, tp, bt, fpgt, fplt, pwgt, pwlt, kmgt, kmlt, yeargt, yearlt, ft, tm, dt, cl, slug, user_ip, user_id, name, location, region, doors, stgt, stlt, engine_size, is_dealer, is_private, wrecked, exchange, features, dealers, sort, exception, adverts, new_adverts, alert_freq
+    default: keywords, tp, bt, fpgt, fplt, pwgt, pwlt, kmgt, kmlt, yeargt, yearlt, ft, tm, dt, cl, slug, user_ip, user_id, name, location, region, doors, stgt, stlt, engine_size, is_dealer, is_private, wrecked, exchange, features, dealers, sort, exception, allow_alerts, total, results, alert_freq
+    form: keywords, tp, bt, fpgt, fplt, pwgt, pwlt, kmgt, kmlt, yeargt, yearlt, ft, tm, dt, cl, slug, user_ip, user_id, name, location, region, doors, stgt, stlt, engine_size, is_dealer, is_private, wrecked, exchange, features, dealers, sort, exception, allow_alerts, total, results, alert_freq
   relationships: fields
   application: Application

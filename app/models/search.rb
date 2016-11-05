@@ -1,7 +1,7 @@
 class Search < ActiveRecord::Base
   extend FriendlyId
   attr_accessor :updating_name,:dealer_name,:create_alert
-  attr_accessible :updating_name,:dealer_name,:results,:bt, :cl, :dt, :fpgt, :fplt, :ft, :keywords, :kmgt, :kmlt, :pwgt, :pwlt, :tm, :tp, :fields_attributes,:location,:region,:engine_size,:doors,:stgt,:stlt,:slug,:keywords,:user_id,:user_ip,:name,:updated_at,:yeargt,:yearlt,:is_dealer,:is_private,:wrecked,:exchange,:features,:dealers,:sort,:exception,:alert_freq,:total,:allow_alerts,:create_alert,:saved_at
+  attr_accessible :updating_name,:dealer_name,:results,:bt, :cl, :dt, :fpgt, :fplt, :ft, :keywords, :kmgt, :kmlt, :pwgt, :pwlt, :tm, :tp, :fields_attributes,:location,:region,:engine_size,:doors,:stgt,:stlt,:slug,:keywords,:user_id,:user_ip,:name,:updated_at,:yeargt,:yearlt,:is_dealer,:is_private,:wrecked,:exchange,:features,:dealers,:sort,:exception,:alert_freq,:total,:allow_alerts,:create_alert,:saved_at, :as => [:admin, :default]
   has_many :fields, class_name: "MakeModelField",:dependent=>:destroy
   has_many :search_alerts,:dependent=>:destroy
   accepts_nested_attributes_for :fields, allow_destroy: true,reject_if: lambda {|attributes| attributes['make_name'].blank?}

@@ -1,7 +1,7 @@
 Typus::Resources.setup do |config|
 
   # Defines default_action_on_item.
-  # config.default_action_on_item = "edit"
+   config.default_action_on_item = "edit"
 
   # Defines end_year.
   # config.end_year = nil
@@ -16,7 +16,7 @@ Typus::Resources.setup do |config|
   # config.only_user_items = false
 
   # Defines per_page.
-  # config.per_page = 25
+  config.per_page = 25
 
   # Defines start_year.
   # config.start_year = nil

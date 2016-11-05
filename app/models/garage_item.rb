@@ -1,6 +1,6 @@
 class GarageItem < ActiveRecord::Base
   MAX_ITEMS=5
-  attr_accessible :user_id, :vehicle_id,:ownership_id,:advert_id
+  attr_accessible :user_id, :vehicle_id,:ownership_id,:advert_id,:as => [:admin, :default]
   belongs_to :user
   belongs_to :vehicle
   belongs_to :advert

@@ -1,12 +1,11 @@
 class Review < ActiveRecord::Base
   attr_accessor :declaration, :ownership_id
-  attr_accessible :vehicle_id, :bodytype_id, :make_id, :model_id, :model_spec, :transmission_id,:engine_size,:engine_power,:fueltype_id,:registered_at,:badge, :series,:odometer,:how_well,:first_owner,:how_well_other, :how_long, :performance, :practicality, :reliability, :running_costs,:overall, :title, :experience, :a_to_b, :first_car,:outdoors, :weekend,:offroading,:holiday,:extra_car, :job,:family_car,:racing,:towing,:showing, :declaration,:like1, :like2, :like3, :dislike1, :dislike2, :dislike3,:first_name, :user_id, :ownership_id,:accepted
+  attr_accessible :vehicle_id, :bodytype_id, :make_id, :model_id, :model_spec, :transmission_id,:engine_size,:engine_power,:fueltype_id,:registered_at,:badge, :series,:odometer,:how_well,:first_owner,:how_well_other, :how_long, :performance, :practicality, :reliability, :running_costs,:overall, :title, :experience_en, :experience_et, :a_to_b, :first_car,:outdoors, :weekend,:offroading,:holiday,:extra_car, :job,:family_car,:racing,:towing,:showing, :declaration,:like1, :like2, :like3, :dislike1, :dislike2, :dislike3,:first_name, :user_id, :ownership_id,:accepted,:as => [:admin, :default]
   belongs_to :vehicle
   belongs_to :user
   belongs_to :bodytype
   belongs_to :make
   belongs_to :model
-  belongs_to :fueltype
   validate :validate_how_well, :if=> :owned_or_drove?
   #validates :how_well_other, :presence => true, :if=> :other?###
   validate :validate_how_long

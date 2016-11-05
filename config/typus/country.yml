@@ -2,7 +2,7 @@
 
 Country:
   fields:
-    default: name
+    default: id, name
     form: name
   relationships: translations, states, cities, vehicles, users
   application: Application

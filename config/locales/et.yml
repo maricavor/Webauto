@@ -602,7 +602,7 @@ et:
       write_another: "Lisa veel üks hinnang"
     details:
       title: "Hinnang autole %{vehicle_name}"
-      description: "Vaata, millise hinnangu andis autoomanik autole %{vehicle_name}. Üldhinnag %{overall}/5."
+      description: "Vaata, millise hinnangu andis autoomanik autole %{vehicle_name}. Üldhinnang %{overall}/5."
       author: "Autor: %{first_name} | %{created_at}"
       how_well: "Kui hästi Te seda autot tegelikult tunnete"
       driven: "Autojuhtimine"

@@ -126,7 +126,7 @@ end
     model_name=@review.model_name
     make_name= @review.make_name 
     type_id=1
-    year=@review.year
+ 
      @solr_search = Vehicle.search do
        with(:model_name,model_name) 
        with(:make_name,make_name)   

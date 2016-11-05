@@ -19,7 +19,7 @@ class VehiclesController < ApplicationController
   def index
     @title=t("vehicles.index.title")
     @search= Search.new
-    @search.location=8
+    #@search.location=8
     @remote=false
     @search.fields.build
     @class=''

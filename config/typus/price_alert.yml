@@ -1,8 +1,8 @@
 # Use the README file as a reference to customize settings.
 
-Serie:
+PriceAlert:
   fields:
-    default: name, make_id
-    form: name, make_id
-  relationships: models
+    default: vehicle_id
+    form: vehicle_id
+  relationships: 
   application: Application

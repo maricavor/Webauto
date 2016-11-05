@@ -35,7 +35,7 @@ class SearchesController < ApplicationController
     elsif params[:search]=="bodytype"
       @search.bt=params[:value]
     end
-    @search.location=8
+    #@search.location=8
     @search.total=0
     @search.save!
 

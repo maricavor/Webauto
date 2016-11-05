@@ -2,7 +2,7 @@
 
 AdminUser:
   fields:
-    default: first_name, last_name, email, crypted_password
-    form: first_name, last_name, email, crypted_password
+    default: first_name, last_name, email
+    form: first_name, last_name, email
   relationships: 
   application: Application

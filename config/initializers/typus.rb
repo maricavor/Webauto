@@ -15,7 +15,7 @@ Typus.setup do |config|
   # This is a required Rails configuration. In production it must be the actual
   # actual host of your application.
   #
-  # config.mailer_sender = "admin@example.com"
+   config.mailer_sender = "sergeit6@gmail.com"
 
   # Define paperclip attachment styles.
   # config.file_preview = :medium

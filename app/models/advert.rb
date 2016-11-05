@@ -1,7 +1,7 @@
 class Advert < ActiveRecord::Base
   AD_TYPES = [ "free", "standard"]
   acts_as_paranoid
-  attr_accessible :contact_number,:make_model,:status,:email, :activated,:sold, :price, :secondary_number, :type, :uid,:vehicle_attributes,:deleted_at,:basics_saved,:details_saved,:features_saved,:photos_saved,:contact_saved,:ad_type,:user_id,:type_id,:delete_reason_id,:activated_at
+  attr_accessible :contact_number,:make_model,:status,:email, :activated,:sold, :price, :secondary_number, :type, :uid,:vehicle_attributes,:deleted_at,:basics_saved,:details_saved,:features_saved,:photos_saved,:contact_saved,:ad_type,:user_id,:type_id,:delete_reason_id,:activated_at,:as => [:admin, :default]
   attr_writer :current_step
   has_one :vehicle#,:dependent => :destroy
   has_one :order

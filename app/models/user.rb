@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessor :tos_agreement
-  attr_accessible :name,:email, :primary_phone,:secondary_phone, :password, :password_confirmation, :remember_me,:tos_agreement,:company_name,:company_reg,:address1,:address2,:country_id,:city_id,:state_id,:postal_code,:phone1,:phone2,:company_kmkr,:webpage,:is_dealer,:price_alert,:sold_alert,:interest_alert,:auto_alerts,:feature_alerts,:locale,:provider,:uid,:encrypted_password, :city_str
+  attr_accessible :name,:email, :primary_phone,:secondary_phone, :password, :password_confirmation, :remember_me,:tos_agreement,:company_name,:company_reg,:address1,:address2,:country_id,:city_id,:state_id,:postal_code,:phone1,:phone2,:company_kmkr,:webpage,:is_dealer,:price_alert,:sold_alert,:interest_alert,:auto_alerts,:feature_alerts,:locale,:provider,:uid,:encrypted_password, :city_str,:as => [:admin, :default]
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

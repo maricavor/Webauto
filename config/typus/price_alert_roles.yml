@@ -1,4 +1,4 @@
 # Use the README file as a reference to customize settings.
 
 admin:
-  Serie: create, read, update, delete
+  PriceAlert: create, read, update, delete
