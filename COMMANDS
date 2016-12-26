@@ -10,7 +10,7 @@ rhc tail -a <yourappname>
 - before deploy --> RAILS_ENV=development bundle exec rake assets:precompile, for development remove public/assets folder
 
 - rhc app-tidy <app_name>
-
+-----
 - for installing scalable foreman run: rhc cartridge add -a webauto2 http://cartreflect-claytondev.rhcloud.com/reflect?github=maricavor/openshift-foreman-cartridge
 
 - rhc stop-app --app myapp
