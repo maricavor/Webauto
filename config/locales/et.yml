@@ -21,6 +21,7 @@ et:
       photos: Kuni 7 fotot
       slideshow: Piltide slaidiesitlus
       notifications: Salvestatud kuulutuste teavitused
+      alerts: Salvestatud otsingute teavitused
       statistics: Vaatamise statistika
       already: "Oled juba kuulutanud?"
       manage: Muuda kuulutust
@@ -41,6 +42,7 @@ et:
     home: Avaleht
     cars: Autod
     cars_for_sale: Osta auto
+    cars_for_sale_upcase: OSTA AUTO
     all_cars: Kõik autod
     private_cars: Eramüüjad
     dealer_cars: Autodiilerid
@@ -80,6 +82,7 @@ et:
     garage_items: Minu sõidukid
     comment_login: "Kommentaari postitamiseks <a href='%{login}'>logige sisse</a> või <a href='%{register}'>registreeruge</a>!"
     reviews: Autode hinnangud
+    all_reviews: Autode hinnangud
     copyright: "© 2016 Webauto.ee. Kõik õigused kaitstud."
   search:
     open_search: Ava otsing
@@ -177,7 +180,7 @@ et:
   how_well: [{name: "Laenasin sõbralt", id: 1},{name: "Rentisin", id: 2},{name: "Firma auto", id: 3},{name: "Tegin proovisõitu", id: 4},{name: "Muu", id: 5}]
   how_long: [{name: "Vähem kui nädal", id: 1},{name: "Vähem kui kuu", id: 2},{name: "3 kuud", id: 3},{name: "6 kuud", id: 4},{name: "12 kuud", id: 5},{name: "2 aastat", id: 6},{name: "3 aastat", id: 7},{name: "4 aastat", id: 8},{name: "5+ aastat", id: 9},{name: "10+ aastat", id: 10}]
   what_for: [{name: "Sõitmine punktist A punkti B", prop: "a_to_b"},{name: "Sport ja vabaõhuüritused", prop: "outdoors"},{name: "Maastikusõit", prop: "offroading"},{name: "Tagavaraauto", prop: "extra_car"},{name: "Pereauto", prop: "family_car"},{name: "Pukseerimine", prop: "towing"},{name: "Õppesõit - Minu esimene auto", prop: "first_car"},{name: "Nädalavahetuseüritused", prop: "weekend"},{name: "Maanteesõidud ja puhkus", prop: "holiday"},{name: "Tööauto", prop: "job"},{name: "Võidusõit", prop: "racing"},{name: "Kollektsiooni täiendamine ja näitused", prop: "showing"}]
-  likes_dislikes: [{name: "Kiirendus", id: 1},{name: "Välimus/stiil", id: 2},{name: "Käetoed", id: 3},{name: "Jalaruum", id: 4},{name: "Pagasiruumi mahtuvus", id: 5},{name: "Mugavus", id: 6},{name: "Hoolduskulud", id: 7},{name: "Sõltuvus", id: 8},{name: "Autojuhi visioon", id: 9},{name: "Ökonoomne kütusekulu", id: 10},{name: "Käiguvahetus", id: 11},{name: "Käsitsemine", id: 12},{name: "Tuled", id: 13},{name: "Jahutus", id: 14},{name: "Küte", id: 15},{name: "Tundlikkus", id: 16},{name: "Navigatsioonisüsteem", id: 17},{name: "Istumisruum", id: 18},{name: "Sujuvus", id: 19},{name: "Helitehnika", id: 20},{name: "Tehnoloogia", id: 21},{name: "Pukseerimisvõime", id: 22},{name: "Pöörderaadius", id: 23},{name: "Rattad", id: 24},{name: "Klaasipuhastid", id: 25}]
+  likes_dislikes: [{name: "Kiirendus", id: 1},{name: "Välimus/stiil", id: 2},{name: "Käetoed", id: 3},{name: "Jalaruum", id: 4},{name: "Pagasiruumi mahtuvus", id: 5},{name: "Mugavus", id: 6},{name: "Hoolduskulud", id: 7},{name: "Vastupidavus", id: 8},{name: "Autojuhi visioon", id: 9},{name: "Ökonoomne kütusekulu", id: 10},{name: "Käiguvahetus", id: 11},{name: "Manööverdamine", id: 12},{name: "Tuled", id: 13},{name: "Jahutus", id: 14},{name: "Küte", id: 15},{name: "Tundlikkus", id: 16},{name: "Navigatsioonisüsteem", id: 17},{name: "Istumisruum", id: 18},{name: "Sujuvus", id: 19},{name: "Helitehnika", id: 20},{name: "Tehnoloogia", id: 21},{name: "Pukseerimisvõime", id: 22},{name: "Pöörderaadius", id: 23},{name: "Rattad", id: 24},{name: "Klaasipuhastid", id: 25}]
   index:
     create_ad: "LISA KUULUTUS"
     most_popular: Populaarsed
@@ -189,6 +192,7 @@ et:
     popular_makes: "Populaarsemad margid:"
     popular_models: "Populaarsemad mudelid:"
     popular_bodytypes: "Populaarsemad keretüübid:"
+    last_reviews_title: "Viimased autode hinnagud:"
   adverts:
     checkout:
       seller_details: Müüja andmed
@@ -259,6 +263,7 @@ et:
       provide_vin: "Anna kindlustunnet ja meelerahu sisestades sõiduki VIN-koodi, et potentsiaalsed ostjad saaksid vaadata teie sõiduki ajalugu."
       vin: Vin-kood
       find_details: Leia andmed
+      example: näide
     actions:
       back: Tagasi
       show: Näita kuulutus
@@ -475,7 +480,7 @@ et:
       motion_sensor: Mahuandur
       communication: "Kahepoolne side"
       immobilizer: Immobilisaator
-      anti_skid: Anti-skid system
+      anti_skid: "Libisemisvastane süsteem"
       stability: Stabiilsuskontroll
       brake_force: Pidurdusjõukontroll
       traction: Veojõukontroll
@@ -631,7 +636,7 @@ et:
       select_dislike: "Palun valige kuni 3 asja, mis Teile selle auto juures ei meeldi"
       dont_dislike: "midagi häirivat pole"
       experience: "Rääkige meile oma kogemustest selle autoga. Mida peaks võimalikud omanikud teadma?"
-      characters: "characters left (Min. 100 characters)"
+      characters: "sümbolit jäänud (min. 100 sümbolit)"
       give_rate: "Tähistage oma eelistused tärnide arvuga"
       smooth: "Liigub maanteel sujuvalt, lausa rõõm juhtida, kiire maanteel, raske käsitseda?"
       lifestyle: "Kuidas sobib see auto kokku Teie elustiiliga - kas ta on ruumikas, lapsesõbralik, sobiv igapäevaseks kasutuseks?"
@@ -886,7 +891,7 @@ et:
       comment:
         text: Kommentaar
       saved_item:
-        vehicle_id: Sõuduk
+        vehicle_id: Sõiduk
       compared_item:
         vehicle_id: Sõiduk
     errors:

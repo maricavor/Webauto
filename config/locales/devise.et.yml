@@ -4,6 +4,8 @@ et:
     sign_in_with: "Logige sisse kasutades:"
     confirmations:
       confirmed: Teie konto on edukalt kinnitatud.
+      new:
+        resend_confirmation_instructions: Saada kinnitusjuhend uuesti
       send_instructions: Mõne minuti jooksul saate e-kirja juhistega oma konto kinnitamiseks.
       send_paranoid_instructions: "Kui Teie e-post on meie andmebaasis, saate varsti e-kirja juhistega, kuidas oma konto kinnitada."
     failure:

@@ -157,7 +157,14 @@
    			 <% locales=I18n.available_locales.map {|l| l.to_s} %>
    			<ul class="nav nav-tabs" id="experienceTab">
    			 <% locales.each do |loc| %>
-   			  <li class="<%= 'active' if loc==I18n.locale.to_s %>"><a href="#<%= loc %>" data-toggle="tab"><%= (loc=="en" ? "in english" : "eesti keeles") %></a></li>
+			 <% if loc=="en" %>
+			 <% loc_title="in english" %>
+			 <% elsif loc=="et" %>
+			 <% loc_title="eesti keeles" %>
+			 <% else %>
+			 <% loc_title="на русском" %>
+			 <% end %>
+   			  <li class="<%= 'active' if loc==I18n.locale.to_s %>"><a href="#<%= loc %>" data-toggle="tab"><%= loc_title %></a></li>
    			 <% end %>
    			</ul>
  

@@ -2,22 +2,22 @@
   <div class="span4">
       <%= spec_title(t("adverts.details.engine_details")) %>
   
-      <%= f.text_field :engine_type,label: t("adverts.details.engine_type"),placeholder: "näide: TDI, V8, R5"  %>
+      <%= f.text_field :engine_type,label: t("adverts.details.engine_type"),placeholder: "#{t("adverts.edit.example")}: TDI, V8, R5"  %>
       <%= f.text_field :cylinders,label: t("adverts.details.cylinders"),type: "spinner"  %>
        <%= f.text_field :max_speed,label: t("adverts.details.max_speed") %>
-        <%= f.text_field :acceleration,label: t("adverts.details.acceleration"),placeholder: "näide: 10.5" %>
+        <%= f.text_field :acceleration,label: t("adverts.details.acceleration"),placeholder: "#{t("adverts.edit.example")}: 10.5" %>
     <%= spec_title(t("vehicles.show.fuel")) %>
-    <%= f.text_field :fuel_cons_city, label: t("adverts.details.fuel_cons_city"),placeholder: "näide: 12.7" %>
-    <%= f.text_field :fuel_cons_freeway,label: t("adverts.details.fuel_cons_freeway"),placeholder: "näide: 7.5"  %>
-    <%= f.text_field :fuel_cons_combined,label: t("adverts.details.fuel_combined"),placeholder: "näide: 9.4"  %>
-    <%= f.text_field :fueltank,label: t("adverts.details.fuel_capacity"),placeholder: "näide: 90"  %>
+    <%= f.text_field :fuel_cons_city, label: t("adverts.details.fuel_cons_city"),placeholder: "#{t("adverts.edit.example")}: 12.7" %>
+    <%= f.text_field :fuel_cons_freeway,label: t("adverts.details.fuel_cons_freeway"),placeholder: "#{t("adverts.edit.example")}: 7.5"  %>
+    <%= f.text_field :fuel_cons_combined,label: t("adverts.details.fuel_combined"),placeholder: "#{t("adverts.edit.example")}: 9.4"  %>
+    <%= f.text_field :fueltank,label: t("adverts.details.fuel_capacity"),placeholder: "#{t("adverts.edit.example")}: 90"  %>
      <%= spec_title(t("vehicles.show.wheels_tires")) %>
     <%= f.check_box :summer_tires,label: t("vehicles.show.summer_tires") %>
-    <%= f.text_field :summer_tires_details,:placeholder=> "näide: Nokian, Bridgestone",:id=>"summer_tires_details" %>
-    <%= f.text_field :summer_tires_size,:id=>"summer_tires_size",placeholder: "näide: 175/65R14"  %>
+    <%= f.text_field :summer_tires_details,:placeholder=> "#{t("adverts.edit.example")}: Nokian, Bridgestone",:id=>"summer_tires_details" %>
+    <%= f.text_field :summer_tires_size,:id=>"summer_tires_size",placeholder: "#{t("adverts.edit.example")}: 175/65R14"  %>
     <%= f.check_box :winter_tires,label: t("vehicles.show.winter_tires") %>
-    <%= f.text_field :winter_tires_details,:placeholder=> "näide: Nokian, Bridgestone",:id=>"winter_tires_details" %>
-    <%= f.text_field :winter_tires_size,:id=>"winter_tires_size",placeholder: "näide: 245/45R18" %>
+    <%= f.text_field :winter_tires_details,:placeholder=> "#{t("adverts.edit.example")}: Nokian, Bridgestone",:id=>"winter_tires_details" %>
+    <%= f.text_field :winter_tires_size,:id=>"winter_tires_size",placeholder: "#{t("adverts.edit.example")}: 245/45R18" %>
     <%= f.check_box :all_season_tires,label: t("adverts.details.all_season_tires").downcase,id:"all_season_tires",type: "extra" %>
     <%= f.check_box :spike_tires,label: t("adverts.details.spike_tires").downcase,id:"spike_tires",type: "extra"  %>
     <%= f.check_box :light_alloy_wheels,label: t("vehicles.show.light_alloy_wheels") %>
@@ -48,7 +48,7 @@
     <div class="span4">
     <%= spec_title(t("vehicles.show.transmission_drivetrain")) %>
      <%= f.select :transmission_id, t('transmissions').collect {|c| [ c["name"], c["id"] ] },{}, {label: t("adverts.details.transmission")}%>
-    <%= f.text_field :transmission_details,placeholder: "näide: Tiptronic" %>
+    <%= f.text_field :transmission_details,placeholder: "#{t("adverts.edit.example")}: Tiptronic" %>
     <%= f.text_field :gears,label: t("adverts.details.gears"),type: "spinner"  %>
     <%= f.select :drivetype_id, t('drivetypes').collect {|c| [ c["name"], c["id"] ] },{include_blank: true}, {label: t("adverts.details.drivetype")} %>
     <%= spec_title(t("adverts.details.other_info")) %>
@@ -62,9 +62,9 @@
     <%= f.text_field :owners,label: t("adverts.details.owners"),type:"spinner"  %>
     <%= f.select :climate_control_id,t('climate_controls').collect {|c| [ c["name"], c["id"] ] },{include_blank: true},{label: t("adverts.details.climate")} %>
     <%= f.check_box :wrecked,label: t("adverts.details.wrecked") %>
-    <%= f.text_field :wrecked_details,placeholder: "näide: varuosad kaasa"  %>
+    <%= f.text_field :wrecked_details,placeholder: "#{t("adverts.edit.example")}: varuosad kaasa"  %>
     <%= f.check_box :exchange,label: t("adverts.details.exchange") %>
-    <%= f.text_field :exchange_details,:placeholder=> "näide: odavama sõiduki vastu" %>
+    <%= f.text_field :exchange_details,:placeholder=> "#{t("adverts.edit.example")}: odavama sõiduki vastu" %>
     <%= f.hidden_field :current_step,:value=> @action %> 
     
   </div>

@@ -19,9 +19,10 @@ en:
       unlimited: UNLIMITED FREE EDITS
       start_selling: Start selling
       includes: "Every ad includes:"
-      photos: 7 photos
+      photos: Max 7 photos
       slideshow: Image slide show
       notifications: Saved advert notifications
+      alerts: Search alerts
       statistics: View statistics
       already: "Already have an ad?"
       manage: Manage Your Ad
@@ -42,6 +43,7 @@ en:
     home: Home
     cars: Cars
     cars_for_sale: Cars for sale
+    cars_for_sale_upcase: CARS FOR SALE
     all_cars: All cars
     private_cars: Private cars
     dealer_cars: Dealer cars
@@ -81,6 +83,7 @@ en:
     garage_items: My garage
     comment_login:  "<a href='%{login}'>Login</a> or <a href='%{register}'>Register</a> now to post a comment!"
     reviews: Owner reviews
+    all_reviews: Owner reviews
     copyright: "Copyright © 2016 Webauto, All Rights Reserved."
   search:
     open_search: Open search
@@ -190,6 +193,7 @@ en:
     popular_makes: "Popular makes:"
     popular_models: "Popular models:"
     popular_bodytypes: "Popular body types:"
+    last_reviews_title: "Last owner reviews:"
   adverts:
     checkout:
       seller_details: Seller details
@@ -260,6 +264,7 @@ en:
       provide_vin: "Provide confidence and peace of mind by including a VIN with your ad so that potential buyers can obtain a History Report."
       vin: Vin code
       find_details: Find details
+      example: example
     actions:
       back: Back
       show: Show

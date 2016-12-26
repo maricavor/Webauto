@@ -1,6 +1,6 @@
 class Review < ActiveRecord::Base
   attr_accessor :declaration, :ownership_id
-  attr_accessible :vehicle_id, :bodytype_id, :make_id, :model_id, :model_spec, :transmission_id,:engine_size,:engine_power,:fueltype_id,:registered_at,:badge, :series,:odometer,:how_well,:first_owner,:how_well_other, :how_long, :performance, :practicality, :reliability, :running_costs,:overall, :title, :experience_en, :experience_et, :a_to_b, :first_car,:outdoors, :weekend,:offroading,:holiday,:extra_car, :job,:family_car,:racing,:towing,:showing, :declaration,:like1, :like2, :like3, :dislike1, :dislike2, :dislike3,:first_name, :user_id, :ownership_id,:accepted,:as => [:admin, :default]
+  attr_accessible :vehicle_id, :bodytype_id, :make_id, :model_id, :model_spec, :transmission_id,:engine_size,:engine_power,:fueltype_id,:registered_at,:badge, :series,:odometer,:how_well,:first_owner,:how_well_other, :how_long, :performance, :practicality, :reliability, :running_costs,:overall, :title, :experience_en, :experience_et,:experience_ru, :a_to_b, :first_car,:outdoors, :weekend,:offroading,:holiday,:extra_car, :job,:family_car,:racing,:towing,:showing, :declaration,:like1, :like2, :like3, :dislike1, :dislike2, :dislike3,:first_name, :user_id, :ownership_id,:accepted,:as => [:admin, :default]
   belongs_to :vehicle
   belongs_to :user
   belongs_to :bodytype
@@ -20,7 +20,7 @@ class Review < ActiveRecord::Base
   validates :first_name, :presence => true
   validate :validate_declaration,:on=>:create
   translates :experience, :fallbacks_for_empty_translations => true
-  globalize_accessors :locales => [:et, :en], :attributes => [:experience]
+  globalize_accessors :locales => [:et, :en, :ru], :attributes => [:experience]
   def to_param
     if registered_at.present?
       "#{id} #{make_name} #{model_name} #{registered_at_year}".parameterize

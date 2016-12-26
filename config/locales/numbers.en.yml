@@ -198,9 +198,22 @@ en:
       two_words_connector: " and "
       words_connector: ", "
   time:
+    seconds: s
     am: am
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
+      no_time: "%B %d, %Y"
     pm: pm
+  power:
+    kw: kW
+  distance:
+    km: km
+    mm: mm
+  volume:
+    litres: L
+  weight:
+    kg: kg
+  speed:
+    kmh: km/h

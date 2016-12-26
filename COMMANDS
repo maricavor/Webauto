@@ -10,3 +10,36 @@ rhc tail -a <yourappname>
 - before deploy --> RAILS_ENV=development bundle exec rake assets:precompile, for development remove public/assets folder
 
 - rhc app-tidy <app_name>
+
+- for installing scalable foreman run: rhc cartridge add -a webauto2 http://cartreflect-claytondev.rhcloud.com/reflect?github=maricavor/openshift-foreman-cartridge
+
+- rhc stop-app --app myapp
+
+- rhc start-app --app myapp
+
+- rhc restart-app --app myapp
+
+- rhc cartridge scale -a <your app name> elasticsearch <number of total gears you want>
+
+- Stop redis server:  redis-cli shutdown
+
+- To change password mysql:
+
+ mysql -u root -p
+Giving my current password for the 'root'. Next:
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_password',
+       'root'@'localhost' PASSWORD EXPIRE NEVER;
+	   
+	   rvm use 2.0.0
+	   rvm gemset empty
+	   rvm use @rails3 --create 
+	   gem install rails -v "~>3.2"
+	   rvm use @rails4 --create
+	   gem install rails -v "~>4"
+	   this way now you can switch between this two rails installations with:
+
+	   rvm use 2.0.0@rails3
+	   rails -v             # rails 3.2...
+	   rvm use 2.0.0@rails4
+	   rails -v             # rails 4.0...

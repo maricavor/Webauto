@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,7 +57,15 @@ table[id=wrapper] table.results td.right {width:120px !important}
 			<!-- maintable -->
 			<table align="center" border="0" cellpadding="0" cellspacing="0" width="630" id="maintable">
 			<tbody>
+				<tr>
+				<td id="hosted" bgcolor="#ffffff" height="30" valign="middle" align="right" style="font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#666666;">
+					
 				
+					<%= link_to "<span style='text-decoration:none !important; color:#666666;'>Сообщение не отображается?</span> Нажмите сюда".html_safe,"http://www.webauto.ee/#{I18n.locale}/search_alerts/#{search_alert.to_param}",:class=>"not-displaying", :target=>"_blank",:style=>"color:#666666;" %>
+			
+			
+				</td>
+		  </tr>
 			<tr>
 				<td height="1" style="line-height:1px; height:1px; font-size:1px; background:#f1f1f1; mso-line-height-rule:exactly;" bgcolor="#f1f1f1">&nbsp;</td>
 			</tr>
@@ -91,14 +97,13 @@ table[id=wrapper] table.results td.right {width:120px !important}
   			  					        <td height="20">&nbsp;</td>
   			  					        </tr>
 					                  <tr>
-					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">Tere <%= @user.name %>,</td>
+					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">Здравствуйте, <%= user.name %>!</td>
 					                    </tr>
 			  					      <tr>
 			  					        <td height="20">&nbsp;</td>
 			  					        </tr>
 					                  <tr>
-					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">Üks Teie salvestatud sõidukitest on <% if [1,2,3].include?(@delete_reason_id) %>müüdud<%else%>veebisaidilt eemaldatud<%end%>.
-</td>
+					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">Мы нашли новые объявления, соответствующие Вашему поиску. Хорошие автомобили продаются очень быстро, так что проверьте их сейчас, если хотите купить автомобиль. Чтобы просмотреть результаты поиска, нажмите "запустить поиск". Вы можете изменить или удалить сохранённые поиски <a style="font-family:Helvetica, Arial, sans-serif; color:#1f68bc" color="#1f68bc" href="http://www.webauto.ee/en/searches"><span style="color:#1f68bc">на этой странице</span></a>.</td>
 					                    </tr>
 					                  </tbody>
 					                </table>
@@ -113,8 +118,51 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					      <tr>
 					        <td height="30">&nbsp;</td>
 					        </tr>
+						
+						 <% if results.size>0 %>
+					      <tr>
+					        <td height="30">
+							<!-- results -->
+								<table class="results" width="100%" border="0" cellspacing="2" cellpadding="5">
+					          <tbody>
+					            <tr>
+					              <td class="left" width="48%" bgcolor="#1a1a1a" style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#979797; font-weight:bold">Сохранённый поиск</td>
+					              <td class="middle" width="24%" bgcolor="#1a1a1a" style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#979797; font-weight:bold">Новые объявления</td>
+					              <td class="right" width="28%" bgcolor="#1a1a1a" style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#979797; font-weight:bold">Искать сейчас</td>
+					              </tr>
+					            </tbody>
+					          </table>
+							  <!-- results -->
+							  <!-- results -->
+					          <table class="results" width="100%" border="0" cellspacing="2" cellpadding="5">
+					            <tbody>
+							
+							 
+                                 <tr>
 
-							<% picture=@vehicle.pictures.first%>
+					                <td class="left" width="48%" bgcolor="#ebebeb" style="font-family:Helvetica, Arial, sans-serif; font-size:12px; color:#111111;"><%= search.name %></td>
+					                <td class="middle" width="24%" bgcolor="#ebebeb" style="font-family:Helvetica, Arial, sans-serif; font-size:12px; color:#111111;"><%= results.size %></td>
+					                <td class="right" width="28%" bgcolor="#ebebeb">
+<div>
+					              
+					            <%= link_to "Запустить поиск",url_for(controller: "#{search.type.name.underscore.pluralize}", action: 'search',locale: I18n.locale,id: search,only_path: false,:sort=>search.sort),:style=>"background-color:#f2f2f2;border:1px solid #dedede;border-radius:5px;color:#0087cf;display:inline-block;font-family:sans-serif;font-size:12px;font-weight:bold;line-height:25px;text-align:center;text-decoration:none;width:95px;-webkit-text-size-adjust:none;mso-hide:all;" %>
+								      </div></td>
+					                </tr> 
+								
+
+					              </tbody>
+					            </table>
+							<!-- results -->
+						</td>
+					        </tr>
+
+					      <tr>
+					        <td height="30">&nbsp;</td>
+					        </tr>
+							
+							<% results.each do |v_id| %>
+							<% v=Vehicle.find(v_id) %>
+							<% picture=v.pictures.first%>
 					      <tr>
 					        <td class="center" style="font-family:Helvetica, Arial, sans-serif; font-size:16px; color:#111111; line-height:22px">
 								<!-- table 10 -->
@@ -129,15 +177,12 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					                  <tr>
 					                    <td valign="top">
 											<% if picture %>
-<%= image_tag("http://www.webauto.ee"+picture.file_url(:thumb),:border=>"0", :style=>"display:block; border:1px solid #3eaaca",size: "300x200") %>
+<%= link_to image_tag("http://www.webauto.ee"+picture.file_url(:thumb),:border=>"0", :style=>"display:block; border:1px solid #3eaaca",size: "300x200"), url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: v,only_path: false) %>
 											<% else %>
 <%= image_tag "/thumbnail.png",size: "300x200"  %>
 											<% end %>
 										</td>
 					                    </tr>
-  			  					
-  					                 
-										
 					                  </tbody>
 					                </table>
 									<!-- table 11 -->
@@ -149,26 +194,26 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					                <tbody>
 					                  <tr>
 					                   
-					                          <td height="30" style="font-family:Helvetica, Arial, sans-serif; font-size:18px; color:#438944; font-weight:bold;">	<%= currency(@vehicle.price) %> <span style="color:#fff;background-color: red;font-size:12px;padding:2px"><% if [1,2,3].include?(@delete_reason_id) %>MÜÜDUD<%else%>TÜHISTATUD<%end%></span></td>
+					                          <td height="30" style="font-family:Helvetica, Arial, sans-serif; font-size:18px; color:#438944; font-weight:bold;">	<%= currency(v.price) %></td>
 					                         
 					                    </tr>
 					                  <tr>
 					                    <td height="5" style="height:5px; line-height:1px; min-height:5px; font-size:5px; mso-line-height-rule:exactly;">&nbsp;</td>
 					                    </tr>
 					                  <tr>
-					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:16px; font-weight:bold; color:#0087cf;">	<%= @vehicle.short_name %></td>
+					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:16px; font-weight:bold; color:#0087cf;">	<%= v.short_name %></td>
 					                    </tr>
   					                  <tr>
   					                    <td height="5" style="height:5px; line-height:1px; min-height:5px; font-size:5px; mso-line-height-rule:exactly;">&nbsp;</td>
   					                    </tr>
   					                  <tr>
-  					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size: 14px; color: #111111; line-height:20px"><%= @vehicle.odometer_str %></td>
+  					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size: 14px; color: #111111; line-height:20px"><%= v.odometer_str %></td>
   					                    </tr>
 					                  <tr>
 					                    <td height="5" style="height:5px; line-height:1px; min-height:5px; font-size:5px; mso-line-height-rule:exactly;">&nbsp;</td>
 					                    </tr>
 					                  <tr>
-					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size: 14px; color: #111111; line-height:20px"><%= @vehicle.engine_name %></td>
+					                    <td style="font-family:Helvetica, Arial, sans-serif; font-size: 14px; color: #111111; line-height:20px"><%= v.engine_name %></td>
 					                    </tr>
 					                  <tr>
 					                    <td height="5" style="height:5px; line-height:1px; min-height:5px; font-size:5px; mso-line-height-rule:exactly;">&nbsp;</td>
@@ -177,24 +222,16 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					                  <tr>
 					                    <td>&nbsp;</td>
 					                    </tr>
-					                 
+					                  <tr>
+					                    <td class="bulletproof"><div>
+		<%= link_to "Показать объявление", url_for(controller: 'cars', action: 'show',locale: I18n.locale,id: v,only_path: false),:style=>"background-color:#3eaaca;border:1px solid #3eaaca;border-radius:5px;color:#ffffff;display:inline-block;font-family:sans-serif;font-size:14px;font-weight:bold;line-height:30px;text-align:center;text-decoration:none;width:190px;-webkit-text-size-adjust:none;mso-hide:all;" %>
+					                     </div></td>
+					                    </tr>
 					                  </tbody>
 					                </table>
 								<!-- table 12 -->
 							</td>
 					              </tr>
-							      <tr>
-							        <td height="10">&nbsp;</td>
-							        </tr>
-	  			                  <tr>
-	  			                    <td style="font-family:Helvetica, Arial, sans-serif; font-size:14px; color:#222222; line-height:24px">
-
-										Teie võite eemaldada see auto oma salvestatud sõidukite nimekirjast <a href="http://www.webauto.ee/<%= I18n.locale %>/saved_adverts">siin</a>.
-	  							<p><strong>Kas ikka otsite?</strong></p>
-	  							<p>Kui Teid veelgi huvitab <%= @vehicle.make_model %>, võite otsida ka  <%= link_to "sarnaseid sõidukeid", url_for(controller: 'searches', action: 'show_more',locale: I18n.locale,id: @vehicle,only_path: false) %>.	
-								</p>
-	  								</td>
-	  			                    </tr>
 					            </tbody>
 					          </table>
 						  <!-- table 10 -->
@@ -204,9 +241,9 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					      <tr>
 					        <td height="30">&nbsp;</td>
 					        </tr>
-			                
-					
-					     
+							
+					      <% end %>
+					       <% end %>
 						    
 					    
 					    
@@ -251,7 +288,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 			          <td valign="top">&nbsp;</td>
 			          </tr>
 			        <tr>
-			          <td valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">Teile saadeti see e-kiri, kuna olete registreeritud kasutaja. Et neist kirjadest loobuda või et teavituseelistusi muuta, kliki <a href="http://www.webauto.ee/<%= I18n.locale %>/users/settings">siia</a>. </td>
+			          <td valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">Вы получили это письмо, потому что являетесь зарегистрированным пользователем и активировали уведомления от Webauto.ee. Если Вы больше не хотите получать эти письма, пожалуйста, выключите уведомления <a href="http://www.webauto.ee/<%= I18n.locale %>/searches">на этой странице</a>. </td>
 			          </tr>
 			        <tr>
 			          <td valign="top">&nbsp;</td>
@@ -264,7 +301,7 @@ table[id=wrapper] table.results td.right {width:120px !important}
 					  <!-- table 2 -->
 					  <table class="center" width="100%" border="0" cellspacing="0" cellpadding="0">
 			        <tr>
-			          <td align="right" valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">See e-kiri saadeti aadressile <%= @user.email %></td>
+			          <td align="right" valign="top" style="font-family:Helvetica, Arial, sans-serif; font-size:11px; color:#272727; line-height:16px">Это письмо было отправлено на адрес <%= user.email %></td>
 			          </tr>
 			        <tr>
 			          <td align="right" valign="top">&nbsp;</td>

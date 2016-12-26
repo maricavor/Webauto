@@ -45,7 +45,7 @@
           <td><%= t("vehicles.show.engine") %></td>
           <td class="right"><strong>
             <%= "#{@vehicle.fueltype}" if @vehicle.fueltype %>
-            <%= "#{@vehicle.engine_size} L (#{@vehicle.engine_power} kW)" if @vehicle.engine_size.present?  %></strong></td>
+            <%= "#{@vehicle.engine_size} #{I18n.t('volume.litres')} (#{@vehicle.engine_power} #{I18n.t('power.kw')})" if @vehicle.engine_size.present?  %></strong></td>
         </tr>
         <tr >
           <td><%= t("vehicles.show.kilometres") %></td>

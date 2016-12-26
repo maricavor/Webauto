@@ -10,7 +10,7 @@ development:
   reconnect: true
   database: webauto
   username: root
-  password: 
+  password: root
   host: 127.0.0.1
 
 # Warning: The database defined as "test" will be erased and

@@ -61,7 +61,7 @@ class Vehicle < ActiveRecord::Base
   #################
   #is_impressionable #:counter_cache => true, :column_name => :popularity,:unique =>  [:session_hash]
   translates :description, :fallbacks_for_empty_translations => true
-  globalize_accessors :locales => [:et, :en], :attributes => [:description]
+  globalize_accessors :locales => [:et, :en, :ru], :attributes => [:description]
 
   class Translation
       acts_as_paranoid
@@ -159,13 +159,13 @@ class Vehicle < ActiveRecord::Base
     self.registered_at[/(\d{4})/] if self.registered_at.present?
   end
   def engine_power_str
-   self.engine_power.present? ? "#{self.engine_power} kW" : "&nbsp;".html_safe 
+   self.engine_power.present? ? "#{self.engine_power} #{I18n.t('power.kw')}" : "&nbsp;".html_safe 
   end
   def engine_size_str
-  self.engine_size.present? ? "#{self.engine_size} L" : "&nbsp;".html_safe
+  self.engine_size.present? ? "#{self.engine_size} #{I18n.t('volume.litres')}" : "&nbsp;".html_safe
 end
   def odometer_str
-  self.odometer.present? ? "#{self.odometer} km" : "&nbsp;".html_safe
+  self.odometer.present? ? "#{self.odometer} #{I18n.t('distance.km')}" : "&nbsp;".html_safe
   end
   def bodytype_str
   self.bodytype ? self.bodytype.name : "&nbsp;".html_safe 
@@ -189,58 +189,58 @@ end
   end
 
   def warranty_km_str
-   self.warranty_km.present? ? "#{self.warranty_km} km" : ""
+   self.warranty_km.present? ? "#{self.warranty_km} #{I18n.t('distance.km')}" : ""
   end
     def service_freq_str
    self.service_freq.present? ? "#{self.service_freq} #{I18n.t("vehicles.show.months")}" : ""
   end
   def service_km_str
-   self.service_km.present? ? "#{self.service_km} km" : ""
+   self.service_km.present? ? "#{self.service_km} #{I18n.t('distance.km')}" : ""
   end
   def next_service_km_str
-self.next_service_km.present? ? "#{self.next_service_km} km" : ""
+self.next_service_km.present? ? "#{self.next_service_km} #{I18n.t('distance.km')}" : ""
   end
   def fuel_cons_city_str
-   self.fuel_cons_city.present? && self.fuel_cons_city>0 ? "#{self.fuel_cons_city} L/100 km" : ""
+   self.fuel_cons_city.present? && self.fuel_cons_city>0 ? "#{self.fuel_cons_city} #{I18n.t('volume.litres')}/100 #{I18n.t('distance.km')}" : ""
   end
   def fuel_cons_freeway_str
-    self.fuel_cons_freeway.present? && self.fuel_cons_freeway>0 ? "#{self.fuel_cons_freeway} L/100 km" : ""
+    self.fuel_cons_freeway.present? && self.fuel_cons_freeway>0 ? "#{self.fuel_cons_freeway} #{I18n.t('volume.litres')}/100 #{I18n.t('distance.km')}" : ""
   end
   def fuel_cons_combined_str
-    self.fuel_cons_combined.present? && self.fuel_cons_combined>0 ? "#{self.fuel_cons_combined} L/100 km" : ""
+    self.fuel_cons_combined.present? && self.fuel_cons_combined>0 ? "#{self.fuel_cons_combined} #{I18n.t('volume.litres')}/100 #{I18n.t('distance.km')}" : ""
   end
   def fueltank_str
-    self.fueltank.present?  && self.fueltank>0 ? "#{self.fueltank} L" : ""
+    self.fueltank.present?  && self.fueltank>0 ? "#{self.fueltank} #{I18n.t('volume.litres')}" : ""
   end
   def cylinders_str
     self.cylinders>0 ? self.cylinders : ""
   end
    def max_speed_str
-    self.max_speed.present? && self.max_speed>0 ? "#{self.max_speed} km/h" : ""
+    self.max_speed.present? && self.max_speed>0 ? "#{self.max_speed} #{I18n.t('speed.kmh')}" : ""
   end
    def acceleration_str
-    self.acceleration.present? && self.acceleration>0 ? "#{self.acceleration} s" : ""
+    self.acceleration.present? && self.acceleration>0 ? "#{self.acceleration} #{I18n.t('time.seconds')}" : ""
   end
    def length_str
-    self.length.present? && self.length>0 ? "#{self.length} mm" : ""
+    self.length.present? && self.length>0 ? "#{self.length} #{I18n.t('distance.mm')}" : ""
   end
    def height_str
-    self.height.present? && self.height>0 ? "#{self.height} mm" : ""
+    self.height.present? && self.height>0 ? "#{self.height} #{I18n.t('distance.mm')}" : ""
   end
    def width_str
-    self.width.present? && self.width>0 ? "#{self.width} mm" : ""
+    self.width.present? && self.width>0 ? "#{self.width} #{I18n.t('distance.mm')}" : ""
   end
      def wheelbase_str
-    self.wheelbase.present? && self.wheelbase>0 ? "#{self.wheelbase} mm" : ""
+    self.wheelbase.present? && self.wheelbase>0 ? "#{self.wheelbase} #{I18n.t('distance.mm')}" : ""
   end
      def gross_weight_str
-    self.gross_weight.present? && self.gross_weight>0 ? "#{self.gross_weight} kg" : ""
+    self.gross_weight.present? && self.gross_weight>0 ? "#{self.gross_weight} #{I18n.t('weight.kg')}" : ""
   end
     def load_capacity_str
-    self.load_capacity.present? && self.load_capacity>0 ? "#{self.load_capacity} kg" : ""
+    self.load_capacity.present? && self.load_capacity>0 ? "#{self.load_capacity} #{I18n.t('weight.kg')}" : ""
   end
     def net_weight_str
-    self.net_weight.present? && self.net_weight>0 ? "#{self.net_weight} kg" : ""
+    self.net_weight.present? && self.net_weight>0 ? "#{self.net_weight} #{I18n.t('weight.kg')}" : ""
   end
   def origin_str
    self.origin ? self.origin.name : ""
@@ -264,7 +264,7 @@ self.next_service_km.present? ? "#{self.next_service_km} km" : ""
   end
  
   def odometer_str
-    self.odometer.to_s + " km"
+   "#{self.odometer.to_s} #{I18n.t('distance.km')}"
   end
   def climate_control_str
     self.climate_control ? "#{self.climate_control}" : "&nbsp;".html_safe
@@ -321,14 +321,14 @@ self.next_service_km.present? ? "#{self.next_service_km} km" : ""
   def to_keywords
     n = "#{self.registered_at_year}, #{self.make_name}, #{self.model_name}"
     n += ", #{self.badge}" if self.badge.present?
-    n += ", #{self.engine_size} L, #{self.engine_power} kW, #{self.transmission}, #{self.location}"
+    n += ", #{self.engine_size} #{I18n.t('volume.litres')}, #{self.engine_power} #{I18n.t('power.kw')}, #{self.transmission}, #{self.location}"
     n
   end
   def short_name
     "#{self.registered_at_year} #{self.make_name} #{self.model_name}"
   end
   def engine_name
-     "#{self.engine_size} L #{self.engine_power} kW #{self.transmission}"
+     "#{self.engine_size} #{I18n.t('volume.litres')} #{self.engine_power} #{I18n.t('power.kw')} #{self.transmission}"
   end
   def previous_price
    pc=self.price_changes.last(2)

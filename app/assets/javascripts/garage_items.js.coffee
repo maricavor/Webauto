@@ -68,6 +68,9 @@ jQuery ->
   $(document).on 'keyup',"#experience_text_en", (event) ->
     Functions.updateCountdown($(this).attr('id'))
     event.preventDefault()
+  $(document).on 'keyup',"#experience_text_ru", (event) ->
+    Functions.updateCountdown($(this).attr('id'))
+    event.preventDefault()
   $(document).on 'keyup',"#title_text", (event) ->
     Functions.updateCountdown($(this).attr('id'))
     event.preventDefault()

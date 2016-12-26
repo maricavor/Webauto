@@ -1,4 +1,15 @@
+- validate email during registration
+- make button check vehicle in mnt.ee like on page pokupaisumom.ee
+- intagrate car managers: https://play.google.com/store/apps/details?id=com.gtt.MyHTC&hl=ru
+https://itunes.apple.com/us/app/car-manager-your-car-or-bike/id396438081?mt=8
+- Пароль не совпадает со значением поля Пароль
 - print not showing all pages, try to make separate action print for vehicle or use PDFKit gem
+ - add Уведомления о новых объявлениях v ad pricelist
+- http://avto-russia.ru/autos/citroen/citroen_jumpy_fourgon.html#main
+- https://my.auto.ru/review/61161831/
+/ http://qvic.ru/site/showAutoSites
+/ http://am.ru/
+- http://carsguru.net/used/13863860/view.html
 - cooperation with www.euroncap.com
 - https://www.remondivalik.ee/
 - change features in starter package

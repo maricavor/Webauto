@@ -19,7 +19,7 @@
     <%= f.hidden_field :user_id,value: current_user.id %>
     <%= f.hidden_field :type_id,value: @current_type.id %>
 
-    <%= f.select :make_id, @makes.collect {|p| [ p.name, p.id ] },{include_blank: true},{label: t("adverts.edit.mark"),id: "vehicle_make_id"} %>
+    <%= f.select :make_id, @makes.collect {|p| [ p.name, p.id ] },{include_blank: true},{label: t("adverts.edit.make"),id: "vehicle_make_id"} %>
     <%= f.select :model_id,[],{},{label: t("adverts.edit.model_name"),id: "vehicle_model_id"} %>
       <%= f.text_field :model_spec,id:"model_spec"   %>
   

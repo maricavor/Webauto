@@ -1,0 +1,915 @@
+ru:
+  check_this_car: "Посмотреть авто"
+  latest_adverts: "Webauto.ee - Новые объявления"
+  contact_user_subject: "Запрос дополнительной информации"
+  registrations:
+    can_sign_in: "Вы можете войти, используя:"
+    sure: "Вы уверены, что хотите удалить это?"
+    add_more: "Добавьте ещё услуги для входа в систему:"
+    add_service: "Для входа в систему используйте:"
+    new:
+      title: "Создать аккаунт - Webauto.ee"
+  home:
+    create_ad:
+      header: "Продай свой авто на Webauto.ee!"
+      free: БЕСПЛАТНО
+      starter: Стартер
+      until_sold: Пока автомобиль не продан
+      unlimited: ""
+      start_selling: Подать объявление
+      includes: "Каждое объявление содержит:"
+      photos: Максимум 7 фотографий
+      slideshow: Слайд-презентация
+      notifications: Уведомления о сохраненных объявлениях
+      alerts: Уведомления о новых объявлениях
+      statistics: Статистика просмотров
+      already: "Уже подали объявление?"
+      manage: Редактировать объявление
+      title: "Подайте новое объявление - Webauto.ee"
+      exists: "Объявление уже подано!"
+    terms:
+      title: "Пользовательское соглашение - Webauto.ee"
+    privacy:
+      title: "Политика приватности - Webauto.ee"
+    about:
+      title: "О проекте - Webauto.ee"
+    site_map:
+      title: "Содержание сайта - Webauto.ee"
+  navigation:
+    cookies_message: "Этот сайт использует cookie-файлы. Продолжая пользоваться данным сайтом, Вы соглашаетесь на использование нами Ваших cookie-файлов."
+    learn_more: "Узнать больше"
+    dismiss: "Понятно!"
+    home: Главная
+    cars: Автомобили
+    cars_for_sale: Купить 
+    cars_for_sale_upcase: КУПИТЬ
+    all_cars: Все автомобили
+    private_cars: Только частные 
+    dealer_cars: От автодилеров
+    help_buying_cars: Помощь при покупке
+    find_dealer: Поиск автодилера
+    sell_your_cars: Подать объявление
+    sell_your_cars_upcase: ПОДАТЬ ОБЪЯВЛЕНИЕ
+    create_ad: Подать объявление
+    manage_ad: Мои объявления
+    seller_help: Помощь при продаже
+    safety_tips: Советы по безопасности
+    research: Анализ
+    research_upcase: АНАЛИЗ
+    compare_cars: Сравнение автомобилей
+    login: Войти
+    register: Регистрация
+    language: ЯЗЫК
+    social_networks: Социальные сети
+    social_networks_upcase: СОЦИАЛЬНЫЕ СЕТИ
+    social_networks_text: ""
+    terms: Условия пользования
+    privacy: Конфиденциальность
+    contact: Контакт
+    about: О проекте
+    sitemap: Содержание сайта
+    popular_searches: Популярные поиски
+    dashboard: Обзор
+    saved_searches: Сохранённые поиски
+    saved_items: Сохранённые объявления
+    my_ads: Мои объявления
+    profile: Профиль
+    settings: Настройки
+    signout: Выход
+    favourites: ИЗБРАННЫЕ
+    sell: ПРОДАЖА
+    create_ad: Подать объявление
+    garage_items: Мои автомобили
+    comment_login: "Чтобы добавить комментарий <a href='%{login}'>Войдите</a> или <a href='%{register}'>Зарегистрируйтесь</a>!"
+    reviews: Отзывы автовладельцев
+    all_reviews: Отзывы
+    copyright: "© 2016 Webauto.ee. Все права защищены."
+  search:
+    open_search: Открыть поиск
+    close_search: Закрыть поиск
+    search_vehicles: Поиск
+    reset_search: Сбросить 
+    save_search: Сохранить поиск
+    add_cars: "+ Добавь еще авто"
+    more_options: "+ больше параметров"
+    less_options: "- меньше параметров"
+    remove: "[удалить]"
+    bodytype_title: "Тип кузова (все)"
+    model: "Модель (все)"
+    make: "Марка (все)"
+    any: Все
+    select: Выберите
+    select_model: модель
+    other_model: "Другая модель (уточните)"
+    models: модели
+    selected: выбрано
+    count_selected_text: "<strong>{0} выбрано</strong>"
+    min_price: Цена от
+    max_price: Цена до
+    min_power: Мощность от
+    max_power: Мощность до
+    min_year: Год от
+    max_year: Год до
+    max_mileage: Пробег до
+    fueltype: "Топливо (все)"
+    transmission: "Коробка (все)"
+    country: "Страна (все)"
+    city: "Город/Уезд (все)"
+    colour: "Цвет (все)"
+    drivetype: "Привод (все)"
+    min_seats: Мест от
+    max_seats: Мест до
+    doors: Дверей
+    no_doors: Дверей
+    features: "Комплектация (все)"
+    dealers: "Автодилер (все)"
+    keywords: Текстовый поиск
+    location: "Страна (все)"
+    dealer: Автодилер
+    private: Частное объявление
+    search: Поиск
+    sorted_by: "Сортировка:"
+    most_recent: Последние объявления
+    most_popular: Самые популярные
+    price_high_low: "По цене (дороже - дешевле)"
+    price_low_high: "По цене (дешевле - дороже)"
+    make_model_a_z: "По названию (A-Z)"
+    make_model_z_a: "По названию (Z-A)"
+    kms_high_low: "С большим пробегом"
+    kms_low_high: "С малым пробегом"
+    year_high_low: "По году (новые - старые)"
+    year_low_high: "По году (старые - новые)"
+    date_newest_first: "Последние"
+    date_oldest_first: "Старые"
+    rating_highest_first: "С высокой оценкой"
+    rating_lowest_first: "С низкой оценкой"
+  signin:
+    email: Эл. почта
+    password: Пароль
+    new_password: Новый пароль
+    forgot_password: Изменение пароля
+    forgot_password_note: Вам будет отправлена ссылка на изменение пароля.
+    send: Отправить
+    sign_in: Вход на сайт
+    change_password: Изменить пароль
+    new_to: Вы новый пользователь Webauto.ee?
+    get_started: Создайте новую учетную запись на нашем сервере
+    remember_me: Запомнить меня
+    sign_in_btn: Войти
+    resend: Послать
+    sign_up: Зарегистрироваться
+    forgot: "Забыли пароль?"
+    confirmation: "Не получили инструкции по изменению пароля?"
+    sign_in_with_facebook: "Вход через Facebook"
+    unlock: "Не получили инструкции по разблокированию?"
+    forgot_note: "Если вы забыли свой пароль, введите ваш зарегистрированный адрес электронной почты."
+  big: " файл слишком большой (maкс. 3MB)"
+  file_is_not_image: " файл не является изображением с расширением gif, jpeg или png"
+  translation_na: "%{locale} перевод не найден"
+  car_stereo_cd: "CD-проигрыватель"
+  colours: [{name: "Бежевый", id: 1}, {name: "Чёрный", id: 2}, {name: "Синий", id: 3}, {name: "Коричневый", id: 4}, {name: "Тёмно-бежевый", id: 5}, {name: "Тёмно-синий", id: 6}, {name: "Тёмно-коричневый", id: 7}, {name: "Тёмно-серый", id: 8}, {name: Тёмно-зелёный", id: 9}, {name: "Тёмно-оранжевый", id: 10}, {name: "Тёмно-фиолетовый", id: 11}, {name: "Тёмно-красный", id: 12}, {name: "Тёмно-жёлтый", id: 13}, {name: "Золотой", id: 14}, {name: "Серый", id: 15}, {name: "Зелёный", id: 16}, {name: "Светло-бежевый", id: 17}, {name: "Светло-синий", id: 18}, {name: "Светло-коричневый", id: 19}, {name: "Светло-серый", id: 20}, {name: "Светло-зелёный", id: 21}, {name: "Светло-оранжевый", id: 22}, {name: "Светло-фиолетовый", id: 23}, {name: "Светло-красный", id: 24}, {name: "Светло-жёлтый", id: 25}, {name: "Оранжевый", id: 26}, {name: "Розовый", id: 27}, {name: "Фиолетовый", id: 28}, {name: "Красный", id: 29}, {name: "Серебряный", id: 30}, {name: "Белый", id: 31}, {name: "Жёлтый", id: 32}]
+  fueltypes: [{name: "Бензин", id: 1}, {name: "Дизель", id: 2}, {name: "Бензин + Газ (LPG/жидкий)", id: 3},{name: "Бензин + Газ (CNG/сжатый)", id: 4},{name: "Газ (LPG/жидкий)", id: 5},{name: "Газ (CNG/сжатый)", id: 6},{name: "Гибрид", id: 7},{name: "Электричество", id: 8},{name: "Этанол", id: 9}]
+  transmissions: [{name: "Автомат", id: 1},{name: "Мануал", id: 2},{name: "Полуавтомат", id: 3}]
+  ownership: [{name: "Владелец", id: 1},{name: "Был владельцем", id: 2},{name: "Хочу", id: 3},{name: "Управлял", id: 4}]
+  drivetypes: [{name: "Полный", id: 1},{name: "Передний", id: 2},{name: "Задний", id: 3}]
+  climate_controls: [{name: "Климат-контроль", id: 1}, {name: "Кондиционер", id: 2}]
+  search_alerts: [{name: "Не информировать", id: "No Alert" },{name: "Информировать", id: "Alert" }]
+  service_histories: [{name: "Полная история", id: 1},{name: "Неполная история", id: 2},{name: "История отсутствует", id: 3}]
+  features: [{name: "Кожаная обивка", id: "leather_upholstery"},{name: "Обогрев сидений", id: "seat_heating_count"},{name: "Система навигации", id: "navigation"},{name: "Центральный замок", id: "central_locking"},{name: "Фаркоп", id: "tow_hitch"},{name: "Круиз-контроль", id: "cruise_control"},{name: "Литые диски", id: "light_alloy_wheels"},{name: "Полная история", id: "service_history_id"},{name: "Усилитель руля", id: "power_steering"},{name: "Электрические стеклоподъемники", id: "power_windows"},{name: "Климат-контроль",id: "climate_control_id"}]
+  ad_delete_reasons: [{name: "Я продал автомобиль на Webauto.ee", id: 1},{name: "Я продал автомобиль другим способом", id: 2},{name: "Я обменял автомобиль для покупки другого", id: 3},{name: "Я не хочу больше продавать автомобиль", id: 4},{name: "По другим причинам", id: 5}]
+  how_well: [{name: "Одолжил у друга", id: 1},{name: "Арендовал", id: 2},{name: "Служебный автомобиль", id: 3},{name: "Сделал тест-драйв", id: 4},{name: "Другое", id: 5}]
+  how_long: [{name: "Меньше недели", id: 1},{name: "Меньше месяца", id: 2},{name: "3 месяца", id: 3},{name: "6 месяцев", id: 4},{name: "12 месяцев", id: 5},{name: "2 года", id: 6},{name: "3 года", id: 7},{name: "4 года", id: 8},{name: "5+ лет", id: 9},{name: "10+ лет", id: 10}]
+  what_for: [{name: "Вождение из точки А в точку Б", prop: "a_to_b"},{name: "Спорт и мероприятия на открытом воздухе", prop: "outdoors"},{name: "Езда по бездорожью", prop: "offroading"},{name: "Второй или дополнительный автомобиль", prop: "extra_car"},{name: "Семейные поездки", prop: "family_car"},{name: "Буксировка", prop: "towing"},{name: "Учебная езда или первый автомобиль", prop: "first_car"},{name: "Мероприятия на выходные дни", prop: "weekend"},{name: "Дорожные поездки и отдых", prop: "holiday"},{name: "Рабочие поездки", prop: "job"},{name: "Гонки", prop: "racing"},{name: "Коллекционирование и выставки", prop: "showing"}]
+  likes_dislikes: [{name: "Ускорение", id: 1},{name: "Внешний вид/стиль", id: 2},{name: "Подлокотники", id: 3},{name: "Пространство для ног", id: 4},{name: "Вместимость багажника", id: 5},{name: "Комфорт", id: 6},{name: "
+Затраты на техническое обслуживание", id: 7},{name: "Надежность", id: 8},{name: "Угол обзора водителя", id: 9},{name: "Экономный расход топлива", id: 10},{name: "Переключение передач", id: 11},{name: "Маневрирование", id: 12},{name: "Фары", id: 13},{name: "Охлаждение салона", id: 14},{name: "Обогрев салона", id: 15},{name: "Чувствительность
+", id: 16},{name: "Система навигации", id: 17},{name: "Пространство салона", id: 18},{name: "Плавность хода", id: 19},{name: "Звуковая система", id: 20},{name: "Техника", id: 21},{name: "Буксирная способность", id: 22},{name: "Радиус разворота", id: 23},{name: "Колёса", id: 24},{name: "Стеклоочистители", id: 25}]
+  index:
+    create_ad: "ПОДАТЬ ОБЪЯВЛЕНИЕ"
+    most_popular: Популярные
+    most_expensive: Самые дорогие
+    classified_ads: Объявления о продаже автомобилей
+    recently_added: Последние добавленные
+    recently_viewed: Последние просмотренные
+    view_all: Показать все
+    popular_makes: "Популярные марки:"
+    popular_models: "Популярные модели:"
+    popular_bodytypes: "Популярные типы кузова:"
+    last_reviews_title: "Последние отзывы автовладельцев:"
+  adverts:
+    checkout:
+      seller_details: Данные продавца
+      heading: "Пожалуйста, подтвердите объявление #%{id}"
+    breadcrumb:
+      edit: Основные характеристики
+      details: Дополнительные данные
+      features: Комплектация
+      photos: "Фотографии и комментарий"
+      contact: "Цена и контактные данные"
+      checkout: "Активация"
+    statistics:
+      views_title: "Статистика просмотров за последние 30 дней"
+      statistics: "Статистика просмотров объявления #%{id}"
+      date: "Дата создания объявления:"
+      close: Закрыть
+      views: Просмотры
+    index:
+      title: "Мои объявления - Webauto.ee"
+      ad_management: Мои объявления
+      details: "Автомобили на продажу"
+      create_ad: Подать объявление
+      nothing: Объявлений не найдено
+      advert: объявление
+      status: СТАТУС
+      created: Добавлено
+      closed: Снято 
+      updated: Изменено
+      cancelled: Снято с продажи
+      unfinished: Незаконченное
+      activated: Активное
+      not_activated: Неактивное
+      statistics: Посмотреть статистику
+      preview: Предварительный просмотр
+      edit: Редактировать объявление
+      deactivate: Деактивировать объявление
+      deactivate_sure: "Вы уверены, что хотите временно деактивировать объявление?"
+      activate: Активировать
+      sure: "Вы уверены?"
+      restore: Восстановить
+      restore_sure: "Вы уверены, что хотите восстановить объявление?"
+      remove_ad: Снять с продажи
+      remove: Удалить 
+      remove_sure: "Вы уверены?"
+      removing: "Вы хотите снять с продажи объявление:"
+      why_removing: "Пожалуйста укажите причину (по выбору):"
+      close: Снять с продажи
+    edit:
+      heading: "Какой автомобиль вы желаете продать?"
+      bodytype: Тип кузова
+      make: Марка
+      model_name: Модель
+      variant: Вариант модели
+      version: Версия
+      year: Год выпуска
+      registered_at: Первичная регистрация
+      odometer: Пробег
+      power: Мощность двигателя (kВт)
+      size: "Объём двигателя (л)"
+      fuel: Топливо
+      color: Цвет
+      spec_color: Уточните цвет
+      metallic_color: Цвет металлик
+      registered: На учете в Эстонии
+      enter_reg: "Введите регистрационный номер автомобиля"
+      nb: "Внимание! Регистрационный номер не будет виден в вашем объявлении"
+      show_reg_nr: Показать регистрационный номер и VIN код в объявлении
+      provide_vin: "Anna kindlustunnet ja meelerahu sisestades sõiduki VIN-koodi, et potentsiaalsed ostjad saaksid vaadata teie sõiduki ajalugu."
+      vin: VIN код
+      find_details: Найти данные
+      example: пример
+    actions:
+      back: Назад
+      show: Показать объявление
+      activate: Активировать
+      activate_show: "Активировать и показать"
+      save_preview: Сохранить и просмотреть
+      save_continue: Сохранить и продолжить
+      save_show: Сохранить и показать
+      preview: Предварительный просмотр
+    details:
+      title: "Добавьте больше данных о вашем автомобиле %{vehicle}"
+      engine_details: Характеристики двигателя
+      engine_type: "Тип двигателя:"
+      cylinders: "Кол-во цилиндров:"
+      add_details: "Доп. инфо..."
+      select_measure: Выберите размеры
+      all_season_tires: Ламельные шины
+      spike_tires: Шипованные шины
+      max_speed: "Максимальная скорость (км/ч):"
+      acceleration: "Ускорение 0-100 км/ч (с): "
+      fuel_cons_city: "Расход топлива в городе (л/100 км):"
+      fuel_cons_freeway: "Расход топлива на трассе (л/100 км):"
+      fuel_combined: "Средний расход топлива (л/100 км):"
+      fuel_capacity: "Бак для топлива (л):"
+      height: "Высота (мм):"
+      length: "Длина (мм):"
+      width: "Ширина (мм):" 
+      wheelbase: "Колёсная база (мм):"  
+      gross_weight: "Полная масса (кг):"
+      net_weight: "Снаряжённая масса (кг):"
+      load_capacity: "Грузоподъемность (кг):"
+      warranty_valid_to: "Срок гарантии:"
+      warranty_km: "Гарантия (км):"
+      service_freq: "Интервал техобслуживания (месяцев):"
+      service_km: "Интервал техобслуживания (км):"
+      next_service: "Следующее техобслуживание:"
+      next_service_km: "Следующее техобслуживание (км):"
+      inspection_valid_to: "Техосмотр действителен до:"
+      service_history: "История обслуживания:"
+      transmission: "Коробка передач:"
+      gears: "Кол-во передач:"
+      drivetype: "Тип привода:"
+      location: "Местонахождение автомобиля:"
+      select_state: "Выберите уезд"
+      select_city: "Выберите город"
+      brought_from: "Привезён из страны:"
+      doors: "Кол-во дверей:"
+      seats: "Кол-во мест:"
+      owners: "Кол-во владельцев:"
+      climate: "Кондиционер:"
+      wrecked: "Аварийный"
+      exchange: "Возможность обмена"
+      other_info: Другие данные
+    features:
+      title: "Комплектация вашего автомобиля"
+      lead: ""
+      safety_security: "Безопасность"
+      airbags: Подушки безопасности
+      speakers: Звуковые колонки
+      comfort: Комфорт
+      interior_trim: Салон
+      other: Другое
+    photos:
+      comments: Комментарий
+      comments_lead: "У Вас есть реальная возможность захватить интерес покупателей Вашего автомобиля. Описание оборудования и отличительных черт Вашего автомобиля значительно повышает шансы на успех продажи автомобиля."
+      upload_photos: Добавление фотографий
+      photos_lead: "Обеспечьте дополнительную уверенность покупателю, добавив фотографии Вашего автомобиля. Фотографии должны быть в формате GIF, JPG, JPEG или PNG и максимальный размер 3 Мб. Кликните и перетащите, чтобы изменить порядок Ваших фотографий."
+      add_pics: Добавить фотографии
+      a_of_b: "добавлено %{a} фото из %{b}"
+      available: ""
+      previous: Предыдущая
+      next: Следующая
+      remove: Удалить
+    contact:
+      name: Имя
+      price_title: Цена
+      price: "Цена:"
+      price_vat: "Цена содержит НДС 20%"
+      negotiable: Торг уместен
+      contact_title: Контактные данные
+      primary_number: "Телефон:"
+      secondary_number: "Телефон:"
+      email: "Эл. почта:"
+    preview:
+      title: "Предварительный просмотр - Webauto.ee"
+      nb: "Внимание! Это предварительный просмотр объявления #%{id}"
+  vehicles:
+    show: 
+      share_on_facebook: "Поделиться на Facebook"
+      print: Распечатать
+      vehicle_details: Характеристики автомобиля
+      model: Модель
+      price: Цена
+      incl_vat: "содержит НДС 20%"
+      exl_vat: "НДС 0%"
+      no_details: "-"
+      back: Назад
+      back_to_results: Назад к результатам поиска
+      visits: "%{count} просмотров"
+      private: Частное 
+      dealer: Автодилер
+      images: Фото
+      a_of_b: " %{a} из %{b}"
+      contact_dealer: Написать продавцу 
+      contact_private_seller: Написать продавцу 
+      recently_viewed: Другие также смотрели
+      sellers_details: "Продавец"
+      similar_cars: Похожие объявления
+      more: Другие объявления продавца
+      nothing: Объявлений не найдено
+      interested: "Вам также может понравиться"
+      compare: Добавить в сравнение
+      save: Сохранить
+      unsave: Сохранено
+      share: Рекомендовать другу
+      report: Пожаловаться
+      comments: Комментарии
+      bodystyle: Тип кузова
+      badge: Версия
+      series: Вариант модели
+      series_badge: Вариант/Версия
+      drivetype: Привод
+      colour: Цвет
+      location: Местонахождение
+      reg_plate: Рег. номер
+      initial_reg: Первичная рег.
+      engine: Двигатель
+      kilometres: Пробег
+      transmission: Коробка передач
+      brought_from: Привезён из страны
+      vin: VIN код
+      show: Показать телефон
+      show_vin: Показать
+      show_nr: Показать
+      specification: Технические характеристики
+      features: Комплектация
+      engine_power: Мощность двигателя
+      engine_type: Тип двигателя
+      engine_size: Объём двигателя
+      cylinders: Кол-во цилиндров
+      top_speed: Максимальная скорость
+      acceleration: Ускорение 0-100 км/ч
+      transmission_drivetrain: "Трансмиссия"
+      drive: Привод
+      gears: Кол-во передач
+      gear_type: Коробка
+      fuel: Топливо
+      fuel_type: Топливо
+      fuel_cons_city: "Расход в городе"
+      fuel_cons_combined: "Расход в смешанном цикле"
+      fuel_cons_freeway: "Расход на шоссе"
+      fuel_capacity: Бак для топлива 
+      wheels_tires: "Диски и шины"
+      summer_tires: Летние шины
+      summer_tire_size: Размер
+      winter_tires: Зимние шины
+      winter_tire_size: Размер
+      light_alloy_wheels: Литые диски 
+      noooo: Нет
+      yesss: Да
+      all_season: ламельные
+      with_spikes: шипованные
+      dimensions_weights: "Габариты и масса"
+      height: Высота
+      length: Длина
+      width: Ширина
+      wheelbase: Колёсная база
+      gross_mass: Полная масса
+      load_capacity: Грузоподъёмность
+      kerb_weight: Снаряжённая масса
+      warranty_service: "Гарантия и обслуживание"
+      warranty: Гарантия
+      warranty_years: "Гарантия (мес.)"
+      warranty_km: "Гарантия (км)"
+      service_interval: Интервал тех. обслуживания
+      service_interval_km: "Интервал техобслуживания (км)"
+      service_interval_months: "Интервал техобслуживания (мес.)"
+      inspection_valid_to: "След. техосмотр"
+      next_service: След. техобслуживание
+      next_service_km: "След. техобслуживание (км)"
+      service_history: История обслуживания
+      months: месяцев
+      other: Другое
+      doors: Кол-во дверей
+      seats: Кол-во мест
+      origin: Привезён из страны
+      owners: Кол-во владельцев
+      ad_updated: "Обновлено"
+      audio_visual: "Мультимедиа"
+      speaker_stereo: "стерео с %{n} колонками"
+      car_stereo: "Аудиосистема"
+      original: штатная
+      cd_player: CD-проигрыватель
+      mp3: Поддержка MP3
+      usb: USB порт
+      aux: "AUX порт"
+      mem_card: Разъем для карты памяти
+      remote_control: Пульт
+      subwoofer: Сабвуфер
+      cd_changer: CD бокс
+      electric_antenna: Электрическая антенна
+      navigation: Навигационная система
+      computer: Бортовой компьютер
+      car_phone: Автотелефон
+      hands_free: Система Hands Free
+      gsm_antenna: GSM антенна
+      safety_security: "Безопасность"
+      airbags: подушки безопасности
+      central_locking: Центральный замок
+      with_remote: с пультом
+      abs: "Антиблокировочная система (ABS)"
+      alarm: Сигнализация
+      tow_away: Датчик наклона
+      motion_sensor: Объёмный датчик
+      communication: "Двухсторонняя связь"
+      immobilizer: Иммобилайзер
+      anti_skid: Система противоскольжения
+      stability: Система контроля стабильности
+      brake_force: Система распределения тормозных усилий
+      traction: Противобуксовочная система
+      seatbelt: Преднатяжители ремней безопасности передних сидений
+      comfort_convenience: "Оборудование для комфорта"
+      electric_mirrors: Электрические зеркала
+      with_memory: с памятью
+      heated_mirrors: с подогревом
+      folding_mirrors: складывающиеся
+      sunroof: Люк на крыше
+      cruise: Круиз контроль
+      distance: Система поддержания расстояния до переднего автомобиля (ACC)
+      engine_preheating: Предварительный подогрев двигателя
+      parking_sensors: Датчики парковки
+      spotlights: Точечное освещение
+      temperature_indicator: Термометр внутри салона
+      lights_windows: "Фары и окна"
+      xenon: Ксеноновые фары
+      third_brake: Дополнительный стоп сигнал
+      washers: Омыватели передних фар
+      dim_dip: Special dim dip light
+      fog: Противотуманные фары
+      front: передние
+      rear: задние
+      headlight_range: Датчик корректора фар
+      extra_lights: Дополнительные фары
+      auto_lights: Автоматическое включение фар
+      power_windows: Электрические стеклоподъёмники
+      tinted_windows: Тонированные стёкла
+      rain_sensor: Датчик дождя
+      rear_wiper: Очиститель заднего стекла
+      front_window_heating: Обогрев лобового стекла
+      rear_window_heating: Обогрев заднего стекла
+      low_beam: ближнего света
+      high_beam: дальнего света
+      steering: Руль
+      power_steering: Усилитель руля
+      multi_wheel: Многофункциональный руль
+      adjustable_column: Регулируемый руль
+      tilt_reach: по высоте и глубине
+      electrical: электрический
+      interior: Салон
+      cloth: Тканевый салон
+      vinyl: Велюровая обшивка
+      faux: Комбинированная кожаная обивка
+      leather: Кожаная обивка
+      wood: Декор салона под дерево
+      chrome: Декор салона хром
+      mats: Коврики
+      textile: Текстильные коврики
+      rubber: Резиновые коврики
+      velour: Велюровые коврики
+      leather_shift: Обшитая кожей ручка рычага переключения КПП 
+      leather_break: Обшитая кожей ручка стояночного тормоза
+      leather_wheel: Отделка кожей рулевого колеса
+      seats: Сиденья
+      electrical_seats: электрически регулируемые сиденья
+      seats_with_heating: обогрев сидений
+      front_armrest: Подлокотник спереди
+      rear_armrest: Подлокотник сзади
+      down_folding: Складная спинка заднего сиденья
+      other_features: Другое оборудование
+      dust_shields: Декоративные колпаки на колеса
+      roof_railings: Рейлинги (дуги) на крыше
+      roof_rack: Багажник на крыше
+      isolation_net: Разделительная сетка салона и багажного отделения 
+      luggage_cover: Разделительная сетка в багажном отделении
+      tow_hitch: Фаркоп
+      removable: съёмный
+      sump_shield: Защита картера
+      side_steps: Боковые пороги
+      outside_temperature: Датчик температуры атмосферного воздуха
+      uncompare: Добавлено в сравнение
+      own_driven: "У вас есть такой автомобиль или вы ездили на нём?"
+      share_experience: "Поделитесь своим опытом и помогите другим сделать правильный выбор при покупке следующего автомобиля."
+    search:
+      viewed_by_you: Просмотренные Вами объявления
+      advert: объявление
+      adverts: объявления
+    index:
+      title: "Объявления о продаже автомобилей - Webauto.ee"
+  comments:
+    write_comment: "Ваш комментарий..."
+    comments: Комментарии
+    create: Добавить комментарий
+    reply: Ответить
+    cancel: Отменить
+    write_reply: "Ваш ответ..."
+    delete: Удалить
+  inquiries:
+    info: "Ваши данные посылаются только продавцу автомобиля.​​"
+    feedback: Обратная связь
+    problem: Проблема
+    feature: Запрос функции
+    question: Вопрос
+    cancel: Отменить
+    write_message: "Сообщение..."
+    send: Отправить
+    name: Имя отправителя
+    email: Эл. почта отправителя
+    friends_email: Эл. почта друга
+    sold: Продан
+    suspicious: Подозрительный
+    incorrect: Неправильные данные
+    close: Закрыть
+    send_to_friend: Посоветовать другу
+    report_ad: Пожаловаться на объявление
+    report: Пожаловаться на объявление
+    note: "<strong>Внимание:</strong> Webauto.ee не продаёт автомобили. Если у Вас есть вопросы по поводу объявления, пожалуйста, свяжитесь с продавцом, заполнив контактную форму на странице объявления."
+    acknowledge: "Нажимая кнопку \"Отправить\", Вы принимаете условия <a href='%{terms_link}' target='_blank'><strong>Пользовательского соглашения</strong></a> и <a href='%{privacy_link}' target='_blank'><strong>Политику конфиденциальности</strong></a>."
+    acknowledge_comments: "Добавляя комментарий, Вы принимаете условия <a href='%{terms_link}' target='_blank'><strong>Пользовательского соглашения</strong></a> и <a href='%{privacy_link}' target='_blank'><strong>Политику конфиденциальности</strong></a>."
+  reviews:
+    index: 
+      heading: Отзывы автовладельцев
+      title: "Отзывы об автомобилях - Webauto.ee"
+      reviews: отзывов
+      review: отзыв
+      show: Посмотреть
+      nothing: "Отзывов не найдено"
+    confirmation: 
+      title: "Спасибо за оставленный отзыв!"
+      lead: "Все отзывы рассматриваются перед публикацией на сайте. Мы не будем показывать отзывы, которые содержат оскорбительные замечания или другой нежелательный контент. Webauto.ee пришлёт Вам сообщение на электронную почту, когда отзыв будет принят."
+      read_other: "Почитать другие отзывы"
+      write_another: "Добавить ещё отзыв"
+    details:
+      title: "Отзыв об автомобиле %{vehicle_name}"
+      description: "Посмотрите, какой отзыв оставил владелец об автомобиле %{vehicle_name}. Общая оценка %{overall}/5."
+      author: "Автор: %{first_name} | %{created_at}"
+      how_well: "Как хорошо Вы знаете этот автомобиль"
+      driven: "Вождение"
+      odometer: "Пробег автомобиля"
+      what_for: "С какой целью Вы использовали этот автомобиль"
+      recommend: "Посоветовали бы Вы этот автомобиль другу?"
+      how_it_drives: "Управляемость"
+      practicality: "Практичность"
+      reliability: "Надёжность и долговечность"
+      running_costs: "Расходы на содержание"
+      likes: Преимущества
+      dislikes: Недостатки
+      would_you: "Хотите посоветовать свой автомобиль другим?"
+      write_review: "Добавьте свой отзыв"
+      for_sale: "в продаже"
+      own: "Владелец"
+      first_owner: "Вы были первым владельцем этого автомобиля"
+    new:
+      title: "Добавление отзыва - Webauto.ee"
+      header: "Отзыв об автомобиле %{vehicle}"
+      lead: "Поделитесь своим опытом и помогите другим сделать правильный выбор при покупке следующего автомобиля."
+      please_select: "Выберите"
+      how_long: "Как долго Вы ездили на этом автомобиле?"
+      select_like: "Пожалуйста, выберите до трех пунктов, которые Вам больше всего нравятся в этом автомобиле"
+      dont_like: "ничего не нравится"
+      select_dislike: "Пожалуйста, выберите до трех пунктов, которые Вам больше всего не нравятся в этом автомобиле"
+      dont_dislike: "всё устраивает"
+      experience: "Расскажите о своем опыте вождения. Что нужно знать потенциальным владельцам этого автомобиля?"
+      characters: "символов осталось (мин. 100 символов)"
+      give_rate: "Оцените характеристики количеством звёздочек"
+      smooth: "Плавно движется по дороге, приятно ехать, быстрый, трудно упралять?"
+      lifestyle: "Как он подходит Вашему образу жизни - просторный, адаптирован для перевозки детей, подходит для ежедневного использования?"
+      sustainable: "Надёжен ли он в течение длительного времени и хорошо сконструирован или же нуждается в постоянном уходе и ремонте?"
+      consumption: "Учитывая расход топлива, страхование, техническое обслуживание, затраты на запчасти, стоит ли его содержать?"
+      overall: "Общая оценка"
+      yess: "Да"
+      noo: "Нет"
+      first_name: "Ваше имя"
+      declaration: "Я подтверждаю, что этот отзыв основан на моем личном опыте вождения этим автомобилем. У меня нет личных или деловых связей с заводом-изготовителем автомобиля, и мне не было предложено никаких выплат производителем или дилером, чтобы написать этот отзыв."
+      validate_declaration: "Пожалуйста, подтвердите, что этот отзыв основан на Вашем собственном опыте вождения автомобилем"
+      submit: "Сохранить"
+      already_reviewed: "На этот автомобиль уже есть отзыв"
+      no_selected: "Автомобиль не выбран"
+      success: "Ваш отзыв сохранён"
+      info: "Внимание! Чтобы написать отзыв добавьте или выберите автомобиль из списка."
+  dealers:
+    index: 
+      title: "Автодилеры - Webauto.ee"
+      nothing: "Автодилеров не найдено"
+      heading: Автодилеры
+      company_name: Название фирмы
+      total_stock: Количество объявлений
+      view_stock: Показать объявления
+      show_inventory: Другие объявления
+      map_directions: Посмотреть на карте
+      email_dealer: Отправить письмо
+      visit: Домашняя страница
+      view_map: Посмотреть на карте
+      dealer: автодилер
+      dealers: автодилеров
+  users:
+    new:
+      title: Зарегистрироваться
+      accept: "Я прочитал и согласен с условиями <a href='%{terms_link}' target='_blank'> Пользовательского соглашения</a> и <a href='%{privacy_link}' target='_blank'>Политикой конфиденциальности</a>"
+      dealer_company: "Если вы автодилер, поставьте флажок"
+      spam: ""
+      spam_text: ""
+      tos_agreement: "Пожалуйста, согласитесь с условиями пользовательского соглашения"
+      signup: Зарегистрироваться
+      register_with_password: Зарегистрироваться с паролем
+    dashboard:
+      title: Обзор - Webauto.ee
+      dashboard: Обзор
+      lead: "Пользоваться порталом Webauto.ee стало намного проще. Теперь, когда Вы являетесь пользователем, Вы можете управлять всеми вашими объявлениями и поисками в одном месте."
+      saved_vehicles: Сохранённые объявления
+      view_all: Показать все
+      sold: ПРОДАН
+      saved_on: Сохранено
+      saved_searches: Сохранённые поиски
+      last_searches: Последние поиски
+      searched_on: Поиск
+      saved_adverts_info: ""
+      saved_searches_info: ""
+      no_last_searches: ""
+      search_now: Искать объявления
+    profile:
+      title: "Профиль - Webauto.ee"
+      profile: Изменить профиль
+      details: ""
+      for_security: ""
+      security: "Для того, чтобы изменить адрес эл. почты, пожалуйста, %{contact_link}."
+      contact_link_text: свяжитесь с нами
+      name: Имя
+      country: Страна
+      city: Город
+      state: Уезд
+      primary_phone: Телефон
+      secondary_phone: Телефон
+      email: Эл. почта
+      new_password: Новый пароль
+      password: Пароль
+      password_confirm: "<strong>Подтверждение пароля</strong>"
+      current_password: Текущий пароль
+      company_name: Название фирмы
+      address1: Адрес
+      address2: Адрес
+      postal_code: Почтовый индекс
+      registration_code: Регистровый код
+      vat_number: Номер налогообязанного по НДC
+      webpage: Домашняя страница
+      hint: "Оставьте пустым, если не хотите менять"
+      need_password: "Для того, чтобы принять изменения, введите текущий пароль"
+      update: Сохранить
+      cancel: "Удалить мою учетную запись"
+      cancel_sure: "Вы уверены?"
+      add_pic: Добавить изображение
+      remove: Удалить
+      remove_sure: 'Вы уверены, что хотите удалить это изображение?'
+    settings:
+      title: "Настройки - Webauto.ee"
+      settings: Настройки
+      details: ""
+      notifications: Уведомления о сохранённых объявлениях
+      notify: "Для всех моих сохраненных объявлений, уведомить меня, когда:"
+      price_alert: "Изменилась цена или появилось специальное предложение"
+      sold_alert: "Автомобиль продали"
+      interest_alert: "Интерес к автомобилю вырос"
+      future_updates: "Функциональные обновления и преимущества регистрации"
+      future_updates_text: "Как зарегистрированного пользователя Webauto.ee мы будем информировать Вас о новых интересных обновлениях, эксклюзивных предложений от нас и наших партнёров и делиться с Вами другой важной информацией, относящейся к собственности транспортных средств. Вся информация о Вас и контактные данные не будут передаваться третьим лицам вне портала Webauto.ee."
+      future_updates_check: "Я хотел бы получать специальные предложения, акции и обновления от портала Webauto.ee"
+      language: Язык
+      save: Сохранить
+  searches:
+    index:
+      title: "Сохранённые поиски - Webauto.ee"
+      saved_searches_and_alerts: "Сохранённые поиски"
+      title_details: "Поиски для повторного запуска"
+      available_searches: "поисков"
+      a_of_b: "%{a} из %{b}"
+      rename_search: "Изменить название поиска"
+      save_search: "Сохранить поиск"
+      save: Сохранить
+      close: Закрыть
+      name: Название
+      alerts_on: "Да"
+      alerts_off: "Нет"
+      search_name: НАЗВАНИЕ
+      details: ПАРАМЕТРЫ
+      freq: УВЕДОМЛЕНИЯ
+      activity: ПОСЛЕДНИЕ ДЕЙСТВИЯ
+      delete_all: Удалить все
+      sure: "Вы уверены, что хотите удалить все поиски?"
+      no_alert: Не уведомлять
+      actions: Действия
+      rename: Изменить название
+      delete: Удалить
+      delete_sure: "ы уверены, что хотите удалить?"
+      saved_on: Сохранено
+      run: Запустить поиск
+      last_alert: Последнее уведомление
+      no_alert_available: Уведомления деактивированы
+      refine: "Уточните параметры поиска (до 100 результатов)"
+      create_alert: "Вы хотите получать уведомления о новых объявлениях по этому поиску?"
+  saved_items:
+    index:
+      title: "Сохранённые объявления - Webauto.ee"
+      details: ""
+      saved_items: Сохранённые объявления
+      a_of_b: " %{a} из %{b}"
+      available_items: объявлений
+      description: ОПИСАНИЕ
+      price: ЦЕНА
+      recent: ПОСЛЕДНИЕ ДЕЙСТВИЯ
+      sold: ПРОДАН
+      closed: УДАЛЕНО
+      search_similar: Найти похожие
+      last_listed: Последняя цена
+      other_people: "Другие пользователи сохранили это объявление"
+  compared_items:
+    index:
+      title: "Сравнение автомобилей - Webauto.ee"
+      heading: Сравнение автомобилей
+      remove: Удалить
+  garage_items:
+    index:
+      title: "Мои автомобили - Webauto.ee"
+      update: Изменить
+      activity: ПОСЛЕДНИЕ ДЕЙСТВИЯ
+      actions: TEGEVUSED
+      add_car: Добавить автомобиль
+      add_photo: Добавить фотографию
+      preview: Предварительный просмотр объявления
+      show: Показать объявление
+      restore: Восстановить объявление 
+      for_sale: В ПРОДАЖЕ
+      sell: Создать объявление
+      updated: Обновлён
+      ago: назад
+      association: Статус
+      save: Сохранить
+      cancel: Удалить
+      edit: Изменить
+      review: Добавить свой отзыв
+      reviewed: Добавлен отзыв
+    edit:
+      title: "Изменение данных автомобиля - Webauto.ee"
+    new:
+      title: "Добавление автомобиля - Webauto.ee"
+  contact_forms:
+    thankyou: "Благодарим Вас за обращение к нам!"
+    thankyou_text: "Мы свяжемся с Вами в кратчайшие сроки."
+    title: "Контакт - Webauto.ee"
+  orders:
+    your_cart: ""
+    order_total: "Общая сумма:" 
+    total: Всего
+    free: БЕСПЛАТНО
+  sessions:
+    new:
+      title: "Авторизация - Webauto.ee"
+  views:
+    pagination:
+      first: "&laquo;"
+      last: "&raquo;"
+      previous: "&lsaquo; предыдущие"
+      next: "следующие &rsaquo;"
+      truncate: "&hellip;"
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "<div class='alert'>%{entry_name} не найдено</div>"
+          one: "<small>Показываю <span class='badge badge-info'>1</span> %{entry_name}</small>"
+          other: "<small>Показываю <span class='badge badge-info'>%{count}</span> %{entry_name}</small>"
+      more_pages:
+        display_entries: "<small>Найдено <span class='badge badge-info'>%{total}</span>. Показываю <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span></small> "
+  activemodel:
+    attributes:
+      inquiry: 
+        name: Имя
+        friend_email: "Эл. почта друга"
+        email: Эл. почта отправителя
+        message: Сообщение
+  activerecord:
+    attributes: 
+      review:
+        experience: Текст 
+        first_name: Имя
+      user:
+        password: "Пароль"
+        email: Адрес эл. почты
+        company_name: Название фирмы
+        reset_password_token: "Ссылка сброса пароля"
+        address1: Адрес
+        phone1: Телефон
+        country_id: Страна
+        postal_code: Почтовый индекс
+        city_id: Город
+        state_id: Уезд
+        city_name: Город
+        city_str: Город
+      search:
+        name: Название
+      vehicle:
+        bodytype_id: Тип кузова
+        make_id: Марка
+        model_id: Модель
+        model_spec: Модель
+        engine_power: Мощность двигателя
+        odometer: Пробег
+        engine_size: Объём двигателя
+        fueltype_id: Топливо
+        registered_at: Первичная регистрация
+        colour_id: Цвет
+        country_id: Местонахождение
+        drivetype_id: Привод
+        state_id: Уезд
+        doors: Кол-во дверей
+        seats: Кол-во мест
+        price: Цена
+      comment:
+        text: Комментарий
+      saved_item:
+        vehicle_id: Автомобиль
+      compared_item:
+        vehicle_id: Автомобиль
+    errors:
+      models:   
+        compared_item:
+          attributes:
+            vehicle_id:
+              taken: уже использован
+        user:
+          attributes:
+            current_password:
+              blank: не введён
+  mail_form:
+    models:
+      contact_form: "Контактная форма"
+    attributes:
+      contact_form:
+        email: "Эл. почта"
+        message: "Сообщение"

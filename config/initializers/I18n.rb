@@ -2,5 +2,6 @@
 I18n.default_locale = :et
 LANGUAGES = [
 ["Eesti".html_safe, 'et'],
-['English', 'en']
+['English', 'en'],
+['Русский', 'ru']
 ]

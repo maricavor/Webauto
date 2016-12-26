@@ -36,7 +36,9 @@
 			    if (d.getElementById(id)) return;
     			  if (window.locale=='et') {
     				  var l="et_EE";
-    			  }else{
+				  } else if (window.locale=='ru'){
+					  var l="ru_RU";
+    			  } else {
     				  var l="en_US";
     			  }
 			    js = d.createElement(s); js.id = id;
@@ -70,7 +72,7 @@
                     <ul class="unstyled text-left">
                       <small>
                         
-                        <li style="padding-bottom:5px;"><strong><%= t("navigation.#{type}_for_sale").upcase %></strong></li>
+                        <li style="padding-bottom:5px;"><strong><%= t("navigation.#{type}_for_sale_upcase").upcase %></strong></li>
                         <li><%= link_to t("navigation.all_#{type}"), new_search_path(:search=>"all"),:method=>:post  %></li>
                         <li><%= link_to t("navigation.dealer_#{type}"), new_search_path(:search=>"dealer"),:method=>:post  %></li>
                         <li><%= link_to t("navigation.private_#{type}"), new_search_path(:search=>"private"),:method=>:post  %></li>
@@ -112,8 +114,9 @@
                     <ul class="unstyled text-left">
                       <small>
                         <li style="padding-bottom:5px;"><strong><%= t("navigation.language").upcase %></strong></li>
-                        <li><%= locale_select(:en,"English",request.path_parameters) %></li>
-                        <li><%= locale_select(:et,"Eesti",request.path_parameters) %></li>
+                        <li><%= image_tag "/en.gif", :width=>"17", :height=>"11" %> <%= locale_select(:en,"English",request.path_parameters) %></li>
+                        <li><%= image_tag "/et.gif", :width=>"17", :height=>"11" %> <%= locale_select(:et,"Eesti",request.path_parameters) %></li>
+						      <li><%= image_tag "/ru.gif", :width=>"17", :height=>"11" %> <%= locale_select(:ru,"Русский",request.path_parameters) %></li>
                       </small>
                     </ul>
                   </div>

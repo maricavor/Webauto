@@ -256,7 +256,7 @@ end
     def get_powers
       powers=[]
       [80, 100, 125, 150, 175, 200, 225, 250, 300, 350].each do |i|
-        powers.push ["#{i} kW",i]
+        powers.push ["#{i} #{t('power.kw')}",i]
       end
       powers
     end
@@ -268,7 +268,7 @@ end
       kms
     end
     def milage(km)
-      "#{number_with_delimiter(km, delimiter: ",")} km"
+      "#{number_with_delimiter(km, delimiter: ",")} #{t('distance.km')}"
     end
     def get_years
       ret=[]

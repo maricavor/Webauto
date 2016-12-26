@@ -186,9 +186,22 @@ et:
       two_words_connector: " ja "
       words_connector: ", "
   time:
+    seconds: s
     am: enne lõunat
     formats:
       default: "%d. %B %Y, %H:%M"
       long: "%a, %d. %b %Y, %H:%M:%S %z"
       short: "%d.%m.%y, %H:%M"
+      no_time: "%d. %b %Y"
     pm: pärast lõunat
+  power:
+    kw: kW
+  distance:
+    km: km
+    mm: mm
+  volume:
+    litres: L
+  weight:
+    kg: kg
+  speed:
+    kmh: km/t

@@ -104,6 +104,7 @@ a.accordion-toggle{
 .nav .active a [class^="icon-garage"],.nav .active a [class*=" icon-garage"] { 
 background-image:url("/garage16_white.png") !important; 
 }
+
 @import "bootstrap-responsive";
 /* Large desktop */
 @media (min-width: 1200px) { 
@@ -122,16 +123,18 @@ margin-left:-40%; /* width/2) */
 margin-left:-40%; /* width/2) */ 
 }
 
-#general_info,#popular_ads{
+#general_info,#popular_ads,#last_reviews_title{
   font-size:12px;
 }
 .vehicle_name,.vehicle_price,.vehicle_ownership{
   font-size:12px;
 }
-.specs,.popular_searches{
+.specs,.popular_searches,.review_text{
    font-size:12px;
 }
- 
+ .review_title{
+ 	 font-size:14px;
+ }
    table.vehicle_info{
     font-size:12px;
 }
@@ -145,7 +148,7 @@ margin-left:-40%; /* width/2) */
   #general_info{
   font-size:12px;
 }
-#popular_ads{
+#popular_ads,#last_reviews_title{
   font-size:14px;
 }
 .specs,.popular_searches{
@@ -172,7 +175,7 @@ margin-left:-40%; /* width/2) */
   #general_info{
   font-size:12px;
 }
-#popular_ads{
+#popular_ads,#last_reviews_title{
   font-size:14px;
 }
 .footer {

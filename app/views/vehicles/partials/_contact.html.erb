@@ -4,8 +4,7 @@
   <div class="span6">
       <% if @user.is_dealer %>
 	      <h4><%= link_to @user.company_name, dealer_path(@user.dealer_name) %></h4>
-		  <% else %>
-		 <h4><%= t("vehicles.show.sellers_details") %></h4>
+		
 		 <% end %>
   
 
