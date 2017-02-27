@@ -4,5 +4,5 @@ Bodytype:
   fields:
     default: name, popularity
     form: name, popularity
-  relationships: translations, vehicles
+  relationships: translations
   application: Application

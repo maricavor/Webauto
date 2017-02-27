@@ -24,19 +24,19 @@
       <%= f.text_field :model_spec,id:"model_spec"   %>
   
     <%= f.text_field :registered_at,label:t("adverts.edit.registered_at"),:type=>"datepicker" %>
-    <%= f.text_field :badge,label: t("adverts.edit.variant") %>
-	 <%= f.text_field :series,label: t("adverts.edit.version") %>
+    <%= f.text_field :badge,label: t("adverts.edit.variant"),placeholder: "#{t("adverts.edit.example")}: D5, GLX, AWD" %>
+	 <%= f.text_field :series,label: t("adverts.edit.version"),placeholder: "#{t("adverts.edit.example")}: Facelift, Edition 10, Sport Line" %>
     <%= f.text_field :year,label: t("adverts.edit.year") %>
   </div>
 <div class="span6">
-<%= f.text_field :odometer,label: t("adverts.edit.odometer")  %>
-<%= f.text_field :engine_power,label: t("adverts.edit.power")  %>
-    <%= f.text_field :engine_size,label: t("adverts.edit.size")  %>
+<%= f.text_field :odometer,label: t("adverts.edit.odometer"),placeholder: "#{t("adverts.edit.example")}: 75000"  %>
+<%= f.text_field :engine_power,label: t("adverts.edit.power"),placeholder: "#{t("adverts.edit.example")}: 165"  %>
+    <%= f.text_field :engine_size,label: t("adverts.edit.size"),placeholder: "#{t("adverts.edit.example")}: 2.0"  %>
     <%= f.select :fueltype_id, t('fueltypes').collect {|c| [ c["name"], c["id"] ] },{include_blank: true}, {label: t("adverts.edit.fuel")} %>
      <%= f.select :transmission_id, t('transmissions').collect {|c| [ c["name"], c["id"] ] },{}, {label: t("adverts.details.transmission")}%>
   
     <%= f.select :colour_id,t('colours').collect {|c| [ c["name"], c["id"] ] },{include_blank: true},{label: t("adverts.edit.color")} %>
-    <%= f.text_field :specific_colour,label: t("adverts.edit.spec_color") %>
+    <%= f.text_field :specific_colour,label: t("adverts.edit.spec_color"),placeholder: "#{t("adverts.edit.example")}: Diamond Silver Metallic" %>
     <!--<%= f.check_box :metallic_colour,label: t("adverts.edit.metallic_color") %>-->
     
       <%= f.hidden_field :current_step,:value=> "edit" %> 

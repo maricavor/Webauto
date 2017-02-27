@@ -844,6 +844,14 @@ et:
           other: "<small>Näitan <span class='badge badge-info'>%{count}</span> %{entry_name}</small>"
       more_pages:
         display_entries: "<small>Kokku <span class='badge badge-info'>%{total}</span>. Näitan <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span></small> "
+    admin_page_entries_info:
+      one_page:
+        display_entries:
+          zero: "<div class='alert'>No %{entry_name} found</div>"
+          one: "<small>Displaying <span class='badge badge-info'>1</span> %{entry_name}</small>"
+          other: "<small>Displaying all <span class='badge badge-info'>%{count}</span> %{entry_name}</small>"
+      more_pages:
+        display_entries: "<small>Displaying %{entry_name} <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span> of <span class='badge badge-info'>%{total}</span> in total </small>"
   activemodel:
     attributes:
       inquiry: 

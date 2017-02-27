@@ -91,7 +91,7 @@
                 </ul>
 	
     			<label class="radio">
-    			<input type="radio" id="dontlikeRadio"><%= t('reviews.new.dont_like') %>
+    			<input type="radio" id="dontlikeRadio" name="like_dislike"><%= t('reviews.new.dont_like') %>
     			</label>
     		<br>
      			<p><strong><%= "#{t('reviews.new.select_dislike')}:" %></strong></p>
@@ -102,7 +102,7 @@
                  </ul>
 	
      			<label class="radio">
-     				<input type="radio" id="dontdislikeRadio"><%= t('reviews.new.dont_dislike') %>
+     				<input type="radio" id="dontdislikeRadio" name="like_dislike"><%= t('reviews.new.dont_dislike') %>
      			</label>
     			<br>
 		     		<%= spec_title(t("reviews.new.give_rate")) %>

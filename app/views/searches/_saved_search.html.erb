@@ -41,16 +41,8 @@
   <ul class="dropdown-menu pull-right">
      <li> <%= link_to t("searches.index.run"), send("search_#{s.type.name.underscore.pluralize}_path",s,:sort=>s.sort) %></li>
      <li> <%= link_to t("searches.index.rename"), edit_search_path(s),:remote=>true  %></li>
-   
      <li>
-  <%= link_to t("searches.index.delete"), s, method: :delete, data: { confirm: t("searches.index.delete_sure")},:remote => true %></li>
-        
-        
-        
-       
+  <%= link_to t("searches.index.delete"), s, method: :delete, data: { confirm: t("searches.index.delete_sure")},:remote => true %></li>   
   </ul>
 </div>
- 
-
-
 </td>

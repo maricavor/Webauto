@@ -129,7 +129,7 @@ ru:
     private: Частное объявление
     search: Поиск
     sorted_by: "Сортировка:"
-    most_recent: Последние объявления
+    most_recent: Последние
     most_popular: Самые популярные
     price_high_low: "По цене (дороже - дешевле)"
     price_low_high: "По цене (дешевле - дороже)"
@@ -561,7 +561,7 @@ ru:
     search:
       viewed_by_you: Просмотренные Вами объявления
       advert: объявление
-      adverts: объявления
+      adverts: объявлений
     index:
       title: "Объявления о продаже автомобилей - Webauto.ee"
   comments:
@@ -623,7 +623,7 @@ ru:
       likes: Преимущества
       dislikes: Недостатки
       would_you: "Хотите посоветовать свой автомобиль другим?"
-      write_review: "Добавьте свой отзыв"
+      write_review: "Добавить отзыв"
       for_sale: "в продаже"
       own: "Владелец"
       first_owner: "Вы были первым владельцем этого автомобиля"
@@ -810,7 +810,7 @@ ru:
       ago: назад
       association: Статус
       save: Сохранить
-      cancel: Удалить
+      cancel: Отменить
       edit: Изменить
       review: Добавить свой отзыв
       reviewed: Добавлен отзыв
@@ -846,6 +846,14 @@ ru:
           other: "<small>Показываю <span class='badge badge-info'>%{count}</span> %{entry_name}</small>"
       more_pages:
         display_entries: "<small>Найдено <span class='badge badge-info'>%{total}</span>. Показываю <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span></small> "
+    admin_page_entries_info:
+      one_page:
+        display_entries:
+          zero: "<div class='alert'>No %{entry_name} found</div>"
+          one: "<small>Displaying <span class='badge badge-info'>1</span> %{entry_name}</small>"
+          other: "<small>Displaying all <span class='badge badge-info'>%{count}</span> %{entry_name}</small>"
+      more_pages:
+        display_entries: "<small>Displaying %{entry_name} <span class='badge badge-info'>%{first}</span>&nbsp;-&nbsp;<span class='badge badge-info'>%{last}</span> of <span class='badge badge-info'>%{total}</span> in total </small>"
   activemodel:
     attributes:
       inquiry: 

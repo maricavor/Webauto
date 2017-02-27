@@ -10,17 +10,12 @@
 	  <small><%= t("searches.index.title_details") %></small>
   </h2>
     </div>
-  
     <div id="saved_searches_progress" >
       <%= render 'progress' %>
     </div>
-  
-   
-    <%= render partial: 'searches/saveSearchModal',locals: {mode: "edit"} if current_user %>
-   
+    <%= render partial: 'searches/saveSearchModal',locals: {mode: "edit"} if current_user %>  
     <div id="saved_searches" style="margin-top:10px;">
       <%= render partial: 'searches/saved_searches' %>
     </div>
     </div>
-
 </div>

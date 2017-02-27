@@ -19,14 +19,14 @@
       <%= link_to Typus::I18n.t("All"), params.dup.cleanup.merge(:action => 'index') %>
       <%= "(#{resource.count})" if @resource.typus_options_for(:counters) %>
     </li>
-
+ 
     <% @resource.typus_scopes.each do |scope| %>
       <li>
         <%= link_to Typus::I18n.t(scope.humanize), :scope => scope %>
         <%= "(#{@resource.send(scope).count})" if @resource.typus_options_for(:counters)  %>
       </li>
     <% end %>
-
+<li><%= admin_page_entries_info @items, :entry_name => "" %></li>
     <% predefined_filters.each do |filter, action, scope| %>
       <li>
         <% url = action.is_a?(String) ? params.dup.cleanup.merge(:action => action) : action %>
@@ -49,9 +49,10 @@
       <%= search %>
     </div>
   <% end %>
-
+<br>
   <% if @items.any? -%>
-   <%= admin_paginate(@items, Typus.pagination) %>
+  
+   <%= paginate @items %>
    <br>
     <% if controller.respond_to?(:bulk) %>
       <%= build_actions { build_list(@resource, fields, @items) } %>
@@ -59,7 +60,7 @@
       <%= build_list(@resource, fields, @items) %>
     <% end %>
 	 <br>
-    <%= admin_paginate(@items, Typus.pagination) %>
+     <%= paginate @items %>
   <% else %>
     <p><%= Typus::I18n.t("No %{resources} found.", :resources => @resource.model_name.human(:count => 2)) %></p>
   <% end %>
