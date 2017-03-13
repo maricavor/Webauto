@@ -534,8 +534,8 @@ end
        with(:type_id, t_id)  
        without(:advert_id,nil)
        with(:activated,true)
+       #order_by(:ad_activated_at, :desc)
        order_by(:popularity, :desc)
-       order_by(:ad_activated_at, :desc)
        paginate(:page => 1, :per_page => 12)
      end
      if solr_search.total>0
