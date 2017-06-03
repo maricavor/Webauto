@@ -20,6 +20,10 @@ et:
   compared_items:
     deleted: "Sõiduk on kustutatud võrdlusnimekirjast."
     quantity: "Võrdlusnimekirja ei saa lisada rohkem kui %{max} sõidukit!"
+  garage_items:
+    destroyed: "Sõiduk on kustutatud."
+    updated: "Sõiduk on muudetud."
+    created: "Sõiduk on salvestatud."
   contact_forms:
     failure: "Kirja saatmine ebaõnnestus."
   dealer_pictures:

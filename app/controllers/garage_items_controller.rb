@@ -51,7 +51,7 @@ class GarageItemsController < ApplicationController
     
       if @vehicle.save
         respond_to do |format|
-        format.html { redirect_to garage_items_path, notice: 'Car was successfully added.' }
+        format.html { redirect_to garage_items_path, notice: t("garage_items.created") }
         format.json { render json: @vehicle, status: :created, location: @vehicle }
         end
       else
@@ -75,7 +75,7 @@ class GarageItemsController < ApplicationController
     gon.selected={"vehicles"=>[@vehicle.make_name,@vehicle.model_name,@vehicle.model_id]} if @vehicle.make
     respond_to do |format|
       if @vehicle.update_attributes(modify(params[:vehicle]))
-        format.html { redirect_to garage_items_path, notice: 'Vehicle was successfully updated.' }
+        format.html { redirect_to garage_items_path, notice: t("garage_items.updated") }
         format.json { head :no_content }
       else
         format.html { 

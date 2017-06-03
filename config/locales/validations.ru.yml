@@ -20,6 +20,10 @@ ru:
   compared_items:
     deleted: "Автомобиль удалён из списка сравнения."
     quantity: "В список сравнения нельзя добавлять более чем %{max} автомобиля!"
+  garage_items:
+    destroyed: "Автомобиль удалён."
+    updated: "Данные автомобиля изменены."
+    created: "Автомобиль добавлен в список."
   contact_forms:
     failure: "Не удалось отправить письмо."
   dealer_pictures:

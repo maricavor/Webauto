@@ -20,6 +20,10 @@ en:
   compared_items:
     deleted: "Successfully deleted item from compare list."
     quantity: "You cannot compare more than %{max} vehicles."
+  garage_items:
+    destroyed: "Vehicle was successfully deleted."
+    updated: "Vehicle was successfully updated."
+    created: "Vehicle was successfully added."
   contact_forms:
     failure: "Sorry, this message appears to be spam and was not delivered."
   dealer_pictures:

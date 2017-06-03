@@ -83,7 +83,7 @@ et:
     comment_login: "Kommentaari postitamiseks <a href='%{login}'>logige sisse</a> või <a href='%{register}'>registreeruge</a>!"
     reviews: Autode hinnangud
     all_reviews: Autode hinnangud
-    copyright: "© 2016 Webauto.ee. Kõik õigused kaitstud."
+    copyright: "© 2017 Webauto.ee. Kõik õigused kaitstud."
   search:
     open_search: Ava otsing
     close_search: Sulge otsing

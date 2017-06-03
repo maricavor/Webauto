@@ -84,7 +84,7 @@ en:
     comment_login:  "<a href='%{login}'>Login</a> or <a href='%{register}'>Register</a> now to post a comment!"
     reviews: Owner reviews
     all_reviews: Owner reviews
-    copyright: "Copyright © 2016 Webauto, All Rights Reserved."
+    copyright: "Copyright © 2017 Webauto, All Rights Reserved."
   search:
     open_search: Open search
     close_search: Close search

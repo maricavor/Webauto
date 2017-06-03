@@ -1,3 +1,4 @@
+- validate garage_items translations missing
 - validate email during registration
 - public_activity gem
 - make button check vehicle in mnt.ee like on page pokupaisumom.ee

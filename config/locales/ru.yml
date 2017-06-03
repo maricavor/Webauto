@@ -83,7 +83,7 @@ ru:
     comment_login: "Чтобы добавить комментарий <a href='%{login}'>Войдите</a> или <a href='%{register}'>Зарегистрируйтесь</a>!"
     reviews: Отзывы автовладельцев
     all_reviews: Отзывы
-    copyright: "© 2016 Webauto.ee. Все права защищены."
+    copyright: "© 2017 Webauto.ee. Все права защищены."
   search:
     open_search: Открыть поиск
     close_search: Закрыть поиск
