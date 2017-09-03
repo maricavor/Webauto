@@ -293,6 +293,7 @@ GEM
     progress_bar (1.0.3)
       highline (~> 1.6.1)
       options (~> 2.3.0)
+    puma (3.10.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.4.7)
@@ -436,6 +437,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   paranoia (~> 1.0)
   progress_bar
+  puma
   quiet_assets (>= 1.0.2)
   rails (= 3.2.13)
   resque
