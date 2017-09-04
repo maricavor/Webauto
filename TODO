@@ -1,8 +1,7 @@
 - rake secret: bf763831034bc3aa281e54415ca671399f98f5100a3e21670747126d88d006a5e69bc424bdb68854acc4b82039f5233f17aa627a83b2bd23484e7ce17b034d4a
 deploy to digitalocean:
 - sergei@ubuntu-512mb-ams2-01:~/webauto_production$
--
-- 
+
 - validate garage_items translations missing
 - validate email during registration
 - public_activity gem
