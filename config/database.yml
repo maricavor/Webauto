@@ -29,6 +29,6 @@ production:
   host: 146.185.140.73
   database: webauto_production
   pool: 5
-  username: <%= ENV['WEBAUTO_DATABASE_USER'] %>
-  password: <%= ENV['WEBAUTO_DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  username: root
+  password: maricavor
+
