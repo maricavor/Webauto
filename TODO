@@ -3,7 +3,7 @@ deploy to digitalocean::
 - add swap
 - sergei@ubuntu-512mb-ams2-01:~/webauto_production$
 
-
+-
 - validate garage_items translations missing
 - validate email during registration
 - public_activity gem
