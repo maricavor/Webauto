@@ -28,7 +28,7 @@ production:
   reconnect: false
   database: webauto_production
   pool: 5
-  username: root
-  password: maricavor
-  host: localhost
+  username: <%= ENV['WEBAUTO_DATABASE_USER'] %>
+  password: <%= ENV['WEBAUTO_DATABASE_PASSWORD'] %>
+  host: 127.0.0.1
 
