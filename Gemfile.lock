@@ -208,6 +208,8 @@ GEM
     fog-xml (0.1.2)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
+    foreman (0.82.0)
+      thor (~> 0.19.1)
     formatador (0.2.5)
     friendly_id (4.0.10.1)
       activerecord (>= 3.0, < 4.0)
@@ -418,6 +420,7 @@ DEPENDENCIES
   dynamic_form
   figaro (>= 0.6.3)
   fog
+  foreman
   friendly_id (~> 4.0.10)
   globalize (~> 3.1.0)
   globalize-accessors
