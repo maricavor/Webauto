@@ -1,8 +1,7 @@
 defaults: &defaults
   host: 127.0.0.1
   port: 6379
-  password: maricavorredis001
-
+  
 development:
   <<: *defaults 
 
@@ -11,5 +10,6 @@ staging:
 
 production:
   <<: *defaults
+  password: maricavorredis001
 
 
