@@ -1,6 +1,7 @@
 class PriceUpdateMailer
   @queue = :normal
   def self.perform(advert_id)
+    ActiveRecord::Base.verify_active_connections!
   advert=Advert.find(advert_id)
   vehicle=advert.vehicle
   unless vehicle.price_alert.nil?

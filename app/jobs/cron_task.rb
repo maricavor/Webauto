@@ -4,6 +4,7 @@ class CronTask
   class << self
 
     def perform(method)
+      ActiveRecord::Base.verify_active_connections!
       with_logging method do
         self.new.send(method)
       end
