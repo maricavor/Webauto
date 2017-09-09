@@ -14,7 +14,7 @@ if Rails.env.development? || Rails.env.test?
 Resque.redis = Redis.new(config[Rails.env])
 end
 if Rails.env.production?
-Resque.redis = Redis.new(:host => 127.0.0.1, :port => 6379, :password => maricavorredis001, :thread_safe => true)
+Resque.redis = Redis.new(:host => "127.0.0.1", :port => "6379", :password => "maricavorredis001", :thread_safe => true)
 end
 Resque.schedule = schedule
 Resque.redis.namespace = "<a href='http://www.webauto.ee' style= 'text-decoration:none;color:#cccccc;'>Webauto</a>"
