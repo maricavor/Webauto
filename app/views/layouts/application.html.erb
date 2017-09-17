@@ -30,22 +30,34 @@
 			  
           </head>
           <body class="<%= controller_name %> <%= action_name %>">
-			  <div id="fb-root"></div>
-			  <script>(function(d, s, id) {
-			    var js, fjs = d.getElementsByTagName(s)[0];
-			    if (d.getElementById(id)) return;
-    			  if (window.locale=='et') {
-    				  var l="et_EE";
-				  } else if (window.locale=='ru'){
-					  var l="ru_RU";
-    			  } else {
-    				  var l="en_US";
-    			  }
-			    js = d.createElement(s); js.id = id;
-			    js.src = "//connect.facebook.net/"+l+"/sdk.js#xfbml=1&version=v2.7&appId=310281229120060";
-			    fjs.parentNode.insertBefore(js, fjs);
-			  }(document, 'script', 'facebook-jssdk'));</script>
 			  
+			 
+			  <script>
+    			 
+			    window.fbAsyncInit = function() {
+			      FB.init({
+			        appId      : '310281229120060',
+			        xfbml      : true,
+			        version    : 'v2.10'
+			      });
+			      FB.AppEvents.logPageView();
+			    };
+
+			    (function(d, s, id){
+			       var js, fjs = d.getElementsByTagName(s)[0];
+			       if (d.getElementById(id)) {return;}
+     			  if (window.locale=='et') {
+     				  var l="et_EE";
+ 				  } else if (window.locale=='ru'){
+ 					  var l="ru_RU";
+     			  } else {
+     				  var l="en_US";
+     			  }
+			       js = d.createElement(s); js.id = id;
+			       js.src = "//connect.facebook.net/"+l+"/sdk.js";
+			       fjs.parentNode.insertBefore(js, fjs);
+			     }(document, 'script', 'facebook-jssdk'));
+			  </script>
 			 
           <% type=@current_type.path_name %>
 		
