@@ -1,3 +1,4 @@
+- for deploy now use: git push production master
 - foreman start -f Procfile-dev
 - https://developers.openshift.com/managing-your-applications/common-rhc-commands.html
 - use the rhc tail command to tail out your log files:
