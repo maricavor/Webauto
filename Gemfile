@@ -60,6 +60,7 @@ group :production do
   gem 'puma'
   gem 'foreman'
 end
+#
 #gem 'faker'
 #gem 'recaptcha', :require => 'recaptcha/rails'
 
