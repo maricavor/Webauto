@@ -2,7 +2,7 @@
 -  ssh sergei@146.185.140.73
 - rails c development
 - Resque.workers.each {|w| w.unregister_worker}
-
+-
 - foreman start -f Procfile-dev
 - https://developers.openshift.com/managing-your-applications/common-rhc-commands.html
 - use the rhc tail command to tail out your log files:
