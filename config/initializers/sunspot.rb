@@ -1,7 +1,7 @@
 #init
-#uncomment this before deploy!!!
+#comment this for reindex in production (use RAILS_ENV=development in production)
 #if Rails.env.production?
-#Sunspot.config.solr.url = 'http://maricavor:phoenix32@solr-webauto.rhcloud.com/solr'
+
 Sunspot.config.solr.url = 'http://solradmin:maricavor@localhost:8983/solr'
 #end
 #####################

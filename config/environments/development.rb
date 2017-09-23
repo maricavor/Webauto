@@ -29,7 +29,7 @@ Webauto::Application.configure do
     authentication: "plain",
     enable_starttls_auto: true,
     user_name: "info@webauto.ee",
-    password: "Zxp2zl"
+    password: "bPOiyn"
   }
  
   # Print deprecation notices to the Rails logger
