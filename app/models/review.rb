@@ -12,10 +12,9 @@ class Review < ActiveRecord::Base
   validate :validate_what_for
   #validate :validate_likes
   #validate :validate_dislikes
-
   #validates :title, length: {maximum: 70, minimum: 10}
   validate :validate_overall
-  validates :experience, length: {maximum: 2000, minimum: 100}
+  #validates :experience, length: {maximum: 2000, minimum: 100}
   validate :experience_length
   validates :first_name, :presence => true
   validate :validate_declaration,:on=>:create
@@ -172,9 +171,11 @@ end
   def owned_or_drove?
     self.ownership_id=='3' or self.ownership_id=='4'
   end
+  
   def other?
     self.how_well==5
   end
+  
   def experience_length
     locales=I18n.available_locales.map {|l| l.to_s} 
     locales.each do |loc| 

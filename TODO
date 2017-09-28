@@ -1,5 +1,14 @@
 - rake secret: bf763831034bc3aa281e54415ca671399f98f5100a3e21670747126d88d006a5e69bc424bdb68854acc4b82039f5233f17aa627a83b2bd23484e7ce17b034d4a
-
+- statistics not showing:
+NoMethodError (undefined method `+' for nil:NilClass):
+  app/controllers/adverts_controller.rb:150:in `block in statistics'
+  app/controllers/adverts_controller.rb:149:in `statistics'
+  
+ - before production change settings:
+   database.yml (change development password)
+   redis.yml (remove line development password)
+   sunspot.rb (comment if)
+ 
 - jetty server password configuration is in folder Sergei/jetty
 - validate garage_items translations missing
 - validate email during registration

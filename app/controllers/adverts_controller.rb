@@ -146,9 +146,13 @@ def update
   (Date.today - 30.days).upto(Date.today) do |date| 
     @imp_hash[date.strftime("%d/%m")]=0 
    end
+   puts ":::::::::::"
+   puts  @imp_hash.inspect
   impressions.each do |imp|
   @imp_hash[imp.created_at.strftime("%d/%m")]+=1
   end
+  puts ":::::::::::"
+  puts  @imp_hash.inspect
   data_table = GoogleVisualr::DataTable.new
 # Add Column Headers
   data_table.new_column('string', 'Day' )

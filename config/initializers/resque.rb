@@ -4,7 +4,7 @@ require 'resque-scheduler'
 require 'resque/scheduler/server'
 #config = YAML.load_file("#{Rails.root}/config/redis.yml") 
 schedule = YAML.load_file("#{Rails.root}/config/rescue_schedule.yml")
-config_template = ERB.new File.new("#{Rails.root}/config/redis.yml.erb").read
+config_template = ERB.new File.new("#{Rails.root}/config/redis.yml").read
 config = YAML.load config_template.result(binding)
 
 Resque.logger = MonoLogger.new(File.open("#{Rails.root}/log/resque.log", "w+"))

@@ -640,7 +640,7 @@ en:
       select_dislike: "Please select up to three things you dislike about this car"
       dont_dislike: "don't dislike anything"
       experience: "Tell us about your experiences with this car. What should potential owners know?"
-      characters: "characters left (Min. 100 characters)"
+      characters: "characters left"
       give_rate: "Give this car a star rating for each point"
       smooth: "Is it smooth on the road, a pleasure to drive, fast on the road, difficult to handle?"
       lifestyle: "How does it suit your lifestyle - is it spacious, child friendly, suitable for daily use?"

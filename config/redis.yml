@@ -5,7 +5,7 @@ defaults: &defaults
   
 development:
   <<: *defaults 
-
+  #password:  #use for localhost, remove for deployment
 
 staging:
   <<: *defaults

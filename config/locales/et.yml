@@ -636,7 +636,7 @@ et:
       select_dislike: "Palun valige kuni 3 asja, mis Teile selle auto juures ei meeldi"
       dont_dislike: "midagi häirivat pole"
       experience: "Rääkige meile oma kogemustest selle autoga. Mida peaks võimalikud omanikud teadma?"
-      characters: "sümbolit jäänud (min. 100 sümbolit)"
+      characters: "sümbolit jäänud"
       give_rate: "Tähistage oma eelistused tärnide arvuga"
       smooth: "Liigub maanteel sujuvalt, lausa rõõm juhtida, kiire maanteel, raske käsitseda?"
       lifestyle: "Kuidas sobib see auto kokku Teie elustiiliga - kas ta on ruumikas, lapsesõbralik, sobiv igapäevaseks kasutuseks?"

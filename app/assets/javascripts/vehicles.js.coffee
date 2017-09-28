@@ -421,7 +421,7 @@ jQuery ->
     $('.make_select').val('')
     $('.make_select').selectpicker('render')
     $('.model_select option').remove()
-    $('.model_select').selectpicker({title: "Model (any)"})
+    $('.model_select').selectpicker({title: t("search.model")})
     $('.model_select').selectpicker('refresh')
     $('fieldset.extra').remove()
     $('#search_dealer').prop('checked',true)
