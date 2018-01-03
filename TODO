@@ -3,7 +3,7 @@
 NoMethodError (undefined method `+' for nil:NilClass):
   app/controllers/adverts_controller.rb:150:in `block in statistics'
   app/controllers/adverts_controller.rb:149:in `statistics'
-  
+  - for print use wicked:pdf
  - before production change settings:
    database.yml (change development password)
    redis.yml (remove line development password)
