@@ -1,8 +1,10 @@
 - for deploy now use: git push production master
 -  ssh sergei@146.185.140.73
 - cd webauto
-- rails c development
-- Resque.workers.each {|w| w.unregister_worker}
+- 
+- before deploy: 
+rails c development
+Resque.workers.each {|w| w.unregister_worker}
 --
 - foreman start -f Procfile-dev
 - https://developers.openshift.com/managing-your-applications/common-rhc-commands.html
