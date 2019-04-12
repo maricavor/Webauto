@@ -9,7 +9,7 @@ config = YAML.load config_template.result(binding)
 
 Resque.logger = MonoLogger.new(File.open("#{Rails.root}/log/resque.log", "w+"))
 Resque.logger.formatter = Resque::VeryVerboseFormatter.new
-#uncomment this before deploy!!!
+
 if Rails.env.development? || Rails.env.test?
 Resque.redis = Redis.new(config[Rails.env])
 end
