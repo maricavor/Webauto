@@ -14,9 +14,10 @@ RAILS_ENV=development bundle exec rake assets:precompile, for development remove
 
 
 
-
+for development:
 - rvm use ruby-1.9.3
 - foreman start -f Procfile-dev
+
 - https://developers.openshift.com/managing-your-applications/common-rhc-commands.html
 - use the rhc tail command to tail out your log files:
 rhc tail -a <yourappname>

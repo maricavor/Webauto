@@ -88,7 +88,7 @@ class ApplicationController < ActionController::Base
         cookies[:locale] = { :value => locale,:expires => 20.years.from_now.utc }
       else
         flash.now[:notice] = t("translation_na",:locale=>params[:locale])
-        logger.error flash.now[:notice]
+        #logger.error flash.now[:notice]
       end
     end
     I18n.locale=locale || cookies[:locale]
