@@ -1,8 +1,8 @@
 - for deploy now use: git push production master
 -  ssh sergei@146.185.140.73
 - cd webauto
-
-
+ - for checking space usage use this:  du -sh /home/sergei/webauto/shared/log/* or du -sh /*
+- last time removed log file sudo rm /home/sergei/webauto/shared/log/puma.stderr.log
 - before deploy: 
 rails c development
 Resque.workers.each {|w| w.unregister_worker}
@@ -15,6 +15,9 @@ RAILS_ENV=development bundle exec rake assets:precompile, for development remove
 
 
 for development:
+- remove public/assets folder
+- in redis.yml use empty password
+- set database development password to root
 - rvm use ruby-1.9.3
 - foreman start -f Procfile-dev
 
