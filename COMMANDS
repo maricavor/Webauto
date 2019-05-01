@@ -3,6 +3,7 @@
 - cd webauto
  - for checking space usage use this:  du -sh /home/sergei/webauto/shared/log/* or du -sh /*
 - last time removed log file sudo rm /home/sergei/webauto/shared/log/puma.stderr.log
+- more here: https://www.digitalocean.com/community/questions/out-of-disk-space-too-early
 - before deploy: 
 rails c development
 Resque.workers.each {|w| w.unregister_worker}
