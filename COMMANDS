@@ -8,7 +8,7 @@
 rails c development
 Resque.workers.each {|w| w.unregister_worker}
 
-set database development password to Daniel1311
+set database development password to daniel1311
 in redis.yml comment password
 RAILS_ENV=development bundle exec rake assets:precompile, for development remove public/assets folder
 
