@@ -8,9 +8,12 @@
 rails c development
 Resque.workers.each {|w| w.unregister_worker}
 
+when local server is running: RAILS_ENV=development bundle exec rake assets:precompile, for development remove public/assets folder
+
 set database development password to daniel1311
 in redis.yml comment password
-RAILS_ENV=development bundle exec rake assets:precompile, for development remove public/assets folder
+in sunspot.rb uncomment for localhost 
+
 
 
 
