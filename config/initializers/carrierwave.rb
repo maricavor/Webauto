@@ -17,8 +17,8 @@ CarrierWave.configure do |config|
     #config.cache_dir = config.root + 'uploads'
     config.fog_credentials = {
           :provider               => 'AWS',
-          :aws_access_key_id      => "AKIAIVRLUKEBKRXEDCMQ",
-          :aws_secret_access_key  => "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",
+          :aws_access_key_id      => "",
+          :aws_secret_access_key  => "",
           :region                 => 'eu-central-1' # Change this for different AWS region. Default is 'us-east-1'
       }
       config.fog_directory  = "webauto"
