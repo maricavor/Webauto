@@ -16,8 +16,8 @@ Devise.setup do |config|
   require 'devise/orm/active_record'
   require "omniauth-facebook"
   require 'omniauth-google-oauth2'
-  config.omniauth :google_oauth2, "900864775269-g693th1ub54hkfcuu8hs84i0thpo8dfr.apps.googleusercontent.com", "ra7rQr16FEXZCmnEqzHMqMeR", { }
-  config.omniauth :facebook, "310281229120060", "3f15e86c973d59a29b62397eac62a0d5", token_params: { parse: :json }
+  config.omniauth :google_oauth2, "900864775269-g693th1ub54hkfcuu8hs84i0thpo8dfr.apps.googleusercontent.com", "", { }
+  config.omniauth :facebook, "", "", token_params: { parse: :json }
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
   # just :email. You can configure it to use [:username, :subdomain], so for
@@ -28,7 +28,7 @@ Devise.setup do |config|
   # or not authentication should be aborted when the value is not present.
   # config.authentication_keys = [ :email ]
 
-  config.secret_key = '38711cf4a8151e76655fefaa7fc595c07e3ce5b8b0797978327a5708a159dd9ef70a1a3679b9b0653727853209452a2758ea314d5030a669f58d048d3baaa354'
+  config.secret_key = ''
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
