@@ -10,7 +10,7 @@ development:
   reconnect: true
   database: webauto
   username: root 
-  password: daniel1311  #root in development
+  password: #root in development
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
